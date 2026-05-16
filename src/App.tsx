@@ -604,7 +604,7 @@ export default function App() {
   exit={{ opacity: 0 }}
   name="diagnostico-growthbrand"
   method="POST"
-  action="/gracias.html"
+  action="https://growthbrandgt.com/gracias.html"
   data-netlify="true"
   className="space-y-6"
 >
