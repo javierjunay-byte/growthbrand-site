@@ -606,6 +606,7 @@ export default function App() {
   method="POST"
   action="/"
   data-netlify="true"
+  netlify
   className="space-y-6"
 >
                   <input type="hidden" name="form-name" value="diagnostico-growthbrand" />
