@@ -604,9 +604,8 @@ export default function App() {
   exit={{ opacity: 0 }}
   name="diagnostico-growthbrand"
   method="POST"
-  action="/gracias"
+  action="/gracias.html"
   data-netlify="true"
-  netlify
   className="space-y-6"
 >
                   <input type="hidden" name="form-name" value="diagnostico-growthbrand" />
