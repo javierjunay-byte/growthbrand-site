@@ -597,16 +597,17 @@ export default function App() {
           </div>
           <div className="p-10 md:p-14 bg-surface-container-high/20 backdrop-blur-md relative">
             <AnimatePresence mode="wait">
-                <motion.form 
-                  key="form"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  name="diagnostico-growthbrand"
-                  method="POST"
-                  data-netlify="true"
-                  className="space-y-6"
-                >
+               <motion.form
+  key="form"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  name="diagnostico-growthbrand"
+  method="POST"
+  action="/"
+  data-netlify="true"
+  className="space-y-6"
+>
                   <input type="hidden" name="form-name" value="diagnostico-growthbrand" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-6">
