@@ -597,7 +597,12 @@ export default function App() {
           </div>
           <div className="p-10 md:p-14 bg-surface-container-high/20 backdrop-blur-md relative">
             <AnimatePresence mode="wait">
-               <motion.form
+              <motion.form
+  onSubmit={() => {
+    setTimeout(() => {
+      window.location.href = "/gracias.html";
+    }, 1000);
+  }}
   key="form"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
@@ -608,7 +613,6 @@ action="https://formspree.io/f/xaqkqjvq"
   className="space-y-6"
 >
                  <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
-<input type="hidden" name="_next" value="https://growthbrandgt.com/gracias.html" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-6">
                       <div>
