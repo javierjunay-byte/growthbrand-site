@@ -604,11 +604,11 @@ export default function App() {
   exit={{ opacity: 0 }}
   name="diagnostico-growthbrand"
   method="POST"
-  action="https://growthbrandgt.com/gracias.html"
-  data-netlify="true"
+action="https://formspree.io/f/xaqkqjvq"
   className="space-y-6"
 >
-                  <input type="hidden" name="form-name" value="diagnostico-growthbrand" />
+                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
+<input type="hidden" name="_next" value="https://growthbrandgt.com/gracias.html" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-6">
                       <div>
