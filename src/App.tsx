@@ -497,9 +497,54 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
-              { type: 'ESTRATEGIA BASE', price: 'Q5,500', btnText: 'INICIAR SISTEMA', waUrl: 'https://wa.link/bpsg06', features: ['Gestión de Leads', 'Pauta Google/Meta', 'Reporting Mensual', 'Optimización de Conversión', 'Diagnóstico Estratégico'] },
-              { type: 'CRECIMIENTO ESCALABLE', price: 'Q8,500', btnText: 'ESCALAR AHORA', waUrl: 'https://wa.link/1novbp', active: true, inheritance: 'Todo lo incluido en Estrategia Base +', features: ['WhatsApp API', 'CRM & Automations', 'Funnel UX', 'Lead Scoring'] },
-              { type: 'GROWTH COMMAND', price: 'Q12,500', btnText: 'ACTIVAR SISTEMA', waUrl: 'https://wa.link/3rvcdj', premium: true, inheritance: 'Todo lo incluido en Crecimiento Escalable +', features: ['IA Agents 24/7', 'Centralización Inteligente de Datos', 'Optimización Comercial Estratégica'] }
+             [
+  {
+    type: 'ESTRATEGIA BASE',
+    title: 'Arquitectura inicial para negocios que buscan estructura, control y crecimiento medible.',
+    icon: '◉',
+    btnText: 'SOLICITAR DIAGNÓSTICO',
+    waUrl: 'https://wa.link/2bwkim',
+    premium: false,
+    features: [
+      'Gestión de Leads',
+      'Pauta Google/Meta',
+      'Reporting Mensual',
+      'Optimización de Conversión',
+      'Diagnóstico Estratégico'
+    ]
+  },
+
+  {
+    type: 'CRECIMIENTO ESCALABLE',
+    title: 'Sistema escalable diseñado para automatizar procesos y aumentar la conversión.',
+    subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
+    icon: '◎',
+    btnText: 'EXPLORAR IMPLEMENTACIÓN',
+    waUrl: 'https://wa.link/2bwkim',
+    premium: true,
+    features: [
+      'WhatsApp API',
+      'CRM & Automations',
+      'Funnel UX',
+      'Lead Scoring'
+    ]
+  },
+
+  {
+    type: 'GROWTH COMMAND',
+    title: 'Infraestructura avanzada para empresas que buscan crecimiento predecible y automatización inteligente.',
+    subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
+    icon: '⬢',
+    btnText: 'HABLAR CON UN CONSULTOR',
+    waUrl: 'https://wa.link/2bwkim',
+    premium: false,
+    features: [
+      'IA Agents 24/7',
+      'Centralización Inteligente de Datos',
+      'Optimización Comercial Estratégica'
+    ]
+  }
+]
             ].map((plan, idx) => (
               <motion.div 
                 key={idx}
