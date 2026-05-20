@@ -497,7 +497,6 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
-             [
   {
     type: 'ESTRATEGIA BASE',
     title: 'Arquitectura inicial para negocios que buscan estructura, control y crecimiento medible.',
