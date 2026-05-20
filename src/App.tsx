@@ -481,25 +481,33 @@ export default function App() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="inversion" className="bg-surface overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
-          <motion.div 
-            className="text-center mb-16 md:mb-24"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <h2 className="font-display text-4xl md:text-6xl text-on-surface mb-6 font-bold tracking-tight">Modelos de Inversión Estratégica</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto text-lg opacity-80">Sistemas modulares diseñados para evolucionar con la madurez digital.</p>
-          </motion.div>
+     {/* Pricing Section */}
+<section id="inversion" className="bg-surface overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-            {[
+    <motion.div
+      className="text-center mb-16 md:mb-24"
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      variants={fadeIn}
+    >
+      <h2 className="font-display text-4xl md:text-6xl text-on-surface mb-6 font-bold tracking-tight">
+        Modelos de Implementación
+      </h2>
+
+      <p className="text-on-surface-variant max-w-2xl mx-auto text-lg opacity-80">
+        Infraestructura digital diseñada para escalar adquisición, automatización y crecimiento comercial.
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+
+      [
   {
     type: 'ESTRATEGIA BASE',
     title: 'Arquitectura inicial para negocios que buscan estructura, control y crecimiento medible.',
+    subtitle: '',
     icon: '◉',
     btnText: 'SOLICITAR DIAGNÓSTICO',
     waUrl: 'https://wa.link/2bwkim',
@@ -543,80 +551,119 @@ export default function App() {
       'Optimización Comercial Estratégica'
     ]
   }
-]
-            ].map((plan, idx) => (
-              <motion.div 
-                key={idx}
-                className={`glass-card p-10 lg:p-12 rounded-[2.5rem] flex flex-col relative transition-all duration-500 lg:hover:scale-[1.02] h-full ${plan.active ? 'border-primary/40 shadow-[0_20px_50px_rgba(37,99,235,0.1)] bg-surface-container-high/40' : ''} ${plan.premium ? 'border-primary shadow-[0_30px_70px_rgba(37,99,235,0.25)] bg-surface-container-high/60 scale-[1.03] z-20' : ''}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+].map((plan, idx) => (
+
+        <motion.div
+          key={idx}
+          className={`glass-card p-10 lg:p-12 rounded-[2.5rem] flex flex-col relative transition-all duration-500 lg:hover:scale-[1.02] h-full ${
+            plan.premium
+              ? 'border-primary shadow-[0_30px_70px_rgba(37,99,235,0.25)] bg-surface-container-high/60 scale-[1.03] z-20'
+              : ''
+          }`}
+
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.1 }}
+        >
+
+          <div className="mb-10 text-center">
+
+            <div className="flex justify-center mb-8">
+              <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl ${
+                plan.premium
+                  ? 'bg-primary/15 text-primary border border-primary/20'
+                  : 'bg-white/5 text-primary border border-white/10'
+              }`}>
+                {plan.icon}
+              </div>
+            </div>
+
+            <span className={`font-mono font-bold tracking-[0.3em] uppercase text-sm ${
+              plan.premium
+                ? 'text-primary'
+                : 'text-primary/70'
+            }`}>
+              {plan.type}
+            </span>
+
+            <p className="mt-8 text-on-surface-variant leading-relaxed text-sm md:text-base">
+              {plan.title}
+            </p>
+          </div>
+
+          {plan.subtitle && (
+            <p className="text-[11px] text-primary/70 font-mono uppercase tracking-wider mb-8 italic text-center underline decoration-primary/20 underline-offset-4">
+              {plan.subtitle}
+            </p>
+          )}
+
+          <ul className="space-y-5 mb-12 flex-grow">
+
+            {plan.features.map((f, i) => (
+
+              <li
+                key={i}
+                className="flex items-center gap-4 text-sm text-on-surface-variant"
               >
-                <span className={`font-mono mb-10 font-bold tracking-widest uppercase text-[10px] text-center ${plan.premium ? 'text-primary' : 'text-primary/70'}`}>{plan.type}</span>
-                <div className="mb-10 text-center">
-                  <div className="flex items-baseline justify-center">
-                    <motion.span 
-                      className="text-5xl font-bold text-on-surface"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                    >{plan.price}</motion.span>
-                    <span className="text-on-surface-variant text-sm ml-2">/mes</span>
-                  </div>
-                </div>
-                
-                {plan.inheritance && (
-                  <p className="text-[11px] text-primary/70 font-mono uppercase tracking-wider mb-8 italic text-center underline decoration-primary/20 underline-offset-4">{plan.inheritance}</p>
-                )}
 
-                <ul className="space-y-5 mb-12 flex-grow">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-4 text-sm text-on-surface-variant">
-                      <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${plan.active ? 'text-primary' : 'text-primary/40'}`} /> {f}
-                    </li>
-                  ))}
-                </ul>
-                <a 
-                  href={plan.waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-3 w-full h-[64px] rounded-2xl font-bold text-[11px] uppercase tracking-widest transition-all active:scale-95 shadow-xl bg-primary-container text-white ${
-                    plan.premium 
-                      ? 'shadow-primary-container/30 hover:scale-[1.03] hover:shadow-primary-container/40 border border-white/10' 
-                      : plan.active 
-                        ? 'shadow-primary-container/40 hover:scale-105 hover:shadow-primary-container/50 premium-glow' 
-                        : 'shadow-primary-container/20 border border-primary-container/10 hover:scale-[1.02] hover:shadow-primary-container/30'
+                <CheckCircle2
+                  className={`w-5 h-5 flex-shrink-0 ${
+                    plan.premium
+                      ? 'text-primary'
+                      : 'text-primary/40'
                   }`}
-                >
-                  <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-                  <span className="whitespace-nowrap">{plan.btnText}</span>
-                </a>
-              </motion.div>
-            ))}
-          </div>
+                />
 
-          <div className="mt-20 flex flex-col items-center gap-8 px-4">
-            <motion.p 
-              className="text-on-surface/70 text-center text-sm md:text-base leading-relaxed max-w-4xl font-medium tracking-wide"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              Cada implementación se configura de acuerdo con la madurez comercial, objetivos de adquisición y necesidades operativas de la empresa para asegurar escalabilidad sostenible y ejecución eficiente.
-            </motion.p>
-            
-            <motion.p 
-              className="text-on-surface-variant/40 text-center text-[11px] md:text-xs italic max-w-2xl leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              “La inversión publicitaria en Meta y Google se maneja por separado según los objetivos y volumen de adquisición requerido.”
-            </motion.p>
-          </div>
-        </div>
-      </section>
+                {f}
+
+              </li>
+
+            ))}
+
+          </ul>
+
+          <a
+            href={plan.waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+
+            className={`flex items-center justify-center gap-3 w-full h-[64px] rounded-2xl font-bold text-[11px] uppercase tracking-widest transition-all active:scale-95 shadow-xl bg-primary-container text-white ${
+              plan.premium
+                ? 'shadow-primary-container/30 hover:scale-[1.03] hover:shadow-primary-container/40 border border-white/10'
+                : 'shadow-primary-container/20 border border-primary-container/10 hover:scale-[1.02] hover:shadow-primary-container/30'
+            }`}
+          >
+
+            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+
+            <span className="whitespace-nowrap">
+              {plan.btnText}
+            </span>
+
+          </a>
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+    <div className="mt-20 flex flex-col items-center gap-8 px-4">
+
+      <motion.p
+        className="text-on-surface/70 text-center text-sm md:text-base leading-relaxed max-w-4xl font-medium tracking-wide"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        Cada implementación se adapta según el nivel de crecimiento, estructura operativa y objetivos comerciales de la empresa.
+      </motion.p>
+
+    </div>
+
+  </div>
+</section>
 
       {/* Form Section */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
