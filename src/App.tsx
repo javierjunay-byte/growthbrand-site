@@ -598,11 +598,24 @@ export default function App() {
           <div className="p-10 md:p-14 bg-surface-container-high/20 backdrop-blur-md relative">
             <AnimatePresence mode="wait">
               <motion.form
-  onSubmit={() => {
-    setTimeout(() => {
-      window.location.href = "/gracias.html";
-    }, 1000);
-  }}
+onSubmit={async (e) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (response.ok) {
+    window.location.href = "/gracias.html";
+  }
+}}
   key="form"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
