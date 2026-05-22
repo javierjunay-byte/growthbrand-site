@@ -753,3 +753,198 @@ export default function App() {
                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-6">
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
+                      <input 
+                        name="nombre"
+                        type="text"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="Tu nombre y apellido" 
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
+                      <input 
+                        name="email"
+                        type="email"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="ejemplo@empresa.com" 
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-6">
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
+                      <select 
+                        name="objetivo"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none appearance-none cursor-pointer"
+                      >
+                        <option>Generar Leads</option>
+                        <option>Automatizar Adquisición</option>
+                        <option>Escalar Operaciones</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
+                      <textarea 
+                        name="contexto"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-28 resize-none" 
+                        placeholder="Describe brevemente tus retos actuales..."
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
+                </button>
+                
+                <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
+                  🔒 Datos protegidos. Reciba un diagnóstico inicial de su ecosistema digital en menos de 48 horas laborales.
+                </p>
+              </motion.form>
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-primary-container relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 text-center relative z-10">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white mb-12 font-bold leading-tight tracking-tight max-w-5xl mx-auto">
+            Su negocio no necesita más ruido.<br className="hidden md:block" /> Necesita un sistema que convierta atención en capital.
+          </h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
+            <a 
+              href="https://wa.link/nb439w"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-surface px-12 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-2xl uppercase tracking-widest font-mono flex items-center gap-4"
+            >
+              <WhatsAppIcon className="w-6 h-6 text-primary" />
+              HABLAR POR WHATSAPP
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-surface-container-lowest border-t border-outline-variant/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-20">
+            <div className="md:col-span-5 flex flex-col gap-10">
+              <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Logo />
+                <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">GrowthBrand</span>
+              </div>
+              <p className="text-on-surface-variant text-sm max-w-sm leading-relaxed opacity-70">
+                Growth Systems for Modern Businesses. Diseñamos y operamos infraestructuras de adquisición B2B para líderes de sector en Centroamérica.
+              </p>
+              <div className="flex gap-8 items-center text-xs font-mono text-on-surface-variant">
+                <a href="https://wa.link/nb439w" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors tracking-widest">WHATSAPP</a>
+                <a href="mailto:growthbrand@growthbrandgt.com" className="hover:text-primary transition-colors tracking-widest">EMAIL</a>
+              </div>
+            </div>
+            <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+              <div>
+                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Estrategia</span>
+                <ul className="space-y-4 text-sm text-on-surface-variant opacity-70">
+                  <li><a href="#" className="hover:text-primary transition-colors">Sistemas</a></li>
+                  <li><a href="#" className="hover:text-primary transition-colors">RevOps</a></li>
+                  <li><a href="#" className="hover:text-primary transition-colors">Casos</a></li>
+                </ul>
+              </div>
+              <div>
+                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Compañía</span>
+                <ul className="space-y-4 text-sm text-on-surface-variant opacity-70">
+                  <li><a href="#" className="hover:text-primary transition-colors">Nosotros</a></li>
+                  <li><a href="#" className="hover:text-primary transition-colors">Términos</a></li>
+                  <li><a href="#" className="hover:text-primary transition-colors">Privacidad</a></li>
+                </ul>
+              </div>
+              <div>
+                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Ubicación</span>
+                <p className="text-sm text-on-surface-variant opacity-70">Guatemala City, GT</p>
+                <p className="text-sm text-on-surface-variant transition-colors hover:text-primary mt-4 font-mono">growthbrand@growthbrandgt.com</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-20 pt-10 border-t border-outline-variant/10 text-center md:text-left">
+            <p className="text-xs text-on-surface-variant opacity-50 font-mono tracking-widest uppercase">
+              © 2026 GrowthBrand. Precision Growth Systems.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Mobile Menu Backdrop & Sheet overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="fixed inset-0 z-[140] md:hidden bg-surface flex flex-col"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          >
+            <div className="h-24 px-4 flex justify-between items-center border-b border-white/5">
+              <div className="flex items-center gap-4">
+                <Logo />
+                <span className="font-display font-bold text-xl tracking-tight text-white">GrowthBrand</span>
+              </div>
+              <button className="text-white p-2" onClick={() => setIsMenuOpen(false)}>
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+            <div className="flex flex-col p-8 gap-8">
+              {[
+                { name: 'Sistemas', href: '#sistemas' },
+                { name: 'Metodología', href: '#metodologia' },
+                { name: 'Inversión', href: '#inversion' }
+              ].map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-display font-bold text-white hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a 
+                href="#aplicar"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-primary text-surface px-8 py-5 rounded-2xl font-bold text-center mt-10 shadow-xl shadow-primary/20"
+              >
+                DIAGNÓSTICO ESTRATÉGICO
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating WhatsApp Contact */}
+      <motion.a
+        href="https://wa.link/nb439w"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-[150] flex items-center gap-3 bg-[#25D366] text-white p-4 rounded-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all group lg:mr-4"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <div className="hidden lg:block overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap px-0 group-hover:px-2 font-bold text-xs uppercase tracking-widest">
+          Contacto rápido por WhatsApp
+        </div>
+        <WhatsAppIcon className="w-6 h-6" />
+      </motion.a>
+    </div>
+  );
+}
