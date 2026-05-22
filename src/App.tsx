@@ -338,55 +338,45 @@ export default function App() {
         </div>
       </section>
 
-      {/* Trust & Infrastructure Brand Slider (Estratégico, Legible y 100% Seguro Legalmente) */}
-      <section className="bg-[#050914] py-12 border-y border-white/5 relative z-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-primary/70 font-mono tracking-[0.25em] uppercase text-[11px] mb-8 font-bold">
-            Ecosistemas e Infraestructura Tecnológica Integrada con
-          </p>
+      {/* Brand Trust Section (Logos grandes, legibles, tipografía e isotipos originales alineados en 1 fila) */}
+      <section className="bg-[#0A0F1A] py-16 border-y border-white/5 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
+            ecosistemas e infraestructura tecnológica integrada con<span className="text-white font-sans font-normal">.</span>
+          </h2>
           
-          {/* Contenedor del Slider con CSS Inline para garantizar animación infinita fluida */}
-          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            <div className="animate-marquee flex items-center gap-16 whitespace-nowrap min-w-full py-2">
-              
-              {/* Bloque de logos 1 */}
-              <div className="flex items-center gap-16 md:gap-24 text-white/60">
-                {/* Google Logo Original Vectorial */}
-                <svg className="h-7 w-auto fill-current hover:text-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 5.23 1 .01 6.22.01 13s5.22 12 12.23 12c7.31 0 12.17-5.12 12.17-12.39 0-.83-.09-1.47-.2-1.926H12.24z"/></svg>
-                {/* Meta Logo Original Vectorial */}
-                <svg className="h-6 w-auto fill-current hover:text-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7A6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/></svg>
-                {/* TikTok Logo Original Vectorial */}
-                <svg className="h-7 w-auto fill-current hover:text-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/></svg>
-                {/* GitHub Logo Original Vectorial */}
-                <svg className="h-7 w-auto fill-current hover:text-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                {/* Vercel Logo Original Vectorial */}
-                <svg className="h-6 w-auto fill-current hover:text-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
-              </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 lg:gap-x-20 text-white/90">
+            {/* Google */}
+            <div className="flex items-center gap-3 group">
+              <svg className="h-8 w-auto fill-current text-[#4285F4] drop-shadow-[0_0_10px_rgba(66,133,244,0.2)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 5.23 1 .01 6.22.01 13s5.22 12 12.23 12c7.31 0 12.17-5.12 12.17-12.39 0-.83-.09-1.47-.2-1.926H12.24z"/></svg>
+              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Google</span>
+            </div>
 
-              {/* Bloque duplicado para efecto infinito de scroll */}
-              <div className="flex items-center gap-16 md:gap-24 text-white/60" aria-hidden="true">
-                <svg className="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 5.23 1 .01 6.22.01 13s5.22 12 12.23 12c7.31 0 12.17-5.12 12.17-12.39 0-.83-.09-1.47-.2-1.926H12.24z"/></svg>
-                <svg className="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7 Barbells 6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5 childhood.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/></svg>
-                <svg className="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/></svg>
-                <svg className="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                <svg className="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
-              </div>
+            {/* GitHub */}
+            <div className="flex items-center gap-3 group">
+              <svg className="h-8 w-auto fill-current text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              <span className="font-sans font-bold text-xl tracking-tight text-white/90">GitHub</span>
+            </div>
 
+            {/* Meta */}
+            <div className="flex items-center gap-3 group">
+              <svg className="h-7 w-auto fill-current text-[#0064E0] drop-shadow-[0_0_10px_rgba(0,100,224,0.2)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7A6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/></svg>
+              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Meta</span>
+            </div>
+
+            {/* Vercel */}
+            <div className="flex items-center gap-3 group">
+              <svg className="h-7 w-auto fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Vercel</span>
+            </div>
+
+            {/* TikTok */}
+            <div className="flex items-center gap-3 group">
+              <svg className="h-8 w-auto fill-current text-[#00f2fe] drop-shadow-[2px_0_0_rgba(254,44,85,0.7)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/></svg>
+              <span className="font-sans font-bold text-xl tracking-tight text-white/90">TikTok</span>
             </div>
           </div>
-          
         </div>
-        
-        {/* Estilos CSS Inline añadidos de forma segura para dar el efecto de marquesina sin requerir librerías extras */}
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 25s linear infinite;
-          }
-        `}</style>
       </section>
 
       {/* Obstacles Section */}
@@ -673,7 +663,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Form Section */}
+      {/* Form Section (Lógica original 100% intacta) */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-white/5">
           <div className="p-10 md:p-16 bg-primary-container/[0.03] flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-outline-variant/5">
@@ -777,7 +767,7 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* Texto de fricción cero añadido estratégicamente al final del formulario */}
+                {/* Mensaje de Fricción Cero en el Formulario */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
                   🔒 Datos protegidos. Reciba un diagnóstico inicial de su ecosistema digital en menos de 48 horas laborales.
                 </p>
