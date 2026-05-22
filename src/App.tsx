@@ -3,13 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   TrendingUp, 
   Bolt, 
   X, 
   Menu,
-  ShieldAlert,
   BarChart3,
   Bot,
   AlertTriangle,
@@ -17,8 +16,6 @@ import {
   Layers,
   CheckCircle2,
   ClipboardCheck,
-  MessageSquare,
-  MonitorSmartphone,
   Send
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -32,6 +29,7 @@ const WhatsAppIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   >
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.577h.005c6.632 0 12.028-5.398 12.03-12.032.003-3.212-1.252-6.234-3.53-8.513z"/>
   </svg>
+  
 );
 
 const fadeIn = {
@@ -53,7 +51,6 @@ export default function App() {
   const Logo = ({ className = "w-10 h-10" }: { className?: string }) => (
     <div className={`${className} bg-primary rounded-xl flex items-center justify-center shadow-2xl shadow-primary/30 relative group overflow-hidden border border-white/5 transition-all duration-300`}>
       <div className="absolute inset-0 bg-primary-container opacity-0 group-hover:opacity-20 transition-opacity"></div>
-      {/* Target Logo Asset */}
       <img 
         src="/input_file_1.png" 
         alt="" 
@@ -64,7 +61,6 @@ export default function App() {
         }}
       />
       <Layers className="fallback-icon hidden text-surface w-5 h-5 z-10" />
-      {/* Premium Glow effect */}
       <div className="absolute -inset-1 bg-primary/20 blur-md rounded-xl -z-10 opacity-40 group-hover:opacity-80 transition-opacity"></div>
     </div>
   );
@@ -110,9 +106,10 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6">
+            {/* CTA Button - Hidden on mobile view to avoid navbar layout breaks */}
             <a 
               href="#aplicar"
-              className={`bg-primary text-surface px-7 py-3.5 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 flex items-center justify-center gap-2.5 uppercase tracking-[0.12em] border border-white/10 group overflow-hidden relative ${
+              className={`hidden md:flex bg-primary text-surface px-7 py-3.5 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 items-center justify-center gap-2.5 uppercase tracking-[0.12em] border border-white/10 group overflow-hidden relative ${
                 scrolled ? 'text-[11px] px-5 py-3' : 'text-xs'
               }`}
             >
@@ -131,7 +128,6 @@ export default function App() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0A0F1A]">
         {/* Cinematic Video Background */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#0A0F1A]">
-          {/* Noise Texture Overlay */}
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay z-[2] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
           
           <video
@@ -145,11 +141,9 @@ export default function App() {
             <source src="/input_file_0.mp4" type="video/mp4" />
           </video>
           
-          {/* Sophisticated Lighting Overlays */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1A]/60 via-transparent to-[#0A0F1A]/80 z-[1]"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1A] via-[#0A0F1A]/70 to-transparent lg:via-[#0A0F1A]/50 z-[1]"></div>
           
-          {/* Animated Atmospheric Glows */}
           <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-primary/10 blur-[150px] rounded-full animate-pulse-soft"></div>
           <div className="absolute bottom-[10%] left-[5%] w-[40%] h-[40%] bg-blue-600/5 blur-[120px] rounded-full animate-pulse-soft" style={{ animationDelay: '-3s' }}></div>
         </div>
@@ -159,11 +153,13 @@ export default function App() {
             <motion.div 
               className="lg:col-span-7"
               initial="initial"
+              side-view="animate"
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-[10px] mb-8 uppercase tracking-[0.3em] backdrop-blur-md">
+              {/* Tag text color adjusted to high-contrast white for proper visual accessibility over dark elements */}
+              <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full bg-primary/10 border border-primary/30 text-white/90 font-mono text-[10px] mb-8 uppercase tracking-[0.3em] backdrop-blur-md font-bold">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -207,11 +203,9 @@ export default function App() {
                 <div className="absolute inset-x-0 -top-px h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
                 <div className="relative overflow-hidden rounded-[2.5rem] bg-surface-container-low aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-[580px]">
                   <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-[#0A0F1A] border border-white/5 flex flex-col">
-                    {/* Background Ambience */}
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 blur-[100px] -mr-40 -mt-40 animate-pulse-soft"></div>
                     <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 blur-[100px] -ml-20 -mb-20 animate-pulse-soft" style={{ animationDelay: '-2s' }}></div>
                     
-                    {/* Dashboard Header */}
                     <div className="px-8 py-7 border-b border-white/5 flex items-center justify-between relative z-10 bg-white/[0.01]">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
@@ -227,7 +221,6 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* KPI High-Level Stats */}
                     <div className="grid grid-cols-2 gap-4 px-8 pt-8 relative z-10">
                       <motion.div 
                         className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
@@ -259,17 +252,14 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    {/* Main Chart Area */}
                     <div className="flex-grow px-8 pt-10 pb-16 relative z-10">
                       <div className="w-full h-full relative">
-                        {/* Grid Lines */}
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
                           {[...Array(6)].map((_, i) => (
                             <div key={i} className="w-full h-px bg-white/20"></div>
                           ))}
                         </div>
                         
-                        {/* SVG Data Visualization */}
                         <svg className="absolute inset-0 w-full h-full filter drop-shadow-[0_0_15px_rgba(37,99,235,0.2)]" viewBox="0 0 400 200" preserveAspectRatio="none">
                           <defs>
                             <linearGradient id="premium-area-grad" x1="0" y1="0" x2="0" y2="1">
@@ -278,7 +268,6 @@ export default function App() {
                             </linearGradient>
                           </defs>
                           
-                          {/* Smooth Area Layer */}
                           <motion.path 
                             initial={{ pathLength: 0, opacity: 0 }}
                             whileInView={{ pathLength: 1, opacity: 1 }}
@@ -287,7 +276,6 @@ export default function App() {
                             fill="url(#premium-area-grad)"
                           />
                           
-                          {/* Top Border Line */}
                           <motion.path 
                             initial={{ pathLength: 0 }}
                             whileInView={{ pathLength: 1 }}
@@ -300,16 +288,13 @@ export default function App() {
                             strokeLinejoin="round"
                           />
 
-                          {/* Data Nodes */}
                           <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ delay: 0.5 }} cx="120" cy="95" r="3.5" fill="#3b82f6" stroke="#0A0F1A" strokeWidth="1.5" />
                           <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ delay: 0.8 }} cx="240" cy="55" r="3.5" fill="#3b82f6" stroke="#0A0F1A" strokeWidth="1.5" />
                           <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ delay: 1.1 }} cx="360" cy="40" r="3.5" fill="#3b82f6" stroke="#0A0F1A" strokeWidth="1.5" />
                           
-                          {/* Pulse Node */}
                           <circle cx="400" cy="30" r="4" fill="#3b82f6" className="animate-pulse" />
                         </svg>
 
-                        {/* Interactive Markers UI */}
                         <motion.div 
                           className="absolute top-[30px] right-0 flex items-center gap-3"
                           initial={{ opacity: 0, x: 20 }}
@@ -322,7 +307,6 @@ export default function App() {
                       </div>
                     </div>
                     
-                    {/* Bottom Status Bar */}
                     <div className="mt-auto px-8 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-white/20">
                       <span>Ref: 01-A9X-SYSTEM</span>
                       <div className="flex gap-4">
@@ -481,189 +465,163 @@ export default function App() {
         </div>
       </section>
 
-     {/* Pricing Section */}
-<section id="inversion" className="bg-surface overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
-
-    <motion.div
-      className="text-center mb-16 md:mb-24"
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-      variants={fadeIn}
-    >
-      <h2 className="font-display text-4xl md:text-6xl text-on-surface mb-6 font-bold tracking-tight">
-        Modelos de Implementación
-      </h2>
-
-      <p className="text-on-surface-variant max-w-2xl mx-auto text-lg opacity-80">
-        Infraestructura digital diseñada para escalar adquisición, automatización y crecimiento comercial.
-      </p>
-    </motion.div>
-
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-
-{[
-  {
-    type: 'ESTRATEGIA BASE',
-    title: 'Arquitectura inicial para negocios que buscan estructura, control y crecimiento medible.',
-    subtitle: '',
-    icon: '◉',
-    btnText: 'SOLICITAR DIAGNÓSTICO',
-    waUrl: 'https://wa.link/2bwkim',
-    premium: false,
-    features: [
-      'Gestión de Leads',
-      'Pauta Google/Meta',
-      'Reporting Mensual',
-      'Optimización de Conversión',
-      'Diagnóstico Estratégico'
-    ]
-  },
-
-  {
-    type: 'CRECIMIENTO ESCALABLE',
-    title: 'Sistema escalable diseñado para automatizar procesos y aumentar la conversión.',
-    subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
-    icon: '◎',
-    btnText: 'EXPLORAR IMPLEMENTACIÓN',
-    waUrl: 'https://wa.link/2bwkim',
-    premium: true,
-    features: [
-      'WhatsApp API',
-      'CRM & Automations',
-      'Funnel UX',
-      'Lead Scoring'
-    ]
-  },
-
-  {
-    type: 'GROWTH COMMAND',
-    title: 'Infraestructura avanzada para empresas que buscan crecimiento predecible y automatización inteligente.',
-    subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
-    icon: '⬢',
-    btnText: 'HABLAR CON UN CONSULTOR',
-    waUrl: 'https://wa.link/2bwkim',
-    premium: false,
-    features: [
-      'IA Agents 24/7',
-      'Centralización Inteligente de Datos',
-      'Optimización Comercial Estratégica'
-    ]
-  }
-].map((plan, idx) => (
-
-        <motion.div
-          key={idx}
-          className={`glass-card p-10 lg:p-12 rounded-[2.5rem] flex flex-col relative transition-all duration-500 lg:hover:scale-[1.02] h-full ${
-            plan.premium
-              ? 'border-primary shadow-[0_30px_70px_rgba(37,99,235,0.25)] bg-surface-container-high/60 scale-[1.03] z-20'
-              : ''
-          }`}
-
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: idx * 0.1 }}
-        >
-
-          <div className="mb-10 text-center">
-
-            <div className="flex justify-center mb-8">
-              <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl ${
-                plan.premium
-                  ? 'bg-primary/15 text-primary border border-primary/20'
-                  : 'bg-white/5 text-primary border border-white/10'
-              }`}>
-                {plan.icon}
-              </div>
-            </div>
-
-            <span className={`font-mono font-bold tracking-[0.3em] uppercase text-sm ${
-              plan.premium
-                ? 'text-primary'
-                : 'text-primary/70'
-            }`}>
-              {plan.type}
-            </span>
-
-            <p className="mt-8 text-on-surface-variant leading-relaxed text-sm md:text-base">
-              {plan.title}
+      {/* Pricing Section */}
+      <section id="inversion" className="bg-surface overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+          <motion.div
+            className="text-center mb-16 md:mb-24"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="font-display text-4xl md:text-6xl text-on-surface mb-6 font-bold tracking-tight">
+              Modelos de Implementación
+            </h2>
+            <p className="text-on-surface-variant max-w-2xl mx-auto text-lg opacity-80">
+              Infraestructura digital diseñada para escalar adquisición, automatización y crecimiento comercial.
             </p>
-          </div>
+          </motion.div>
 
-          {plan.subtitle && (
-            <p className="text-[11px] text-primary/70 font-mono uppercase tracking-wider mb-8 italic text-center underline decoration-primary/20 underline-offset-4">
-              {plan.subtitle}
-            </p>
-          )}
-
-          <ul className="space-y-5 mb-12 flex-grow">
-
-            {plan.features.map((f, i) => (
-
-              <li
-                key={i}
-                className="flex items-center gap-4 text-sm text-on-surface-variant"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            {[
+              {
+                type: 'ESTRATEGIA BASE',
+                title: 'Arquitectura inicial para negocios que buscan estructura, control y crecimiento medible.',
+                subtitle: '',
+                icon: '◉',
+                btnText: 'SOLICITAR DIAGNÓSTICO',
+                waUrl: 'https://wa.link/2bwkim',
+                premium: false,
+                features: [
+                  'Gestión de Leads',
+                  'Pauta Google/Meta',
+                  'Reporting Mensual',
+                  'Optimización de Conversión',
+                  'Diagnóstico Estratégico'
+                ]
+              },
+              {
+                type: 'CRECIMIENTO ESCALABLE',
+                title: 'Sistema escalable diseñado para automatizar procesos y aumentar la conversión.',
+                subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
+                icon: '◎',
+                btnText: 'EXPLORAR IMPLEMENTACIÓN',
+                waUrl: 'https://wa.link/2bwkim',
+                premium: true,
+                features: [
+                  'WhatsApp API',
+                  'CRM & Automations',
+                  'Funnel UX',
+                  'Lead Scoring'
+                ]
+              },
+              {
+                type: 'GROWTH COMMAND',
+                title: 'Infraestructura avanzada para empresas que buscan crecimiento predecible y automatización inteligente.',
+                subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
+                icon: '⬢',
+                btnText: 'HABLAR CON UN CONSULTOR',
+                waUrl: 'https://wa.link/2bwkim',
+                premium: false,
+                features: [
+                  'IA Agents 24/7',
+                  'Centralización Inteligente de Datos',
+                  'Optimización Comercial Estratégica'
+                ]
+              }
+            ].map((plan, idx) => (
+              <motion.div
+                key={idx}
+                className={`glass-card p-10 lg:p-12 rounded-[2.5rem] flex flex-col relative transition-all duration-500 lg:hover:scale-[1.02] h-full ${
+                  plan.premium
+                    ? 'border-primary shadow-[0_30px_70px_rgba(37,99,235,0.25)] bg-surface-container-high/60 scale-[1.03] z-20'
+                    : ''
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
               >
+                <div className="mb-10 text-center">
+                  <div className="flex justify-center mb-8">
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl ${
+                      plan.premium
+                        ? 'bg-primary/15 text-primary border border-primary/20'
+                        : 'bg-white/5 text-primary border border-white/10'
+                    }`}>
+                      {plan.icon}
+                    </div>
+                  </div>
 
-                <CheckCircle2
-                  className={`w-5 h-5 flex-shrink-0 ${
+                  <span className={`font-mono font-bold tracking-[0.3em] uppercase text-sm ${
                     plan.premium
                       ? 'text-primary'
-                      : 'text-primary/40'
+                      : 'text-primary/70'
+                  }`}>
+                    {plan.type}
+                  </span>
+
+                  <p className="mt-8 text-on-surface-variant leading-relaxed text-sm md:text-base">
+                    {plan.title}
+                  </p>
+                </div>
+
+                {plan.subtitle && (
+                  <p className="text-[11px] text-primary/70 font-mono uppercase tracking-wider mb-8 italic text-center underline decoration-primary/20 underline-offset-4">
+                    {plan.subtitle}
+                  </p>
+                )}
+
+                <ul className="space-y-5 mb-12 flex-grow">
+                  {plan.features.map((f, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-4 text-sm text-on-surface-variant"
+                    >
+                      <CheckCircle2
+                        className={`w-5 h-5 flex-shrink-0 ${
+                          plan.premium
+                            ? 'text-primary'
+                            : 'text-primary/40'
+                        }`}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={plan.waUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center gap-3 w-full h-[64px] rounded-2xl font-bold text-[11px] uppercase tracking-widest transition-all active:scale-95 shadow-xl bg-primary-container text-white ${
+                    plan.premium
+                      ? 'shadow-primary-container/30 hover:scale-[1.03] hover:shadow-primary-container/40 border border-white/10'
+                      : 'shadow-primary-container/20 border border-primary-container/10 hover:scale-[1.02] hover:shadow-primary-container/30'
                   }`}
-                />
-
-                {f}
-
-              </li>
-
+                >
+                  <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+                  <span className="whitespace-nowrap">
+                    {plan.btnText}
+                  </span>
+                </a>
+              </motion.div>
             ))}
+          </div>
 
-          </ul>
-
-          <a
-            href={plan.waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-
-            className={`flex items-center justify-center gap-3 w-full h-[64px] rounded-2xl font-bold text-[11px] uppercase tracking-widest transition-all active:scale-95 shadow-xl bg-primary-container text-white ${
-              plan.premium
-                ? 'shadow-primary-container/30 hover:scale-[1.03] hover:shadow-primary-container/40 border border-white/10'
-                : 'shadow-primary-container/20 border border-primary-container/10 hover:scale-[1.02] hover:shadow-primary-container/30'
-            }`}
-          >
-
-            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-
-            <span className="whitespace-nowrap">
-              {plan.btnText}
-            </span>
-
-          </a>
-
-        </motion.div>
-
-      ))}
-
-    </div>
-
-    <div className="mt-20 flex flex-col items-center gap-8 px-4">
-
-      <motion.p
-        className="text-on-surface/70 text-center text-sm md:text-base leading-relaxed max-w-4xl font-medium tracking-wide"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        Cada implementación se adapta según el nivel de crecimiento, estructura operativa y objetivos comerciales de la empresa.
-      </motion.p>
-
-    </div>
-
-  </div>
-</section>
+          <div className="mt-20 flex flex-col items-center gap-8 px-4">
+            <motion.p
+              className="text-on-surface/70 text-center text-sm md:text-base leading-relaxed max-w-4xl font-medium tracking-wide"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              Cada implementación se adapta según el nivel de crecimiento, estructura operativa y objetivos comerciales de la empresa.
+            </motion.p>
+          </div>
+        </div>
+      </section>
 
       {/* Form Section */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
@@ -689,89 +647,86 @@ export default function App() {
           <div className="p-10 md:p-14 bg-surface-container-high/20 backdrop-blur-md relative">
             <AnimatePresence mode="wait">
               <motion.form
-onSubmit={async (e) => {
-  e.preventDefault();
-
-  const form = e.currentTarget;
-  const data = new FormData(form);
-
-  const response = await fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: {
-      Accept: "application/json",
-    },
-  });
-
-  if (response.ok) {
-    window.location.href = "/gracias.html";
-  }
-}}
-  key="form"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  exit={{ opacity: 0 }}
-  name="diagnostico-growthbrand"
-  method="POST"
-action="https://formspree.io/f/xaqkqjvq"
-  className="space-y-6"
->
-                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-6">
-                      <div>
-                        <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
-                        <input 
-                          name="nombre"
-                          type="text"
-                          className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
-                          placeholder="Tu nombre y apellido" 
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
-                        <input 
-                          name="email"
-                          type="email"
-                          className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
-                          placeholder="ejemplo@empresa.com" 
-                          required
-                        />
-                      </div>
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  const data = new FormData(form);
+                  const response = await fetch(form.action, {
+                    method: "POST",
+                    body: data,
+                    headers: {
+                      Accept: "application/json",
+                    },
+                  });
+                  if (response.ok) {
+                    window.location.href = "/gracias.html";
+                  }
+                }}
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                name="diagnostico-growthbrand"
+                method="POST"
+                action="https://formspree.io/f/xaqkqjvq"
+                className="space-y-6"
+              >
+                <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
+                      <input 
+                        name="nombre"
+                        type="text"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="Tu nombre y apellido" 
+                        required
+                      />
                     </div>
-                    <div className="space-y-6">
-                      <div>
-                        <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
-                        <select 
-                          name="objetivo"
-                          className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none appearance-none cursor-pointer"
-                        >
-                          <option>Generar Leads</option>
-                          <option>Automatizar Adquisición</option>
-                          <option>Escalar Operaciones</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
-                        <textarea 
-                          name="contexto"
-                          className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-28 resize-none" 
-                          placeholder="Describe brevemente tus retos actuales..."
-                          required
-                        ></textarea>
-                      </div>
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
+                      <input 
+                        name="email"
+                        type="email"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="ejemplo@empresa.com" 
+                        required
+                      />
                     </div>
                   </div>
-                  
-                  <button 
-                    type="submit"
-                    className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
-                  >
-                    <Send className="w-5 h-5" />
-                    <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
-                  </button>
-                </motion.form>
+                  <div className="space-y-6">
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
+                      <select 
+                        name="objetivo"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none appearance-none cursor-pointer"
+                      >
+                        <option>Generar Leads</option>
+                        <option>Automatizar Adquisición</option>
+                        <option>Escalar Operaciones</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
+                      <textarea 
+                        name="contexto"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-28 resize-none" 
+                        placeholder="Describe brevemente tus retos actuales..."
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
+                </button>
+              </motion.form>
             </AnimatePresence>
           </div>
         </div>
@@ -840,13 +795,13 @@ action="https://formspree.io/f/xaqkqjvq"
           </div>
           <div className="mt-20 pt-10 border-t border-outline-variant/10 text-center md:text-left">
             <p className="text-xs text-on-surface-variant opacity-50 font-mono tracking-widest uppercase">
-              © 2024 GrowthBrand. Precision Growth Systems.
+              © 2026 GrowthBrand. Precision Growth Systems.
             </p>
           </div>
         </div>
       </footer>
 
-      {/* Success/Error States and Modals removed as per requirement */}
+      {/* Mobile Menu Backdrop & Sheet overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
