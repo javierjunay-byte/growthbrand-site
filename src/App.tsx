@@ -337,7 +337,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MARQUESINA REPARADA DEFINITIVA */}
+      {/* Brand Trust Sliding Section - CORRECCIÓN DE ANCHOS MÍNIMOS (NO SUPERPOSICIÓN) */}
       <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -345,33 +345,33 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Animación fluida con aislamiento estricto contra encogimiento lateral */}
+            {/* Marquesina infinita en CSS puro - Se fuerza el ancho máximo de contenido */}
             <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
               
-              {/* Bloque 1 */}
+              {/* Bloque 1 - Forzado estricto con min-w-[200px] para evitar colisiones */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7 w-auto" src="https://cdn.simpleicons.org/google/4285F4" style={{ height: '32px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
                 {/* GitHub */}
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7 w-auto invert" src="https://cdn.simpleicons.org/github/white" style={{ height: '32px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
                 {/* Meta */}
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
                 {/* Vercel */}
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-6.5 w-auto invert" src="https://cdn.simpleicons.org/vercel/white" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
                 {/* TikTok */}
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
@@ -379,23 +379,23 @@ export default function App() {
 
               {/* Bloque 2 (Duplicado idéntico para loop infinito sin saltos) */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7 w-auto" src="https://cdn.simpleicons.org/google/4285F4" style={{ height: '32px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7 w-auto invert" src="https://cdn.simpleicons.org/github/white" style={{ height: '32px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-6.5 w-auto invert" src="https://cdn.simpleicons.org/vercel/white" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0" style={{ flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
@@ -477,7 +477,7 @@ export default function App() {
               { title: 'Demand Gen', text: 'Sistemas de pauta avanzada enfocados en volumen de alta intención y ROAS positivo.' },
               { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecta autoridad corporativa y maximiza el valor.' },
               { title: 'Sales Systems', text: 'Integración de APIs y flujos de automatización que garantizan el control operativo.' },
-              { title: 'Data Engine', text: 'Dashboards de intelligence comercial con métricas de salud en tiempo real.' }
+              { title: 'Data Engine', text: 'Dashboards de inteligencia comercial con métricas de salud en tiempo real.' }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
