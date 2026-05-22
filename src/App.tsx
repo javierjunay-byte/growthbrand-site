@@ -105,7 +105,6 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* CTA Button - Hidden on mobile view to avoid navbar layout breaks */}
             <a 
               href="#aplicar"
               className={`hidden md:flex bg-primary text-surface px-7 py-3.5 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 items-center justify-center gap-2.5 uppercase tracking-[0.12em] border border-white/10 group overflow-hidden relative ${
@@ -125,7 +124,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0A0F1A]">
-        {/* Cinematic Video Background */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#0A0F1A]">
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay z-[2] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
           
@@ -157,7 +155,6 @@ export default function App() {
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              {/* Tag text color adjusted to high-contrast white for proper visual accessibility over dark elements */}
               <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full bg-primary/10 border border-primary/30 text-white/90 font-mono text-[10px] mb-8 uppercase tracking-[0.3em] backdrop-blur-md font-bold">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -338,45 +335,106 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Section (Logos grandes, legibles, tipografía e isotipos originales alineados en 1 fila) */}
-      <section className="bg-[#0A0F1A] py-16 border-y border-white/5 relative z-10">
+      {/* Brand Trust Sliding Section - Logos Vectoriales Oficiales Sin Repetirse */}
+      <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
-            ecosistemas e infraestructura tecnológica integrada con<span className="text-white font-sans font-normal">.</span>
+            Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 lg:gap-x-20 text-white/90">
-            {/* Google */}
-            <div className="flex items-center gap-3 group">
-              <svg className="h-8 w-auto fill-current text-[#4285F4] drop-shadow-[0_0_10px_rgba(66,133,244,0.2)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.285V13.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l2.427-2.334C17.955 2.192 15.34 1 12.24 1 5.23 1 .01 6.22.01 13s5.22 12 12.23 12c7.31 0 12.17-5.12 12.17-12.39 0-.83-.09-1.47-.2-1.926H12.24z"/></svg>
-              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Google</span>
-            </div>
+          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
+            {/* Contenedor infinito animado con CSS nativo */}
+            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
+              
+              {/* Bloque Único De Logos Nativos Corporativos A Color/Blanco Oficial */}
+              <div className="flex items-center gap-16 md:gap-24">
+                {/* Google Wordmark Multicolor Oficial */}
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
+                  </svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
+                </div>
 
-            {/* GitHub */}
-            <div className="flex items-center gap-3 group">
-              <svg className="h-8 w-auto fill-current text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              <span className="font-sans font-bold text-xl tracking-tight text-white/90">GitHub</span>
-            </div>
+                {/* GitHub Wordmark Oficial */}
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
+                </div>
 
-            {/* Meta */}
-            <div className="flex items-center gap-3 group">
-              <svg className="h-7 w-auto fill-current text-[#0064E0] drop-shadow-[0_0_10px_rgba(0,100,224,0.2)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7A6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/></svg>
-              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Meta</span>
-            </div>
+                {/* Meta Wordmark Azul Gradiente Oficial */}
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#0064E0" d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7A6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/>
+                  </svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
+                </div>
 
-            {/* Vercel */}
-            <div className="flex items-center gap-3 group">
-              <svg className="h-7 w-auto fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
-              <span className="font-sans font-bold text-xl tracking-tight text-white/90">Vercel</span>
-            </div>
+                {/* Vercel Geometric Wordmark */}
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
+                </div>
 
-            {/* TikTok */}
-            <div className="flex items-center gap-3 group">
-              <svg className="h-8 w-auto fill-current text-[#00f2fe] drop-shadow-[2px_0_0_rgba(254,44,85,0.7)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/></svg>
-              <span className="font-sans font-bold text-xl tracking-tight text-white/90">TikTok</span>
+                {/* TikTok Glitch Color Icon & Typography */}
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#00f2fe" d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/>
+                    <path fill="#fe2c55" d="M12.525.02c.85 0 1.71.12 2.52.37v4.54c-.38-.15-.79-.24-1.21-.24-2.73 0-4.95 2.21-4.95 4.94v2.85h3.63c.01 2.73-2.21 4.95-4.94 4.95A4.95 4.95 0 0 1 2.63 12c0-2.73 2.21-4.94 4.94-4.94V3.03c-2.31.29-4.38 1.63-5.63 3.6a10.01 10.01 0 0 0 16.47 11.08 4.95 4.95 0 0 0 1.54-3.68V5.71a7.46 7.46 0 0 0 4-.03V.99c-1.32.25-2.69.21-3.99-.11a7.45 7.45 0 0 1-3.63 3.08c-.3-.88-.47-1.82-.5-2.78h-3.32v2.84z" opacity="0.8" mixBlendMode="screen"/>
+                  </svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
+                </div>
+              </div>
+
+              {/* Duplicado idéntico para crear el loop infinito perfecto sin saltos visuales */}
+              <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
+                  </svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
+                </div>
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
+                </div>
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#0064E0" d="M23.977 11.23a5.556 5.556 0 00-4.81-5.187c-.167-.023-.333-.035-.5-.035a6.046 6.046 0 00-4.225 1.7A6.471 6.471 0 0012 9.475a6.471 6.471 0 00-2.443-1.767 6.046 6.046 0 00-4.225-1.7 5.485 5.485 0 00-.5.035A5.556 5.556 0 00.023 11.23a6.221 6.221 0 001.328 4.394 6.786 6.786 0 003.542 2.223 5.483 5.483 0 002.593-.16 6.55 6.55 0 003.2-2.235A6.55 6.55 0 0013.916 17.7a5.483 5.483 0 002.593.16 6.786 6.786 0 003.542-2.223 6.221 6.221 0 001.326-4.407zM5.38 15.11a3.42 3.42 0 01-1.574-.131 4.14 4.14 0 01-2.093-1.312 3.86 3.86 0 01-.84-2.656 3.492 3.492 0 012.352-3.131c.106-.035.215-.054.326-.06a3.522 3.522 0 012.635 1.05A4.558 4.558 0 017.9 11.144a4.4 4.4 0 01-2.52 3.966zm13.24 0a4.4 4.4 0 01-2.52-3.966 4.558 4.558 0 011.314-2.274 3.522 3.522 0 012.635-1.05c.11.006.22.025.326.06a3.492 3.492 0 012.352 3.131 3.86 3.86 0 01-.84 2.656 4.14 4.14 0 01-2.093 1.312 3.42 3.42 0 01-1.574.131z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
+                </div>
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
+                </div>
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#00f2fe" d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 01-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/>
+                    <path fill="#fe2c55" d="M12.525.02c.85 0 1.71.12 2.52.37v4.54c-.38-.15-.79-.24-1.21-.24-2.73 0-4.95 2.21-4.95 4.94v2.85h3.63c.01 2.73-2.21 4.95-4.94 4.95A4.95 4.95 0 0 1 2.63 12c0-2.73 2.21-4.94 4.94-4.94V3.03c-2.31.29-4.38 1.63-5.63 3.6a10.01 10.01 0 0 0 16.47 11.08 4.95 4.95 0 0 0 1.54-3.68V5.71a7.46 7.46 0 0 0 4-.03V.99c-1.32.25-2.69.21-3.99-.11a7.45 7.45 0 0 1-3.63 3.08c-.3-.88-.47-1.82-.5-2.78h-3.32v2.84z" opacity="0.8" mixBlendMode="screen"/>
+                  </svg>
+                  <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
+
+        {/* CSS Keyframes de animación infinita de flujo */}
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 22s linear infinite;
+          }
+        `}</style>
       </section>
 
       {/* Obstacles Section */}
@@ -663,7 +721,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Form Section (Lógica original 100% intacta) */}
+      {/* Form Section */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-white/5">
           <div className="p-10 md:p-16 bg-primary-container/[0.03] flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-outline-variant/5">
@@ -767,7 +825,6 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* Mensaje de Fricción Cero en el Formulario */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
                   🔒 Datos protegidos. Reciba un diagnóstico inicial de su ecosistema digital en menos de 48 horas laborales.
                 </p>
