@@ -10,11 +10,10 @@ import {
   X, 
   ArrowRight, 
   Lock, 
-  TrendingUp, 
-  ShieldCheck 
+  TrendingUp 
 } from 'lucide-react';
 
-// Ecosistema de marcas configurado en el orden exacto con corrección estricta de colapso visual
+// Ecosistema con fijación estricta de proporciones para corregir Meta y TikTok
 const brands = [
   { name: 'Google', src: '/google.svg' },
   { name: 'GitHub', src: '/github.svg' },
@@ -27,23 +26,23 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', phone: '' });
 
-  // Duplicamos el arreglo para asegurar el bucle simétrico infinito sin saltos
+  // Duplicamos la lista para generar el bucle continuo perfecto
   const infiniteBrands = [...brands, ...brands];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulario enviado:', formData);
-    alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en las próximas 24 horas.');
+    console.log('Formulario de captación GrowthBrand enviado:', formData);
+    alert('¡Perfecto! Nos pondremos en contacto contigo en menos de 24 horas para tu auditoría.');
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white font-sans antialiased selection:bg-[#1d4ed8]/30 selection:text-white">
+    <div className="min-h-screen bg-[#030712] text-white font-sans antialiased selection:bg-blue-600/30 selection:text-white">
       
-      {/* 1. NAVBAR RESPONSIVE */}
+      {/* 1. NAVEGACIÓN PRINCIPAL */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#030712]/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-tr from-[#1d4ed8] to-blue-500 rounded-xl flex items-center justify-center font-black text-xl tracking-tighter">
+            <div className="w-10 h-10 bg-gradient-to-tr from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center font-black text-xl tracking-tighter">
               G
             </div>
             <span className="text-xl font-bold tracking-tight">GrowthBrand</span>
@@ -51,9 +50,9 @@ export default function App() {
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
             <a href="#infraestructura" className="hover:text-white transition-colors">Infraestructura</a>
-            <a href="#metodologia" className="hover:text-colors hover:text-white transition-colors">Metodología</a>
+            <a href="#metodologia" className="hover:text-white transition-colors">Metodología</a>
             <a href="#planes" className="hover:text-white transition-colors">Inversión</a>
-            <a href="#contacto" className="bg-[#1d4ed8] text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-all font-semibold">
+            <a href="#contacto" className="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-all font-semibold">
               Agendar Diagnóstico
             </a>
           </div>
@@ -63,13 +62,13 @@ export default function App() {
           </button>
         </div>
 
-        {/* Menú Móvil desplegable */}
+        {/* Menú Móvil Desplegable */}
         {isMenuOpen && (
           <div className="md:hidden bg-[#030712] border-b border-gray-800 px-4 pt-2 pb-6 flex flex-col gap-4">
             <a href="#infraestructura" onClick={() => setIsMenuOpen(false)} className="text-gray-400 py-2">Infraestructura</a>
             <a href="#metodologia" onClick={() => setIsMenuOpen(false)} className="text-gray-400 py-2">Metodología</a>
             <a href="#planes" onClick={() => setIsMenuOpen(false)} className="text-gray-400 py-2">Inversión</a>
-            <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="bg-[#1d4ed8] text-center text-white py-3 rounded-xl font-semibold">
+            <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="bg-blue-600 text-center text-white py-3 rounded-xl font-semibold">
               Agendar Diagnóstico
             </a>
           </div>
@@ -80,7 +79,7 @@ export default function App() {
       <header className="pt-36 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
         
-        <h2 className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-[#1d4ed8] uppercase mb-4">
+        <h2 className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-blue-500 uppercase mb-4">
           Sistemas Avanzados de Adquisición B2B / B2C
         </h2>
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-[1.1]">
@@ -91,7 +90,7 @@ export default function App() {
         </p>
         
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contacto" className="w-full sm:w-auto bg-[#1d4ed8] text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-blue-700 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-900/20">
+          <a href="#contacto" className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-base hover:bg-blue-700 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-900/20">
             Iniciar Auditoría Gratuita
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
@@ -101,7 +100,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* 3. CARRUSEEL DE LOGOS CORREGIDO (SOLUCIÓN COMPLETA PARA META Y TIKTOK) */}
+      {/* 3. MARQUESINA DE LOGOS CONTINUA (MÓDULO REPARADO CON FIJACIÓN ANTICOLAPSO) */}
       <section className="border-y border-gray-900 bg-gray-950/40 py-10 overflow-hidden select-none relative">
         <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
           <p className="text-xs font-mono tracking-[0.2em] text-gray-500 uppercase">
@@ -110,31 +109,41 @@ export default function App() {
         </div>
         
         <div className="w-full max-w-5xl mx-auto overflow-hidden relative">
-          {/* Máscaras de degradado en bordes */}
+          {/* Difuminados de degradado en los extremos */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#030712] to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#030712] to-transparent z-10" />
 
-          {/* Fila animada con flexShrink bloqueado al 100% */}
+          {/* Carrusel infinito con bloqueo estricto en línea de flex-shrink */}
           <div 
             className="flex items-center gap-16 whitespace-nowrap"
             style={{
               display: 'flex',
               width: 'max-content',
+              minWidth: 'max-content',
               animation: 'marqueeContinuous 25s linear infinite'
             }}
           >
             {infiniteBrands.map((brand, index) => (
               <div 
                 key={`${brand.name}-${index}`} 
-                className="flex items-center gap-4 shrink-0"
-                style={{ flexShrink: 0 }}
+                className="flex items-center gap-4"
+                style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}
               >
-                <div className="h-7 md:h-8 flex items-center justify-center shrink-0">
+                <div 
+                  className="h-7 md:h-8 flex items-center justify-center"
+                  style={{ flexShrink: 0, height: '32px' }}
+                >
                   <img
                     src={brand.src}
                     alt={brand.name}
-                    className="h-full w-auto object-contain shrink-0 filter brightness-90 opacity-80 hover:brightness-100 hover:opacity-100 transition-all duration-300"
-                    style={{ display: 'block', maxHeight: '100%', width: 'auto', flexShrink: 0 }}
+                    className="filter brightness-90 opacity-80 hover:brightness-100 hover:opacity-100 transition-all duration-300"
+                    style={{ 
+                      height: '100%', 
+                      width: 'auto', 
+                      objectFit: 'contain', 
+                      display: 'block',
+                      flexShrink: 0 
+                    }}
                     loading="eager"
                   />
                 </div>
@@ -157,7 +166,7 @@ export default function App() {
       {/* 4. SECCIÓN: INFRAESTRUCTURA OPERATIVA */}
       <section id="infraestructura" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-mono font-bold tracking-wider text-[#1d4ed8] uppercase">Pilares Estructurales</h2>
+          <h2 className="text-sm font-mono font-bold tracking-wider text-blue-500 uppercase">Pilares Estructurales</h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold mt-2 tracking-tight">No es marketing digital. Es Arquitectura de Ventas.</h3>
           <p className="mt-4 text-gray-400">Reemplazamos las tácticas temporales por una infraestructura robusta de generación de ingresos controlada por datos.</p>
         </div>
@@ -184,7 +193,7 @@ export default function App() {
       <section id="metodologia" className="py-20 bg-gray-950/60 border-y border-gray-900 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-sm font-mono font-bold tracking-wider text-[#1d4ed8] uppercase">Eficiencia en Ejecución</h2>
+            <h2 className="text-sm font-mono font-bold tracking-wider text-blue-500 uppercase">Eficiencia en Ejecución</h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold mt-2 tracking-tight mb-6">Un proceso predecible paso a paso.</h3>
             
             <div className="space-y-6">
@@ -194,7 +203,7 @@ export default function App() {
                 { step: '03', title: 'Optimización de Retorno (ROI)', desc: 'Lanzamos campañas e iteramos basándonos exclusivamente en métricas de negocio reales.' }
               ].map((step, idx) => (
                 <div key={idx} className="flex gap-4 items-start">
-                  <span className="font-mono font-bold text-[#1d4ed8] text-lg bg-blue-950/40 border border-blue-900/50 px-2.5 py-1 rounded-lg">{step.step}</span>
+                  <span className="font-mono font-bold text-blue-500 text-lg bg-blue-950/40 border border-blue-900/50 px-2.5 py-1 rounded-lg">{step.step}</span>
                   <div>
                     <h4 className="text-lg font-semibold text-white">{step.title}</h4>
                     <p className="text-sm text-gray-400 mt-1">{step.desc}</p>
@@ -231,7 +240,7 @@ export default function App() {
       {/* 6. PLANES DE INVERSIÓN */}
       <section id="planes" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-mono font-bold tracking-wider text-[#1d4ed8] uppercase">Modelos de Trabajo</h2>
+          <h2 className="text-sm font-mono font-bold tracking-wider text-blue-500 uppercase">Modelos de Trabajo</h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold mt-2 tracking-tight">Escale con total claridad operativa</h3>
         </div>
 
@@ -250,7 +259,7 @@ export default function App() {
           </div>
 
           <div className="bg-gradient-to-b from-gray-900 to-gray-950 border-2 border-blue-600 p-8 rounded-2xl flex flex-col justify-between relative">
-            <div className="absolute top-0 right-6 -translate-y-1/2 bg-[#1d4ed8] text-white text-xs uppercase font-mono font-bold px-3 py-1 rounded-full tracking-wider">Recomendado</div>
+            <div className="absolute top-0 right-6 -translate-y-1/2 bg-blue-600 text-white text-xs uppercase font-mono font-bold px-3 py-1 rounded-full tracking-wider">Recomendado</div>
             <div>
               <h4 className="text-xl font-bold mb-2">Socio de Crecimiento (Growth Partner)</h4>
               <p className="text-sm text-gray-400 mb-6">Diseñado para escalar agresivamente mediante infraestructura continua y optimización basándose en ingresos.</p>
@@ -260,16 +269,16 @@ export default function App() {
                 ))}
               </ul>
             </div>
-            <a href="#contacto" className="block w-full text-center bg-[#1d4ed8] hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-blue-950/50">Postular como Partner</a>
+            <a href="#contacto" className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-blue-950/50">Postular como Partner</a>
           </div>
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTURA (FORM CONTROL INTEGRAD0) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN */}
       <section id="contacto" className="py-20 bg-gray-950/80 border-t border-gray-900 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">Agende una Sesión de Diagnóstico Técnico</h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-10 text-sm sm:text-base">Anatizaremos su ecosistema actual y diseñaremos un mapa de infraestructura comercial adaptado a sus objetivos. Cero presión de venta.</p>
+          <p className="text-gray-400 max-w-xl mx-auto mb-10 text-sm sm:text-base">Analizaremos su ecosistema actual y diseñaremos un mapa de infraestructura comercial adaptado a sus objetivos. Cero presión de venta.</p>
 
           <form onSubmit={handleSubmit} className="bg-gray-900/60 border border-gray-800 p-6 sm:p-10 rounded-3xl text-left max-w-2xl mx-auto space-y-5 shadow-2xl">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -322,7 +331,7 @@ export default function App() {
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-[#1d4ed8] hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg text-base mt-2">
+            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg text-base mt-2">
               Solicitar Diagnóstico Técnico
               <ArrowRight size={18} />
             </button>
@@ -346,7 +355,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* 9. BOTÓN FLOTANTE WHATSAPP */}
+      {/* 9. BOTÓN DE SOPORTE INTEGRADO */}
       <a 
         href="https://wa.me/yournumber" 
         target="_blank" 
