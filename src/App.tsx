@@ -105,6 +105,7 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6">
+            {/* CTA Button - Hidden on mobile view to avoid navbar layout breaks */}
             <a 
               href="#aplicar"
               className={`hidden md:flex bg-primary text-surface px-7 py-3.5 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 items-center justify-center gap-2.5 uppercase tracking-[0.12em] border border-white/10 group overflow-hidden relative ${
@@ -124,6 +125,7 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0A0F1A]">
+        {/* Cinematic Video Background */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#0A0F1A]">
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay z-[2] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
           
@@ -335,7 +337,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - Importando assets oficiales HD directos sin fallos de curvas */}
+      {/* Brand Trust Sliding Section - Solución Definitiva de Logotipos (Separados, Nativos y a Color Real) */}
       <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -343,62 +345,82 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Marquesina infinita */}
+            {/* Marquesina infinita en CSS puro - Gap masivo e items fijos para evitar colisiones entre Google y TikTok */}
             <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
               
-              {/* Bloque 1: Usando los SVGs directos oficiales validados */}
+              {/* Bloque Único De Logos Nativos Corporativos A Color/Blanco Oficial */}
               <div className="flex items-center gap-16 md:gap-24">
-                {/* Google Brand Asset */}
+                {/* Google Wordmark Multicolor Oficial */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7 w-auto object-contain" src="https://cdn.simpleicons.org/google/4285F4" alt="" />
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
 
-                {/* GitHub Brand Asset */}
+                {/* GitHub Wordmark Oficial */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7 w-auto object-contain invert" src="https://cdn.simpleicons.org/github/white" alt="" />
+                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
 
-                {/* Meta Brand Asset Exact Geometry */}
+                {/* Meta Wordmark Azul Oficial Exacto */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-6.5 w-auto object-contain" src="https://cdn.simpleicons.org/meta/0064E0" alt="" />
+                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#0064E0" d="M16.637 5.035c1.488 0 2.825.617 3.807 1.611l.135.143 2.502-2.502a8.966 8.966 0 0 0-6.26-2.553 9.467 9.467 0 0 0-6.626 2.666 10.151 10.151 0 0 0-3.83 7.304c0 2.503.957 4.887 2.648 6.643l.142.144 2.502-2.502c-1.023-1.016-1.636-2.4-1.636-3.927a4.912 4.912 0 0 1 1.765-3.791c1.334-1.127 3.067-1.785 4.951-1.785zm1.538 4.615c-.482 0-.943.111-1.353.31l-.105.056-4.004 2.312a3.473 3.473 0 0 0-.46-.076 3.483 3.483 0 1 0 4.542 4.237c.725-.94 1.837-1.554 3.093-1.554 1.134 0 2.146.494 2.84 1.272l.09.106 4.004-2.312c.162-.352.261-.736.284-1.14l.006-.153c0-1.923-1.56-3.483-3.483-3.483a3.466 3.466 0 0 0-1.464.326l-.11.057-4.24-2.449a4.897 4.897 0 0 1-.09-.328 4.911 4.911 0 0 1 .454-1.522c.706-.176 1.455-.264 2.222-.264a10.09 10.09 0 0 1 7.218 3.063c1.691 1.756 2.648 4.14 2.648 6.643a10.151 10.151 0 0 1-3.83 7.304c-1.47 1.242-3.35 1.956-5.385 1.956-2.503 0-4.887-.957-6.643-2.648l-2.502 2.502c2.408 2.35 5.672 3.647 9.145 3.647a13.385 13.385 0 0 0 9.385-3.957 14.128 14.128 0 0 0 5.415-10.45 14.128 14.128 0 0 0-5.415-10.448A13.385 13.385 0 0 0 18.175.421a14.006 14.006 0 0 0-5.698 1.196l-.234.116 5.617 3.243a4.9 4.9 0 0 1 .315-.326z"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
 
-                {/* Vercel Brand Asset */}
+                {/* Vercel Geometric Wordmark */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-6.5 w-auto object-contain invert" src="https://cdn.simpleicons.org/vercel/white" alt="" />
+                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
 
-                {/* TikTok Brand Asset Exact Geometry */}
+                {/* TikTok Glitch Color Icon Real Con Curvas Oficiales Exactas */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7.5 w-auto object-contain" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#00f2fe" d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 0 1-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/>
+                    <path fill="#fe2c55" d="M12.525.02c.85 0 1.71.12 2.52.37v4.54c-.38-.15-.79-.24-1.21-.24-2.73 0-4.95 2.21-4.95 4.94v2.85h3.63c.01 2.73-2.21 4.95-4.94 4.95A4.95 4.95 0 0 1 2.63 12c0-2.73 2.21-4.94 4.94-4.94V3.03c-2.31.29-4.38 1.63-5.63 3.6a10.01 10.01 0 0 0 16.47 11.08 4.95 4.95 0 0 0 1.54-3.68V5.71a7.46 7.46 0 0 0 4-.03V.99c-1.32.25-2.69.21-3.99-.11a7.45 7.45 0 0 1-3.63 3.08c-.3-.88-.47-1.82-.5-2.78h-3.32v2.84z" opacity="0.8" mixBlendMode="screen"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
 
-              {/* Bloque 2: Duplicado espejo exacto */}
+              {/* Duplicado idéntico para crear el loop infinito perfecto sin saltos visuales */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
-                <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7 w-auto object-contain" src="https://cdn.simpleicons.org/google/4285F4" alt="" />
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7 w-auto object-contain invert" src="https://cdn.simpleicons.org/github/white" alt="" />
+                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-6.5 w-auto object-contain" src="https://cdn.simpleicons.org/meta/0064E0" alt="" />
+                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#0064E0" d="M16.637 5.035c1.488 0 2.825.617 3.807 1.611l.135.143 2.502-2.502a8.966 8.966 0 0 0-6.26-2.553 9.467 9.467 0 0 0-6.626 2.666 10.151 10.151 0 0 0-3.83 7.304c0 2.503.957 4.887 2.648 6.643l.142.144 2.502-2.502c-1.023-1.016-1.636-2.4-1.636-3.927a4.912 4.912 0 0 1 1.765-3.791c1.334-1.127 3.067-1.785 4.951-1.785zm1.538 4.615c-.482 0-.943.111-1.353.31l-.105.056-4.004 2.312a3.473 3.473 0 0 0-.46-.076 3.483 3.483 0 1 0 4.542 4.237c.725-.94 1.837-1.554 3.093-1.554 1.134 0 2.146.494 2.84 1.272l.09.106 4.004-2.312c.162-.352.261-.736.284-1.14l.006-.153c0-1.923-1.56-3.483-3.483-3.483a3.466 3.466 0 0 0-1.464.326l-.11.057-4.24-2.449a4.897 4.897 0 0 1-.09-.328 4.911 4.911 0 0 1 .454-1.522c.706-.176 1.455-.264 2.222-.264a10.09 10.09 0 0 1 7.218 3.063c1.691 1.756 2.648 4.14 2.648 6.643a10.151 10.151 0 0 1-3.83 7.304c-1.47 1.242-3.35 1.956-5.385 1.956-2.503 0-4.887-.957-6.643-2.648l-2.502 2.502c2.408 2.35 5.672 3.647 9.145 3.647a13.385 13.385 0 0 0 9.385-3.957 14.128 14.128 0 0 0 5.415-10.45 14.128 14.128 0 0 0-5.415-10.448A13.385 13.385 0 0 0 18.175.421a14.006 14.006 0 0 0-5.698 1.196l-.234.116 5.617 3.243a4.9 4.9 0 0 1 .315-.326z"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-6.5 w-auto object-contain invert" src="https://cdn.simpleicons.org/vercel/white" alt="" />
+                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <img className="h-7.5 w-auto object-contain" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
+                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#00f2fe" d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 0 1-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/>
+                    <path fill="#fe2c55" d="M12.525.02c.85 0 1.71.12 2.52.37v4.54c-.38-.15-.79-.24-1.21-.24-2.73 0-4.95 2.21-4.95 4.94v2.85h3.63c.01 2.73-2.21 4.95-4.94 4.95A4.95 4.95 0 0 1 2.63 12c0-2.73 2.21-4.94 4.94-4.94V3.03c-2.31.29-4.38 1.63-5.63 3.6a10.01 10.01 0 0 0 16.47 11.08 4.95 4.95 0 0 0 1.54-3.68V5.71a7.46 7.46 0 0 0 4-.03V.99c-1.32.25-2.69.21-3.99-.11a7.45 7.45 0 0 1-3.63 3.08c-.3-.88-.47-1.82-.5-2.78h-3.32v2.84z" opacity="0.8" mixBlendMode="screen"/>
+                  </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
@@ -407,13 +429,14 @@ export default function App() {
           </div>
         </div>
 
+        {/* CSS Keyframes de animación infinita de flujo */}
         <style>{`
           @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
           }
           .animate-marquee {
-            animation: marquee 24s linear infinite;
+            animation: marquee 22s linear infinite;
           }
         `}</style>
       </section>
