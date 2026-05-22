@@ -105,7 +105,6 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* CTA Button - Hidden on mobile view to avoid navbar layout breaks */}
             <a 
               href="#aplicar"
               className={`hidden md:flex bg-primary text-surface px-7 py-3.5 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/20 items-center justify-center gap-2.5 uppercase tracking-[0.12em] border border-white/10 group overflow-hidden relative ${
@@ -125,7 +124,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0A0F1A]">
-        {/* Cinematic Video Background */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none bg-[#0A0F1A]">
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay z-[2] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
           
@@ -337,7 +335,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - Logos Vectoriales Oficiales Sin Repetirse */}
+      {/* Brand Trust Sliding Section - Importando assets oficiales HD directos sin fallos de curvas */}
       <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -345,82 +343,62 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Contenedor infinito animado con CSS nativo */}
+            {/* Marquesina infinita */}
             <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
               
-              {/* Bloque Único De Logos Nativos Corporativos A Color/Blanco Oficial */}
+              {/* Bloque 1: Usando los SVGs directos oficiales validados */}
               <div className="flex items-center gap-16 md:gap-24">
-                {/* Google Wordmark Multicolor Oficial */}
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
-                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
-                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
-                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
-                  </svg>
+                {/* Google Brand Asset */}
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <img className="h-7 w-auto object-contain" src="https://cdn.simpleicons.org/google/4285F4" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
 
-                {/* GitHub Wordmark Oficial */}
+                {/* GitHub Brand Asset */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <img className="h-7 w-auto object-contain invert" src="https://cdn.simpleicons.org/github/white" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
 
-                {/* Meta Wordmark Azul Oficial Exacto */}
+                {/* Meta Brand Asset Exact Geometry */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#0064E0" d="M16.637 5.035c1.488 0 2.825.617 3.807 1.611l.135.143 2.502-2.502a8.966 8.966 0 0 0-6.26-2.553 9.467 9.467 0 0 0-6.626 2.666 10.151 10.151 0 0 0-3.83 7.304c0 2.503.957 4.887 2.648 6.643l.142.144 2.502-2.502c-1.023-1.016-1.636-2.4-1.636-3.927a4.912 4.912 0 0 1 1.765-3.791c1.334-1.127 3.067-1.785 4.951-1.785zm1.538 4.615c-.482 0-.943.111-1.353.31l-.105.056-4.004 2.312a3.473 3.473 0 0 0-.46-.076 3.483 3.483 0 1 0 4.542 4.237c.725-.94 1.837-1.554 3.093-1.554 1.134 0 2.146.494 2.84 1.272l.09.106 4.004-2.312c.162-.352.261-.736.284-1.14l.006-.153c0-1.923-1.56-3.483-3.483-3.483a3.466 3.466 0 0 0-1.464.326l-.11.057-4.24-2.449a4.897 4.897 0 0 1-.09-.328 4.911 4.911 0 0 1 .454-1.522c.706-.176 1.455-.264 2.222-.264a10.09 10.09 0 0 1 7.218 3.063c1.691 1.756 2.648 4.14 2.648 6.643a10.151 10.151 0 0 1-3.83 7.304c-1.47 1.242-3.35 1.956-5.385 1.956-2.503 0-4.887-.957-6.643-2.648l-2.502 2.502c2.408 2.35 5.672 3.647 9.145 3.647a13.385 13.385 0 0 0 9.385-3.957 14.128 14.128 0 0 0 5.415-10.45 14.128 14.128 0 0 0-5.415-10.448A13.385 13.385 0 0 0 18.175.421a14.006 14.006 0 0 0-5.698 1.196l-.234.116 5.617 3.243a4.9 4.9 0 0 1 .315-.326z"/>
-                  </svg>
+                  <img className="h-6.5 w-auto object-contain" src="https://cdn.simpleicons.org/meta/0064E0" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
 
-                {/* Vercel Geometric Wordmark */}
+                {/* Vercel Brand Asset */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <img className="h-6.5 w-auto object-contain invert" src="https://cdn.simpleicons.org/vercel/white" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
 
-                {/* TikTok Glitch Color Icon Real Con Curvas Oficiales Exactas */}
+                {/* TikTok Brand Asset Exact Geometry */}
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#25F4EE" d="M12.11 0h3.69c.12 4.04 3.4 7.26 7.47 7.37v3.69c-2.26-.03-4.32-.93-5.88-2.39v9.23A8.11 8.11 0 1 1 9.27 9.8c.45-.07.9-.11 1.37-.11.49 0 .96.05 1.42.13l.05-3.69c-.48-.06-.97-.09-1.47-.09a11.72 11.72 0 0 0-2.31.23l3.78-6.27z"/>
-                    <path fill="#FE2C55" d="M12.11 0h4.21c-.04 3.73 2.92 6.77 6.66 6.85v4.21c-2.01-.06-3.85-.85-5.24-2.14v9c0 4.64-3.77 8.41-8.41 8.41S.92 22.56.92 17.92s3.77-8.41 8.41-8.41c.43 0 .85.04 1.27.1l1.51-9.61z" opacity="0.9" mixBlendMode="screen"/>
-                  </svg>
+                  <img className="h-7.5 w-auto object-contain" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
 
-              {/* Duplicado idéntico para crear el loop infinito perfecto sin saltos visuales */}
+              {/* Bloque 2: Duplicado espejo exacto */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
-                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
-                    <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
-                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/>
-                  </svg>
+                <div className="flex items-center gap-3.5 flex-shrink-0">
+                  <img className="h-7 w-auto object-contain" src="https://cdn.simpleicons.org/google/4285F4" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-8 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <img className="h-7 w-auto object-contain invert" src="https://cdn.simpleicons.org/github/white" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-7 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#0064E0" d="M16.637 5.035c1.488 0 2.825.617 3.807 1.611l.135.143 2.502-2.502a8.966 8.966 0 0 0-6.26-2.553 9.467 9.467 0 0 0-6.626 2.666 10.151 10.151 0 0 0-3.83 7.304c0 2.503.957 4.887 2.648 6.643l.142.144 2.502-2.502c-1.023-1.016-1.636-2.4-1.636-3.927a4.912 4.912 0 0 1 1.765-3.791c1.334-1.127 3.067-1.785 4.951-1.785zm1.538 4.615c-.482 0-.943.111-1.353.31l-.105.056-4.004 2.312a3.473 3.473 0 0 0-.46-.076 3.483 3.483 0 1 0 4.542 4.237c.725-.94 1.837-1.554 3.093-1.554 1.134 0 2.146.494 2.84 1.272l.09.106 4.004-2.312c.162-.352.261-.736.284-1.14l.006-.153c0-1.923-1.56-3.483-3.483-3.483a3.466 3.466 0 0 0-1.464.326l-.11.057-4.24-2.449a4.897 4.897 0 0 1-.09-.328 4.911 4.911 0 0 1 .454-1.522c.706-.176 1.455-.264 2.222-.264a10.09 10.09 0 0 1 7.218 3.063c1.691 1.756 2.648 4.14 2.648 6.643a10.151 10.151 0 0 1-3.83 7.304c-1.47 1.242-3.35 1.956-5.385 1.956-2.503 0-4.887-.957-6.643-2.648l-2.502 2.502c2.408 2.35 5.672 3.647 9.145 3.647a13.385 13.385 0 0 0 9.385-3.957 14.128 14.128 0 0 0 5.415-10.45 14.128 14.128 0 0 0-5.415-10.448A13.385 13.385 0 0 0 18.175.421a14.006 14.006 0 0 0-5.698 1.196l-.234.116 5.617 3.243a4.9 4.9 0 0 1 .315-.326z"/>
-                  </svg>
+                  <img className="h-6.5 w-auto object-contain" src="https://cdn.simpleicons.org/meta/0064E0" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-7 w-auto fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <img className="h-6.5 w-auto object-contain invert" src="https://cdn.simpleicons.org/vercel/white" alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
                 <div className="flex items-center gap-3.5 flex-shrink-0">
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#00f2fe" d="M12.525.02c1.31 0 2.594.28 3.754.79v4.542c-.754-.42-1.6-.662-2.512-.662-2.73 0-4.945 2.215-4.945 4.945v2.85h4.945c.01 2.73-2.205 4.945-4.935 4.945a4.951 4.951 0 0 1-4.945-4.945c0-2.73 2.215-4.945 4.945-4.945V3.03C4.12 3.32 0 7.195 0 12.003c0 5.523 4.477 10 10 10s10-4.477 10-10V5.706a7.48 7.48 0 004-.03V.99c-1.32.25-2.69.214-3.99-.11A7.447 7.447 0 0115.19 3.96c-.3-.88-.47-1.82-.5-2.78h-2.165v2.84z"/>
-                    <path fill="#fe2c55" d="M12.525.02c.85 0 1.71.12 2.52.37v4.54c-.38-.15-.79-.24-1.21-.24-2.73 0-4.95 2.21-4.95 4.94v2.85h3.63c.01 2.73-2.21 4.95-4.94 4.95A4.95 4.95 0 0 1 2.63 12c0-2.73 2.21-4.94 4.94-4.94V3.03c-2.31.29-4.38 1.63-5.63 3.6a10.01 10.01 0 0 0 16.47 11.08 4.95 4.95 0 0 0 1.54-3.68V5.71a7.46 7.46 0 0 0 4-.03V.99c-1.32.25-2.69.21-3.99-.11a7.45 7.45 0 0 1-3.63 3.08c-.3-.88-.47-1.82-.5-2.78h-3.32v2.84z" opacity="0.8" mixBlendMode="screen"/>
-                  </svg>
+                  <img className="h-7.5 w-auto object-contain" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
@@ -429,14 +407,13 @@ export default function App() {
           </div>
         </div>
 
-        {/* CSS Keyframes de animación infinita de flujo */}
         <style>{`
           @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
           }
           .animate-marquee {
-            animation: marquee 22s linear infinite;
+            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -776,198 +753,3 @@ export default function App() {
                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-6">
-                    <div>
-                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
-                      <input 
-                        name="nombre"
-                        type="text"
-                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
-                        placeholder="Tu nombre y apellido" 
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
-                      <input 
-                        name="email"
-                        type="email"
-                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
-                        placeholder="ejemplo@empresa.com" 
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-6">
-                    <div>
-                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
-                      <select 
-                        name="objetivo"
-                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none appearance-none cursor-pointer"
-                      >
-                        <option>Generar Leads</option>
-                        <option>Automatizar Adquisición</option>
-                        <option>Escalar Operaciones</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
-                      <textarea 
-                        name="contexto"
-                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-28 resize-none" 
-                        placeholder="Describe brevemente tus retos actuales..."
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-                
-                <button 
-                  type="submit"
-                  className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
-                >
-                  <Send className="w-5 h-5" />
-                  <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
-                </button>
-                
-                <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
-                  🔒 Datos protegidos. Reciba un diagnóstico inicial de su ecosistema digital en menos de 48 horas laborales.
-                </p>
-              </motion.form>
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-primary-container relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 text-center relative z-10">
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white mb-12 font-bold leading-tight tracking-tight max-w-5xl mx-auto">
-            Su negocio no necesita más ruido.<br className="hidden md:block" /> Necesita un sistema que convierta atención en capital.
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
-            <a 
-              href="https://wa.link/nb439w"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-surface px-12 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-all shadow-2xl uppercase tracking-widest font-mono flex items-center gap-4"
-            >
-              <WhatsAppIcon className="w-6 h-6 text-primary" />
-              HABLAR POR WHATSAPP
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-surface-container-lowest border-t border-outline-variant/10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-20">
-            <div className="md:col-span-5 flex flex-col gap-10">
-              <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <Logo />
-                <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">GrowthBrand</span>
-              </div>
-              <p className="text-on-surface-variant text-sm max-w-sm leading-relaxed opacity-70">
-                Growth Systems for Modern Businesses. Diseñamos y operamos infraestructuras de adquisición B2B para líderes de sector en Centroamérica.
-              </p>
-              <div className="flex gap-8 items-center text-xs font-mono text-on-surface-variant">
-                <a href="https://wa.link/nb439w" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors tracking-widest">WHATSAPP</a>
-                <a href="mailto:growthbrand@growthbrandgt.com" className="hover:text-primary transition-colors tracking-widest">EMAIL</a>
-              </div>
-            </div>
-            <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
-              <div>
-                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Estrategia</span>
-                <ul className="space-y-4 text-sm text-on-surface-variant opacity-70">
-                  <li><a href="#" className="hover:text-primary transition-colors">Sistemas</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">RevOps</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Casos</a></li>
-                </ul>
-              </div>
-              <div>
-                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Compañía</span>
-                <ul className="space-y-4 text-sm text-on-surface-variant opacity-70">
-                  <li><a href="#" className="hover:text-primary transition-colors">Nosotros</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Términos</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Privacidad</a></li>
-                </ul>
-              </div>
-              <div>
-                <span className="font-mono text-on-surface mb-8 block text-[10px] uppercase font-bold tracking-widest">Ubicación</span>
-                <p className="text-sm text-on-surface-variant opacity-70">Guatemala City, GT</p>
-                <p className="text-sm text-on-surface-variant transition-colors hover:text-primary mt-4 font-mono">growthbrand@growthbrandgt.com</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-20 pt-10 border-t border-outline-variant/10 text-center md:text-left">
-            <p className="text-xs text-on-surface-variant opacity-50 font-mono tracking-widest uppercase">
-              © 2026 GrowthBrand. Precision Growth Systems.
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Mobile Menu Backdrop & Sheet overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div 
-            className="fixed inset-0 z-[140] md:hidden bg-surface flex flex-col"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          >
-            <div className="h-24 px-4 flex justify-between items-center border-b border-white/5">
-              <div className="flex items-center gap-4">
-                <Logo />
-                <span className="font-display font-bold text-xl tracking-tight text-white">GrowthBrand</span>
-              </div>
-              <button className="text-white p-2" onClick={() => setIsMenuOpen(false)}>
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-            <div className="flex flex-col p-8 gap-8">
-              {[
-                { name: 'Sistemas', href: '#sistemas' },
-                { name: 'Metodología', href: '#metodologia' },
-                { name: 'Inversión', href: '#inversion' }
-              ].map((link) => (
-                <a 
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-display font-bold text-white hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <a 
-                href="#aplicar"
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-primary text-surface px-8 py-5 rounded-2xl font-bold text-center mt-10 shadow-xl shadow-primary/20"
-              >
-                DIAGNÓSTICO ESTRATÉGICO
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Floating WhatsApp Contact */}
-      <motion.a
-        href="https://wa.link/nb439w"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-[150] flex items-center gap-3 bg-[#25D366] text-white p-4 rounded-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all group lg:mr-4"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <div className="hidden lg:block overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap px-0 group-hover:px-2 font-bold text-xs uppercase tracking-widest">
-          Contacto rápido por WhatsApp
-        </div>
-        <WhatsAppIcon className="w-6 h-6" />
-      </motion.a>
-    </div>
-  );
-}
