@@ -189,7 +189,6 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* CUADRO DE REPRODUCCIÓN ANALÍTICA PERFECTA (CORREGIDO LÍNEA ESTADÍSTICA Y ESPACIOS) */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -220,7 +219,6 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Mantiene el grid simétrico con un gap controlado para evitar que choquen los textos */}
                     <div className="grid grid-cols-2 gap-3 px-5 sm:px-8 pt-6 relative z-10">
                       <motion.div 
                         className="p-3.5 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
@@ -253,7 +251,6 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    {/* Contenedor del Gráfico SVG arreglado para renderizarse con visibilidad total en móviles */}
                     <div className="flex-grow px-5 sm:px-8 pt-8 pb-14 relative z-10 h-[190px] sm:h-[220px] lg:h-auto">
                       <div className="w-full h-full relative" style={{ minHeight: '170px' }}>
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
@@ -341,7 +338,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MARQUESINA PROTEGIDA ANTIMUTACIONES */}
+      {/* Brand Trust Sliding Section */}
       <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -349,7 +346,6 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Animación forzada estrictamente en línea para blindar el loop continuo de las 5 marcas en celulares */}
             <div 
               className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
               style={{
@@ -435,7 +431,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Estilo e inyección inmutable de la animación */}
         <style>{`
           @keyframes marqueeScrollContinuous {
             0% { transform: translateX(0%); }
@@ -728,7 +723,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Form Section */}
+      {/* Form Section - FORMULARIO TOTALMENTE EXPANDIDO B2B EN 3 COLUMNAS LIMPIAS */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-white/5">
           <div className="p-10 md:p-16 bg-primary-container/[0.03] flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-outline-variant/5">
@@ -777,7 +772,11 @@ export default function App() {
                 className="space-y-6"
               >
                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* Grid inteligente estructurado en 3 columnas en computadoras y 1 en móviles */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  
+                  {/* Columna 1: Identidad Personal */}
                   <div className="space-y-6">
                     <div>
                       <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
@@ -800,6 +799,32 @@ export default function App() {
                       />
                     </div>
                   </div>
+
+                  {/* Columna 2: Datos de Validación Corporativa */}
+                  <div className="space-y-6">
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
+                      <input 
+                        name="website"
+                        type="url"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="https://empresa.com" 
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Número de Celular / WhatsApp</label>
+                      <input 
+                        name="telefono"
+                        type="tel"
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
+                        placeholder="+502 0000 0000" 
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Columna 3: Calificación y Contexto */}
                   <div className="space-y-6">
                     <div>
                       <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
@@ -816,14 +841,16 @@ export default function App() {
                       <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
                       <textarea 
                         name="contexto"
-                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-28 resize-none" 
-                        placeholder="Describe brevemente tus retos actuales..."
+                        className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none h-[54px] resize-none" 
+                        placeholder="Describe tus retos actuales..."
                         required
                       ></textarea>
                     </div>
                   </div>
+
                 </div>
                 
+                {/* Botón de envío adaptado al ancho expandido */}
                 <button 
                   type="submit"
                   className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
