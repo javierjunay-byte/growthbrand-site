@@ -189,7 +189,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* CUADRO DE SYSTEM PERFORMANCE REPARADO CONTRA DESBORDAMIENTOS */}
+            {/* INTEGRACIÓN DEL CUADRO DE ANALÍTICA AJUSTADO CON PRECISIÓN DE MARGENES */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -198,20 +198,20 @@ export default function App() {
               transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
             >
               <div className="absolute -inset-10 bg-primary/20 blur-[120px] rounded-full mix-blend-screen opacity-40 animate-pulse-soft"></div>
-              <div className="glass-card rounded-[3rem] p-3 border border-white/10 shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8)] relative group [transform-style:preserve-3d] transition-all duration-700 lg:hover:[transform:rotateX(2deg)_rotateY(-2deg)_scale(1.02)]">
+              <div className="glass-card rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 border border-white/10 shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8)] relative group [transform-style:preserve-3d] transition-all duration-700 lg:hover:[transform:rotateX(2deg)_rotateY(-2deg)_scale(1.02)]">
                 <div className="absolute inset-x-0 -top-px h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
-                <div className="relative overflow-hidden rounded-[2.5rem] bg-surface-container-low aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-[580px]">
-                  <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-[#0A0F1A] border border-white/5 flex flex-col">
+                <div className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[2.5rem] bg-surface-container-low aspect-auto min-h-[430px] sm:min-h-[500px] lg:h-[580px]">
+                  <div className="relative w-full h-full rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden bg-[#0A0F1A] border border-white/5 flex flex-col p-1">
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 blur-[100px] -mr-40 -mt-40 animate-pulse-soft"></div>
                     <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 blur-[100px] -ml-20 -mb-20 animate-pulse-soft" style={{ animationDelay: '-2s' }}></div>
                     
-                    <div className="px-6 py-6 border-b border-white/5 flex items-center justify-between relative z-10 bg-white/[0.01]">
+                    <div className="px-5 sm:px-8 py-5 sm:py-7 border-b border-white/5 flex items-center justify-between relative z-10 bg-white/[0.01]">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                           <span className="text-white/40 text-[9px] font-mono font-bold uppercase tracking-[0.2em]">Live Data Stream</span>
                         </div>
-                        <h3 className="text-white font-semibold text-xl tracking-tight">System Performance</h3>
+                        <h3 className="text-white font-semibold text-lg sm:text-xl tracking-tight">System Performance</h3>
                       </div>
                       <div className="hidden sm:flex gap-1.5">
                         {[1, 2, 3].map((i) => (
@@ -220,41 +220,41 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* El grid pasa a 1 columna vertical en móvil para que el número 98.2 tenga espacio completo */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-6 pt-6 relative z-10">
+                    {/* Distribución optimizada en cuadricula responsiva para celulares */}
+                    <div className="grid grid-cols-2 gap-3 px-5 sm:px-8 pt-6 relative z-10">
                       <motion.div 
-                        className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
+                        className="p-3 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
-                        <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest block mb-2">Revenue Growth</span>
-                        <div className="flex items-center justify-between sm:justify-start sm:gap-2 flex-wrap">
+                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-1.5">Revenue Growth</span>
+                        <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
                           <motion.span 
-                            className="text-white text-2xl sm:text-3xl font-bold tracking-tighter"
+                            className="text-white text-xl sm:text-3xl font-bold tracking-tighter"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                           >$142.4K</motion.span>
-                          <span className="text-emerald-400 text-[11px] font-bold bg-emerald-400/10 px-1.5 py-0.5 rounded-md leading-none animate-pulse-soft">+24%</span>
+                          <span className="text-emerald-400 text-[9px] sm:text-[11px] font-bold bg-emerald-400/10 px-1 py-0.5 rounded-md leading-none">+24%</span>
                         </div>
                       </motion.div>
                       
                       <motion.div 
-                        className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
+                        className="p-3 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
-                        <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest block mb-2">Efficiency Index</span>
-                        <div className="flex items-center justify-between sm:justify-start sm:gap-2 flex-wrap">
+                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-1.5">Efficiency Index</span>
+                        <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
                           <motion.span 
-                            className="text-white text-2xl sm:text-3xl font-bold tracking-tighter"
+                            className="text-white text-xl sm:text-3xl font-bold tracking-tighter"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                           >98.2</motion.span>
-                          <span className="text-primary text-[11px] font-bold bg-primary/10 px-1.5 py-0.5 rounded-md leading-none">Optimal</span>
+                          <span className="text-primary text-[9px] sm:text-[11px] font-bold bg-primary/10 px-1 py-0.5 rounded-md leading-none">Optimal</span>
                         </div>
                       </motion.div>
                     </div>
 
-                    {/* Gráfico adaptable responsivo */}
-                    <div className="flex-grow px-6 pt-8 pb-14 relative z-10 min-h-[160px]">
+                    {/* Gráfico SVG escalado y ajustado contra cortes en móviles */}
+                    <div className="flex-grow px-5 sm:px-8 pt-8 pb-12 relative z-10 min-h-[160px] sm:min-h-[200px]">
                       <div className="w-full h-full relative">
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
                           {[...Array(6)].map((_, i) => (
@@ -298,18 +298,18 @@ export default function App() {
                         </svg>
 
                         <motion.div 
-                          className="absolute top-[30px] right-0 flex items-center gap-2 sm:gap-3"
+                          className="absolute top-[25px] sm:top-[30px] right-0 flex items-center gap-2 sm:gap-3"
                           initial={{ opacity: 0, x: 20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 1.5 }}
                         >
                           <div className="h-px w-6 sm:w-10 bg-primary/40"></div>
-                          <span className="text-[9px] sm:text-[10px] font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded shadow-lg border border-primary/20">TARGET REACHED</span>
+                          <span className="text-[8px] sm:text-[10px] font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded shadow-lg border border-primary/20">TARGET REACHED</span>
                         </motion.div>
                       </div>
                     </div>
                     
-                    <div className="mt-auto px-6 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-white/20">
+                    <div className="mt-auto px-5 sm:px-8 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-white/20">
                       <span>Ref: 01-A9X-SYSTEM</span>
                       <div className="flex gap-4">
                         <span className="text-emerald-500/50">Node: Active</span>
@@ -341,23 +341,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MANTENIDO EN ALTA DEFINICIÓN E INTOCABLE */}
-      <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
+      {/* Brand Trust Sliding Section - MANTENIDO EXACTO E IMPECABLE */}
+      <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14 px-2">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
             {/* Animación fluida con aislamiento estricto contra encogimiento lateral */}
-            <div 
-              className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
-              style={{
-                display: 'flex',
-                width: 'max-content',
-                animation: 'marqueeScroll 25s linear infinite'
-              }}
-            >
+            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
+              
               {/* Bloque 1 */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
@@ -433,11 +427,13 @@ export default function App() {
           </div>
         </div>
 
-        {/* Keyframe global para scroll en loop */}
         <style>{`
-          @keyframes marqueeScroll {
+          @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -501,7 +497,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-outline-variant/10 rounded-[2.5rem] overflow-hidden bg-surface-container-low/20">
             {[
               { title: 'Demand Gen', text: 'Sistemas de pauta avanzada enfocados en volumen de alta intención y ROAS positivo.' },
-              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecta autoridad corporativa y maximiza el valor.' },
+              { title: 'Funnels UX', text: 'Engineering de conversión que proyecta autoridad corporativa y maximiza el valor.' },
               { title: 'Sales Systems', text: 'Integración de APIs y flujos de automatización que garantizan el control operativo.' },
               { title: 'Data Engine', text: 'Dashboards de inteligencia comercial con métricas de salud en tiempo real.' }
             ].map((item, idx) => (
@@ -830,7 +826,7 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* TEXTO DE CONFIDENCIALIDAD SELECCIONADO (OPCIÓN 1) */}
+                {/* TEXTO DE SEGURIDAD SELECCIONADO (OPCIÓN 1) */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
