@@ -231,7 +231,7 @@ export default function App() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                           >$142.4K</motion.span>
-                          <span className="text-emerald-400 text-[9px] sm:text-[11px] font-bold bg-emerald-400/10 px-1 py-0.5 rounded-md leading-none">+24%</span>
+                          <span className="text-emerald-400 text-[9px] sm:text-[11px] font-bold bg-emerald-400/10 px-1 py-0.5 rounded-md leading-none animate-pulse-soft">+24%</span>
                         </div>
                       </motion.div>
                       
@@ -432,9 +432,12 @@ export default function App() {
         </div>
 
         <style>{`
-          @keyframes marqueeScrollContinuous {
+          @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -723,7 +726,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Form Section - FORMULARIO TOTALMENTE EXPANDIDO B2B EN 3 COLUMNAS LIMPIAS */}
+      {/* Form Section - CORREGIDO TIPO DE CAMPO 'URL' A 'TEXT' Y REMOVIDO 'REQUIRED' CONTRA FRUSTRACIÓN */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-white/5">
           <div className="p-10 md:p-16 bg-primary-container/[0.03] flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-outline-variant/5">
@@ -773,7 +776,7 @@ export default function App() {
               >
                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
                 
-                {/* Grid inteligente estructurado en 3 columnas en computadoras y 1 en móviles */}
+                {/* Distribución optimizada en 3 columnas en computadoras */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   
                   {/* Columna 1: Identidad Personal */}
@@ -800,16 +803,15 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Columna 2: Datos de Validación Corporativa */}
+                  {/* Columna 2: Rediseñada de tipo TEXT y opcional para evitar el bloqueo del lead */}
                   <div className="space-y-6">
                     <div>
                       <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
                       <input 
                         name="website"
-                        type="url"
+                        type="text" // Reparado a text para que puedan escribir "no tengo" o usuarios sin fallar
                         className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
-                        placeholder="https://empresa.com" 
-                        required
+                        placeholder="Link o usuario (Opcional)" 
                       />
                     </div>
                     <div>
@@ -850,7 +852,6 @@ export default function App() {
 
                 </div>
                 
-                {/* Botón de envío adaptado al ancho expandido */}
                 <button 
                   type="submit"
                   className="w-full py-5 rounded-2xl bg-primary text-surface font-bold uppercase tracking-[0.2em] text-[13px] shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden"
@@ -859,7 +860,7 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* TEXTO DE SEGURIDAD SELECCIONADO (OPCIÓN 1) */}
+                {/* OPCIÓN DE SEGURIDAD 1 MANTENIDA */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
