@@ -189,7 +189,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* CUADRO DE SYSTEM PERFORMANCE CORREGIDO CONTRA SATURACIÓN MÓVIL */}
+            {/* CUADRO DE SYSTEM PERFORMANCE REPARADO CONTRA DESBORDAMIENTOS */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -220,7 +220,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Las sub-tarjetas pasan a ser de una sola columna en celulares para dar aire absoluto al número 98.2 */}
+                    {/* El grid pasa a 1 columna vertical en móvil para que el número 98.2 tenga espacio completo */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-6 pt-6 relative z-10">
                       <motion.div 
                         className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
@@ -341,7 +341,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MANTENIDO TOTALMENTE INTACTO Y AIREADO */}
+      {/* Brand Trust Sliding Section - MANTENIDO EN ALTA DEFINICIÓN E INTOCABLE */}
       <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14 px-2">
@@ -350,8 +350,14 @@ export default function App() {
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
             {/* Animación fluida con aislamiento estricto contra encogimiento lateral */}
-            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
-              
+            <div 
+              className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
+              style={{
+                display: 'flex',
+                width: 'max-content',
+                animation: 'marqueeScroll 25s linear infinite'
+              }}
+            >
               {/* Bloque 1 */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
@@ -427,13 +433,11 @@ export default function App() {
           </div>
         </div>
 
+        {/* Keyframe global para scroll en loop */}
         <style>{`
-          @keyframes marquee {
+          @keyframes marqueeScroll {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -826,7 +830,7 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* FRASE DE PRIVACIDAD OPCIÓN 1 */}
+                {/* TEXTO DE CONFIDENCIALIDAD SELECCIONADO (OPCIÓN 1) */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
