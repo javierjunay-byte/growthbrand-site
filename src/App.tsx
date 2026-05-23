@@ -337,20 +337,20 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MARQUESINA REPARADA COMPLETA (COLORES Y ESPACIOS PERFECTOS) */}
-      <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
+      {/* Brand Trust Sliding Section - PERFECCIÓN RESPONSIVE CON ESPACIADO AIREADO Y MOVIMIENTO 100% INFINITO */}
+      <section className="bg-[#050914] py-20 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Marquesina infinita en CSS puro - Cada bloque tiene min-w-[200px] para evitar colisiones entre Google y TikTok */}
+            {/* El carrusel ahora se ejecuta de forma obligatoria en móviles e infinitamente para desplegar las 5 marcas */}
             <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
               
-              {/* Bloque 1 - SVG Nativo a Color de Google + GitHub y Vercel en Blanco */}
+              {/* Bloque 1 */}
               <div className="flex items-center gap-16 md:gap-24">
-                {/* Google Multicolor Original Exacto */}
+                {/* Google */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
@@ -360,33 +360,33 @@ export default function App() {
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
-                {/* GitHub Blanco Puro */}
+                {/* GitHub */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
-                {/* Meta Azul Oficial Exacto */}
+                {/* Meta */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
-                {/* Vercel Blanco Puro */}
+                {/* Vercel */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-6.5 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '28px', width: 'auto', flexShrink: 0 }}>
                     <path d="M24 22.525H0L12 1.475L24 22.525Z"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
-                {/* TikTok Glitch Real */}
+                {/* TikTok */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)', flexShrink: 0 }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
 
-              {/* Bloque 2 (Duplicado idéntico para loop infinito sin saltos) */}
+              {/* Bloque 2 */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
@@ -423,7 +423,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Estilo e inyección fluida de la animación */}
         <style>{`
           @keyframes marquee {
             0% { transform: translateX(0%); }
@@ -823,8 +822,9 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
+                {/* OPCIÓN 1 ELEGIDA: PRIVACIDAD Y SEGURIDAD MÁXIMA EN FORMULARIO */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
-                  🔒 Datos protegidos. Reciba un diagnóstico inicial de su ecosistema digital en menos de 48 horas laborales.
+                  🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
               </motion.form>
             </AnimatePresence>
