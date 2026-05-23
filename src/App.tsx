@@ -189,6 +189,7 @@ export default function App() {
               </div>
             </motion.div>
 
+            {/* CUADRO DE SYSTEM PERFORMANCE CORREGIDO CONTRA SATURACIÓN MÓVIL */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -204,7 +205,7 @@ export default function App() {
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 blur-[100px] -mr-40 -mt-40 animate-pulse-soft"></div>
                     <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 blur-[100px] -ml-20 -mb-20 animate-pulse-soft" style={{ animationDelay: '-2s' }}></div>
                     
-                    <div className="px-8 py-7 border-b border-white/5 flex items-center justify-between relative z-10 bg-white/[0.01]">
+                    <div className="px-6 py-6 border-b border-white/5 flex items-center justify-between relative z-10 bg-white/[0.01]">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -219,29 +220,31 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 px-8 pt-8 relative z-10">
+                    {/* Las sub-tarjetas pasan a ser de una sola columna en celulares para dar aire absoluto al número 98.2 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-6 pt-6 relative z-10">
                       <motion.div 
-                        className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
+                        className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
                         <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest block mb-2">Revenue Growth</span>
-                        <div className="flex items-baseline gap-2">
+                        <div className="flex items-center justify-between sm:justify-start sm:gap-2 flex-wrap">
                           <motion.span 
-                            className="text-white text-3xl font-bold tracking-tighter"
+                            className="text-white text-2xl sm:text-3xl font-bold tracking-tighter"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                           >$142.4K</motion.span>
-                          <span className="text-emerald-400 text-[11px] font-bold bg-emerald-400/10 px-1.5 py-0.5 rounded-md leading-none animate-pulse-soft text-nowrap">+24%</span>
+                          <span className="text-emerald-400 text-[11px] font-bold bg-emerald-400/10 px-1.5 py-0.5 rounded-md leading-none animate-pulse-soft">+24%</span>
                         </div>
                       </motion.div>
+                      
                       <motion.div 
-                        className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
+                        className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
                         <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest block mb-2">Efficiency Index</span>
-                        <div className="flex items-baseline gap-2">
+                        <div className="flex items-center justify-between sm:justify-start sm:gap-2 flex-wrap">
                           <motion.span 
-                            className="text-white text-3xl font-bold tracking-tighter"
+                            className="text-white text-2xl sm:text-3xl font-bold tracking-tighter"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                           >98.2</motion.span>
@@ -250,7 +253,8 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    <div className="flex-grow px-8 pt-10 pb-16 relative z-10">
+                    {/* Gráfico adaptable responsivo */}
+                    <div className="flex-grow px-6 pt-8 pb-14 relative z-10 min-h-[160px]">
                       <div className="w-full h-full relative">
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
                           {[...Array(6)].map((_, i) => (
@@ -294,22 +298,22 @@ export default function App() {
                         </svg>
 
                         <motion.div 
-                          className="absolute top-[30px] right-0 flex items-center gap-3"
+                          className="absolute top-[30px] right-0 flex items-center gap-2 sm:gap-3"
                           initial={{ opacity: 0, x: 20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 1.5 }}
                         >
-                          <div className="h-px w-10 bg-primary/40"></div>
-                          <span className="text-[10px] font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded shadow-lg border border-primary/20">TARGET REACHED</span>
+                          <div className="h-px w-6 sm:w-10 bg-primary/40"></div>
+                          <span className="text-[9px] sm:text-[10px] font-mono text-primary font-bold bg-primary/10 px-2 py-1 rounded shadow-lg border border-primary/20">TARGET REACHED</span>
                         </motion.div>
                       </div>
                     </div>
                     
-                    <div className="mt-auto px-8 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-white/20">
+                    <div className="mt-auto px-6 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-white/20">
                       <span>Ref: 01-A9X-SYSTEM</span>
                       <div className="flex gap-4">
                         <span className="text-emerald-500/50">Node: Active</span>
-                        <span>Latency: 42ms</span>
+                        <span className="hidden sm:inline">Latency: 42ms</span>
                       </div>
                     </div>
                   </div>
@@ -337,24 +341,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - CORRECCIÓN DE DISTRIBUCIÓN RESPONSIVE Y VISUALIZACIÓN MÓVIL FORZADA */}
-      <section className="bg-[#050914] py-20 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
+      {/* Brand Trust Sliding Section - MANTENIDO TOTALMENTE INTACTO Y AIREADO */}
+      <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14 px-2">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
-          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Animación forzada estrictamente por CSS inline para que ruede en Safari y Chrome de celulares mostrando las 5 marcas */}
-            <div 
-              className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
-              style={{
-                display: 'flex',
-                width: 'max-content',
-                animation: 'marqueeScroll 25s linear infinite'
-              }}
-            >
-              {/* Bloque 1 - Los 5 logos originales en alta definición y con anchos bloqueados */}
+          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
+            {/* Animación fluida con aislamiento estricto contra encogimiento lateral */}
+            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
+              
+              {/* Bloque 1 */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
@@ -392,7 +390,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bloque 2 (Loop espejo obligatorio) */}
+              {/* Bloque 2 */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
@@ -429,11 +427,13 @@ export default function App() {
           </div>
         </div>
 
-        {/* Keyframe global para scroll fluido */}
         <style>{`
-          @keyframes marqueeScroll {
+          @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -826,7 +826,7 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* FRASE ESTRATÉGICA OPCIÓN 1 CORREGIDA */}
+                {/* FRASE DE PRIVACIDAD OPCIÓN 1 */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
