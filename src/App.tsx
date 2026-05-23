@@ -338,7 +338,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - ANIMACIÓN REPARADA CON REGLA -50% ESTRICTA */}
+      {/* Brand Trust Sliding Section - ESTRUCTURA UNIFICADA CON DOS BLOQUES IDENTICOS */}
       <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -346,9 +346,9 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Clase global .animate-marquee-css añadida con herencia de hardware */}
+            {/* Animación forzada estrictamente al -50% para eliminar cualquier micro-salto o tirón */}
             <div 
-              className="animate-marquee-css flex items-center gap-16 md:gap-24 whitespace-nowrap"
+              className="animate-marquee-css flex items-center gap-24 whitespace-nowrap"
               style={{
                 display: 'flex',
                 width: 'max-content',
@@ -356,11 +356,11 @@ export default function App() {
                 willChange: 'transform'
               }}
             >
-              {/* Bloque 1 */}
-              <div className="flex items-center gap-16 md:gap-24">
+              {/* Bloque 1 - Los 5 Logos Base */}
+              <div className="flex items-center gap-24 shrink-0">
                 {/* Google */}
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
                     <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
                     <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
@@ -369,35 +369,35 @@ export default function App() {
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
                 {/* GitHub */}
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-8 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
                 {/* Meta */}
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-6.5 w-auto shrink-0" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
                 {/* Vercel */}
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-6.5 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '28px', width: 'auto', flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24 22.525H0L12 1.475L24 22.525Z"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
                 {/* TikTok */}
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)', flexShrink: 0 }} alt="" />
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-7.5 w-auto shrink-0" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
 
-              {/* Bloque 2 (Espejo perfecto) */}
-              <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
+              {/* Bloque 2 - Duplicado Espejo Idéntico en Píxeles para Bucle Continuo */}
+              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/>
                     <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/>
                     <path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/>
@@ -405,24 +405,24 @@ export default function App() {
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-8 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} alt="" />
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-6.5 w-auto shrink-0" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px', width: 'auto', objectFit: 'contain' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <svg className="h-6.5 w-auto fill-white text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '28px', width: 'auto', flexShrink: 0 }}>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24 22.525H0L12 1.475L24 22.525Z"/>
                   </svg>
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span>
                 </div>
-                <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
-                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)', flexShrink: 0 }} alt="" />
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-7.5 w-auto shrink-0" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
                   <span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span>
                 </div>
               </div>
@@ -431,11 +431,11 @@ export default function App() {
           </div>
         </div>
 
-        {/* CSS inmutable con tope matemático estricto al -50% para eliminar el tirón */}
+        {/* CSS forzado al -50% con aceleración 3D para remover brincos */}
         <style>{`
           @keyframes marqueeScrollContinuous {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
           }
           .animate-marquee-css {
             animation: marqueeScrollContinuous 24s linear infinite !important;
@@ -502,7 +502,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-outline-variant/10 rounded-[2.5rem] overflow-hidden bg-surface-container-low/20">
             {[
               { title: 'Demand Gen', text: 'Sistemas de pauta avanzada enfocados en volumen de alta intención y ROAS positivo.' },
-              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecat autoridad corporativa y maximiza el valor.' },
+              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecta autoridad corporativa y maximiza el valor.' },
               { title: 'Sales Systems', text: 'Integración de APIs y flujos de automatización que garantizan el control operativo.' },
               { title: 'Data Engine', text: 'Dashboards de inteligencia comercial con métricas de salud en tiempo real.' }
             ].map((item, idx) => (
