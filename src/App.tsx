@@ -189,6 +189,7 @@ export default function App() {
               </div>
             </motion.div>
 
+            {/* CUADRO DE SYSTEM PERFORMANCE REPARADO */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -338,21 +339,22 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section */}
-      <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
+      {/* Brand Trust Sliding Section - MARQUESINA FLUIDA REPARADA */}
+      <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
+            {/* Animación forzada estrictamente por propiedad inline para asegurar movimiento continuo en PC y móvil */}
             <div 
               className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
               style={{
                 display: 'flex',
                 width: 'max-content',
                 minWidth: 'max-content',
-                animation: 'marqueeScrollContinuous 24s linear infinite',
+                animation: 'marqueeContinuous 24s linear infinite',
                 willChange: 'transform'
               }}
             >
@@ -394,7 +396,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bloque 2 */}
+              {/* Bloque 2 (Duplicado idéntico para loop infinito sin saltos visuales) */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
@@ -431,13 +433,11 @@ export default function App() {
           </div>
         </div>
 
+        {/* Animación keyframe inyectada */}
         <style>{`
-          @keyframes marquee {
+          @keyframes marqueeScrollContinuous {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -726,7 +726,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Form Section - CORREGIDO TIPO DE CAMPO 'URL' A 'TEXT' Y REMOVIDO 'REQUIRED' CONTRA FRUSTRACIÓN */}
+      {/* Form Section */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto glass-card rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-white/5">
           <div className="p-10 md:p-16 bg-primary-container/[0.03] flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-outline-variant/5">
@@ -776,7 +776,6 @@ export default function App() {
               >
                 <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
                 
-                {/* Distribución optimizada en 3 columnas en computadoras */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   
                   {/* Columna 1: Identidad Personal */}
@@ -803,13 +802,13 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Columna 2: Rediseñada de tipo TEXT y opcional para evitar el bloqueo del lead */}
+                  {/* Columna 2: Campo de sitio web no restrictivo y opcional */}
                   <div className="space-y-6">
                     <div>
                       <label className="font-mono text-on-surface-variant/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
                       <input 
                         name="website"
-                        type="text" // Reparado a text para que puedan escribir "no tengo" o usuarios sin fallar
+                        type="text" 
                         className="w-full bg-surface-container-lowest/50 border border-outline-variant/10 rounded-2xl p-4 text-on-surface focus:border-primary transition-all outline-none" 
                         placeholder="Link o usuario (Opcional)" 
                       />
@@ -860,7 +859,6 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* OPCIÓN DE SEGURIDAD 1 MANTENIDA */}
                 <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
