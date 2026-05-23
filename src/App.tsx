@@ -337,18 +337,24 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - PERFECCIÓN RESPONSIVE CON ESPACIADO AIREADO Y MOVIMIENTO 100% INFINITO */}
+      {/* Brand Trust Sliding Section - CORRECCIÓN DE DISTRIBUCIÓN RESPONSIVE Y VISUALIZACIÓN MÓVIL FORZADA */}
       <section className="bg-[#050914] py-20 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-14 px-2">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
-          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* El carrusel ahora se ejecuta de forma obligatoria en móviles e infinitamente para desplegar las 5 marcas */}
-            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
-              
-              {/* Bloque 1 */}
+          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
+            {/* Animación forzada estrictamente por CSS inline para que ruede en Safari y Chrome de celulares mostrando las 5 marcas */}
+            <div 
+              className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
+              style={{
+                display: 'flex',
+                width: 'max-content',
+                animation: 'marqueeScroll 25s linear infinite'
+              }}
+            >
+              {/* Bloque 1 - Los 5 logos originales en alta definición y con anchos bloqueados */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
@@ -386,7 +392,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bloque 2 */}
+              {/* Bloque 2 (Loop espejo obligatorio) */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
@@ -423,13 +429,11 @@ export default function App() {
           </div>
         </div>
 
+        {/* Keyframe global para scroll fluido */}
         <style>{`
-          @keyframes marquee {
+          @keyframes marqueeScroll {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -822,8 +826,8 @@ export default function App() {
                   <span>SOLICITAR EVALUACIÓN ESTRATÉGICA</span>
                 </button>
                 
-                {/* OPCIÓN 1 ELEGIDA: PRIVACIDAD Y SEGURIDAD MÁXIMA EN FORMULARIO */}
-                <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed">
+                {/* FRASE ESTRATÉGICA OPCIÓN 1 CORREGIDA */}
+                <p className="text-center text-white/40 text-[11px] font-mono mt-4 leading-relaxed px-4">
                   🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
                 </p>
               </motion.form>
