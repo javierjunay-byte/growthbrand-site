@@ -189,7 +189,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* INTEGRACIÓN DEL CUADRO DE ANALÍTICA AJUSTADO CON PRECISIÓN DE MARGENES */}
+            {/* CUADRO DE REPRODUCCIÓN ANALÍTICA PERFECTA (CORREGIDO LÍNEA ESTADÍSTICA Y ESPACIOS) */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -200,7 +200,7 @@ export default function App() {
               <div className="absolute -inset-10 bg-primary/20 blur-[120px] rounded-full mix-blend-screen opacity-40 animate-pulse-soft"></div>
               <div className="glass-card rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 border border-white/10 shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8)] relative group [transform-style:preserve-3d] transition-all duration-700 lg:hover:[transform:rotateX(2deg)_rotateY(-2deg)_scale(1.02)]">
                 <div className="absolute inset-x-0 -top-px h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
-                <div className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[2.5rem] bg-surface-container-low aspect-auto min-h-[430px] sm:min-h-[500px] lg:h-[580px]">
+                <div className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[2.5rem] bg-surface-container-low aspect-auto min-h-[460px] lg:h-[580px]">
                   <div className="relative w-full h-full rounded-[2.2rem] sm:rounded-[2.5rem] overflow-hidden bg-[#0A0F1A] border border-white/5 flex flex-col p-1">
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 blur-[100px] -mr-40 -mt-40 animate-pulse-soft"></div>
                     <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 blur-[100px] -ml-20 -mb-20 animate-pulse-soft" style={{ animationDelay: '-2s' }}></div>
@@ -220,13 +220,13 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Distribución optimizada en cuadricula responsiva para celulares */}
+                    {/* Mantiene el grid simétrico con un gap controlado para evitar que choquen los textos */}
                     <div className="grid grid-cols-2 gap-3 px-5 sm:px-8 pt-6 relative z-10">
                       <motion.div 
-                        className="p-3 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
+                        className="p-3.5 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
-                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-1.5">Revenue Growth</span>
+                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-2">Revenue Growth</span>
                         <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
                           <motion.span 
                             className="text-white text-xl sm:text-3xl font-bold tracking-tighter"
@@ -238,10 +238,10 @@ export default function App() {
                       </motion.div>
                       
                       <motion.div 
-                        className="p-3 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner"
+                        className="p-3.5 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 shadow-inner flex flex-col justify-between"
                         whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                       >
-                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-1.5">Efficiency Index</span>
+                        <span className="text-white/30 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest block mb-2">Efficiency Index</span>
                         <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
                           <motion.span 
                             className="text-white text-xl sm:text-3xl font-bold tracking-tighter"
@@ -253,16 +253,16 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    {/* Gráfico SVG escalado y ajustado contra cortes en móviles */}
-                    <div className="flex-grow px-5 sm:px-8 pt-8 pb-12 relative z-10 min-h-[160px] sm:min-h-[200px]">
-                      <div className="w-full h-full relative">
+                    {/* Contenedor del Gráfico SVG arreglado para renderizarse con visibilidad total en móviles */}
+                    <div className="flex-grow px-5 sm:px-8 pt-8 pb-14 relative z-10 h-[190px] sm:h-[220px] lg:h-auto">
+                      <div className="w-full h-full relative" style={{ minHeight: '170px' }}>
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
                           {[...Array(6)].map((_, i) => (
                             <div key={i} className="w-full h-px bg-white/20"></div>
                           ))}
                         </div>
                         
-                        <svg className="absolute inset-0 w-full h-full filter drop-shadow-[0_0_15px_rgba(37,99,235,0.2)]" viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <svg className="absolute inset-0 w-full h-full filter drop-shadow-[0_0_15px_rgba(37,99,235,0.2)]" viewBox="0 0 400 200" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '100%' }}>
                           <defs>
                             <linearGradient id="premium-area-grad" x1="0" y1="0" x2="0" y2="1">
                               <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
@@ -341,17 +341,25 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - MANTENIDO EXACTO E IMPECABLE */}
-      <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
+      {/* Brand Trust Sliding Section - MARQUESINA PROTEGIDA ANTIMUTACIONES */}
+      <section className="bg-[#050914] py-16 md:py-24 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Animación fluida con aislamiento estricto contra encogimiento lateral */}
-            <div className="animate-marquee flex items-center gap-16 md:gap-24 whitespace-nowrap min-w-full py-4">
-              
+            {/* Animación forzada estrictamente en línea para blindar el loop continuo de las 5 marcas en celulares */}
+            <div 
+              className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
+              style={{
+                display: 'flex',
+                width: 'max-content',
+                minWidth: 'max-content',
+                animation: 'marqueeScrollContinuous 24s linear infinite',
+                willChange: 'transform'
+              }}
+            >
               {/* Bloque 1 */}
               <div className="flex items-center gap-16 md:gap-24">
                 {/* Google */}
@@ -427,13 +435,11 @@ export default function App() {
           </div>
         </div>
 
+        {/* Estilo e inyección inmutable de la animación */}
         <style>{`
-          @keyframes marquee {
+          @keyframes marqueeScrollContinuous {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 24s linear infinite;
           }
         `}</style>
       </section>
@@ -497,7 +503,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-outline-variant/10 rounded-[2.5rem] overflow-hidden bg-surface-container-low/20">
             {[
               { title: 'Demand Gen', text: 'Sistemas de pauta avanzada enfocados en volumen de alta intención y ROAS positivo.' },
-              { title: 'Funnels UX', text: 'Engineering de conversión que proyecta autoridad corporativa y maximiza el valor.' },
+              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecta autoridad corporativa y maximiza el valor.' },
               { title: 'Sales Systems', text: 'Integración de APIs y flujos de automatización que garantizan el control operativo.' },
               { title: 'Data Engine', text: 'Dashboards de inteligencia comercial con métricas de salud en tiempo real.' }
             ].map((item, idx) => (
