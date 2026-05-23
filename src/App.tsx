@@ -189,7 +189,6 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* CUADRO DE SYSTEM PERFORMANCE FIJADO */}
             <motion.div 
               className="lg:col-span-5 relative [perspective:2000px]"
               initial={{ opacity: 0, scale: 0.9, rotateY: 5 }}
@@ -252,7 +251,6 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    {/* El SVG ahora está fijado a un contenedor con altura real inamovible de 200px */}
                     <div className="flex-grow px-5 sm:px-8 pt-8 pb-14 relative z-10" style={{ height: '200px', minHeight: '200px' }}>
                       <div className="w-full h-full relative">
                         <div className="absolute inset-0 flex flex-col justify-between py-1 opacity-20">
@@ -340,7 +338,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Brand Trust Sliding Section - REPARACIÓN NATIVA GLOBAL DEL MOVIMIENTO */}
+      {/* Brand Trust Sliding Section - ANIMACIÓN REPARADA CON REGLA -50% ESTRICTA */}
       <section className="bg-[#050914] py-16 border-y border-white/5 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-primary italic font-bold tracking-tight mb-12">
@@ -348,7 +346,7 @@ export default function App() {
           </h2>
           
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#050914] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#050914] after:to-transparent">
-            {/* Animación forzada explícitamente mediante la clase global .animate-marquee-css */}
+            {/* Clase global .animate-marquee-css añadida con herencia de hardware */}
             <div 
               className="animate-marquee-css flex items-center gap-16 md:gap-24 whitespace-nowrap"
               style={{
@@ -396,7 +394,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bloque 2 */}
+              {/* Bloque 2 (Espejo perfecto) */}
               <div className="flex items-center gap-16 md:gap-24" aria-hidden="true">
                 <div className="flex items-center gap-3.5 shrink-0 min-w-[180px] justify-center" style={{ flexShrink: 0 }}>
                   <svg className="h-8 w-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ height: '32px', width: 'auto', flexShrink: 0 }}>
@@ -433,10 +431,10 @@ export default function App() {
           </div>
         </div>
 
-        {/* Estilo e inyección CSS pura e inmutable para corregir el movimiento */}
+        {/* CSS inmutable con tope matemático estricto al -50% para eliminar el tirón */}
         <style>{`
           @keyframes marqueeScrollContinuous {
-            0% { transform: translateX(0%); }
+            0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
           .animate-marquee-css {
@@ -504,7 +502,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-outline-variant/10 rounded-[2.5rem] overflow-hidden bg-surface-container-low/20">
             {[
               { title: 'Demand Gen', text: 'Sistemas de pauta avanzada enfocados en volumen de alta intención y ROAS positivo.' },
-              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecta autoridad corporativa y maximiza el valor.' },
+              { title: 'Funnels UX', text: 'Ingeniería de conversión que proyecat autoridad corporativa y maximiza el valor.' },
               { title: 'Sales Systems', text: 'Integración de APIs y flujos de automatización que garantizan el control operativo.' },
               { title: 'Data Engine', text: 'Dashboards de inteligencia comercial con métricas de salud en tiempo real.' }
             ].map((item, idx) => (
