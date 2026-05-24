@@ -179,7 +179,6 @@ export default function App() {
                 Sistemas de Posicionamiento Global
               </div>
               
-              {/* TITULAR REPARADO: ALINEACIÓN COMPLETA A LA IZQUIERDA SIN ESPACIOS ROTOS */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
@@ -279,7 +278,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA (LOGO META AZUL) */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
@@ -290,24 +289,24 @@ export default function App() {
               <div className="flex items-center gap-24 shrink-0">
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto text-white" src="https://cdn.simpleicons.org/meta/FFFFFF" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                {/* CORRECCIÓN EXCELENTE: LOGO DE META EN AZUL DE MARCA DE ALTA FIDELIDAD */}
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
               </div>
               <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto text-white" src="https://cdn.simpleicons.org/meta/FFFFFF" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES CON HOVER CELESTE PREMIUM */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -371,7 +370,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_4b2d7d.png`) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_551765.png`) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
@@ -381,23 +380,23 @@ export default function App() {
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Contenido Profesional de Alta Confianza</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones orgánicas y reales.
+                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones reales.
               </p>
             </div>
             
-            {/* CORRECCIÓN: FOTOGRAFÍA ORGANICA COMPLETA DE ALTA VISIBILIDAD SIN TONO AZUL PLANO */}
+            {/* CORRECCIÓN EXCELENTE: CONSTRUIDO COMO UN ANUNCIO REAL DE ALTA FIDELIDAD */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
-              <div className="w-full max-w-[320px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
-                <div className="h-48 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 shadow-inner">
-                  {/* Imagen de Contenido Orgánico Real de Alta Fidelidad */}
+              <div className="w-full max-w-[340px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
+                <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 shadow-inner">
+                  {/* Fotografía de Alta Confianza de Anuncio Corporativo Real */}
                   <img 
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=600" 
-                    alt="B2B Corporate Strategy" 
-                    className="absolute inset-0 w-full h-full object-cover object-top opacity-70 mix-blend-normal"
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600" 
+                    alt="B2B Corporate Real Ad" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
                   <div className="text-[10px] font-mono text-[#00B4D8] font-bold relative z-10">LIVE AD SIMULATION</div>
-                  <div className="text-base font-display font-bold relative z-10 text-white drop-shadow-sm">Infraestructura Corporativa B2B</div>
+                  <div className="text-base font-display font-bold relative z-10 text-white">Infraestructura Corporativa B2B</div>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
@@ -413,12 +412,11 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mockup 2: TikTok Ads In-Feed Ad Placement */}
+          {/* Mockup 2: TikTok Ads Placement In-Feed */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Mockup de TikTok Ads In-Feed */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
-                <div className="rounded-[2.2rem] overflow-hidden aspect-[9/16] relative flex flex-col justify-between p-4 bg-zinc-900">
+                <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
                   <img 
                     src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" 
                     alt="Premium Product Showcase" 
@@ -477,18 +475,20 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (LOS 3 MODELOS DE ALTA ADQUISICIÓN CON REDIRECCIÓN COMPLETA A WHATSAPP) */}
+      {/* 6. SECCIÓN DE INVERSIÓN (DISEÑO TRIDIMENSIONAL PREMIUM, TITULOS Y BOTONES CELESTES) */}
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="font-display text-4xl md:text-5xl text-[#0A192F] mb-6 font-bold tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            {/* CORRECCIÓN: TÍTULO EN COLOR CELESTE BRILLANTE */}
+            <h2 className="font-display text-4xl md:text-5xl text-[#00B4D8] mb-6 font-bold tracking-tight">
               Modelos de Implementación B2B
             </h2>
             <p className="text-[#0A192F]/60 text-lg">
-              Infraestructura diseñada para blindar el volumen de prospección y la autoridad comercial.
+              Infraestructura volumétrica blindada para acelerar tus flujos comerciales de adquisición.
             </p>
           </div>
 
+          {/* CORRECCIÓN EXCELENTE: CAJAS CON ASPECTO 3D SOBRESALIDO Y COMPACTO */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
@@ -496,8 +496,8 @@ export default function App() {
                 title: 'Arquitectura inicial para negocios tradicionales que buscan estructura de conversión y orden comercial.',
                 subtitle: '',
                 icon: '◉',
-                textBtn: 'Cotizar Despliegue Core',
-                msgWa: 'Hola equipo de GrowthBrand. Me interesa cotizar el plan de Despliegue Core para estructurar mi adquisición comercial. Mi nombre es...',
+                textBtn: 'Adquirir Estrategia base',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el plan de Estrategia base para mi marca. Mi nombre es...',
                 features: ['Gestión de Leads', 'Pauta Avanzada Google/Meta', 'Auditoría Mensual Comercial', 'Estructura SEO Local Básica']
               },
               {
@@ -506,8 +506,8 @@ export default function App() {
                 subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
                 icon: '◎',
                 premium: true,
-                textBtn: 'Adquirir Sistema de Crecimiento',
-                msgWa: 'Hola equipo de GrowthBrand. Me interesa activar el plan de Crecimiento Escalable con integraciones de automatización y WhatsApp API. Mi nombre es...',
+                textBtn: 'Adquirir sistema de crecimiento',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el sistema de crecimiento escalable para mi empresa. Mi nombre es...',
                 features: ['WhatsApp API Business', 'CRM & Automations Core', 'Funnel UX Corporativo', 'Lead Scoring Algorítmico']
               },
               {
@@ -515,23 +515,21 @@ export default function App() {
                 title: 'Infraestructura élite de adquisición continua orientada a dominar mercados regionales de forma predecible.',
                 subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
                 icon: '⬢',
-                textBtn: 'Agendar Sesión Growth Partner',
-                msgWa: 'Hola socios de GrowthBrand. Requerimos una auditoría avanzada para el ecosistema regional Growth Command. Mi nombre es...',
+                textBtn: 'Adquirir Growth Command',
+                msgWa: 'Hola socios de GrowthBrand. Requerimos la infraestructura de adquisición avanzada Growth Command. Mi nombre es...',
                 features: ['Agentes de IA Avanzados', 'Centralización de Inteligencia Comercial', 'Análisis Predictivo de Costos']
               }
             ].map((plan, idx) => (
               <motion.div
                 key={idx}
-                className={`bg-white p-10 rounded-[2.5rem] flex flex-col justify-between border transition-all duration-500 hover:bg-[#00B4D8]/5 hover:border-[#00B4D8]/20 group ${
-                  plan.premium
-                    ? 'border-[#0A192F] shadow-[0_35px_70px_rgba(10,25,47,0.1)] scale-[1.03] z-20'
-                    : 'border-[#0A192F]/5 shadow-md shadow-gray-100'
+                className={`bg-white p-10 rounded-[2.5rem] flex flex-col justify-between border border-[#0A192F]/10 shadow-[0_30px_70px_rgba(10,25,47,0.12)] transition-all duration-500 hover:bg-[#00B4D8]/5 hover:border-[#00B4D8]/30 group ${
+                  plan.premium ? 'scale-[1.04] z-20 border-[#0A192F]/30 shadow-[0_45px_90px_rgba(10,25,47,0.18)]' : ''
                 }`}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -8 }}
               >
                 <div>
                   <div className="text-center mb-8">
-                    <span className="font-mono text-2xl text-[#00B4D8] block mb-4 group-hover:text-[#0A192F] transition-colors">{plan.icon}</span>
+                    <span className="font-mono text-2xl text-[#00B4D8] block mb-4 group-hover:scale-110 transition-transform">{plan.icon}</span>
                     <span className="font-mono font-bold tracking-[0.2em] text-xs text-[#0A192F]/60 uppercase block mb-4">{plan.type}</span>
                     <p className="text-[#0A192F]/70 text-sm leading-relaxed">{plan.title}</p>
                   </div>
@@ -545,25 +543,21 @@ export default function App() {
                   <ul className="space-y-4 mb-8">
                     {plan.features.map((f, i) => (
                       <li key={i} className="flex items-center gap-3 text-xs text-[#0A192F]/80">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${plan.premium ? 'text-[#00B4D8]' : 'text-[#0A192F]/30'}`} />
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-[#00B4D8]" />
                         {f}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* CORRECCIÓN EXCELENTE: BOTONES REDIRIGEN DIRECTAMENTE A WHATSAPP CON SUS WALINKS CORRESPONDIENTES */}
+                {/* CORRECCIÓN EXCELENTE: BOTONES EN CELESTE UNIFICADO CON LOS TEXTOS COMERCIALES EXACTOS */}
                 <a 
                   href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full text-center py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg ${
-                    plan.premium 
-                      ? 'bg-[#0A192F] text-white hover:bg-[#172A45] shadow-[#0A192F]/10' 
-                      : 'bg-[#00B4D8] text-white hover:bg-[#0096B4] shadow-[#00B4D8]/10'
-                  }`}
+                  className="w-full text-center py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all bg-[#00B4D8] hover:bg-[#0096B4] text-white flex items-center justify-center gap-2 shadow-lg shadow-[#00B4D8]/20 active:scale-95"
                 >
-                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>{plan.textBtn}</span>
                 </a>
               </motion.div>
@@ -572,7 +566,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN */}
+      {/* 7. FORMULARIO DE CAPTACIÓN (GANCHO Y PRIVACIDAD TOTALMENTE RESTAURADOS) */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
