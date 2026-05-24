@@ -63,7 +63,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Google Fonts e Inyecciones de Estilo Inmutables */}
+      {/* Estilos e Inyecciones CSS Globales */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -83,22 +83,23 @@ export default function App() {
         }
       `}</style>
 
-      {/* Ambient Glow */}
+      {/* Ambient Atmosphere Background */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* 1. NAVIGATION BAR */}
+      {/* 1. NAVIGATION BAR (LOGOTIPO CON LA B CELESTE RESTAURADO) */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
-          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-[0_4px_30px_rgba(10,25,47,0.02)]' 
+          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
           : 'h-24 bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            {/* NOMBRE ORIGINAL EXACTO CON LA B EN CELESTE BRILLANTE */}
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
-              GrowthBrand
+              Growth<span className="text-[#00B4D8]">B</span>rand
             </span>
           </div>
 
@@ -118,7 +119,7 @@ export default function App() {
           <div className="flex items-center gap-6">
             <a 
               href="#aplicar"
-              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md shadow-[#0A192F]/5 text-xs font-display uppercase tracking-wider"
+              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md text-xs font-display uppercase tracking-wider"
             >
               <span>Diagnóstico Corporativo</span>
             </a>
@@ -134,52 +135,31 @@ export default function App() {
         {isMenuOpen && (
           <motion.div 
             className="fixed inset-0 z-[140] md:hidden bg-white flex flex-col pt-24 px-6 border-b border-[#0A192F]/10 shadow-2xl"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col gap-6 text-left">
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="font-display font-bold text-2xl text-[#0A192F] hover:text-[#00B4D8] transition-colors py-2 border-b border-[#0A192F]/5"
-                >
-                  {item}
-                </a>
+                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-display font-bold text-2xl text-[#0A192F] py-2 border-b border-[#0A192F]/5">{item}</a>
               ))}
-              <a 
-                href="#aplicar" 
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md"
-              >
-                SOLICITAR DIAGNÓSTICO
-              </a>
+              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (TEXTO PERFECTAMENTE ALINEADO A LA IZQUIERDA Y LA FICHA DE GOOGLE RESTAURADA) */}
+      {/* 2. HERO SECTION (TEXTO ALINEADO A LA IZQUIERDA Y FICHA DE GOOGLE RESTAURADA) */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            <motion.div 
-              className="lg:col-span-6 space-y-6"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
+            <motion.div className="lg:col-span-6 space-y-6" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeIn}>
               <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.2em] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
                 Sistemas de Posicionamiento Global
               </div>
               
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-wide text-left">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
@@ -189,47 +169,20 @@ export default function App() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <a 
-                  href="#aplicar" 
-                  className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase"
-                >
-                  Iniciar Auditoría Comercial
-                </a>
-                <a 
-                  href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"
-                >
-                  <WhatsAppIcon className="w-4 h-4 text-emerald-500" />
-                  Hablar con un Socio
-                </a>
+                <a href="#aplicar" className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase">Iniciar Auditoría</a>
+                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"><WhatsAppIcon className="w-4 h-4 text-emerald-500" /> Hablar con un Socio</a>
               </div>
             </motion.div>
 
-            {/* Ficha Google Business Profile Restaurada Completamente */}
-            <motion.div 
-              className="lg:col-span-6 flex items-center justify-center relative"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            {/* Ficha Local de Google Business Profile del Cliente (Restaurada por Completo) */}
+            <motion.div className="lg:col-span-6 flex items-center justify-center relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="absolute w-72 h-72 rounded-full bg-[#00B4D8]/10 animate-radar pointer-events-none" />
-              
               <div className="w-full max-w-[340px] bg-white border border-[#0A192F]/10 rounded-[3rem] p-3.5 shadow-[0_25px_60px_-15px_rgba(10,25,47,0.12)] relative z-10">
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
                   <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&q=80&w=600" 
-                      alt="Negocio Local" 
-                      className="w-full h-full object-cover object-center opacity-90"
-                    />
-                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      En Línea
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&q=80&w=600" alt="Negocio Local" className="w-full h-full object-cover object-center opacity-90" />
+                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">En Línea</div>
                   </div>
-
                   <div className="p-5 bg-white space-y-4">
                     <div>
                       <h3 className="font-display font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
@@ -238,37 +191,14 @@ export default function App() {
                         <div className="flex text-amber-400 text-xs">★★★★★</div>
                         <span className="text-[#0A192F]/40 text-xs">(83)</span>
                       </div>
-                      <span className="text-[#0A192F]/50 text-[11px] font-medium block mt-1">Construcción · Comercio local</span>
                     </div>
-
                     <div className="grid grid-cols-4 gap-2 pt-2 border-y border-[#0A192F]/5 py-3">
-                      <div className="flex flex-col items-center justify-center text-center space-y-1">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Phone className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><MapPin className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">UBICACIÓN</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Bookmark className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span>
-                      </div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1"><div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Phone className="w-4 h-4" /></div><span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span></div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1"><div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><MapPin className="w-4 h-4" /></div><span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">UBICACIÓN</span></div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1"><div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Bookmark className="w-4 h-4" /></div><span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span></div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1"><div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe className="w-4 h-4" /></div><span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span></div>
                     </div>
-
-                    <div className="space-y-2 pt-1 text-xs">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                        <p className="text-[#0A192F]/80 font-medium">
-                          <span className="text-emerald-600 font-bold mr-1.5">Abierto</span> · Horario estelar
-                        </p>
-                      </div>
-                    </div>
-
+                    <div className="space-y-2 pt-1 text-xs"><div className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-emerald-500" /><p className="text-[#0A192F]/80 font-medium"><span className="text-emerald-600 font-bold mr-1.5">Abierto</span> · Horario estelar</p></div></div>
                   </div>
                 </div>
               </div>
@@ -278,53 +208,34 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS OFICIALES RESTAURADA */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
             Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
           </h2>
-          
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
             <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
-              
               <div className="flex items-center gap-24 shrink-0">
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">Google</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">GitHub</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} alt="" />
-                  <span className="font-sans font-bold text-2xl text-white">Meta</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">Vercel</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
-                  <span className="font-sans font-bold text-2xl text-white">TikTok</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto text-white" src="https://cdn.simpleicons.org/meta/FFFFFF" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
               </div>
-
+              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto text-white" src="https://cdn.simpleicons.org/meta/FFFFFF" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES CON EFECTO HOVER PREMIUM CELESTE Y ICONOS DE INGENIERÍA */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM (HOVER DINÁMICO EXCLUSIVO CELESTE INTEGRADO) */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -344,27 +255,27 @@ export default function App() {
               {
                 pain: "No saben cómo crecer ni convertir seguidores en clientes",
                 solution: "Publicas contenido sin estrategia, orden ni objetivos claros. Tienen visitas o interacción, pero carecen de un proceso para captar prospectos y cerrar ventas predecibles.",
-                icon: <TrendingUp className="text-emerald-500 transition-colors group-hover:text-[#0A192F]" />
+                icon: <TrendingUp className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Preocupación y miedo por el retorno real del marketing",
                 solution: "Temen invertir en algo que no conocen y no ver resultados claros en ventas o contactos. Instalamos modelos analíticos de trazabilidad para auditar cada centavo en tiempo real.",
-                icon: <BarChart3 className="text-indigo-500 transition-colors group-hover:text-[#0A192F]" />
+                icon: <BarChart3 className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Delegación del ecosistema comercial a personas sin estrategia",
                 solution: "Familiares o empleados manejan tus canales sin análisis, planificación ni medición. GrowthBrand toma el timón operativo bajo estándares de ingeniería predictiva.",
-                icon: <Users className="text-purple-500 transition-colors group-hover:text-[#0A192F]" />
+                icon: <Users className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Pensar que la IA puede reemplazar todo el marketing",
                 solution: "Creen que pueden resolverlo gratis o barato. La IA es una herramienta de optimización brutal, pero necesita dirección, criterio humano y estrategia corporativa para no volver a tu marca invisible.",
-                icon: <Bot className="text-blue-500 transition-colors group-hover:text-[#0A192F]" />
+                icon: <Bot className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Compiten por precio bajo en lugar de valor de mercado",
                 solution: "Al no comunicar bien tu autoridad de firma, terminas comparado con opciones baratas. Diseñamos diferenciadores que defienden tus márgenes de ganancia.",
-                icon: <AlertTriangle className="text-rose-500 transition-colors group-hover:text-[#0A192F]" />
+                icon: <AlertTriangle className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               }
             ].map((item, idx) => (
               <motion.div 
@@ -388,26 +299,27 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. SECCIÓN DE ANUNCIOS PREMIUM EN CÓDIGO PURO (META ADS & TIKTOK ADS SEGÚN CAPTURAS) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CONSTRUIDOS EN MOCKUPS DE CÓDIGO HTML/CSS EXÁCTOS */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Bloque Meta Ads 1: Reach & Engagement */}
+          {/* Mockup 1: Meta Ads (Reach & Engagement Real) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Performance</span>
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Contenido Profesional de Alta Confianza</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Tus fotos, videos, textos y diseños deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear el Costo por Adquisición.
+                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones.
               </p>
             </div>
             
-            {/* Simulación del anuncio Meta UI */}
+            {/* Réplica de Mockup en Código (Look image_4ab1bf.png) */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
               <div className="w-full max-w-[320px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
-                <div className="h-48 w-full rounded-2xl bg-gradient-to-br from-[#0A192F] to-[#172A45] relative flex flex-col justify-end p-4 text-white">
-                  <div className="text-[10px] font-mono text-[#00B4D8] font-bold">LIVE AD SIMULATION</div>
-                  <div className="text-base font-display font-bold">Infraestructura Corporativa B2B</div>
+                <div className="h-48 w-full rounded-2xl bg-gradient-to-br from-[#0A192F] to-[#172A45] relative flex flex-col justify-end p-4 text-white overflow-hidden">
+                  <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                  <div className="text-[10px] font-mono text-[#00B4D8] font-bold relative z-10">LIVE AD SIMULATION</div>
+                  <div className="text-base font-display font-bold relative z-10">Infraestructura Corporativa B2B</div>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
@@ -423,44 +335,10 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bloque Meta Ads 2: Chat Conversacional & ROAS */}
+          {/* Mockup 2: TikTok Ads Placement In-Feed */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 bg-[#0A192F] rounded-[2.5rem] p-8 border border-white/5 shadow-2xl grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 lg:order-1">
-              <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl space-y-3">
-                <div className="text-[10px] font-mono text-gray-400 uppercase">Conversion Probability</div>
-                <div className="text-3xl font-display font-bold text-white">94.2%</div>
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden"><div className="w-[94%] h-full bg-[#00B4D8]" /></div>
-              </div>
-              <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl flex flex-col justify-center space-y-2">
-                <div className="bg-[#00B4D8] text-white p-3 rounded-2xl rounded-bl-none text-xs leading-relaxed">
-                  ¿Cómo puedo mejorar mi retorno en anuncios (ROAS) B2B?
-                </div>
-                <div className="bg-white/5 text-white/90 p-3 rounded-2xl rounded-br-none text-xs leading-relaxed font-light">
-                  Instalando el sistema de tracción predictiva de GrowthBrand.
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-6 order-1 lg:order-2">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">ROAS Optimization</span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Estrategia Comercial Conectada al Cierre</h2>
-              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Unimos los puntos sueltos de tu ecosistema. Creamos una conexión matemática y estratégica entre tu contenido, tus anuncios segmentados, tus prospectos calificados y tu equipo de ventas.
-              </p>
-            </div>
-          </div>
-
-          {/* Bloque TikTok Ads 3: Ad Placement */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Ad Infrastructure</span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Canales Listos y Configurados para Vender</h2>
-              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Configuramos tus cuentas comerciales de WhatsApp, Instagram y Facebook con estructuras de atención automatizada y embudos dinámicos que no dejan perder ningún prospecto.
-              </p>
-            </div>
-            
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
+            {/* Réplica de Mockup Móvil TikTok en Código (Look image_4ab19b.png) */}
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
                   <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2">
@@ -470,10 +348,44 @@ export default function App() {
                   <div className="mt-auto space-y-3">
                     <div className="text-xs font-bold">@growthbrandname</div>
                     <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición integrales. Ads will be shown on For You page.</div>
-                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider">
+                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider cursor-pointer">
                       Registrar Empresa
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-6 order-1 lg:order-2">
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Business Integration</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Estructura de Conversión In-Feed Absoluta</h2>
+              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
+                Desplegamos embudos comerciales conectados directamente a tu WhatsApp o CRM de ventas, configurando mensajes claros y flujos de atención que cierran ventas predecibles.
+              </p>
+            </div>
+          </div>
+
+          {/* Mockup 3: Google Business Split Grid (Look image_4ab4c4.png) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Local SEO Authority</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Tu Negocio en el Mapa del Mundo</h2>
+              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
+                Optimizamos la ficha de Google Business Profile para que tu marca aparezca de forma impecable en búsquedas estratégicas locales, respondiendo reseñas y captando clientes recurrentes.
+              </p>
+            </div>
+            
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
+              <div className="w-full max-w-[350px] bg-white border border-gray-200 rounded-3xl p-4 shadow-lg space-y-4">
+                <div className="h-32 bg-gray-100 rounded-xl relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600" alt="Local store" className="w-full h-full object-cover" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-display font-bold text-sm text-[#0A192F]">Tienda de jerséis</h4>
+                  <span className="inline-block bg-blue-50 text-blue-600 font-bold text-[9px] px-2 py-0.5 rounded uppercase">Resumen</span>
+                  <button className="w-full bg-[#FFFFFF] border border-blue-600 text-blue-600 text-xs font-bold py-2 rounded-xl mt-2 flex items-center justify-center gap-2">
+                    <span>🛒 Pedir online</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -495,7 +407,7 @@ export default function App() {
             <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-2">
               <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> El Desafío Comercial</h4>
               <p className="text-[#0A192F] font-medium text-lg italic text-justify leading-relaxed">
-                "Nuestros clients potenciales llegaban atrapados en métricas de vanidad que no pagaban la planilla a fin de mes. Sentían que habían tocado un techo de cristal invisible y que el mercado los estaba volviendo invisibles."
+                "Nuestros clientes potenciales llegaban atrapados en métricas de vanidad que no pagaban la planilla a fin de mes. Sentían que habían tocado un techo de cristal invisible y que el mercado los estaba volviendo invisibles."
               </p>
             </div>
 
@@ -516,7 +428,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (TEXTOS COMPLETO Y MÁXIMA PERSUASIÓN) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN (GANCHO Y PRIVACIDAD TOTALMENTE RESTAURADOS) */}
       <section id="inversión" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
@@ -526,7 +438,6 @@ export default function App() {
               </p>
             </blockquote>
             
-            {/* TEXTO FILOSOFAL EXACTO SIN PROMESAS LIMITANTES */}
             <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
             </p>
@@ -591,7 +502,7 @@ export default function App() {
                 </div>
               </div>
               
-              {/* BOTÓN Y TEXTO DE PRIVACIDAD RESTAURADOS */}
+              {/* BOTÓN DEFINITIVO Y TEXTO LEGAL DE CONFIDENCIALIDAD RESTAURADO */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
