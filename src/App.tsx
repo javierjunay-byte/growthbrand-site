@@ -282,7 +282,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA (LOGO META AZUL) */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
@@ -309,7 +309,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES PREMIUM (HOVER DINÁMICO CELESTE) */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -373,11 +373,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM REESTRUCTURADOS CON LA GRID ORGÁNICA EXACTA DE TU REFERENCIA (`image_55973e.jpg`) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM REESTRUCTURADOS CON LA GRID ORGÁNICA EXACTA Y FOTOGRAFÍAS REALES PREMIUM DE TU REFERENCIA */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Bloque Meta Ads: Cuadrícula Orgánica de Contenidos Estilo Captura */}
+          {/* Mockup Meta Ads: Contenido Orgánico con Fotografía Publicitaria de Calzado de Alta Autoridad */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
@@ -387,10 +387,9 @@ export default function App() {
               </p>
             </div>
             
-            {/* RECONSTRUCCIÓN EXACTA: GRILLA ORGANICA INTEGRAL DE CONTENIDOS CON BARRA DE PROGRESO IN SITU */}
+            {/* CORRECCIÓN ABSOLUTA: INTEGRA UNA FOTOGRAFÍA AD PUBLICITARIA DE CALZADO DE ALTA FIDELIDAD SEGÚN TU SOLICITUD */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 sm:p-8 border border-[#0A192F]/5 shadow-inner space-y-6">
               
-              {/* Header de Resultados del Feed */}
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-2 border-b border-[#0A192F]/5">
                 <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">Manejamos Tus Redes</span>
                 <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -401,22 +400,23 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Grilla Simulación Red Real */}
+              {/* Grilla Simulación Red Real con Fotografía Publicitaria Premium de Calzado */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {[
-                  { title: "Enfoque de Crecimiento", tag: "Estrategia" },
-                  { title: "Hábitos Simples, Grandes Resultados", tag: "Conversión" },
-                  { title: "Tu Marca en Manos Profesionales", tag: "Autoridad" },
-                  { title: "Sistemas de Adquisición B2B", tag: "Sistemas" },
-                  { title: "Optimización Orgánica Continua", tag: "RevOps" },
-                  { title: "Casos de Crecimiento Real", tag: "Evidencia" }
+                  { title: "Líneas de Diseño Premium", tag: "Estrategia", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400" },
+                  { title: "Elegancia Estructural Única", tag: "Conversión", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=400" },
+                  { title: "Calzado de Alta Autoridad", tag: "Autoridad", img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=400" },
+                  { title: "Sistemas de Adquisición", tag: "Sistemas", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=400" },
+                  { title: "Ingeniería de Producto", tag: "RevOps", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=400" },
+                  { title: "Casos de Éxito Comercial", tag: "Evidencia", img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=400" }
                 ].map((post, i) => (
                   <div key={i} className="aspect-square bg-[#0A192F] rounded-2xl relative overflow-hidden flex flex-col justify-end p-4 group border border-white/5">
-                    <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
-                    <span className="absolute top-3 right-3 text-[9px] font-mono font-bold bg-[#00B4D8] text-white px-2 py-0.5 rounded-full z-20 uppercase">{post.tag}</span>
-                    <p className="text-white text-xs font-display font-bold leading-tight relative z-20">{post.title}</p>
-                    <div className="flex gap-3 text-white/40 text-[10px] mt-2 relative z-20 pt-1 border-t border-white/5">
+                    {/* Renderizado de Imagen Publicitaria Orgánica de Calzado de Alta Fidelidad */}
+                    <img src={post.img} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10" />
+                    <span className="absolute top-3 right-3 text-[9px] font-mono font-bold bg-[#00B4D8] text-white px-2 py-0.5 rounded-full z-20 uppercase tracking-wider">{post.tag}</span>
+                    <p className="text-white text-xs font-display font-bold leading-tight relative z-20 drop-shadow-sm">{post.title}</p>
+                    <div className="flex gap-3 text-white/60 text-[10px] mt-2 relative z-20 pt-1 border-t border-white/5">
                       <span className="flex items-center gap-1"><Heart size={10} className="text-rose-500 fill-rose-500" /> 142</span>
                       <span className="flex items-center gap-1"><MessageCircle size={10} /> 42</span>
                     </div>
@@ -426,12 +426,19 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mockup 2: TikTok Ads Placement In-Feed */}
+          {/* Mockup 2: TikTok Ads Placement In-Feed con Fotografía Real */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            {/* Contenedor del Mockup Móvil con Fotografía Real de Calzado Publicitario */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
+                  {/* Fotografía de Calzado Publicitario de Alta Fidelidad de Fondo */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&q=80&w=600" 
+                    alt="Premium Footwear Commercial Ad" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-60"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80 z-10" />
                   <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2 relative z-20">
                     <span>Siguiendo</span>
                     <span className="text-white border-b-2 border-white pb-1">Para ti</span>
@@ -489,7 +496,6 @@ export default function App() {
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            {/* CORRECCIÓN: TÍTULO EN COLOR CELESTE BRILLANTE */}
             <h2 className="font-display text-4xl md:text-5xl text-[#00B4D8] mb-6 font-bold tracking-tight">
               Modelos de Implementación B2B
             </h2>
@@ -498,7 +504,6 @@ export default function App() {
             </p>
           </div>
 
-          {/* CAJAS EN 3D SOBRESALIDO CON BORDES DE MICRO-BRILLO Y ALINEACIÓN DE SEDA */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
@@ -560,7 +565,6 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* BOTONES UNIFICADOS EN CELESTE CON LOS TEXTOS COMERCIALES EXACTOS */}
                 <a 
                   href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
                   target="_blank"
@@ -650,7 +654,6 @@ export default function App() {
                 </div>
               </div>
               
-              {/* BOTÓN DEFINITIVO Y TEXTO LEGAL DE CONFIDENCIALIDAD RESTAURADO ABAJO COMPLETO */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
