@@ -24,8 +24,12 @@ import {
   Users,
   Target,
   Clock,
-  ShieldAlert,
-  HelpCircle
+  ShieldCheck,
+  Sparkles,
+  HelpCircle,
+  Heart,
+  MessageCircle,
+  Share2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -63,7 +67,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Sistema de Fuentes y Animaciones Perpetuas */}
+      {/* Estilos Globales de Fuentes y Animaciones */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -83,7 +87,7 @@ export default function App() {
         }
       `}</style>
 
-      {/* Background Atmosphere */}
+      {/* Background Glow */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
@@ -92,7 +96,7 @@ export default function App() {
       {/* 1. NAVIGATION BAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
-          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-[0_4px_30px_rgba(10,25,47,0.02)]' 
+          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
           : 'h-24 bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
@@ -118,7 +122,7 @@ export default function App() {
           <div className="flex items-center gap-6">
             <a 
               href="#aplicar"
-              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md shadow-[#0A192F]/5 text-xs font-display uppercase tracking-wider"
+              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md text-xs font-display uppercase tracking-wider"
             >
               <span>Diagnóstico Corporativo</span>
             </a>
@@ -129,147 +133,80 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Menú Móvil Reparado */}
+      {/* Menú Móvil */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
             className="fixed inset-0 z-[140] md:hidden bg-white flex flex-col pt-24 px-6 border-b border-[#0A192F]/10 shadow-2xl"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
           >
             <div className="flex flex-col gap-6 text-left">
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="font-display font-bold text-2xl text-[#0A192F] hover:text-[#00B4D8] transition-colors py-2 border-b border-[#0A192F]/5"
-                >
-                  {item}
-                </a>
+                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-display font-bold text-2xl text-[#0A192F] py-2 border-b border-gray-100">{item}</a>
               ))}
-              <a 
-                href="#aplicar" 
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md"
-              >
-                SOLICITAR DIAGNÓSTICO
-              </a>
+              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (H1 PERFECTAMENTE ALINEADO A LA IZQUIERDA SIN ESPACIOS ROTOS) */}
+      {/* 2. HERO SECTION (ALINEACIÓN IZQUIERDA PURA, SIN ESPACIOS ROTOS EN EL H1) */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            <motion.div 
-              className="lg:col-span-6 space-y-6"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
+            <motion.div className="lg:col-span-6 space-y-6" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeIn}>
               <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.2em] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
                 Sistemas de Posicionamiento Global
               </div>
               
-              {/* CORRECCIÓN DE ESPACIOS: TEXT-LEFT PURO EN LUGAR DE TEXT-JUSTIFY */}
+              {/* CORRECCIÓN: TEXT-LEFT ABSOLUTO CON ALTURA CORRECTA */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
-              <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-justify max-w-xl font-light">
-                En GrowthBrand no compramos algoritmos para reemplazar personas; los dominamos para liberar la chispa creativa que hace a tu marca única. Bienvenidos a la era del crecimiento con alma.
+              {/* NUEVA FRASE CONFIGURADA */}
+              <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
+                En GrowthBrand no dejamos que las herramientas reemplacen a las personas; las ponemos a su servicio para liberar la chispa creativa que hace a tu marca única. Bienvenidos a una nueva forma de crecer.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <a 
-                  href="#aplicar" 
-                  className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase"
-                >
-                  Iniciar Auditoría Comercial
-                </a>
-                <a 
-                  href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"
-                >
-                  <WhatsAppIcon className="w-4 h-4 text-emerald-500" />
-                  Hablar con un Socio
+                <a href="#aplicar" className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl w-full sm:w-auto text-center uppercase">Iniciar Auditoría</a>
+                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase">
+                  <WhatsAppIcon className="w-4 h-4 text-emerald-500" /> Hablar con un Socio
                 </a>
               </div>
             </motion.div>
 
-            {/* Ficha Google Business Profile */}
-            <motion.div 
-              className="lg:col-span-6 flex items-center justify-center relative"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            {/* Google Profile Board (Simulación Estructural en Código Puro) */}
+            <motion.div className="lg:col-span-6 flex items-center justify-center relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="absolute w-72 h-72 rounded-full bg-[#00B4D8]/10 animate-radar pointer-events-none" />
-              
               <div className="w-full max-w-[340px] bg-white border border-[#0A192F]/10 rounded-[3rem] p-3.5 shadow-[0_25px_60px_-15px_rgba(10,25,47,0.12)] relative z-10">
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
-                  <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&q=80&w=600" 
-                      alt="Negocio Local" 
-                      className="w-full h-full object-cover object-center opacity-90"
-                    />
-                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      En Línea
-                    </div>
+                  <div className="h-44 w-full bg-[#172A45] relative flex items-center justify-center text-white/10">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00B4D8]/20 to-[#0A192F]" />
+                    <BarChart3 size={48} className="text-[#00B4D8]/40" />
                   </div>
-
                   <div className="p-5 bg-white space-y-4">
                     <div>
-                      <h3 className="font-display font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
+                      <h3 className="font-display font-bold text-[#0A192F] text-lg">Arquitectura Comercial Local</h3>
                       <div className="flex items-center gap-1.5 mt-1">
                         <span className="text-amber-500 font-bold text-sm">4.5</span>
                         <div className="flex text-amber-400 text-xs">★★★★★</div>
                         <span className="text-[#0A192F]/40 text-xs">(83)</span>
                       </div>
-                      <span className="text-[#0A192F]/50 text-[11px] font-medium block mt-1">Construcción · Comercio local</span>
                     </div>
-
-                    <div className="grid grid-cols-4 gap-2 pt-2 border-y border-[#0A192F]/5 py-3">
-                      <div className="flex flex-col items-center justify-center text-center space-y-1 group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Phone className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1 group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><MapPin className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">CÓMO LLEGAR</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1 group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Bookmark className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center space-y-1 group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe className="w-4 h-4" /></div>
-                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span>
-                      </div>
+                    <div className="grid grid-cols-4 gap-2 pt-2 border-y border-gray-100 py-3">
+                      {['LLAMAR', 'UBICACIÓN', 'GUARDAR', 'WEB'].map((btn) => (
+                        <div key={btn} className="flex flex-col items-center justify-center text-center space-y-1">
+                          <div className="w-8 h-8 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe size={14} /></div>
+                          <span className="text-[8px] font-bold text-gray-400">{btn}</span>
+                        </div>
+                      ))}
                     </div>
-
-                    <div className="space-y-2 pt-1 text-xs">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                        <p className="text-[#0A192F]/80 font-medium">
-                          <span className="text-emerald-600 font-bold mr-1.5">Abierto</span> · Horario estelar
-                        </p>
-                      </div>
-                    </div>
-
+                    <div className="flex items-center gap-2 text-xs"><div className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-gray-600 font-medium">Abierto · Posicionamiento Listo</span></div>
                   </div>
                 </div>
               </div>
@@ -279,88 +216,75 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA INFINITA (SIN TIRONES) */}
-      <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
-            <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
-              <div className="flex items-center gap-24 shrink-0">
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
-              </div>
-              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
-              </div>
+      {/* 3. MARQUESINA DE LOGOS CONTINUA */}
+      <section className="bg-[#0A192F] py-14 border-y border-white/5 relative z-20 overflow-hidden">
+        <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
+          <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
+            <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase">
+              <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+            </div>
+            <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase" aria-hidden="true">
+              <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES INTEGRADOS ("EL TECHO DE CRISTAL DIGITAL") */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM DINÁMICA (PULSO HOVER CELESTE PREMIUM) */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] leading-tight tracking-tight">
-              Más allá del algoritmo. Por qué la automatización pura está matando la identidad de las marcas.
-            </h2>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">Fricciones comerciales que removemos de tu infraestructura</h2>
             <div className="w-20 h-1 bg-[#00B4D8] mx-auto mt-6 rounded-full" />
           </div>
 
-          {/* Mapeo estratégico de dolores reales extraídos de la solicitud */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 pain: "Tienen redes débiles para el nivel de negocio que manejan",
-                solution: "El negocio puede vender bien, pero su imagen digital no transmite confianza ni profesionalismo. Elevamos tu nivel visual para que esté a la altura de tu facturación real.",
-                icon: <Layers className="text-amber-500" />
+                solution: "El negocio vende bien offline, pero su imagen digital no transmite confianza ni profesionalismo. Elevamos el estatus de tus activos para alinearlos con tu facturación real.",
+                icon: <Layers className="text-[#00B4D8]" />
               },
               {
                 pain: "No saben cómo crecer ni convertir seguidores en clientes",
-                solution: "Publican contenido sin estrategia, orden ni objetivos claros. Tienen visitas o interacción, pero carecen de un proceso para captar prospectos y cerrar ventas predecibles.",
-                icon: <TrendingUp className="text-[#00B4D8]" />
+                solution: "Publicas contenido sin estrategia ni objetivos claros. Tienen interacción, pero carecen de un sistema estructurado para captar prospectos y cerrar contratos.",
+                icon: <TrendingUp className="text-emerald-500" />
               },
               {
-                pain: "Preocupación por el retorno real del marketing",
-                solution: "Temen invertir en algo que no conocen y no ver resultados en ventas o contactos. Instalamos modelos de atribución y analítica para que veas cada centavo convertido en tracción.",
-                icon: <BarChart3 className="text-emerald-500" />
+                pain: "Preocupación y miedo por el retorno real del marketing",
+                solution: "Miedo a invertir y no ver resultados claros en ventas. Instalamos modelos analíticos RevOps de trazabilidad absoluta para auditar cada centavo en tiempo real.",
+                icon: <BarChart3 className="text-indigo-500" />
               },
               {
-                pain: "Delegación del ecosistema a personas sin estrategia",
-                solution: "Familiares o empleados manejan sus redes sin planificación ni medición. Tomamos el control con un equipo especializado que opera bajo estándares RevOps de Silicon Valley.",
-                icon: <Users className="text-indigo-500" />
+                pain: "Delegación del ecosistema comercial a personas sin estrategia",
+                solution: "Familiares o conocidos manejan tus canales sin análisis, planificación ni medición. GrowthBrand toma el timón operativo bajo estándares de ingeniería predictiva.",
+                icon: <Users className="text-purple-500" />
               },
               {
-                pain: "Pensar que la IA puede reemplazar todo el marketing",
-                solution: "Creen que pueden resolverlo gratis o barato. La IA es una herramienta de optimización brutal, pero necesita dirección, criterio y estrategia puramente humana para no volverse invisible.",
-                icon: <Bot className="text-purple-500" />
+                pain: "Pensar que la IA puede reemplazar toda la estrategia",
+                solution: "Creen que pueden resolverlo gratis o barato. La IA necesita dirección, criterio humano refinado y estrategia corporativa para no volver a tu marca invisible.",
+                icon: <Bot className="text-blue-500" />
               },
               {
-                pain: "Compiten por precio bajo en lugar de valor corporativo",
-                solution: "Al no comunicar bien su autoridad, terminan siendo comparados con opciones baratas. Diseñamos una propuesta única que proyecta el verdadero estatus y beneficio de tu firma.",
+                pain: "Compiten por precio bajo en lugar de valor de mercado",
+                solution: "Al no comunicar bien tu autoridad de firma, terminas comparado con opciones baratas. Diseñamos diferenciadores que defienden tus márgenes de ganancia.",
                 icon: <AlertTriangle className="text-rose-500" />
               }
             ].map((item, idx) => (
               <motion.div 
                 key={idx} 
-                className="bg-white p-8 rounded-3xl border border-[#0A192F]/5 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
-                whileHover={{ y: -5 }}
+                className="bg-white p-8 rounded-3xl border border-[#0A192F]/5 shadow-sm transition-all duration-300 flex flex-col justify-between hover:bg-[#00B4D8]/5 hover:shadow-xl hover:border-[#00B4D8]/20 group cursor-default"
+                whileHover={{ y: -4 }}
               >
                 <div className="space-y-4">
-                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-white transition-colors duration-300">
                     {item.icon}
                   </div>
                   <h4 className="text-xs font-mono font-bold text-rose-500 uppercase tracking-wider">El Síntoma</h4>
                   <p className="font-display font-bold text-[#0A192F] text-lg leading-snug">{item.pain}</p>
-                  <div className="h-px bg-gray-100 w-full" />
-                  <h4 className="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">La Solución GrowthBrand</h4>
-                  <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">{item.solution}</p>
+                  <div className="h-px bg-gray-100 w-full group-hover:bg-[#00B4D8]/20 transition-colors" />
+                  <h4 className="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">La Solución</h4>
+                  <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify group-hover:text-[#0A192F]">{item.solution}</p>
                 </div>
               </motion.div>
             ))}
@@ -368,45 +292,53 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. SECCIÓN DIVIDIDA INTERACTIVA DE GOOGLE BUSINESS (MANTENIDA CON COPYS DE AYUDA) */}
-      <section className="py-24 bg-[#FFFFFF] border-b border-[#0A192F]/5 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* 5. SIMULACIONES MÓDULOS DE ANUNCIOS EN CÓDIGO PURO (META ADS & TIKTOK ADS INTEGRADOS) */}
+      <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-24">
           
-          <div className="flex justify-center order-2 lg:order-1">
-            <div className="w-full max-w-[360px] bg-white border border-[#0A192F]/10 rounded-[2.5rem] p-4 shadow-xl">
-              <div className="rounded-2xl overflow-hidden bg-[#F8F9FA] border border-[#0A192F]/5 p-4 space-y-4">
-                <div className="h-36 w-full rounded-xl bg-cover bg-center relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600" alt="Local Store" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-display font-bold text-[#0A192F] text-base">Infraestructura Comercial Local</h4>
-                  <p className="text-xs text-gray-500">Configuramos canales y mapas para que tu empresa sea la opción indiscutible en búsquedas.</p>
-                  <button className="w-full py-2.5 rounded-xl bg-[#00B4D8] text-white text-xs font-bold shadow-lg shadow-[#00B4D8]/20">Aparecer en Google Ahora</button>
-                </div>
+          {/* Módulo de Meta Ads Avanzado (Simulando Alcance y ROAS B2B) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Infrastructure</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Ingeniería Comercial en Campañas de Conversión</h2>
+              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
+                No subimos publicaciones para ver qué pasa. Diseñamos arquitecturas de pauta digital optimizadas para rastrear el Costo por Adquisición (CPA) por audiencias específicas, protegiendo tu presupuesto y maximizando el valor de vida de tu cliente.
+              </p>
+            </div>
+            
+            {/* Simulación Gráfica de Meta UI en Código Puro */}
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 border border-[#0A192F]/5 shadow-inner grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-2xl border border-gray-100 space-y-4 shadow-sm">
+                <div className="flex items-center justify-between"><span className="text-xs font-mono font-bold text-gray-400">AUDIENCIA ALTA INTENCIÓN</span><div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" /></div>
+                <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="w-[78%] h-full bg-[#00B4D8]" /></div>
+                <div className="flex justify-between text-xs font-mono"><span>CPA Optimizada</span><span className="font-bold text-[#0A192F]">-34%</span></div>
+              </div>
+              <div className="bg-white p-6 rounded-2xl border border-gray-100 space-y-4 shadow-sm">
+                <div className="flex items-center justify-between"><span className="text-xs font-mono font-bold text-gray-400">RETORNO AD SPEND (ROAS)</span><TrendingUp className="text-emerald-500 w-4 h-4" /></div>
+                <div className="text-2xl font-display font-extrabold text-[#0A192F]">4.2x ROAS</div>
+                <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono font-bold">PREDICTIVO CERTIFICADO</span>
               </div>
             </div>
           </div>
 
-          <div className="space-y-12 order-1 lg:order-2">
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight leading-tight">
-              Preparamos tus canales digitales para captar y cerrar ventas de por vida
-            </h2>
-            
-            <div className="space-y-8">
-              <div className="flex gap-6">
-                <div className="w-12 h-12 rounded-full bg-[#00B4D8]/10 flex items-center justify-center shrink-0 text-[#00B4D8]"><Target /></div>
-                <div>
-                  <h3 className="font-display font-bold text-xl mb-2 text-[#0A192F]">Estructura en WhatsApp e Instagram</h3>
-                  <p className="text-[#0A192F]/70 text-sm text-justify leading-relaxed">De nada sirve atraer tráfico si tus canales están mal configurados, sin mensajes claros ni flujos de atención rápida. Creamos sistemas donde cada contacto es atendido bajo un orden profesional.</p>
-                </div>
+          {/* Módulo de TikTok Ads Placement (Simulando Estructura In-Feed Ad) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 bg-[#0A192F] rounded-[2.5rem] p-6 border border-white/5 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[220px] order-2 lg:order-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00B4D8]/10 to-transparent" />
+              <div className="relative z-10 space-y-4 max-w-md">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#00B4D8] font-bold uppercase tracking-wider"><Sparkles size={14} /> TikTok For You Placement</div>
+                <p className="text-white/90 text-sm leading-relaxed text-justify font-light">
+                  Configuramos tus llamadas a la acción, títulos persuasivos y creativos dinámicos de forma nativa dentro de la interfaz comercial para enganchar al consumidor corporativo en los primeros 3 segundos críticos.
+                </p>
               </div>
-              <div className="flex gap-6">
-                <div className="w-12 h-12 rounded-full bg-[#00B4D8]/10 flex items-center justify-center shrink-0 text-[#00B4D8]"><Clock /></div>
-                <div>
-                  <h3 className="font-display font-bold text-xl mb-2 text-[#0A192F]">Liberamos tu tiempo operativo</h3>
-                  <p className="text-[#0A192F]/70 text-sm text-justify leading-relaxed">Sabemos que estás enfocado en operar el negocio y no puedes sentarte a planificar, crear, medir y optimizar contenido. Nosotros absorbemos la ingeniería completa de tu marketing digital.</p>
-                </div>
-              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-6 order-1 lg:order-2">
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Business Engine</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Estructura de Conversión In-Feed Absoluta</h2>
+              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
+                Desplegamos embudos comerciales conectados directamente a tu WhatsApp o CRM de ventas, eliminando la fricción de salida del usuario tradicional y acelerando el embudo de cierre de prospectos.
+              </p>
             </div>
           </div>
 
@@ -414,12 +346,10 @@ export default function App() {
       </section>
 
       {/* 6. HISTORIAS DE CRECIMIENTO REAL */}
-      <section id="metodologia" className="py-24 bg-[#F8F9FA] relative z-20">
+      <section id="metodología" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">
-              Historias de crecimiento real. Datos con propósito.
-            </h2>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">Historias de crecimiento real. Datos con propósito.</h2>
           </div>
 
           <div className="max-w-4xl mx-auto bg-[#FFFFFF] border border-[#0A192F]/5 rounded-[3rem] p-8 sm:p-14 shadow-xl space-y-6 relative overflow-hidden">
@@ -447,8 +377,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN (TEXTOS Y BOTÓN REPARADOS DE FORMA QUIRÚRGICA) */}
-      <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
+      {/* 7. FORMULARIO DE CAPTACIÓN (CORREGIDO QUIRÚRGICAMENTE CON TUS NUEVOS TEXTOS) */}
+      <section id="inversión" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
             <blockquote className="border-l-4 border-[#00B4D8] pl-6 mb-8">
@@ -457,7 +387,7 @@ export default function App() {
               </p>
             </blockquote>
             
-            {/* CORRECCIÓN EXCELENTE DEL GANCHO: TEXTO LIMPIO SIN PROMESAS LIMITANTES */}
+            {/* CORRECCIÓN: TEXTO EXACTO APROBADO */}
             <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
             </p>
@@ -522,17 +452,16 @@ export default function App() {
                 </div>
               </div>
               
-              {/* BOTÓN Y FOOTER DEL FORMULARIO REDISEÑADO SEGÚN ESPECIFICACIÓN */}
+              {/* BOTÓN Y FOOTER DE DATOS PROTEGIDOS REINTEGRADO */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
-                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3"
+                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3 font-display"
                 >
                   <Send className="w-5 h-5" />
                   <span>Solicitar Diagnóstico Estratégico</span>
                 </button>
                 
-                {/* TEXTO DE PROTECCIÓN RE-INTEGRADO EXPLICITAMENTE ABAJO DEL BOTON */}
                 <p className="text-center text-gray-400 text-[10px] font-mono leading-relaxed px-4">
                   🔒 <strong>Datos protegidos:</strong> Su información es totalmente confidencial y solo se utilizará para coordinar su sesión estratégica privada bajo estricto secreto profesional.
                 </p>
