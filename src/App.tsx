@@ -25,10 +25,7 @@ import {
   Target,
   Clock,
   ShieldCheck,
-  Sparkles,
-  Heart,
-  MessageCircle,
-  Share2
+  Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -66,7 +63,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Google Fonts e Inyecciones de Animación Core */}
+      {/* Google Fonts e Inyecciones de Estilo Inmutables */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -86,7 +83,7 @@ export default function App() {
         }
       `}</style>
 
-      {/* Background Atmosphere */}
+      {/* Ambient Glow */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
@@ -95,13 +92,13 @@ export default function App() {
       {/* 1. NAVIGATION BAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
-          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
+          ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-[0_4px_30px_rgba(10,25,47,0.02)]' 
           : 'h-24 bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
-              Growth<span className="text-[#00B4D8]">B</span>rand
+              GrowthBrand
             </span>
           </div>
 
@@ -121,7 +118,7 @@ export default function App() {
           <div className="flex items-center gap-6">
             <a 
               href="#aplicar"
-              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md text-xs font-display uppercase tracking-wider"
+              className="hidden md:flex bg-[#0A192F] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-md shadow-[#0A192F]/5 text-xs font-display uppercase tracking-wider"
             >
               <span>Diagnóstico Corporativo</span>
             </a>
@@ -132,7 +129,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Menú Móvil Hamburguesa Reparado */}
+      {/* Menú Móvil */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
@@ -165,7 +162,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (H1 CORREGIDO, ALINEADO A LA IZQUIERDA SIN ESPACIOS ROTOS, FRASE NUEVA ADAPTADA) */}
+      {/* 2. HERO SECTION (TEXTO PERFECTAMENTE ALINEADO A LA IZQUIERDA Y LA FICHA DE GOOGLE RESTAURADA) */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -182,13 +179,11 @@ export default function App() {
                 Sistemas de Posicionamiento Global
               </div>
               
-              {/* TITULAR REPARADO: ALINEACIÓN COMPLETA A LA IZQUIERDA */}
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-wide text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
-              {/* COPIES FILOSOFALES SOLICITADOS EXACTOS */}
               <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
                 En GrowthBrand no dejamos que las herramientas reemplacen a las personas; las ponemos a su servicio para liberar la chispa creativa que hace a tu marca única. Bienvenidos a una nueva forma de crecer.
               </p>
@@ -212,7 +207,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Simulación Ficha de Google Business Core */}
+            {/* Ficha Google Business Profile Restaurada Completamente */}
             <motion.div 
               className="lg:col-span-6 flex items-center justify-center relative"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -283,23 +278,53 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS COMERCIALES (LOOP CONTINUO) */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
+            Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
+          </h2>
+          
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
             <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
-              <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase">
-                <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+              
+              <div className="flex items-center gap-24 shrink-0">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">Google</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">GitHub</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} alt="" />
+                  <span className="font-sans font-bold text-2xl text-white">Meta</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">Vercel</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" />
+                  <span className="font-sans font-bold text-2xl text-white">TikTok</span>
+                </div>
               </div>
-              <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase" aria-hidden="true">
-                <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+
+              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES REALES (EFECTO HOVER PREMIUM CELESTE Y ÍCONOS DE INGENIERÍA) */}
+      {/* 4. SECCIÓN DE DOLORES CON EFECTO HOVER PREMIUM CELESTE Y ICONOS DE INGENIERÍA */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -314,32 +339,32 @@ export default function App() {
               {
                 pain: "Tienen redes débiles para el nivel de negocio que manejan",
                 solution: "El negocio puede vender bien offline, pero su imagen digital no transmite confianza ni profesionalismo. Elevamos el estatus de tus activos para alinearlos con tu facturación real.",
-                icon: <Layers className="text-[#00B4D8]" />
+                icon: <Layers className="text-[#00B4D8] transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "No saben cómo crecer ni convertir seguidores en clientes",
                 solution: "Publicas contenido sin estrategia, orden ni objetivos claros. Tienen visitas o interacción, pero carecen de un proceso para captar prospectos y cerrar ventas predecibles.",
-                icon: <TrendingUp className="text-emerald-500" />
+                icon: <TrendingUp className="text-emerald-500 transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Preocupación y miedo por el retorno real del marketing",
                 solution: "Temen invertir en algo que no conocen y no ver resultados claros en ventas o contactos. Instalamos modelos analíticos de trazabilidad para auditar cada centavo en tiempo real.",
-                icon: <BarChart3 className="text-indigo-500" />
+                icon: <BarChart3 className="text-indigo-500 transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Delegación del ecosistema comercial a personas sin estrategia",
                 solution: "Familiares o empleados manejan tus canales sin análisis, planificación ni medición. GrowthBrand toma el timón operativo bajo estándares de ingeniería predictiva.",
-                icon: <Users className="text-purple-500" />
+                icon: <Users className="text-purple-500 transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Pensar que la IA puede reemplazar todo el marketing",
                 solution: "Creen que pueden resolverlo gratis o barato. La IA es una herramienta de optimización brutal, pero necesita dirección, criterio humano y estrategia corporativa para no volver a tu marca invisible.",
-                icon: <Bot className="text-blue-500" />
+                icon: <Bot className="text-blue-500 transition-colors group-hover:text-[#0A192F]" />
               },
               {
                 pain: "Compiten por precio bajo en lugar de valor de mercado",
                 solution: "Al no comunicar bien tu autoridad de firma, terminas comparado con opciones baratas. Diseñamos diferenciadores que defienden tus márgenes de ganancia.",
-                icon: <AlertTriangle className="text-rose-500" />
+                icon: <AlertTriangle className="text-rose-500 transition-colors group-hover:text-[#0A192F]" />
               }
             ].map((item, idx) => (
               <motion.div 
@@ -363,25 +388,25 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. SECCIÓN DE CONVERSIÓN DE ANUNCIOS EN CÓDIGO PURO (META ADS & TIKTOK ADS SEGÚN CAPTURAS DE REFERENCIA) */}
+      {/* 5. SECCIÓN DE ANUNCIOS PREMIUM EN CÓDIGO PURO (META ADS & TIKTOK ADS SEGÚN CAPTURAS) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Bloque Meta Ads 1: Reach & Engagement Visual */}
+          {/* Bloque Meta Ads 1: Reach & Engagement */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Performance</span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Contenido Profesional de Alta Confianza</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Tus fotos, videos, textos y diseños deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una parrilla estratégica alineada con los objetivos de adquisición de tu firma.
+                Tus fotos, videos, textos y diseños deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear el Costo por Adquisición.
               </p>
             </div>
             
-            {/* Simulación Interfaz del Anuncio en Código Puro (Look Captura 3) */}
+            {/* Simulación del anuncio Meta UI */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
               <div className="w-full max-w-[320px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
                 <div className="h-48 w-full rounded-2xl bg-gradient-to-br from-[#0A192F] to-[#172A45] relative flex flex-col justify-end p-4 text-white">
-                  <div className="text-xs font-mono text-[#00B4D8] font-bold">LIVE AD SIMULATION</div>
+                  <div className="text-[10px] font-mono text-[#00B4D8] font-bold">LIVE AD SIMULATION</div>
                   <div className="text-base font-display font-bold">Infraestructura Corporativa B2B</div>
                 </div>
                 <div className="space-y-3 pt-2">
@@ -398,9 +423,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bloque Meta Ads 2: Chat Conversacional & ROAS B2B */}
+          {/* Bloque Meta Ads 2: Chat Conversacional & ROAS */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Simulación Gráfica Chat Conversacional B2B (Look Captura 4) */}
             <div className="lg:col-span-7 bg-[#0A192F] rounded-[2.5rem] p-8 border border-white/5 shadow-2xl grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 lg:order-1">
               <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl space-y-3">
                 <div className="text-[10px] font-mono text-gray-400 uppercase">Conversion Probability</div>
@@ -426,7 +450,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bloque TikTok Ads 3: Simulación In-Feed Video Ad Placement */}
+          {/* Bloque TikTok Ads 3: Ad Placement */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Ad Infrastructure</span>
@@ -436,23 +460,17 @@ export default function App() {
               </p>
             </div>
             
-            {/* Simulación Feed "For You" de TikTok Ad en Código Puro (Look Captura 5) */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
-                  {/* Top Bar TikTok */}
                   <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2">
                     <span>Siguiendo</span>
                     <span className="text-white border-b-2 border-white pb-1">Para ti</span>
                   </div>
-                  
-                  {/* Bottom UI TikTok */}
                   <div className="mt-auto space-y-3">
                     <div className="text-xs font-bold">@growthbrandname</div>
-                    <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición con ADN humano. Ads will be shown on For You page.</div>
-                    
-                    {/* CTA Button Inside TikTok */}
-                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider cursor-pointer active:scale-95 transition-transform">
+                    <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición integrales. Ads will be shown on For You page.</div>
+                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider">
                       Registrar Empresa
                     </div>
                   </div>
@@ -477,7 +495,7 @@ export default function App() {
             <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-2">
               <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> El Desafío Comercial</h4>
               <p className="text-[#0A192F] font-medium text-lg italic text-justify leading-relaxed">
-                "Nuestros clientes potenciales llegaban atrapados en métricas de vanidad que no pagaban la planilla a fin de mes. Sentían que habían tocado un techo de cristal invisible y que el mercado los estaba volviendo invisibles."
+                "Nuestros clients potenciales llegaban atrapados en métricas de vanidad que no pagaban la planilla a fin de mes. Sentían que habían tocado un techo de cristal invisible y que el mercado los estaba volviendo invisibles."
               </p>
             </div>
 
@@ -498,7 +516,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (PUNTOS EXÁCTOS SOLICITADOS) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (TEXTOS COMPLETO Y MÁXIMA PERSUASIÓN) */}
       <section id="inversión" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
@@ -508,7 +526,7 @@ export default function App() {
               </p>
             </blockquote>
             
-            {/* CORRECCIÓN 1: TEXTO FILOSOFAL EXACTO SIN PROMESAS LIMITANTES DE TIEMPO NI PALABRAS EXTRAÑAS */}
+            {/* TEXTO FILOSOFAL EXACTO SIN PROMESAS LIMITANTES */}
             <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
             </p>
@@ -573,7 +591,7 @@ export default function App() {
                 </div>
               </div>
               
-              {/* CORRECCIÓN 2: BOTÓN LIMPIO Y TEXTO DE PRIVACIDAD RESTAURADO DEBAJO */}
+              {/* BOTÓN Y TEXTO DE PRIVACIDAD RESTAURADOS */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
@@ -583,7 +601,6 @@ export default function App() {
                   <span>Solicitar Diagnóstico Estratégico</span>
                 </button>
                 
-                {/* TEXTO DE PROTECCIÓN INTEGRADO ABAJO EXPLICITAMENTE */}
                 <p className="text-center text-gray-400 text-[10px] font-mono leading-relaxed px-4">
                   🔒 <strong>Datos protegidos:</strong> Su información es totalmente confidencial y solo se utilizará para coordinar su sesión estratégica privada bajo estricto secreto profesional.
                 </p>
