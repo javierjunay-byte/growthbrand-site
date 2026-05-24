@@ -25,7 +25,10 @@ import {
   Target,
   Clock,
   ShieldCheck,
-  Sparkles
+  Sparkles,
+  Heart,
+  MessageCircle,
+  Share2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -63,7 +66,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Sistema de Estilos Dinámicos */}
+      {/* Google Fonts e Inyecciones CSS Globales */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -83,13 +86,13 @@ export default function App() {
         }
       `}</style>
 
-      {/* Ambient Canvas */}
+      {/* Ambient Glow */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* 1. NAVBAR */}
+      {/* 1. NAVIGATION BAR (LOGOTIPO CON LA G Y B EN CELESTE RESTAURADO) */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
           ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
@@ -97,6 +100,7 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            {/* NOMBRE DE AUTORIDAD COMPORATIVA ORIGINAL CON LA G Y LA B EN CELESTE */}
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
@@ -162,7 +166,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (TÍTULO REPARADO A LA IZQUIERDA SIN ESPACIOS ANCHOS) */}
+      {/* 2. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -278,7 +282,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS (LOGO META AZUL RESTAURADO) */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA (LOGO META AZUL) */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
@@ -369,11 +373,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_551765.png` e `image_552a69.png`) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM REESTRUCTURADOS CON LA GRID ORGÁNICA EXACTA DE TU REFERENCIA (`image_55973e.jpg`) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Mockup Meta Ads: Contenido Orgánico Limpio */}
+          {/* Bloque Meta Ads: Cuadrícula Orgánica de Contenidos Estilo Captura */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
@@ -383,30 +387,41 @@ export default function App() {
               </p>
             </div>
             
-            {/* CORRECCIÓN EXCELENTE: CONSTRUIDO COMO UN ANUNCIO REAL DE ANALÍTICA B2B ORGÁNICA */}
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
-              <div className="w-full max-w-[340px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
-                <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 shadow-inner">
-                  {/* Fotografía Real de Estrategas y Desarrolladores B2B Analizando Infraestructura de Adquisición */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=600" 
-                    alt="Estrategia Comercial Real Meta Ads" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-85"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent" />
-                  <div className="text-[10px] font-mono text-[#00B4D8] font-bold relative z-10">LIVE AD SIMULATION</div>
-                  <div className="text-base font-display font-bold relative z-10 text-white">Infraestructura Corporativa B2B</div>
-                </div>
-                <div className="space-y-3 pt-2">
-                  <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
-                    <span className="text-xs font-mono text-gray-400 uppercase">CPA por Audiencia</span>
-                    <span className="text-xs font-bold text-rose-600">Optimizado</span>
-                  </div>
-                  <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
-                    <span className="text-xs font-mono text-gray-400 uppercase">Valor de Vida (LTV)</span>
-                    <span className="text-xs font-bold text-emerald-600">Maximizado</span>
+            {/* RECONSTRUCCIÓN EXACTA: GRILLA ORGANICA INTEGRAL DE CONTENIDOS CON BARRA DE PROGRESO IN SITU */}
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 sm:p-8 border border-[#0A192F]/5 shadow-inner space-y-6">
+              
+              {/* Header de Resultados del Feed */}
+              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-2 border-b border-[#0A192F]/5">
+                <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">Manejamos Tus Redes</span>
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <span className="text-[11px] font-mono font-bold text-emerald-600 shrink-0">Resultados:</span>
+                  <div className="w-full sm:w-36 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-[75%] h-full bg-[#00B4D8]" />
                   </div>
                 </div>
+              </div>
+
+              {/* Grilla Simulación Red Real */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {[
+                  { title: "Enfoque de Crecimiento", tag: "Estrategia" },
+                  { title: "Hábitos Simples, Grandes Resultados", tag: "Conversión" },
+                  { title: "Tu Marca en Manos Profesionales", tag: "Autoridad" },
+                  { title: "Sistemas de Adquisición B2B", tag: "Sistemas" },
+                  { title: "Optimización Orgánica Continua", tag: "RevOps" },
+                  { title: "Casos de Crecimiento Real", tag: "Evidencia" }
+                ].map((post, i) => (
+                  <div key={i} className="aspect-square bg-[#0A192F] rounded-2xl relative overflow-hidden flex flex-col justify-end p-4 group border border-white/5">
+                    <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
+                    <span className="absolute top-3 right-3 text-[9px] font-mono font-bold bg-[#00B4D8] text-white px-2 py-0.5 rounded-full z-20 uppercase">{post.tag}</span>
+                    <p className="text-white text-xs font-display font-bold leading-tight relative z-20">{post.title}</p>
+                    <div className="flex gap-3 text-white/40 text-[10px] mt-2 relative z-20 pt-1 border-t border-white/5">
+                      <span className="flex items-center gap-1"><Heart size={10} className="text-rose-500 fill-rose-500" /> 142</span>
+                      <span className="flex items-center gap-1"><MessageCircle size={10} /> 42</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -416,16 +431,12 @@ export default function App() {
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" 
-                    alt="Premium Product Showcase" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-50"
-                  />
-                  <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2 relative z-10">
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
+                  <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2 relative z-20">
                     <span>Siguiendo</span>
                     <span className="text-white border-b-2 border-white pb-1">Para ti</span>
                   </div>
-                  <div className="mt-auto space-y-3 relative z-10">
+                  <div className="mt-auto space-y-3 relative z-20">
                     <div className="text-xs font-bold">@growthbrandname</div>
                     <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición integrales. Ads will be shown on For You page.</div>
                     <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider cursor-pointer">
@@ -474,11 +485,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (DISEÑO TRIDIMENSIONAL PREMIUM, TITULOS Y BOTONES CELESTES) */}
+      {/* 6. SECCIÓN DE INVERSIÓN (LOS 3 PLANES TRIDIMENSIONALES DE ALTA ADQUISICIÓN CON REDIRECCIÓN COMPLETA A WHATSAPP) */}
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            {/* CORRECCIÓN EXACTA DE COLOR CELESTE EN TÍTULO */}
+            {/* CORRECCIÓN: TÍTULO EN COLOR CELESTE BRILLANTE */}
             <h2 className="font-display text-4xl md:text-5xl text-[#00B4D8] mb-6 font-bold tracking-tight">
               Modelos de Implementación B2B
             </h2>
@@ -549,7 +560,7 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* BOTONES UNIFICADOS EN CELESTE CON REDIRECCIÓN DIRECTA A WHATSAPP API */}
+                {/* BOTONES UNIFICADOS EN CELESTE CON LOS TEXTOS COMERCIALES EXACTOS */}
                 <a 
                   href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
                   target="_blank"
@@ -565,7 +576,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN (GANCHO Y PRIVACIDAD TOTALMENTE RESTAURADOS) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
