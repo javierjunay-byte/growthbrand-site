@@ -89,7 +89,7 @@ export default function App() {
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* 1. NAVIGATION BAR (LOGOTIPO CON LA G Y B EN CELESTE RESTAURADO) */}
+      {/* 1. NAVIGATION BAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
           ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
@@ -97,7 +97,6 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            {/* NOMBRE DE AUTORIDAD COMPORATIVA ORIGINAL CON LA G Y LA B EN CELESTE */}
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
@@ -163,7 +162,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (H1 ALINEADO A LA IZQUIERDA Y LA FICHA DE GOOGLE RESTAURADA CON IMAGEN REAL) */}
+      {/* 2. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -180,7 +179,7 @@ export default function App() {
                 Sistemas de Posicionamiento Global
               </div>
               
-              {/* TITULAR REPARADO: ALINEACIÓN COMPLETA A LA IZQUIERDA */}
+              {/* TITULAR REPARADO: ALINEACIÓN COMPLETA A LA IZQUIERDA SIN ESPACIOS ROTOS */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
@@ -209,7 +208,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Ficha Local de Google Business Profile Restaurada con Imagen de Alta Autoridad */}
+            {/* Ficha Local de Google Business Profile */}
             <motion.div 
               className="lg:col-span-6 flex items-center justify-center relative"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -302,12 +301,13 @@ export default function App() {
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES PREMIUM (HOVER DINÁMICO EXCLUSIVO CELESTE INTEGRADO) */}
+      {/* 4. SECCIÓN DE DOLORES CON HOVER CELESTE PREMIUM */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -371,31 +371,33 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CONSTRUIDOS CON MOCKUPS E IMÁGENES REALES LEGALES */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_4b2d7d.png`) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Mockup 1: Meta Ads (Reach & Engagement Real) */}
+          {/* Mockup Meta Ads: Contenido Orgánico Limpio */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Contenido Profesional de Alta Confianza</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones.
+                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones orgánicas y reales.
               </p>
             </div>
             
-            {/* Réplica de Mockup en Código con Imagen Real Abierta */}
+            {/* CORRECCIÓN: FOTOGRAFÍA ORGANICA COMPLETA DE ALTA VISIBILIDAD SIN TONO AZUL PLANO */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
               <div className="w-full max-w-[320px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
-                <div className="h-48 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-[#0A192F]">
+                <div className="h-48 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 shadow-inner">
+                  {/* Imagen de Contenido Orgánico Real de Alta Fidelidad */}
                   <img 
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" 
-                    alt="Analytics Grid" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=600" 
+                    alt="B2B Corporate Strategy" 
+                    className="absolute inset-0 w-full h-full object-cover object-top opacity-70 mix-blend-normal"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   <div className="text-[10px] font-mono text-[#00B4D8] font-bold relative z-10">LIVE AD SIMULATION</div>
-                  <div className="text-base font-display font-bold relative z-10">Infraestructura Corporativa B2B</div>
+                  <div className="text-base font-display font-bold relative z-10 text-white drop-shadow-sm">Infraestructura Corporativa B2B</div>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
@@ -411,16 +413,16 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mockup 2: TikTok Ads Placement In-Feed */}
+          {/* Mockup 2: TikTok Ads In-Feed Ad Placement */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Réplica de Mockup Móvil TikTok en Código con Fotografía de Producto Real */}
+            {/* Mockup de TikTok Ads In-Feed */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden aspect-[9/16] relative flex flex-col justify-between p-4 bg-zinc-900">
                   <img 
                     src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" 
                     alt="Premium Product Showcase" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-45"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50"
                   />
                   <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2 relative z-10">
                     <span>Siguiendo</span>
@@ -475,7 +477,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (LOS 3 PLANES DE INVERSIÓN ORIGINALES COMPLETOS RESTAURADOS) */}
+      {/* 6. SECCIÓN DE INVERSIÓN (LOS 3 MODELOS DE ALTA ADQUISICIÓN CON REDIRECCIÓN COMPLETA A WHATSAPP) */}
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
@@ -494,6 +496,8 @@ export default function App() {
                 title: 'Arquitectura inicial para negocios tradicionales que buscan estructura de conversión y orden comercial.',
                 subtitle: '',
                 icon: '◉',
+                textBtn: 'Cotizar Despliegue Core',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa cotizar el plan de Despliegue Core para estructurar mi adquisición comercial. Mi nombre es...',
                 features: ['Gestión de Leads', 'Pauta Avanzada Google/Meta', 'Auditoría Mensual Comercial', 'Estructura SEO Local Básica']
               },
               {
@@ -502,6 +506,8 @@ export default function App() {
                 subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
                 icon: '◎',
                 premium: true,
+                textBtn: 'Adquirir Sistema de Crecimiento',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa activar el plan de Crecimiento Escalable con integraciones de automatización y WhatsApp API. Mi nombre es...',
                 features: ['WhatsApp API Business', 'CRM & Automations Core', 'Funnel UX Corporativo', 'Lead Scoring Algorítmico']
               },
               {
@@ -509,20 +515,23 @@ export default function App() {
                 title: 'Infraestructura élite de adquisición continua orientada a dominar mercados regionales de forma predecible.',
                 subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
                 icon: '⬢',
+                textBtn: 'Agendar Sesión Growth Partner',
+                msgWa: 'Hola socios de GrowthBrand. Requerimos una auditoría avanzada para el ecosistema regional Growth Command. Mi nombre es...',
                 features: ['Agentes de IA Avanzados', 'Centralización de Inteligencia Comercial', 'Análisis Predictivo de Costos']
               }
             ].map((plan, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className={`bg-white p-10 rounded-[2.5rem] flex flex-col justify-between border transition-all duration-300 ${
+                className={`bg-white p-10 rounded-[2.5rem] flex flex-col justify-between border transition-all duration-500 hover:bg-[#00B4D8]/5 hover:border-[#00B4D8]/20 group ${
                   plan.premium
                     ? 'border-[#0A192F] shadow-[0_35px_70px_rgba(10,25,47,0.1)] scale-[1.03] z-20'
                     : 'border-[#0A192F]/5 shadow-md shadow-gray-100'
                 }`}
+                whileHover={{ y: -6 }}
               >
                 <div>
                   <div className="text-center mb-8">
-                    <span className="font-mono text-2xl text-[#00B4D8] block mb-4">{plan.icon}</span>
+                    <span className="font-mono text-2xl text-[#00B4D8] block mb-4 group-hover:text-[#0A192F] transition-colors">{plan.icon}</span>
                     <span className="font-mono font-bold tracking-[0.2em] text-xs text-[#0A192F]/60 uppercase block mb-4">{plan.type}</span>
                     <p className="text-[#0A192F]/70 text-sm leading-relaxed">{plan.title}</p>
                   </div>
@@ -543,23 +552,27 @@ export default function App() {
                   </ul>
                 </div>
 
+                {/* CORRECCIÓN EXCELENTE: BOTONES REDIRIGEN DIRECTAMENTE A WHATSAPP CON SUS WALINKS CORRESPONDIENTES */}
                 <a 
-                  href="#aplicar" 
-                  className={`w-full text-center py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+                  href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full text-center py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg ${
                     plan.premium 
-                      ? 'bg-[#0A192F] text-white hover:bg-[#172A45]' 
-                      : 'bg-[#F8F9FA] text-[#0A192F] border border-[#0A192F]/10 hover:bg-gray-100'
+                      ? 'bg-[#0A192F] text-white hover:bg-[#172A45] shadow-[#0A192F]/10' 
+                      : 'bg-[#00B4D8] text-white hover:bg-[#0096B4] shadow-[#00B4D8]/10'
                   }`}
                 >
-                  Postular al Programa
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span>{plan.textBtn}</span>
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (PUNTOS EXACTOS SOLICITADOS) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
@@ -569,7 +582,6 @@ export default function App() {
               </p>
             </blockquote>
             
-            {/* CORRECCIÓN: TEXTO FILOSOFAL EXACTO SIN PROMESAS LIMITANTES DE TIEMPO */}
             <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
             </p>
@@ -634,7 +646,6 @@ export default function App() {
                 </div>
               </div>
               
-              {/* BOTÓN Y TEXTO DE PRIVACIDAD RESTAURADOS EXACTAMENTE ABAJO */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
@@ -653,7 +664,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. FOOTER (LOGOTIPO CON LA G Y B CELESTE) */}
+      {/* 8. FOOTER */}
       <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-4">
           <div className="font-display font-extrabold text-[#0A192F] text-2xl italic">
