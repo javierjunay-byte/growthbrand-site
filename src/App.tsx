@@ -117,41 +117,79 @@ export default function App() {
             >
               <span>Diagnóstico Corporativo</span>
             </a>
-            <button className="md:hidden text-[#0A192F] p-2 hover:bg-[#0A192F]/5 rounded-xl transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {/* MENÚ HAMBURGUESA MÓVIL TOTALMENTE REPARADO */}
+            <button 
+              className="md:hidden text-[#0A192F] p-2 hover:bg-[#0A192F]/5 rounded-xl transition-colors relative z-50" 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle Menu"
+            >
               {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* 2. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 sm:py-24 relative z-10">
+      {/* Menú Desplegable Lateral/Móvil con Lógica Reparada */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="fixed inset-0 z-[140] md:hidden bg-white flex flex-col pt-24 px-6 border-b border-[#0A192F]/10 shadow-2xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex flex-col gap-6 text-left">
+              {['Sistemas', 'Metodología', 'Inversión'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-display font-bold text-2xl text-[#0A192F] hover:text-[#00B4D8] transition-colors py-2 border-b border-[#0A192F]/5"
+                >
+                  {item}
+                </a>
+              ))}
+              <a 
+                href="#aplicar" 
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md"
+              >
+                SOLICITAR DIAGNÓSTICO
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 2. HERO SECTION (TEXTO REPARADO, JUSTIFICADO Y ALINEADO CON PRECISIÓN DE SECCIÓN) */}
+      <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <motion.div 
-              className="lg:col-span-6 space-y-6 text-center lg:text-left"
+              className="lg:col-span-6 space-y-6"
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeIn}
             >
               <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.2em] font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
                 Sistemas de Posicionamiento Global
               </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0A192F] leading-[1.15] tracking-tight">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0A192F] leading-[1.2] tracking-wide text-justify">
                 Inteligencia Artificial para multiplicar tus datos. <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
-              <p className="text-[#0A192F]/70 text-lg leading-relaxed font-normal max-w-xl">
+              <p className="text-[#0A192F]/70 text-lg leading-relaxed font-normal text-justify max-w-xl">
                 En GrowthBrand no compramos algoritmos para reemplazar personas; los dominamos para liberar la chispa creativa que hace a tu marca única. Bienvenidos a la era del crecimiento con alma.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
                 <a 
                   href="#aplicar" 
                   className="bg-[#0A192F] text-white px-8 py-4.5 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase"
                 >
-                  Iniciar Auditoría Humana
+                  Iniciar Auditoría Comercial
                 </a>
                 <a 
                   href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
@@ -165,7 +203,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Google Profile Board Wrapper */}
+            {/* Google Profile Board (Alineado con simetría e interactividad fija) */}
             <motion.div 
               className="lg:col-span-6 flex items-center justify-center relative"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -174,8 +212,7 @@ export default function App() {
               transition={{ duration: 0.8 }}
             >
               <div className="absolute w-72 h-72 rounded-full bg-[#00B4D8]/10 animate-radar pointer-events-none" />
-              <div className="absolute w-96 h-96 rounded-full bg-[#0A192F]/5 animate-radar pointer-events-none" style={{ animationDelay: '1.5s' }} />
-
+              
               <div className="w-full max-w-[340px] bg-white border border-[#0A192F]/10 rounded-[3rem] p-3.5 shadow-[0_25px_60px_-15px_rgba(10,25,47,0.12)] relative z-10">
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
                   <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
@@ -202,19 +239,19 @@ export default function App() {
 
                     <div className="grid grid-cols-4 gap-2 pt-2 border-y border-[#0A192F]/5 py-3">
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Phone className="w-4 h-4" /></div>
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Phone className="w-4 h-4" /></div>
                         <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><MapPin className="w-4 h-4" /></div>
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><MapPin className="w-4 h-4" /></div>
                         <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">CÓMO LLEGAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Bookmark className="w-4 h-4" /></div>
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Bookmark className="w-4 h-4" /></div>
                         <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Globe className="w-4 h-4" /></div>
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe className="w-4 h-4" /></div>
                         <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span>
                       </div>
                     </div>
@@ -225,10 +262,6 @@ export default function App() {
                         <p className="text-[#0A192F]/80 font-medium">
                           <span className="text-emerald-600 font-bold mr-1.5">Abierto</span> · Horario de cierre 20:00
                         </p>
-                      </div>
-                      <div className="h-10 w-full bg-[#F8F9FA] rounded-xl border border-[#0A192F]/5 flex items-center px-3 gap-2">
-                        <div className="w-4 h-4 rounded-full bg-[#00B4D8]/20 flex items-center justify-center"><div className="w-1.5 h-1.5 rounded-full bg-[#00B4D8]" /></div>
-                        <span className="text-[10px] text-[#0A192F]/50 font-mono">Visibilidad Certificada por IA</span>
                       </div>
                     </div>
 
@@ -241,39 +274,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE CONFIANZA */}
+      {/* 3. MARQUESINA DE SOCIOS COMERCIALES (MANTENIDA EN LOOP PERFECTO) */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
-            Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
-          </h2>
-          
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
             <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
               <div className="flex items-center gap-24 shrink-0">
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">Google</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">GitHub</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} />
-                  <span className="font-sans font-bold text-2xl text-white">Meta</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
-                  <span className="font-sans font-bold text-2xl text-white">Vercel</span>
-                </div>
-                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
-                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} />
-                  <span className="font-sans font-bold text-2xl text-white">TikTok</span>
-                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white tracking-tight">Google</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white tracking-tight">GitHub</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white tracking-tight">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white tracking-tight">Vercel</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white tracking-tight">TikTok</span></div>
               </div>
-
-              {/* Loop Duplication */}
               <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
@@ -286,8 +298,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. VALUE PROPOSITION */}
-      <section className="py-24 bg-[#FFFFFF] relative z-20">
+      {/* 4. SECCIÓN DE VALOR DIFERENCIADO */}
+      <section className="py-24 bg-[#FFFFFF] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] leading-tight tracking-tight">
@@ -301,7 +313,7 @@ export default function App() {
               <div className="space-y-6">
                 <div className="w-12 h-12 bg-[#0A192F]/5 rounded-xl flex items-center justify-center text-[#0A192F]/50"><Bot className="w-6 h-6" /></div>
                 <h3 className="font-display text-2xl font-bold text-[#0A192F]/80">Agencias basadas en IA abstracta.</h3>
-                <p className="text-[#0A192F]/60 text-base leading-relaxed font-normal">
+                <p className="text-[#0A192F]/60 text-base leading-relaxed text-justify">
                   El mercado se llenó de reportes automatizados, respuestas de bots configurados y contenidos genéricos que no transmiten nada. Las marcas se vuelven invisibles porque hablan como máquinas. Métricas frías sin retorno real.
                 </p>
               </div>
@@ -311,7 +323,7 @@ export default function App() {
               <div className="space-y-6 relative z-10">
                 <div className="w-12 h-12 bg-[#00B4D8]/20 rounded-xl flex items-center justify-center text-[#00B4D8]"><TrendingUp className="w-6 h-6" /></div>
                 <h3 className="font-display text-2xl font-bold text-[#00B4D8]">Ingeniería Predictiva + Empatía Estratégica.</h3>
-                <p className="text-white/80 text-base leading-relaxed font-light">
+                <p className="text-white/80 text-base leading-relaxed font-light text-justify">
                   Utilizamos la misma IA avanzada que las firmas de Silicon Valley para procesar millones de datos en tiempo real, predecir tendencias de mercado y reducir tus costos de adquisición. Pero el control del timón es 100% humano. Cada estrategia es afinada por creativos que entienden la cultura, el dolor y la ambición de tu cliente.
                 </p>
               </div>
@@ -320,8 +332,58 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. CASOS DE ÉXITO */}
-      <section className="py-24 bg-[#F8F9FA] relative z-20">
+      {/* 5. NUEVA SECCIÓN DIVIDIDA PREMIUM INTERACTIVA (LOOK GOOGLE BUSINESS / PROFILE FEATURE) */}
+      <section className="py-24 bg-[#FFFFFF] border-b border-[#0A192F]/5 relative z-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Bloque Izquierdo: Ficha Gráfica Local del Cliente */}
+          <div className="lg:col-span-6 flex justify-center">
+            <div className="w-full max-w-[360px] bg-white border border-[#0A192F]/10 rounded-[2.5rem] p-4 shadow-xl">
+              <div className="rounded-2xl overflow-hidden bg-[#F8F9FA] border border-[#0A192F]/5 p-4 space-y-4">
+                <div className="h-36 w-full rounded-xl bg-cover bg-center bg-[#0A192F]/20 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600" alt="Local Store" className="w-full h-full object-cover" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-display font-bold text-[#0A192F] text-base">Tienda de jerséis</h4>
+                  <span className="inline-block bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase">Resumen</span>
+                  <div className="w-full h-px bg-[#0A192F]/5 pt-2" />
+                  <button className="w-full py-2.5 rounded-xl border border-blue-600 text-blue-600 text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors">
+                    <span>🛒 Pedir online</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bloque Derecho: Copys de Conversión Justificados para Empresas */}
+          <div className="lg:col-span-6 space-y-10 text-left">
+            <div className="space-y-3">
+              <h3 className="font-display text-3xl font-extrabold text-[#0A192F] tracking-tight">Crea publicaciones, ofertas y eventos</h3>
+              <p className="text-[#0A192F]/70 text-base leading-relaxed text-justify">
+                Añade publicaciones a tu Perfil de Empresa para promocionar ofertas especiales, eventos y novedades que mantengan informados a los clientes.
+              </p>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="font-display text-3xl font-extrabold text-[#0A192F] tracking-tight">Responde a reseñas</h3>
+              <p className="text-[#0A192F]/70 text-base leading-relaxed text-justify">
+                Responde a las reseñas públicas de los clientes para ganarte la confianza tanto de los recurrentes como de los nuevos.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="font-display text-3xl font-extrabold text-[#0A192F] tracking-tight">Publica respuestas a preguntas frecuentes</h3>
+              <p className="text-[#0A192F]/70 text-base leading-relaxed text-justify">
+                Incluye información útil sobre tu empresa de forma clara y ahorra tiempo publicando respuestas a preguntas habituales. Incluso puedes dejar que los propios clientes respondan.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 6. HISTORIAS DE CRECIMIENTO REAL (REDISENADOS CON DOLORES CORPORATIVOS B2B) */}
+      <section id="metodologia" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">
@@ -330,31 +392,33 @@ export default function App() {
           </div>
 
           <div className="max-w-4xl mx-auto bg-[#FFFFFF] border border-[#0A192F]/5 rounded-[3rem] p-8 sm:p-14 shadow-xl space-y-6 relative overflow-hidden">
-            <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-2">
-              <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> El Desafío Humano</h4>
-              <p className="text-[#0A192F] font-medium text-lg italic">
-                "Una empresa líder en su sector que se sentía estancada y desconectada de su audiencia digital."
+            
+            {/* Caso con dolor real */}
+            <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-3">
+              <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> El Desafío Comercial</h4>
+              <p className="text-[#0A192F] font-medium text-lg text-justify leading-relaxed">
+                "Nuestros clientes potenciales llegaban atrapados en métricas de vanidad (likes, clicks) que no pagaban la planilla a fin de mes. Sentían que habían tocado un techo de cristal invisible y que el mercado digital los estaba volviendo invisibles."
               </p>
             </div>
 
             <div className="p-6 bg-blue-50/60 border border-blue-100 rounded-2xl space-y-2">
-              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><Layers className="w-4 h-4" /> La Solución GrowthBrand</h4>
-              <p className="text-[#0A192F]/80 text-base leading-relaxed">
-                Implementamos modelos de machine learning para identificar nichos de mercado ocultos y rediseñamos toda su comunicación con un enfoque profundamente humano y persuasivo.
+              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><Layers className="w-4 h-4" /> Nuestra Ingeniería de Crecimiento</h4>
+              <p className="text-[#0A192F]/80 text-base leading-relaxed text-justify">
+                Implementamos modelos predictivos de inteligencia artificial para identificar oportunidades de adquisición B2B ocultas y rediseñamos su identidad digital con un enfoque empático, transformando la tensión en tracción medible.
               </p>
             </div>
 
             <div className="p-6 bg-[#0A192F] text-white rounded-2xl space-y-2 shadow-md">
-              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> El Resultado de Negocio</h4>
-              <p className="text-white/90 font-light text-base leading-relaxed">
-                No solo subieron los clics; se transformó el negocio. Retorno de inversión medible (ROI) y un equipo de trabajo que recuperó la pasión por conectar con su comunidad.
+              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> El Impacto en el Negocio</h4>
+              <p className="text-white/90 font-light text-base leading-relaxed text-justify">
+                No hacemos auditorías de software para venderte un reporte. Aceleramos tu crecimiento técnico para generar socios de vida y un retorno de inversión real, predecible e imparable.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. FORMULARIO DE RECAPTACIÓN PREMIUM */}
+      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (GANCHO DE ALTA CONVERSIÓN SEGURO) */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
@@ -363,8 +427,9 @@ export default function App() {
                 "Dejemos de hablar de métricas genéricas. Hablemos de tu visión."
               </p>
             </blockquote>
-            <p className="text-white/80 text-base leading-relaxed font-light mb-8">
-              Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo de directores de estrategia analizará personalmente tu ecosistema digital actual utilizando nuestras herramientas de IA predictiva, y agendaremos una sesión humana de 15 minutos para entregarte la hoja de ruta de tu crecimiento.
+            {/* Texto estratégico corregido contra compromisos gratuitos */}
+            <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
+              Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte la hoja de ruta de tu crecimiento.
             </p>
           </div>
 
@@ -427,16 +492,17 @@ export default function App() {
                 </div>
               </div>
               
+              {/* Botón depurado e inofensivo legalmente */}
               <button type="submit" className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3">
                 <Send className="w-5 h-5" />
-                <span>Solicitar Diagnóstico Estratégico Humano</span>
+                <span>Solicitar Diagnóstico Estratégico</span>
               </button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* 7. FOOTER */}
+      {/* 8. FOOTER */}
       <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <p className="text-xs text-[#0A192F]/40 font-mono tracking-widest uppercase text-center">
@@ -445,7 +511,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* FLOATING WHATSAPP BUTTON */}
+      {/* FLOATING WHATSAPP BUTTON (CON MENSAJE DE NEUROMARKETING REPARADO) */}
       <motion.a
         href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
         target="_blank"
