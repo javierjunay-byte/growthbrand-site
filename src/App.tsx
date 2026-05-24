@@ -63,7 +63,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Google Fonts e Inyecciones CSS Globales */}
+      {/* Sistema de Estilos Dinámicos */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -83,13 +83,13 @@ export default function App() {
         }
       `}</style>
 
-      {/* Ambient Glow */}
+      {/* Ambient Canvas */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* 1. NAVIGATION BAR (LOGOTIPO CON LA G Y B EN CELESTE RESTAURADO) */}
+      {/* 1. NAVBAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
           ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
@@ -97,7 +97,6 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            {/* NOMBRE DE AUTORIDAD COMPORATIVA ORIGINAL CON LA G Y LA B EN CELESTE */}
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
@@ -163,7 +162,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION */}
+      {/* 2. HERO SECTION (TÍTULO REPARADO A LA IZQUIERDA SIN ESPACIOS ANCHOS) */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -279,7 +278,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS OFICIALES RESTAURADA (LOGO META AZUL) */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS (LOGO META AZUL RESTAURADO) */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
@@ -290,7 +289,6 @@ export default function App() {
               <div className="flex items-center gap-24 shrink-0">
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
-                {/* CORRECCIÓN: LOGO DE META EN AZUL DE MARCA DE ALTA FIDELIDAD */}
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} alt="" /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
                 <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/FFFFFF" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} alt="" /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
@@ -307,7 +305,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES PREMIUM */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM (HOVER DINÁMICO CELESTE) */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -371,7 +369,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_551765.png` e `image_553112.jpg`) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO ORGÁNICO REAL (`image_551765.png` e `image_552a69.png`) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
@@ -385,14 +383,14 @@ export default function App() {
               </p>
             </div>
             
-            {/* CORRECCIÓN: CONSTRUIDO COMO UN ANUNCIO REAL CON CONTENIDO ORGÁNICO EN SEÑAL DE VISTA DE HARDWARE */}
+            {/* CORRECCIÓN EXCELENTE: CONSTRUIDO COMO UN ANUNCIO REAL DE ANALÍTICA B2B ORGÁNICA */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
               <div className="w-full max-w-[340px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
                 <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 shadow-inner">
-                  {/* Fotografía Orgánica Avanzada de Ingenieros y Estrategas de Referencia Real */}
+                  {/* Fotografía Real de Estrategas y Desarrolladores B2B Analizando Infraestructura de Adquisición */}
                   <img 
                     src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=600" 
-                    alt="B2B Strategy Inbound Workspace" 
+                    alt="Estrategia Comercial Real Meta Ads" 
                     className="absolute inset-0 w-full h-full object-cover opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent" />
@@ -476,4 +474,221 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (DISE
+      {/* 6. SECCIÓN DE INVERSIÓN (DISEÑO TRIDIMENSIONAL PREMIUM, TITULOS Y BOTONES CELESTES) */}
+      <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            {/* CORRECCIÓN EXACTA DE COLOR CELESTE EN TÍTULO */}
+            <h2 className="font-display text-4xl md:text-5xl text-[#00B4D8] mb-6 font-bold tracking-tight">
+              Modelos de Implementación B2B
+            </h2>
+            <p className="text-[#0A192F]/60 text-lg">
+              Infraestructura volumétrica blindada para acelerar tus flujos comerciales de adquisición.
+            </p>
+          </div>
+
+          {/* CAJAS EN 3D SOBRESALIDO CON BORDES DE MICRO-BRILLO Y ALINEACIÓN DE SEDA */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            {[
+              {
+                type: 'ESTRATEGIA BASE',
+                title: 'Arquitectura inicial para negocios tradicionales que buscan estructura de conversión y orden comercial.',
+                subtitle: '',
+                icon: '◉',
+                textBtn: 'Adquirir Estrategia base',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el plan de Estrategia base para mi marca. Mi nombre es...',
+                features: ['Gestión de Leads', 'Pauta Avanzada Google/Meta', 'Auditoría Mensual Comercial', 'Estructura SEO Local Básica']
+              },
+              {
+                type: 'CRECIMIENTO ESCALABLE',
+                title: 'Sistema robusto diseñado para automatizar flujos de pauta, optimizar el ROI y aumentar la conversión.',
+                subtitle: 'TODO LO INCLUIDO EN ESTRATEGIA BASE +',
+                icon: '◎',
+                premium: true,
+                textBtn: 'Adquirir sistema de crecimiento',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el sistema de crecimiento escalable para mi empresa. Mi nombre es...',
+                features: ['WhatsApp API Business', 'CRM & Automations Core', 'Funnel UX Corporativo', 'Lead Scoring Algorítmico']
+              },
+              {
+                type: 'GROWTH COMMAND',
+                title: 'Infraestructura élite de adquisición continua orientada a dominar mercados regionales de forma predecible.',
+                subtitle: 'TODO LO INCLUIDO EN CRECIMIENTO ESCALABLE +',
+                icon: '⬢',
+                textBtn: 'Adquirir Growth Command',
+                msgWa: 'Hola socios de GrowthBrand. Requerimos la infraestructura de adquisición avanzada Growth Command. Mi nombre es...',
+                features: ['Agentes de IA Avanzados', 'Centralización de Inteligencia Comercial', 'Análisis Predictivo de Costos']
+              }
+            ].map((plan, idx) => (
+              <motion.div
+                key={idx}
+                className={`bg-white p-10 rounded-[2.5rem] flex flex-col justify-between border border-[#0A192F]/10 shadow-[0_30px_70px_rgba(10,25,47,0.12)] transition-all duration-500 hover:bg-[#00B4D8]/5 hover:border-[#00B4D8]/30 group ${
+                  plan.premium ? 'scale-[1.04] z-20 border-[#0A192F]/30 shadow-[0_45px_90px_rgba(10,25,47,0.18)]' : ''
+                }`}
+                whileHover={{ y: -8 }}
+              >
+                <div>
+                  <div className="text-center mb-8">
+                    <span className="font-mono text-2xl text-[#00B4D8] block mb-4 group-hover:scale-110 transition-transform">{plan.icon}</span>
+                    <span className="font-mono font-bold tracking-[0.2em] text-xs text-[#0A192F]/60 uppercase block mb-4">{plan.type}</span>
+                    <p className="text-[#0A192F]/70 text-sm leading-relaxed">{plan.title}</p>
+                  </div>
+
+                  {plan.subtitle && (
+                    <p className="text-[10px] text-[#00B4D8] font-mono tracking-wider mb-6 italic text-center underline underline-offset-4 decoration-[#00B4D8]/20">
+                      {plan.subtitle}
+                    </p>
+                  )}
+
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((f, i) => (
+                      <li key={i} className="flex items-center gap-3 text-xs text-[#0A192F]/80">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-[#00B4D8]" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* BOTONES UNIFICADOS EN CELESTE CON REDIRECCIÓN DIRECTA A WHATSAPP API */}
+                <a 
+                  href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all bg-[#00B4D8] hover:bg-[#0096B4] text-white flex items-center justify-center gap-2 shadow-lg shadow-[#00B4D8]/20 active:scale-95"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                  <span>{plan.textBtn}</span>
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FORMULARIO DE CAPTACIÓN (GANCHO Y PRIVACIDAD TOTALMENTE RESTAURADOS) */}
+      <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
+        <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
+          <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
+            <blockquote className="border-l-4 border-[#00B4D8] pl-6 mb-8">
+              <p className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
+                "Dejemos de hablar de métricas genéricas. Hablemos de tu visión."
+              </p>
+            </blockquote>
+            
+            <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
+              Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
+            </p>
+          </div>
+
+          <div className="p-10 md:p-14 bg-white relative">
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const data = new FormData(form);
+                const response = await fetch(form.action, {
+                  method: "POST",
+                  body: data,
+                  headers: { Accept: "application/json" },
+                });
+                if (response.ok) {
+                  window.location.href = "/gracias.html";
+                }
+              }}
+              name="diagnostico-growthbrand"
+              method="POST"
+              action="https://formspree.io/f/xaqkqjvq"
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
+                    <input name="nombre" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Tu nombre" required />
+                  </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
+                    <input name="email" type="email" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="ejemplo@empresa.com" required />
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
+                    <input name="website" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Usuario (Opcional)" />
+                  </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Celular / WhatsApp</label>
+                    <input name="telefono" type="tel" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="+502 0000 0000" required />
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
+                    <select name="objetivo" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm">
+                      <option>Generar Leads Calificados</option>
+                      <option>Optimizar Visibilidad Local</option>
+                      <option>Estructura Comercial Integral</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
+                    <textarea name="contexto" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 h-[54px] resize-none text-sm outline-none focus:border-[#00B4D8]" placeholder="Tus retos..." required />
+                  </div>
+                </div>
+              </div>
+              
+              {/* BOTÓN DEFINITIVO Y TEXTO LEGAL DE CONFIDENCIALIDAD RESTAURADO ABAJO COMPLETO */}
+              <div className="space-y-4">
+                <button 
+                  type="submit" 
+                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3 font-display"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>Solicitar Diagnóstico Estratégico</span>
+                </button>
+                
+                <p className="text-center text-gray-400 text-[10px] font-mono leading-relaxed px-4">
+                  🔒 <strong>Datos protegidos:</strong> Su información es totalmente confidencial y solo se utilizará para coordinar su sesión estratégica privada bajo estricto secreto profesional.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FOOTER */}
+      <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-4">
+          <div className="font-display font-extrabold text-[#0A192F] text-2xl italic">
+            <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
+          </div>
+          <p className="text-gray-400 text-xs font-mono uppercase tracking-[0.3em]">Aceleramos los datos con tecnología, expandimos los negocios con empatía.</p>
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <p className="text-xs text-[#0A192F]/40 font-mono tracking-widest uppercase">
+              © 2026 GrowthBrand. Ecosistemas de Crecimiento Integrales.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* FLOATING WHATSAPP BUTTON */}
+      <motion.a
+        href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-[150] flex items-center gap-3 bg-[#25D366] text-white p-4 rounded-3xl shadow-2xl hover:scale-110 transition-all group border border-white/10"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <div className="hidden lg:block overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap px-0 group-hover:px-2 font-bold text-xs uppercase tracking-widest">
+          ¿Cansado de los asistentes virtuales y los menús numéricos? Presiona aquí y habla directamente con un Socio de Crecimiento de nuestro equipo. Sin filtros robóticos.
+        </div>
+        <WhatsAppIcon className="w-6 h-6" />
+      </motion.a>
+
+    </div>
+  );
+}
