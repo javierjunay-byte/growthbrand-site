@@ -26,7 +26,6 @@ import {
   Clock,
   ShieldCheck,
   Sparkles,
-  HelpCircle,
   Heart,
   MessageCircle,
   Share2
@@ -67,7 +66,7 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Estilos Globales de Fuentes y Animaciones */}
+      {/* Google Fonts e Inyecciones de Animación Core */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -87,7 +86,7 @@ export default function App() {
         }
       `}</style>
 
-      {/* Background Glow */}
+      {/* Background Atmosphere */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
@@ -133,80 +132,148 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Menú Móvil */}
+      {/* Menú Móvil Hamburguesa Reparado */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
             className="fixed inset-0 z-[140] md:hidden bg-white flex flex-col pt-24 px-6 border-b border-[#0A192F]/10 shadow-2xl"
-            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col gap-6 text-left">
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-display font-bold text-2xl text-[#0A192F] py-2 border-b border-gray-100">{item}</a>
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-display font-bold text-2xl text-[#0A192F] hover:text-[#00B4D8] transition-colors py-2 border-b border-[#0A192F]/5"
+                >
+                  {item}
+                </a>
               ))}
-              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
+              <a 
+                href="#aplicar" 
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-4 tracking-wider text-sm shadow-md"
+              >
+                SOLICITAR DIAGNÓSTICO
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 2. HERO SECTION (ALINEACIÓN IZQUIERDA PURA, SIN ESPACIOS ROTOS EN EL H1) */}
+      {/* 2. HERO SECTION (H1 CORREGIDO, ALINEADO A LA IZQUIERDA SIN ESPACIOS ROTOS, FRASE NUEVA ADAPTADA) */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            <motion.div className="lg:col-span-6 space-y-6" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeIn}>
+            <motion.div 
+              className="lg:col-span-6 space-y-6"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
               <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.2em] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
                 Sistemas de Posicionamiento Global
               </div>
               
-              {/* CORRECCIÓN: TEXT-LEFT ABSOLUTO CON ALTURA CORRECTA */}
+              {/* TITULAR REPARADO: ALINEACIÓN COMPLETA A LA IZQUIERDA */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
                 <span className="text-[#00B4D8] italic">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
-              {/* NUEVA FRASE CONFIGURADA */}
+              {/* COPIES FILOSOFALES SOLICITADOS EXACTOS */}
               <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
                 En GrowthBrand no dejamos que las herramientas reemplacen a las personas; las ponemos a su servicio para liberar la chispa creativa que hace a tu marca única. Bienvenidos a una nueva forma de crecer.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <a href="#aplicar" className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl w-full sm:w-auto text-center uppercase">Iniciar Auditoría</a>
-                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase">
-                  <WhatsAppIcon className="w-4 h-4 text-emerald-500" /> Hablar con un Socio
+                <a 
+                  href="#aplicar" 
+                  className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase"
+                >
+                  Iniciar Auditoría Comercial
+                </a>
+                <a 
+                  href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-emerald-500" />
+                  Hablar con un Socio
                 </a>
               </div>
             </motion.div>
 
-            {/* Google Profile Board (Simulación Estructural en Código Puro) */}
-            <motion.div className="lg:col-span-6 flex items-center justify-center relative" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            {/* Simulación Ficha de Google Business Core */}
+            <motion.div 
+              className="lg:col-span-6 flex items-center justify-center relative"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <div className="absolute w-72 h-72 rounded-full bg-[#00B4D8]/10 animate-radar pointer-events-none" />
+              
               <div className="w-full max-w-[340px] bg-white border border-[#0A192F]/10 rounded-[3rem] p-3.5 shadow-[0_25px_60px_-15px_rgba(10,25,47,0.12)] relative z-10">
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
-                  <div className="h-44 w-full bg-[#172A45] relative flex items-center justify-center text-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#00B4D8]/20 to-[#0A192F]" />
-                    <BarChart3 size={48} className="text-[#00B4D8]/40" />
+                  <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&q=80&w=600" 
+                      alt="Negocio Local" 
+                      className="w-full h-full object-cover object-center opacity-90"
+                    />
+                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      En Línea
+                    </div>
                   </div>
+
                   <div className="p-5 bg-white space-y-4">
                     <div>
-                      <h3 className="font-display font-bold text-[#0A192F] text-lg">Arquitectura Comercial Local</h3>
+                      <h3 className="font-display font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
                       <div className="flex items-center gap-1.5 mt-1">
                         <span className="text-amber-500 font-bold text-sm">4.5</span>
                         <div className="flex text-amber-400 text-xs">★★★★★</div>
                         <span className="text-[#0A192F]/40 text-xs">(83)</span>
                       </div>
+                      <span className="text-[#0A192F]/50 text-[11px] font-medium block mt-1">Construcción · Comercio local</span>
                     </div>
-                    <div className="grid grid-cols-4 gap-2 pt-2 border-y border-gray-100 py-3">
-                      {['LLAMAR', 'UBICACIÓN', 'GUARDAR', 'WEB'].map((btn) => (
-                        <div key={btn} className="flex flex-col items-center justify-center text-center space-y-1">
-                          <div className="w-8 h-8 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe size={14} /></div>
-                          <span className="text-[8px] font-bold text-gray-400">{btn}</span>
-                        </div>
-                      ))}
+
+                    <div className="grid grid-cols-4 gap-2 pt-2 border-y border-[#0A192F]/5 py-3">
+                      <div className="flex flex-col items-center justify-center text-center space-y-1">
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Phone className="w-4 h-4" /></div>
+                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1">
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><MapPin className="w-4 h-4" /></div>
+                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">UBICACIÓN</span>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1">
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Bookmark className="w-4 h-4" /></div>
+                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center space-y-1">
+                        <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8]"><Globe className="w-4 h-4" /></div>
+                        <span className="text-[8px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs"><div className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-gray-600 font-medium">Abierto · Posicionamiento Listo</span></div>
+
+                    <div className="space-y-2 pt-1 text-xs">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <p className="text-[#0A192F]/80 font-medium">
+                          <span className="text-emerald-600 font-bold mr-1.5">Abierto</span> · Horario estelar
+                        </p>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -216,25 +283,29 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE LOGOS CONTINUA */}
-      <section className="bg-[#0A192F] py-14 border-y border-white/5 relative z-20 overflow-hidden">
-        <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
-          <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
-            <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase">
-              <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
-            </div>
-            <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase" aria-hidden="true">
-              <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+      {/* 3. MARQUESINA DE SOCIOS COMERCIALES (LOOP CONTINUO) */}
+      <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
+            <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
+              <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase">
+                <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+              </div>
+              <div className="flex items-center gap-24 shrink-0 font-display font-bold text-xl text-white/40 tracking-widest uppercase" aria-hidden="true">
+                <span>• Google Cloud</span> <span>• Meta Business</span> <span>• TikTok Ad-Engine</span> <span>• Vercel Network</span> <span>• GitHub Enterprise</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES PREMIUM DINÁMICA (PULSO HOVER CELESTE PREMIUM) */}
+      {/* 4. SECCIÓN DE DOLORES REALES (EFECTO HOVER PREMIUM CELESTE Y ÍCONOS DE INGENIERÍA) */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">Fricciones comerciales que removemos de tu infraestructura</h2>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] leading-tight tracking-tight">
+              Fricciones comerciales que removemos de tu infraestructura
+            </h2>
             <div className="w-20 h-1 bg-[#00B4D8] mx-auto mt-6 rounded-full" />
           </div>
 
@@ -242,27 +313,27 @@ export default function App() {
             {[
               {
                 pain: "Tienen redes débiles para el nivel de negocio que manejan",
-                solution: "El negocio vende bien offline, pero su imagen digital no transmite confianza ni profesionalismo. Elevamos el estatus de tus activos para alinearlos con tu facturación real.",
+                solution: "El negocio puede vender bien offline, pero su imagen digital no transmite confianza ni profesionalismo. Elevamos el estatus de tus activos para alinearlos con tu facturación real.",
                 icon: <Layers className="text-[#00B4D8]" />
               },
               {
                 pain: "No saben cómo crecer ni convertir seguidores en clientes",
-                solution: "Publicas contenido sin estrategia ni objetivos claros. Tienen interacción, pero carecen de un sistema estructurado para captar prospectos y cerrar contratos.",
+                solution: "Publicas contenido sin estrategia, orden ni objetivos claros. Tienen visitas o interacción, pero carecen de un proceso para captar prospectos y cerrar ventas predecibles.",
                 icon: <TrendingUp className="text-emerald-500" />
               },
               {
                 pain: "Preocupación y miedo por el retorno real del marketing",
-                solution: "Miedo a invertir y no ver resultados claros en ventas. Instalamos modelos analíticos RevOps de trazabilidad absoluta para auditar cada centavo en tiempo real.",
+                solution: "Temen invertir en algo que no conocen y no ver resultados claros en ventas o contactos. Instalamos modelos analíticos de trazabilidad para auditar cada centavo en tiempo real.",
                 icon: <BarChart3 className="text-indigo-500" />
               },
               {
                 pain: "Delegación del ecosistema comercial a personas sin estrategia",
-                solution: "Familiares o conocidos manejan tus canales sin análisis, planificación ni medición. GrowthBrand toma el timón operativo bajo estándares de ingeniería predictiva.",
+                solution: "Familiares o empleados manejan tus canales sin análisis, planificación ni medición. GrowthBrand toma el timón operativo bajo estándares de ingeniería predictiva.",
                 icon: <Users className="text-purple-500" />
               },
               {
-                pain: "Pensar que la IA puede reemplazar toda la estrategia",
-                solution: "Creen que pueden resolverlo gratis o barato. La IA necesita dirección, criterio humano refinado y estrategia corporativa para no volver a tu marca invisible.",
+                pain: "Pensar que la IA puede reemplazar todo el marketing",
+                solution: "Creen que pueden resolverlo gratis o barato. La IA es una herramienta de optimización brutal, pero necesita dirección, criterio humano y estrategia corporativa para no volver a tu marca invisible.",
                 icon: <Bot className="text-blue-500" />
               },
               {
@@ -292,53 +363,101 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. SIMULACIONES MÓDULOS DE ANUNCIOS EN CÓDIGO PURO (META ADS & TIKTOK ADS INTEGRADOS) */}
+      {/* 5. SECCIÓN DE CONVERSIÓN DE ANUNCIOS EN CÓDIGO PURO (META ADS & TIKTOK ADS SEGÚN CAPTURAS DE REFERENCIA) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Módulo de Meta Ads Avanzado (Simulando Alcance y ROAS B2B) */}
+          {/* Bloque Meta Ads 1: Reach & Engagement Visual */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Infrastructure</span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Ingeniería Comercial en Campañas de Conversión</h2>
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Performance</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Contenido Profesional de Alta Confianza</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                No subimos publicaciones para ver qué pasa. Diseñamos arquitecturas de pauta digital optimizadas para rastrear el Costo por Adquisición (CPA) por audiencias específicas, protegiendo tu presupuesto y maximizando el valor de vida de tu cliente.
+                Tus fotos, videos, textos y diseños deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una parrilla estratégica alineada con los objetivos de adquisición de tu firma.
               </p>
             </div>
             
-            {/* Simulación Gráfica de Meta UI en Código Puro */}
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 border border-[#0A192F]/5 shadow-inner grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 space-y-4 shadow-sm">
-                <div className="flex items-center justify-between"><span className="text-xs font-mono font-bold text-gray-400">AUDIENCIA ALTA INTENCIÓN</span><div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" /></div>
-                <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="w-[78%] h-full bg-[#00B4D8]" /></div>
-                <div className="flex justify-between text-xs font-mono"><span>CPA Optimizada</span><span className="font-bold text-[#0A192F]">-34%</span></div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 space-y-4 shadow-sm">
-                <div className="flex items-center justify-between"><span className="text-xs font-mono font-bold text-gray-400">RETORNO AD SPEND (ROAS)</span><TrendingUp className="text-emerald-500 w-4 h-4" /></div>
-                <div className="text-2xl font-display font-extrabold text-[#0A192F]">4.2x ROAS</div>
-                <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono font-bold">PREDICTIVO CERTIFICADO</span>
+            {/* Simulación Interfaz del Anuncio en Código Puro (Look Captura 3) */}
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
+              <div className="w-full max-w-[320px] bg-white border border-gray-200/60 rounded-3xl p-4 shadow-md space-y-4">
+                <div className="h-48 w-full rounded-2xl bg-gradient-to-br from-[#0A192F] to-[#172A45] relative flex flex-col justify-end p-4 text-white">
+                  <div className="text-xs font-mono text-[#00B4D8] font-bold">LIVE AD SIMULATION</div>
+                  <div className="text-base font-display font-bold">Infraestructura Corporativa B2B</div>
+                </div>
+                <div className="space-y-3 pt-2">
+                  <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+                    <span className="text-xs font-mono text-gray-400 uppercase">CPA por Audiencia</span>
+                    <span className="text-xs font-bold text-rose-600">Optimizado</span>
+                  </div>
+                  <div className="bg-[#F8F9FA] p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+                    <span className="text-xs font-mono text-gray-400 uppercase">Valor de Vida (LTV)</span>
+                    <span className="text-xs font-bold text-emerald-600">Maximizado</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Módulo de TikTok Ads Placement (Simulando Estructura In-Feed Ad) */}
+          {/* Bloque Meta Ads 2: Chat Conversacional & ROAS B2B */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 bg-[#0A192F] rounded-[2.5rem] p-6 border border-white/5 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[220px] order-2 lg:order-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00B4D8]/10 to-transparent" />
-              <div className="relative z-10 space-y-4 max-w-md">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#00B4D8] font-bold uppercase tracking-wider"><Sparkles size={14} /> TikTok For You Placement</div>
-                <p className="text-white/90 text-sm leading-relaxed text-justify font-light">
-                  Configuramos tus llamadas a la acción, títulos persuasivos y creativos dinámicos de forma nativa dentro de la interfaz comercial para enganchar al consumidor corporativo en los primeros 3 segundos críticos.
-                </p>
+            {/* Simulación Gráfica Chat Conversacional B2B (Look Captura 4) */}
+            <div className="lg:col-span-7 bg-[#0A192F] rounded-[2.5rem] p-8 border border-white/5 shadow-2xl grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 lg:order-1">
+              <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl space-y-3">
+                <div className="text-[10px] font-mono text-gray-400 uppercase">Conversion Probability</div>
+                <div className="text-3xl font-display font-bold text-white">94.2%</div>
+                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden"><div className="w-[94%] h-full bg-[#00B4D8]" /></div>
+              </div>
+              <div className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl flex flex-col justify-center space-y-2">
+                <div className="bg-[#00B4D8] text-white p-3 rounded-2xl rounded-bl-none text-xs leading-relaxed">
+                  ¿Cómo puedo mejorar mi retorno en anuncios (ROAS) B2B?
+                </div>
+                <div className="bg-white/5 text-white/90 p-3 rounded-2xl rounded-br-none text-xs leading-relaxed font-light">
+                  Instalando el sistema de tracción predictiva de GrowthBrand.
+                </div>
               </div>
             </div>
 
             <div className="lg:col-span-5 space-y-6 order-1 lg:order-2">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Business Engine</span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Estructura de Conversión In-Feed Absoluta</h2>
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">ROAS Optimization</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Estrategia Comercial Conectada al Cierre</h2>
               <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Desplegamos embudos comerciales conectados directamente a tu WhatsApp o CRM de ventas, eliminando la fricción de salida del usuario tradicional y acelerando el embudo de cierre de prospectos.
+                Unimos los puntos sueltos de tu ecosistema. Creamos una conexión matemática y estratégica entre tu contenido, tus anuncios segmentados, tus prospectos calificados y tu equipo de ventas.
               </p>
+            </div>
+          </div>
+
+          {/* Bloque TikTok Ads 3: Simulación In-Feed Video Ad Placement */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Ad Infrastructure</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#0A192F]">Canales Listos y Configurados para Vender</h2>
+              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
+                Configuramos tus cuentas comerciales de WhatsApp, Instagram y Facebook con estructuras de atención automatizada y embudos dinámicos que no dejan perder ningún prospecto.
+              </p>
+            </div>
+            
+            {/* Simulación Feed "For You" de TikTok Ad en Código Puro (Look Captura 5) */}
+            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
+              <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
+                <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
+                  {/* Top Bar TikTok */}
+                  <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2">
+                    <span>Siguiendo</span>
+                    <span className="text-white border-b-2 border-white pb-1">Para ti</span>
+                  </div>
+                  
+                  {/* Bottom UI TikTok */}
+                  <div className="mt-auto space-y-3">
+                    <div className="text-xs font-bold">@growthbrandname</div>
+                    <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición con ADN humano. Ads will be shown on For You page.</div>
+                    
+                    {/* CTA Button Inside TikTok */}
+                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider cursor-pointer active:scale-95 transition-transform">
+                      Registrar Empresa
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -349,7 +468,9 @@ export default function App() {
       <section id="metodología" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">Historias de crecimiento real. Datos con propósito.</h2>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">
+              Historias de crecimiento real. Datos con propósito.
+            </h2>
           </div>
 
           <div className="max-w-4xl mx-auto bg-[#FFFFFF] border border-[#0A192F]/5 rounded-[3rem] p-8 sm:p-14 shadow-xl space-y-6 relative overflow-hidden">
@@ -377,7 +498,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CAPTACIÓN (CORREGIDO QUIRÚRGICAMENTE CON TUS NUEVOS TEXTOS) */}
+      {/* 7. FORMULARIO DE CAPTACIÓN REPARADO (PUNTOS EXÁCTOS SOLICITADOS) */}
       <section id="inversión" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
           <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
@@ -387,7 +508,7 @@ export default function App() {
               </p>
             </blockquote>
             
-            {/* CORRECCIÓN: TEXTO EXACTO APROBADO */}
+            {/* CORRECCIÓN 1: TEXTO FILOSOFAL EXACTO SIN PROMESAS LIMITANTES DE TIEMPO NI PALABRAS EXTRAÑAS */}
             <p className="text-white/80 text-base leading-relaxed font-light mb-8 text-justify">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo analizará tu ecosistema digital actual utilizando nuestras herramientas de IA, y agendaremos una sesión para entregarte tu diagnóstico y analizar tu caso.
             </p>
@@ -452,7 +573,7 @@ export default function App() {
                 </div>
               </div>
               
-              {/* BOTÓN Y FOOTER DE DATOS PROTEGIDOS REINTEGRADO */}
+              {/* CORRECCIÓN 2: BOTÓN LIMPIO Y TEXTO DE PRIVACIDAD RESTAURADO DEBAJO */}
               <div className="space-y-4">
                 <button 
                   type="submit" 
@@ -462,6 +583,7 @@ export default function App() {
                   <span>Solicitar Diagnóstico Estratégico</span>
                 </button>
                 
+                {/* TEXTO DE PROTECCIÓN INTEGRADO ABAJO EXPLICITAMENTE */}
                 <p className="text-center text-gray-400 text-[10px] font-mono leading-relaxed px-4">
                   🔒 <strong>Datos protegidos:</strong> Su información es totalmente confidencial y solo se utilizará para coordinar su sesión estratégica privada bajo estricto secreto profesional.
                 </p>
