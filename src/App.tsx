@@ -20,9 +20,7 @@ import {
   Phone,
   MapPin,
   Globe,
-  Bookmark,
-  Building2,
-  ArrowRight
+  Bookmark
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -53,10 +51,14 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const whatsappMessage = encodeURIComponent(
+    "Hola equipo de GrowthBrand. He visto su enfoque de IA con ADN humano y me interesa agendar un espacio para que analicemos las oportunidades de crecimiento de mi empresa. Mi nombre es..."
+  );
+
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
-      {/* Tipografías y Animaciones de Estilo Apple / Google Core */}
+      {/* Google Fonts e Inyecciones de Estilo Core */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
         .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -76,16 +78,21 @@ export default function App() {
         }
       `}</style>
 
-      {/* 1. NAV BAR (Estilo Minimalista de Alta Autoridad) */}
+      {/* Background Glow */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00B4D8]/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
+      </div>
+
+      {/* 1. NAVIGATION BAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
           ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-[0_4px_30px_rgba(10,25,47,0.02)]' 
           : 'h-24 bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
-          {/* Logotipo Tipográfico Limpio (Look Cerebro / Apple) */}
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight transition-colors duration-300">
+            <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
               Growth<span className="text-[#00B4D8]">B</span>rand
             </span>
           </div>
@@ -117,14 +124,11 @@ export default function App() {
         </div>
       </nav>
 
-      {/* 2. HERO SECTION (Rediseño Conceptual: Look Google Business Profile Core) */}
+      {/* 2. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-[#FFFFFF] border-b border-[#0A192F]/5">
-        <div className="absolute inset-0 z-0 opacity-[0.015] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none" />
-        
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-16 sm:py-24 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            {/* Bloque Izquierdo: Mensaje de Alianza y Ayuda Humana */}
             <motion.div 
               className="lg:col-span-6 space-y-6 text-center lg:text-left"
               initial="initial"
@@ -133,7 +137,7 @@ export default function App() {
               variants={fadeIn}
             >
               <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.2em] font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8]" />
                 Sistemas de Posicionamiento Global
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0A192F] leading-[1.15] tracking-tight">
@@ -150,7 +154,7 @@ export default function App() {
                   Iniciar Auditoría Humana
                 </a>
                 <a 
-                  href="https://wa.me/502YOURNUMBER?text=Hola%20GrowthBrand"
+                  href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4.5 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"
@@ -161,7 +165,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Bloque Derecho: Réplica Exacta Premium del Perfil de Google Business / Local Maps */}
+            {/* Google Profile Board Wrapper */}
             <motion.div 
               className="lg:col-span-6 flex items-center justify-center relative"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -169,26 +173,22 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              {/* Pulsos de Radar Inteligente de Google */}
               <div className="absolute w-72 h-72 rounded-full bg-[#00B4D8]/10 animate-radar pointer-events-none" />
               <div className="absolute w-96 h-96 rounded-full bg-[#0A192F]/5 animate-radar pointer-events-none" style={{ animationDelay: '1.5s' }} />
 
-              {/* Contenedor del Smartphone Simulado */}
               <div className="w-full max-w-[340px] bg-white border border-[#0A192F]/10 rounded-[3rem] p-3.5 shadow-[0_25px_60px_-15px_rgba(10,25,47,0.12)] relative z-10">
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
-                  {/* Foto Principal de la Ficha Local (Legal y de Alta Fidelidad) */}
                   <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
                     <img 
                       src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&q=80&w=600" 
                       alt="Negocio Local" 
-                      className="w-full h-full object-cover object-center opacity-90 brightness-95"
+                      className="w-full h-full object-cover object-center opacity-90"
                     />
-                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider backdrop-blur-xs">
+                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
                       En Línea
                     </div>
                   </div>
 
-                  {/* Cuerpo Informativo de Google Business Profile */}
                   <div className="p-5 bg-white space-y-4">
                     <div>
                       <h3 className="font-display font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
@@ -200,27 +200,25 @@ export default function App() {
                       <span className="text-[#0A192F]/50 text-[11px] font-medium block mt-1">Construcción · Comercio local</span>
                     </div>
 
-                    {/* Fila de Botones Táctiles de Acción de Google */}
                     <div className="grid grid-cols-4 gap-2 pt-2 border-y border-[#0A192F]/5 py-3">
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
                         <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Phone className="w-4 h-4" /></div>
-                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60 group-hover:text-[#0A192F]">LLAMAR</span>
+                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">LLAMAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
                         <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><MapPin className="w-4 h-4" /></div>
-                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60 group-hover:text-[#0A192F]">CÓMO LLEGAR</span>
+                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">CÓMO LLEGAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
                         <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Bookmark className="w-4 h-4" /></div>
-                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60 group-hover:text-[#0A192F]">GUARDAR</span>
+                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">GUARDAR</span>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center space-y-1 cursor-pointer group">
                         <div className="w-9 h-9 rounded-full bg-[#00B4D8]/10 flex items-center justify-center text-[#00B4D8] group-hover:bg-[#00B4D8] group-hover:text-white transition-colors"><Globe className="w-4 h-4" /></div>
-                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60 group-hover:text-[#0A192F]">SITIO WEB</span>
+                        <span className="text-[9px] font-bold tracking-tight text-[#0A192F]/60">SITIO WEB</span>
                       </div>
                     </div>
 
-                    {/* Estado Operativo */}
                     <div className="space-y-2 pt-1 text-xs">
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -243,13 +241,55 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. SECCIÓN 2: El Factor Diferenciador vs. "Cerebro" (Value Proposition de Contraste) */}
-      <section id="sistemas" className="py-24 bg-[#FFFFFF] relative z-20">
+      {/* 3. MARQUESINA DE CONFIANZA */}
+      <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
+            Ecosistemas e Infraestructura Tecnológica Integrada con<span className="text-white font-sans font-normal">.</span>
+          </h2>
+          
+          <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
+            <div className="animate-marquee-css flex items-center gap-24 whitespace-nowrap" style={{ display: 'flex', width: 'max-content', minWidth: 'max-content', willChange: 'transform' }}>
+              <div className="flex items-center gap-24 shrink-0">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">Google</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">GitHub</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} />
+                  <span className="font-sans font-bold text-2xl text-white">Meta</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>
+                  <span className="font-sans font-bold text-2xl text-white">Vercel</span>
+                </div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]">
+                  <img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} />
+                  <span className="font-sans font-bold text-2xl text-white">TikTok</span>
+                </div>
+              </div>
+
+              {/* Loop Duplication */}
+              <div className="flex items-center gap-24 shrink-0" aria-hidden="true">
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-8.72z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24A7.16 7.16 0 0 1 4.91 12c0-.79.13-1.57.38-2.31V6.54H1.21A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.21 5.37l4.11-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.62l4.11 3.13c.94-2.85 3.57-4.96 6.68-4.96z"/></svg><span className="font-sans font-bold text-2xl text-white">Google</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-8 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span className="font-sans font-bold text-2xl text-white">GitHub</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-6.5 w-auto" src="https://cdn.simpleicons.org/meta/0064E0" style={{ height: '28px' }} /><span className="font-sans font-bold text-2xl text-white">Meta</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><svg className="h-6.5 w-auto fill-white text-white shrink-0" viewBox="0 0 24 24"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg><span className="font-sans font-bold text-2xl text-white">Vercel</span></div>
+                <div className="flex items-center gap-3.5 justify-center min-w-[180px]"><img className="h-7.5 w-auto" src="https://cdn.simpleicons.org/tiktok/00F2FE" style={{ height: '34px', filter: 'drop-shadow(2px 0px 0px #FE2C55)' }} /><span className="font-sans font-bold text-2xl text-white">TikTok</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. VALUE PROPOSITION */}
+      <section className="py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block mb-4 text-xs font-bold">
-              Análisis del Ecosistema Inbound
-            </span>
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] leading-tight tracking-tight">
               Más allá del algoritmo. Por qué la automatización pura está matando la identidad de las marcas.
             </h2>
@@ -257,335 +297,160 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-            {/* Bloque Izquierdo: Crítica Constructiva al Mercado */}
-            <motion.div 
-              className="bg-[#F8F9FA] rounded-[2.5rem] p-10 lg:p-14 border border-[#0A192F]/5 flex flex-col justify-between group relative"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className="bg-[#F8F9FA] rounded-[2.5rem] p-10 lg:p-14 border border-[#0A192F]/5 flex flex-col justify-between">
               <div className="space-y-6">
-                <div className="w-12 h-12 bg-[#0A192F]/5 rounded-xl flex items-center justify-center text-[#0A192F]/50">
-                  <Bot className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-2xl font-bold text-[#0A192F]/80">
-                  Agencias basadas en IA abstracta.
-                </h3>
+                <div className="w-12 h-12 bg-[#0A192F]/5 rounded-xl flex items-center justify-center text-[#0A192F]/50"><Bot className="w-6 h-6" /></div>
+                <h3 className="font-display text-2xl font-bold text-[#0A192F]/80">Agencias basadas en IA abstracta.</h3>
                 <p className="text-[#0A192F]/60 text-base leading-relaxed font-normal">
                   El mercado se llenó de reportes automatizados, respuestas de bots configurados y contenidos genéricos que no transmiten nada. Las marcas se vuelven invisibles porque hablan como máquinas. Métricas frías sin retorno real.
                 </p>
               </div>
-              <div className="pt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#0A192F]/40 uppercase tracking-wider">
-                <EyeOff className="w-4 h-4" /> Cero Diferenciación Competitiva
-              </div>
-            </motion.div>
+            </div>
 
-            {/* Bloque Derecho: Nuestro Enfoque Protector de Ayuda */}
-            <motion.div 
-              className="bg-[#0A192F] text-white rounded-[2.5rem] p-10 lg:p-14 shadow-2xl flex flex-col justify-between group relative overflow-hidden"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute -right-20 -top-20 w-60 h-60 bg-[#00B4D8]/10 blur-[100px] rounded-full" />
+            <div className="bg-[#0A192F] text-white rounded-[2.5rem] p-10 lg:p-14 shadow-2xl flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-6 relative z-10">
-                <div className="w-12 h-12 bg-[#00B4D8]/20 rounded-xl flex items-center justify-center text-[#00B4D8]">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-2xl font-bold text-[#00B4D8]">
-                  Ingeniería Predictiva + Empatía Estratégica.
-                </h3>
+                <div className="w-12 h-12 bg-[#00B4D8]/20 rounded-xl flex items-center justify-center text-[#00B4D8]"><TrendingUp className="w-6 h-6" /></div>
+                <h3 className="font-display text-2xl font-bold text-[#00B4D8]">Ingeniería Predictiva + Empatía Estratégica.</h3>
                 <p className="text-white/80 text-base leading-relaxed font-light">
                   Utilizamos la misma IA avanzada que las firmas de Silicon Valley para procesar millones de datos en tiempo real, predecir tendencias de mercado y reducir tus costos de adquisición. Pero el control del timón es 100% humano. Cada estrategia es afinada por creativos que entienden la cultura, el dolor y la ambición de tu cliente.
                 </p>
               </div>
-              <div className="pt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest relative z-10">
-                <CheckCircle2 className="w-4 h-4" /> Alianza de Crecimiento Sostenible
-              </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. SECCIÓN 3: El Portafolio / Casos de Éxito (Historias de Impacto) */}
-      <section id="metodologia" className="py-24 bg-[#F8F9FA] relative z-20">
+      {/* 5. CASOS DE ÉXITO */}
+      <section className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block mb-4 text-xs font-bold">
-              Casos de Éxito Reales
-            </span>
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">
               Historias de crecimiento real. Datos con propósito.
             </h2>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-[#FFFFFF] border border-[#0A192F]/5 rounded-[3rem] p-8 sm:p-14 shadow-xl grid grid-cols-1 gap-8 relative overflow-hidden">
-            <div className="absolute -left-32 -bottom-32 w-96 h-96 bg-[#00B4D8]/5 blur-[120px] rounded-full pointer-events-none" />
-            
-            <div className="space-y-6 relative z-10">
-              <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-2">
-                <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4" /> El Desafío Humano
-                </h4>
-                <p className="text-[#0A192F] font-medium text-lg italic">
-                  "Una empresa líder en su sector que se sentía estancada y desconectada de su audiencia digital."
-                </p>
-              </div>
+          <div className="max-w-4xl mx-auto bg-[#FFFFFF] border border-[#0A192F]/5 rounded-[3rem] p-8 sm:p-14 shadow-xl space-y-6 relative overflow-hidden">
+            <div className="p-6 bg-rose-50/60 border border-rose-100 rounded-2xl space-y-2">
+              <h4 className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> El Desafío Humano</h4>
+              <p className="text-[#0A192F] font-medium text-lg italic">
+                "Una empresa líder en su sector que se sentía estancada y desconectada de su audiencia digital."
+              </p>
+            </div>
 
-              <div className="p-6 bg-blue-50/60 border border-blue-100 rounded-2xl space-y-2">
-                <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2">
-                  <Layers className="w-4 h-4" /> La Solución GrowthBrand
-                </h4>
-                <p className="text-[#0A192F]/80 text-base leading-relaxed">
-                  Implementamos modelos de machine learning para identificar nichos de mercado ocultos y rediseñamos toda su comunicación con un enfoque profundamente humano y persuasivo.
-                </p>
-              </div>
+            <div className="p-6 bg-blue-50/60 border border-blue-100 rounded-2xl space-y-2">
+              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><Layers className="w-4 h-4" /> La Solución GrowthBrand</h4>
+              <p className="text-[#0A192F]/80 text-base leading-relaxed">
+                Implementamos modelos de machine learning para identificar nichos de mercado ocultos y rediseñamos toda su comunicación con un enfoque profundamente humano y persuasivo.
+              </p>
+            </div>
 
-              <div className="p-6 bg-[#0A192F] text-white rounded-2xl space-y-2 shadow-md">
-                <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" /> El Resultado de Negocio
-                </h4>
-                <p className="text-white/90 font-light text-base leading-relaxed">
-                  No solo subieron los clics; se transformó el negocio. Retorno de inversión medible ($ROI$) y un equipo de trabajo que recuperó la pasión por conectar con su comunidad.
-                </p>
-              </div>
+            <div className="p-6 bg-[#0A192F] text-white rounded-2xl space-y-2 shadow-md">
+              <h4 className="text-xs font-mono font-bold text-[#00B4D8] uppercase tracking-widest flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> El Resultado de Negocio</h4>
+              <p className="text-white/90 font-light text-base leading-relaxed">
+                No solo subieron los clics; se transformó el negocio. Retorno de inversión medible (ROI) y un equipo de trabajo que recuperó la pasión por conectar con su comunidad.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. EL FORMULARIO DE CAPTACIÓN (El Gancho de Entrada Premium Organizado) */}
+      {/* 6. FORMULARIO DE RECAPTACIÓN PREMIUM */}
       <section id="aplicar" className="px-4 sm:px-6 lg:px-8 py-24 bg-[#FFFFFF] relative z-20">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-2xl border border-[#0A192F]/5">
-          <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center relative overflow-hidden">
-            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-[#00B4D8]/10 blur-[120px] rounded-full pointer-events-none" />
-            
+          <div className="p-10 md:p-16 bg-[#0A192F] text-white flex flex-col justify-center">
             <blockquote className="border-l-4 border-[#00B4D8] pl-6 mb-8">
               <p className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
                 "Dejemos de hablar de métricas genéricas. Hablemos de tu visión."
               </p>
             </blockquote>
-            
             <p className="text-white/80 text-base leading-relaxed font-light mb-8">
               Registra tu marca aquí. No te enviaremos un PDF automatizado por un bot. Nuestro equipo de directores de estrategia analizará personalmente tu ecosistema digital actual utilizando nuestras herramientas de IA predictiva, y agendaremos una sesión humana de 15 minutos para entregarte la hoja de ruta de tu crecimiento.
             </p>
-
-            <div className="flex items-center gap-4 text-xs font-mono text-[#00B4D8] uppercase tracking-widest font-bold">
-              <CheckCircle2 className="w-5 h-5 shrink-0" /> Diagnóstico con Criterio de Socios
-            </div>
           </div>
 
           <div className="p-10 md:p-14 bg-white relative">
-            <AnimatePresence mode="wait">
-              <motion.form
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  const data = new FormData(form);
-                  const response = await fetch(form.action, {
-                    method: "POST",
-                    body: data,
-                    headers: { Accept: "application/json" },
-                  });
-                  if (response.ok) {
-                    window.location.href = "/gracias.html";
-                  }
-                }}
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                name="diagnostico-growthbrand"
-                method="POST"
-                action="https://formspree.io/f/xaqkqjvq"
-                className="space-y-6"
-              >
-                <input type="hidden" name="_subject" value="Nuevo lead GrowthBrand" />
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
-                      <input 
-                        name="nombre"
-                        type="text"
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" 
-                        placeholder="Tu nombre y apellido" 
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
-                      <input 
-                        name="email"
-                        type="email"
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" 
-                        placeholder="ejemplo@empresa.com" 
-                        required
-                      />
-                    </div>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const data = new FormData(form);
+                const response = await fetch(form.action, {
+                  method: "POST",
+                  body: data,
+                  headers: { Accept: "application/json" },
+                });
+                if (response.ok) {
+                  window.location.href = "/gracias.html";
+                }
+              }}
+              name="diagnostico-growthbrand"
+              method="POST"
+              action="https://formspree.io/f/xaqkqjvq"
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Nombre Completo</label>
+                    <input name="nombre" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Tu nombre" required />
                   </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
-                      <input 
-                        name="website"
-                        type="text" 
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" 
-                        placeholder="Link o usuario (Opcional)" 
-                      />
-                    </div>
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Número de Celular</label>
-                      <input 
-                        name="telefono"
-                        type="tel"
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" 
-                        placeholder="+502 0000 0000" 
-                        required
-                      />
-                    </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Correo Corporativo</label>
+                    <input name="email" type="email" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="ejemplo@empresa.com" required />
                   </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
-                      <select 
-                        name="objetivo"
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none appearance-none cursor-pointer text-sm"
-                      >
-                        <option>Generar Leads</option>
-                        <option>Automatizar Adquisición</option>
-                        <option>Escalar Operaciones</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
-                      <textarea 
-                        name="contexto"
-                        className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none h-[54px] resize-none text-sm" 
-                        placeholder="Describe tus retos actuales..."
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-
                 </div>
-                
-                <button 
-                  type="submit"
-                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl shadow-[#00B4D8]/30 transition-all hover:bg-[#0096B4] hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 group relative overflow-hidden font-display"
-                >
-                  <Send className="w-5 h-5" />
-                  <span>Solicitar Diagnóstico Estratégico Humano</span>
-                </button>
-                
-                <p className="text-center text-[#0A192F]/50 text-[11px] font-mono mt-4 leading-relaxed px-4">
-                  🔒 <strong>Datos protegidos.</strong> Su información es confidencial y solo se utilizará para coordinar su sesión estratégica privada.
-                </p>
-              </motion.form>
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
 
-      {/* 6. INVERSIÓN SECTIONS (Look Premium B2B) */}
-      <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block mb-4 text-xs font-bold">Modelos Operativos</span>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#0A192F] tracking-tight">Escale con total claridad operativa</h2>
-          </div>
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Sitio Web / Red Social</label>
+                    <input name="website" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Usuario (Opcional)" />
+                  </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Celular / WhatsApp</label>
+                    <input name="telefono" type="tel" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="+502 0000 0000" required />
+                  </div>
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            <div className="bg-[#FFFFFF] p-10 rounded-[2.5rem] border border-[#0A192F]/5 shadow-md flex flex-col justify-between">
-              <div>
-                <span className="font-mono font-bold tracking-[0.2em] text-xs text-[#0A192F]/60 uppercase block mb-4">Estructura Fija</span>
-                <h3 className="font-display text-2xl font-bold text-[#0A192F] mb-4">Despliegue Core</h3>
-                <p className="text-[#0A192F]/70 text-sm leading-relaxed mb-8">Ideal para empresas que requieren montar la infraestructura técnica completa de visibilidad y delegar la supervisión interna.</p>
-                <ul className="space-y-4 mb-10 text-sm text-[#0A192F]/80">
-                  {['Setup de Google Business Premium', 'Infraestructura de conversión local', 'Optimización técnica de adquisición', 'Soporte y transferencia por 30 días'].map((i) => (
-                    <li key={i} className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-[#0A192F]/30" /> {i}</li>
-                  ))}
-                </ul>
+                <div className="space-y-6">
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Objetivo Principal</label>
+                    <select name="objetivo" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm">
+                      <option>Generar Leads</option>
+                      <option>Automatizar Adquisición</option>
+                      <option>Escalar Operaciones</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.2em]">Desafío o Contexto</label>
+                    <textarea name="contexto" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none h-[54px] resize-none text-sm" placeholder="Tus retos..." required />
+                  </div>
+                </div>
               </div>
-              <a href="#aplicar" className="block w-full text-center bg-[#F8F9FA] border border-[#0A192F]/10 hover:bg-[#0A192F]/5 text-[#0A192F] font-bold py-4 rounded-xl text-xs uppercase tracking-widest transition-all">Cotizar Proyecto</a>
-            </div>
-
-            <div className="bg-[#0A192F] text-white p-10 rounded-[2.5rem] shadow-2xl flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#00B4D8]/10 blur-3xl rounded-full" />
-              <div>
-                <span className="font-mono font-bold tracking-[0.2em] text-xs text-[#00B4D8] uppercase block mb-4">Alianza Continua</span>
-                <h3 className="font-display text-2xl font-bold text-white mb-4">Socio de Crecimiento</h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-8">Diseñado para escalar de forma agresiva mediante infraestructura de pauta continua y optimización humana basándose en ingresos reales.</p>
-                <ul className="space-y-4 mb-10 text-sm text-white/80">
-                  {['Toda la Infraestructura Core incluida', 'Optimización y auditoría mensual de datos', 'Estrategia unificada de posicionamiento', 'Dashboard centralizado de analítica', 'Sesión semanal de crecimiento estratégico'].map((i) => (
-                    <li key={i} className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-[#00B4D8]" /> {i}</li>
-                  ))}
-                </ul>
-              </div>
-              <a href="#aplicar" className="block w-full text-center bg-[#00B4D8] hover:bg-[#0096B4] text-white font-bold py-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-lg shadow-[#00B4D8]/20">Postular como Partner</a>
-            </div>
+              
+              <button type="submit" className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3">
+                <Send className="w-5 h-5" />
+                <span>Solicitar Diagnóstico Estratégico Humano</span>
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
       {/* 7. FOOTER */}
-      <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-20">
-            <div className="md:col-span-5 flex flex-col gap-8">
-              <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <span className="font-display font-bold text-xl tracking-tight text-[#0A192F]">GrowthBrand</span>
-              </div>
-              <p className="text-[#0A192F]/60 text-sm max-w-sm leading-relaxed">
-                Precision Growth Systems. Diseñamos y operamos infraestructuras de adquisición local y B2B para líderes de sector en Centroamérica de forma legal y segura.
-              </p>
-              <div className="flex gap-6 items-center text-xs font-mono text-[#0A192F]/50">
-                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#00B4D8] transition-colors tracking-widest font-bold">WHATSAPP</a>
-                <a href="mailto:growthbrand@growthbrandgt.com" className="hover:text-[#00B4D8] transition-colors tracking-widest font-bold">EMAIL</a>
-              </div>
-            </div>
-            <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
-              <div>
-                <span className="font-mono text-[#0A192F] mb-6 block text-[10px] uppercase font-bold tracking-widest">Estrategia</span>
-                <ul className="space-y-3 text-sm text-[#0A192F]/60">
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">Sistemas</a></li>
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">RevOps</a></li>
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">Casos</a></li>
-                </ul>
-              </div>
-              <div>
-                <span className="font-mono text-[#0A192F] mb-6 block text-[10px] uppercase font-bold tracking-widest">Compañía</span>
-                <ul className="space-y-3 text-sm text-[#0A192F]/60">
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">Nosotros</a></li>
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">Términos</a></li>
-                  <li><a href="#" className="hover:text-[#00B4D8] transition-colors">Privacidad</a></li>
-                </ul>
-              </div>
-              <div>
-                <span className="font-mono text-[#0A192F] mb-6 block text-[10px] uppercase font-bold tracking-widest">Contacto</span>
-                <p className="text-sm text-[#0A192F]/60 leading-relaxed">Guatemala City, GT</p>
-                <p className="text-sm text-[#0A192F]/60 transition-colors hover:text-[#00B4D8] mt-2 font-mono">growthbrand@growthbrandgt.com</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-16 pt-8 border-t border-[#0A192F]/5 text-center md:text-left">
-            <p className="text-xs text-[#0A192F]/40 font-mono tracking-widest uppercase">
-              © 2026 GrowthBrand. Ecosistemas de Crecimiento Integrales.
-            </p>
-          </div>
+      <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <p className="text-xs text-[#0A192F]/40 font-mono tracking-widest uppercase text-center">
+            © 2026 GrowthBrand. Ecosistemas de Crecimiento Integrales.
+          </p>
         </div>
       </footer>
 
-      {/* FLOATING WHATSAPP BUTTON (Conversión Inmediata con ADN Humano Sin Filtros Robóticos) */}
+      {/* FLOATING WHATSAPP BUTTON */}
       <motion.a
         href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-[150] flex items-center gap-3 bg-[#25D366] text-white p-4 rounded-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all group lg:mr-4 border border-white/10"
+        className="fixed bottom-8 right-8 z-[150] flex items-center gap-3 bg-[#25D366] text-white p-4 rounded-3xl shadow-2xl hover:scale-110 transition-all group border border-white/10"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2 }}
