@@ -220,7 +220,7 @@ export default function App() {
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-serif-premium font-bold text-3xl text-[#0A192F] hover:text-[#00B4D8] py-2 border-b border-gray-100">{item}</a>
               ))}
-              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
+              <a   href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
             </div>
           </motion.div>
         )}
@@ -386,127 +386,85 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON CONTENIDO 100% LIBRE DE COPYRIGHT (Calzado Artesanal Premium de Alta Gama) */}
+      {/* 5. SECCIÓN DE ANUNCIOS PREMIUM (RE-ESTRUCTURADA CENTRADA, SIN IMAGEN LATERAL Y CON DISEÑO 4 COLUMNAS) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           
-          {/* Mockup Meta Ads: Grid Orgánica con Fotos Seguras de Calzado de Autor */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
-              <h2 className="font-serif-premium text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0A192F] leading-tight">Contenido Profesional de Alta Confianza</h2>
-              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones reales.
-              </p>
-            </div>
-            
-            {/* GRILLA INTEGRAL DE CONTENIDOS CON ENFOQUE DE CALZADO DE LUJO Y DISEÑO LIBRE DE COPYRIGHT */}
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 sm:p-8 border border-[#0A192F]/5 shadow-inner space-y-6">
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-2 border-b border-[#0A192F]/5">
-                <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">Manejamos Tus Redes</span>
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <span className="text-[11px] font-mono font-bold text-emerald-600 shrink-0">Resultados:</span>
-                  <div className="w-full sm:w-36 h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="w-[75%] h-full bg-[#00B4D8]" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Grilla Simulación con Fotografía Publicitaria de Calzado de Autor - Sin Logos Protegidos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {[
-                  { title: "Líneas de Diseño Premium", tag: "Estructura", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400" },
-                  { title: "Elegancia Estructural Única", tag: "Calzado", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=400" },
-                  { title: "Calzado Italiano de Autor", tag: "Colección", img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=400" },
-                  { title: "Sistemas de Adquisición B2B", tag: "Adquisición", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=400" },
-                  { title: "Ingeniería de Alta Costura", tag: "Optimización", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=400" },
-                  { title: "Casos de Éxito Comercial", tag: "Evidencia", img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=400" }
-                ].map((post, i) => (
-                  <div key={i} className="aspect-square bg-[#0A192F] rounded-2xl relative overflow-hidden flex flex-col justify-end p-4 group border border-white/5">
-                    <img src={post.img} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10" />
-                    <span className="absolute top-3 right-3 text-[9px] font-mono font-bold bg-[#00B4D8] text-white px-2.5 py-0.5 rounded-full z-20 uppercase tracking-wider">{post.tag}</span>
-                    <p className="text-white text-xs font-display font-bold leading-tight relative z-20 drop-shadow-sm">{post.title}</p>
-                    <div className="flex gap-3 text-white/60 text-[10px] mt-2 relative z-20 pt-1 border-t border-white/5">
-                      <span className="flex items-center gap-1"><Heart size={10} className="text-rose-500 fill-rose-500" /> 142</span>
-                      <span className="flex items-center gap-1"><MessageCircle size={10} /> 42</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Contenedor de Textos Completamente Centrado */}
+          <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
+            <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">
+              Meta Ads Strategy
+            </span>
+            <h2 className="font-serif-premium text-4xl sm:text-5xl font-normal text-[#0A192F] leading-tight">
+              Contenido Profesional de Alta Confianza
+            </h2>
+            <div className="w-20 h-1 bg-[#00B4D8] mx-auto my-2 rounded-full" />
+            <p className="text-[#0A192F]/70 text-base leading-relaxed max-w-3xl mx-auto font-light">
+              Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. 
+              Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones reales.
+            </p>
           </div>
-
-          {/* Mockup 2: TikTok Ads In-Feed con Foto de Calzado Real Segura */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
-              <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
-                <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
-                  {/* Fotografía de Calzado Premium Real Segura de Derechos de Autor */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&q=80&w=600" 
-                    alt="Premium Leather Footwear Ad" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-60"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80 z-10" />
-                  <div className="flex justify-center gap-4 text-[10px] font-bold text-white/60 pt-2 relative z-20">
-                    <span>Siguiendo</span>
-                    <span className="text-white border-b-2 border-white pb-1">Para ti</span>
-                  </div>
-                  <div className="mt-auto space-y-3 relative z-20">
-                    <div className="text-xs font-bold">@growthbrandname</div>
-                    <div className="text-[11px] text-white/80 font-light">Sistemas de adquisición integrales. Ads will be shown on For You page.</div>
-                    <div className="w-full bg-[#00B4D8] py-2.5 rounded-md text-center text-xs font-bold tracking-wider cursor-pointer">
-                      Registrar Empresa
-                    </div>
-                  </div>
+          
+          {/* Grilla de Tarjetas de Rendimiento Completo (Ancho Completo Premium) */}
+          <div className="bg-[#F8F9FA] rounded-[2.5rem] p-8 sm:p-10 border border-[#0A192F]/5 shadow-sm max-w-6xl mx-auto">
+            <div className="flex justify-between items-center pb-6 border-b border-[#0A192F]/5 mb-8">
+              <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">
+                Infraestructura de Contenidos Activa
+              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] font-mono font-bold text-emerald-600">Rendimiento Técnico:</span>
+                <div className="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-[92%] h-full bg-[#00B4D8]" />
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 space-y-6 order-1 lg:order-2">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">TikTok Business Integration</span>
-              <h2 className="font-serif-premium text-3xl sm:text-4xl font-normal text-[#0A192F]">Estructura de Conversión In-Feed Absoluta</h2>
-              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Desplegamos embudos comerciales conectados directamente a tu WhatsApp o CRM de ventas, configurando mensajes claros y flujos de atención que cierran ventas predecibles.
-              </p>
-            </div>
-          </div>
-
-          {/* Mockup 3: Google Business Split Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Local SEO Authority</span>
-              <h2 className="font-serif-premium text-3xl sm:text-4xl font-normal text-[#0A192F]">Tu Negocio en el Mapa del Mundo</h2>
-              <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify">
-                Optimizamos la ficha de Google Business Profile para que tu marca aparezca de forma impecable en búsquedas estratégicas locales, respondiendo reseñas y captando clientes recurrentes.
-              </p>
-            </div>
-            
-            <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center">
-              <div className="w-full max-w-[350px] bg-white border border-gray-200 rounded-3xl p-4 shadow-lg space-y-4">
-                <div className="h-32 bg-gray-100 rounded-xl relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600" alt="Local store" className="w-full h-full object-cover" />
+            {/* Configuración Fluida Tridimensional sin Fotos en 4 Columnas Simétricas */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: "Enfoque de Crecimiento Avanzado", tag: "Estructura", color: "bg-[#00B4D8]" },
+                { title: "Hábitos Simples, Grandes Resultados", tag: "Conversión", color: "bg-emerald-500" },
+                { title: "Tu Marca en Manos Profesionales", tag: "Autoridad", color: "bg-indigo-500" },
+                { title: "Sistemas de Adquisición B2B", tag: "Sistemas", color: "bg-purple-500" },
+                { title: "Optimización Orgánica de Redes", tag: "RevOps", color: "bg-amber-500" },
+                { title: "Casos de Éxito Comercial Real", tag: "Evidencia", color: "bg-teal-500" },
+                { title: "Auditoría de Embudo Continuo", tag: "Estrategia", color: "bg-[#00B4D8]" },
+                { title: "Ingeniería de Pauta Predictiva", tag: "Optimización", color: "bg-rose-500" }
+              ].map((post, i) => (
+                <div 
+                  key={i} 
+                  className="bg-[#0A192F] rounded-2xl p-6 min-h-[180px] flex flex-col justify-between border border-white/5 shadow-[0_20px_45px_rgba(10,25,47,0.15)] hover:shadow-[0_30px_60px_rgba(0,180,216,0.2)] transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                >
+                  <div className="flex justify-between items-start gap-2">
+                    <span className={`text-[9px] font-mono font-bold text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider ${post.color}`}>
+                      {post.tag}
+                    </span>
+                  </div>
+                  
+                  <p className="text-white text-sm font-display font-bold leading-snug my-4 group-hover:text-[#00B4D8] transition-colors">
+                    {post.title}
+                  </p>
+                  
+                  <div className="flex gap-4 text-white/50 text-[10px] pt-3 border-t border-white/5">
+                    <span className="flex items-center gap-1">
+                      <Heart size={11} className="text-rose-500 fill-rose-500" /> 142
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MessageCircle size={11} className="text-[#00B4D8]" /> 42
+                    </span>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-display font-bold text-sm text-[#0A192F]">Tienda de jerséis</h4>
-                  <span className="inline-block bg-blue-50 text-blue-600 font-bold text-[9px] px-2 py-0.5 rounded uppercase">Resumen</span>
-                  <button className="w-full bg-[#FFFFFF] border border-blue-600 text-blue-600 text-xs font-bold py-2 rounded-xl mt-2 flex items-center justify-center gap-2">
-                    <span>🛒 Pedir online</span>
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (DISEÑO TRIDIMENSIONAL PREMIUM, TITULOS Y BOTONES CELESTES) */}
+      {/* 6. SECCIÓN DE INVERSIÓN (MODELOS DE ADQUISICIÓN EN 3D CON BOTONES CELESTES) */}
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            {/* CORRECCIÓN: TÍTULO EN COLOR CELESTE BRILLANTE EXACTO Y FUENTE SERIF */}
             <h2 className="font-serif-premium text-4xl sm:text-5xl lg:text-6xl text-[#00B4D8] mb-6 font-normal tracking-tight">
               Modelos de Implementación B2B
             </h2>
@@ -515,7 +473,6 @@ export default function App() {
             </p>
           </div>
 
-          {/* CORRECCIÓN EXCELENTE: CAJAS CON ASPECTO 3D INTEGRAL Y MÁXIMA TRIDIMENSIONALIDAD */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
@@ -577,7 +534,6 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* BOTONES CELESTES UNIFICADOS Y RE-DIRECCIONADOS DE FORMA QUIRÚRGICA A WHATSAPP */}
                 <a 
                   href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msgWa)}`}
                   target="_blank"
