@@ -141,9 +141,10 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Tipografía Creativa y Sofisticada de Alta Dirección (Cero Aspecto Programador) */}
+      {/* Inyección Tipográfica Sofisticada de Agencia de Crecimiento de Marcas de Lujo */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Syne:wght@700;800&display=swap');
+        .font-display-premium { font-family: 'Syne', sans-serif; }
         .font-serif-premium { font-family: 'Playfair Display', serif; }
         @keyframes pulseRadar {
           0% { transform: scale(0.95); opacity: 0.5; }
@@ -175,7 +176,7 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="font-sans font-extrabold text-[#0A192F] text-2xl tracking-tight">
+            <span className="font-display-premium font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
           </div>
@@ -242,9 +243,9 @@ export default function App() {
                 Sistemas de Posicionamiento Global
               </div>
               
-              <h1 className="font-sans text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
+              <h1 className="font-display-premium text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.15] tracking-tight text-left uppercase">
                 Inteligencia Artificial para multiplicar tus datos. <br />
-                <span className="text-[#00B4D8] italic font-serif-premium font-normal">Inteligencia Humana</span> para multiplicar tus ventas.
+                <span className="text-[#00B4D8] italic font-serif-premium font-normal normal-case">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
               <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
@@ -389,17 +390,17 @@ export default function App() {
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-28">
           
-          {/* BLOQUE CON PROPORCIONES ORIGINALES CUIDADAS: MOCKUP INTERACTIVO REAL (IZQUIERDA) Y TEXTO (DERECHA) */}
+          {/* BLOQUE CON PROPORCIONES ORIGINALES RECUPERADAS: MOCKUP INTERACTIVO REAL (IZQUIERDA) Y TEXTO (DERECHA) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            {/* Mockup del Anuncio en Producción (Columna de Proporción Fija de 6 Unidades) */}
-            <div className="lg:col-span-6 bg-[#0B1A30] rounded-[2.5rem] p-8 border border-white/5 shadow-[0_35px_70px_rgba(3,7,18,0.25)] relative overflow-hidden flex flex-col items-center">
+            {/* Mockup Real del Anuncio en Producción (Columna de Proporción Fija de 6 Unidades) */}
+            <div className="lg:col-span-6 bg-[#0B1A30] rounded-[2.5rem] p-8 border border-white/5 shadow-[0_45px_85px_rgba(3,7,18,0.22)] relative overflow-hidden flex flex-col items-center">
               <div className="w-full max-w-[350px] bg-[#071426] border border-white/10 rounded-3xl p-5 shadow-2xl space-y-5">
                 <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 border border-white/5">
                   <img 
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" 
                     alt="Ecosistema e Infraestructura Corporativa Activa" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-90"
+                    className="absolute inset-0 w-full h-full object-cover opacity-95"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent" />
                   <div className="text-[10px] font-sans font-extrabold text-[#00B4D8] tracking-widest relative z-10 uppercase">LIVE AD SIMULATION</div>
@@ -419,7 +420,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Bloque de Textos con Tipografía de Agencia Boutique de Adquisición */}
+            {/* Bloque de Textos Boutique de Alta Dirección */}
             <div className="lg:col-span-6 space-y-6">
               <span className="text-[#00B4D8] font-sans tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
               <h2 className="font-serif-premium text-4xl sm:text-5xl lg:text-6xl font-normal text-[#0A192F] leading-[1.1] tracking-tight">
@@ -431,7 +432,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* CUADRÍCULA ORGÁNICA EXCELENTE COMPACTA EN ASPECT-SQUARE (ESTILO SMM GRID ORIGINAL) */}
+          {/* CUADRÍCULA ORGÁNICA EXCELENTE COMPACTA EN ASPECT-SQUARE (ESTILO SMM GRID ORIGINAL SIN LOGOS) */}
           <div className="bg-[#F8F9FA] rounded-[2.5rem] p-8 sm:p-10 border border-[#0A192F]/5 shadow-sm max-w-6xl mx-auto">
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[#0A192F]/5 mb-8">
               <span className="font-sans font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">
