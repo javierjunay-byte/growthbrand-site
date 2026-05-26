@@ -53,7 +53,7 @@ function PreloaderCinematic({ onComplete }: { onComplete: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-[200] overflow-hidden select-none"
+      className="fixed inset-0 bg-[#030712] flex flex-col items-center justify-center z-[200] overflow-hidden select-none"
       exit={{ 
         opacity: 0,
         filter: "blur(24px)",
@@ -141,10 +141,9 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Inyección Tipográfica Exclusiva de Agencia de Crecimiento de Marcas de Lujo */}
+      {/* Tipografía Creativa y Sofisticada de Alta Dirección (Cero Aspecto Programador) */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Syne:wght@700;800&display=swap');
-        .font-display-premium { font-family: 'Syne', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap');
         .font-serif-premium { font-family: 'Playfair Display', serif; }
         @keyframes pulseRadar {
           0% { transform: scale(0.95); opacity: 0.5; }
@@ -176,7 +175,7 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="font-display-premium font-extrabold text-[#0A192F] text-2xl tracking-tight">
+            <span className="font-sans font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
           </div>
@@ -220,7 +219,7 @@ export default function App() {
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-serif-premium font-bold text-3xl text-[#0A192F] hover:text-[#00B4D8] py-2 border-b border-gray-100">{item}</a>
               ))}
-              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
+              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
             </div>
           </motion.div>
         )}
@@ -243,9 +242,9 @@ export default function App() {
                 Sistemas de Posicionamiento Global
               </div>
               
-              <h1 className="font-display-premium text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0A192F] leading-[1.15] tracking-tight text-left uppercase">
+              <h1 className="font-sans text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
                 Inteligencia Artificial para multiplicar tus datos. <br />
-                <span className="text-[#00B4D8] italic font-serif-premium font-normal normal-case">Inteligencia Humana</span> para multiplicar tus ventas.
+                <span className="text-[#00B4D8] italic font-serif-premium font-normal">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
               <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
@@ -298,7 +297,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA CON LOGO DE META AZUL */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL CON LOGO META EN AZUL */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="relative w-full flex overflow-x-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-24 before:bg-gradient-to-r before:from-[#0A192F] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-24 after:bg-gradient-to-l after:from-[#0A192F] after:to-transparent">
@@ -322,7 +321,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DOLORES PREMIUM (TARJETAS EN 3D EXPANDIDO) */}
+      {/* 4. SECCIÓN DE DOLORES PREMIUM */}
       <section id="dolores" className="py-24 bg-[#F8F9FA] relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-20">
@@ -386,21 +385,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON LA SECCIÓN DIVIDIDA MOCKUP INTERACTIVO RESTAURADO (`image_551765.png`) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON LA SECCIÓN DIVIDIDA MOCKUP INTERACTIVO COMPLETAMENTE CORREGIDA */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-28">
           
-          {/* BLOQUE RESTAURADO: INTERFAZ DE ANUNCIO ACTIVO INTERACTIVO (IZQUIERDA) Y TEXTO BOUTIQUE (DERECHA) */}
+          {/* BLOQUE CON PROPORCIONES ORIGINALES CUIDADAS: MOCKUP INTERACTIVO REAL (IZQUIERDA) Y TEXTO (DERECHA) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            {/* Mockup del Anuncio en Producción */}
-            <div className="lg:col-span-6 bg-[#0B1A30] rounded-[2.5rem] p-8 border border-white/5 shadow-[0_30px_70px_rgba(3,7,18,0.4)] relative overflow-hidden flex flex-col items-center">
+            {/* Mockup del Anuncio en Producción (Columna de Proporción Fija de 6 Unidades) */}
+            <div className="lg:col-span-6 bg-[#0B1A30] rounded-[2.5rem] p-8 border border-white/5 shadow-[0_35px_70px_rgba(3,7,18,0.25)] relative overflow-hidden flex flex-col items-center">
               <div className="w-full max-w-[350px] bg-[#071426] border border-white/10 rounded-3xl p-5 shadow-2xl space-y-5">
                 <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 border border-white/5">
                   <img 
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" 
                     alt="Ecosistema e Infraestructura Corporativa Activa" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent" />
                   <div className="text-[10px] font-sans font-extrabold text-[#00B4D8] tracking-widest relative z-10 uppercase">LIVE AD SIMULATION</div>
@@ -420,10 +419,10 @@ export default function App() {
               </div>
             </div>
 
-            {/* Bloque de Copys Corporativos con Tipografía de Agencia de Crecimiento */}
+            {/* Bloque de Textos con Tipografía de Agencia Boutique de Adquisición */}
             <div className="lg:col-span-6 space-y-6">
               <span className="text-[#00B4D8] font-sans tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
-              <h2 className="font-serif-premium text-4xl sm:text-5xl lg:text-6xl font-normal text-[#0A192F] leading-none tracking-tight">
+              <h2 className="font-serif-premium text-4xl sm:text-5xl lg:text-6xl font-normal text-[#0A192F] leading-[1.1] tracking-tight">
                 Contenido Profesional de Alta Confianza
               </h2>
               <p className="text-[#0A192F]/70 text-base leading-relaxed text-justify font-light">
@@ -432,7 +431,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* CUADRÍCULA ORGÁNICA INTEGRAL DE CONTENIDOS (GRID DE ALTO RETORNO) */}
+          {/* CUADRÍCULA ORGÁNICA EXCELENTE COMPACTA EN ASPECT-SQUARE (ESTILO SMM GRID ORIGINAL) */}
           <div className="bg-[#F8F9FA] rounded-[2.5rem] p-8 sm:p-10 border border-[#0A192F]/5 shadow-sm max-w-6xl mx-auto">
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[#0A192F]/5 mb-8">
               <span className="font-sans font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">
@@ -441,11 +440,12 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <span className="text-[11px] font-sans font-bold text-emerald-600">Rendimiento Técnico:</span>
                 <div className="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                  <div className="w-[92%] h-full bg-[#00B4D8]" />
+                  <div className="w-[88%] h-full bg-[#00B4D8]" />
                 </div>
               </div>
             </div>
 
+            {/* Bloque Cuadrado Impecable - Cero Estiramiento con Fondo Gradiente de Agencia */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { title: "Enfoque de Crecimiento Avanzado", tag: "Estructura", color: "bg-[#00B4D8]" },
@@ -457,17 +457,20 @@ export default function App() {
               ].map((post, i) => (
                 <div 
                   key={i} 
-                  className="bg-[#0A192F] rounded-2xl p-6 min-h-[170px] flex flex-col justify-between border border-white/5 shadow-[0_20px_45px_rgba(10,25,47,0.15)] hover:shadow-[0_30px_60px_rgba(0,180,216,0.2)] transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                  className="bg-gradient-to-br from-[#071426] to-[#0A192F] aspect-square rounded-2xl p-6 flex flex-col justify-between border border-white/5 shadow-[0_20px_45px_rgba(3,7,18,0.2)] hover:shadow-[0_30px_60px_rgba(0,180,216,0.25)] transition-all duration-300 hover:-translate-y-1.5 group cursor-default relative overflow-hidden"
                 >
-                  <div className="flex justify-between items-start gap-2">
+                  <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none" />
+                  <div className="flex justify-between items-start gap-2 relative z-10">
                     <span className={`text-[9px] font-sans font-bold text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider ${post.color}`}>
                       {post.tag}
                     </span>
                   </div>
-                  <p className="text-white text-base font-sans font-bold leading-snug my-4 group-hover:text-[#00B4D8] transition-colors">
+                  
+                  <p className="text-white text-base font-sans font-bold leading-snug my-4 group-hover:text-[#00B4D8] transition-colors relative z-10 drop-shadow-md">
                     {post.title}
                   </p>
-                  <div className="flex gap-4 text-white/50 text-[10px] pt-3 border-t border-white/5">
+                  
+                  <div className="flex gap-4 text-white/40 text-[10px] pt-3 border-t border-white/5 relative z-10">
                     <span className="flex items-center gap-1">
                       <Heart size={11} className="text-rose-500 fill-rose-500" /> 142
                     </span>
@@ -666,7 +669,7 @@ export default function App() {
       {/* 8. FOOTER */}
       <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-4">
-          <div className="font-display-premium font-extrabold text-[#0A192F] text-2xl italic">
+          <div className="font-sans font-extrabold text-[#0A192F] text-2xl italic">
             <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
           </div>
           <p className="text-gray-400 text-xs uppercase tracking-[0.3em]">Aceleramos los datos con tecnología, expandimos los negocios con empatía.</p>
