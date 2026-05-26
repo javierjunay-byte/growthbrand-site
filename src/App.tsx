@@ -330,9 +330,9 @@ export default function App() {
 
   /* ── Planes ── */
   const plans = [
-    { tier:'Base', icon:'◉', tag:'ESTRATEGIA BASE', desc:'Arquitectura inicial para negocios que buscan estructura de conversión y orden comercial.', features:['Gestión de Leads Calificados','Pauta Avanzada Google / Meta','Auditoría Mensual Comercial','Estructura SEO Local'], msg:'Hola equipo de GrowthBrand. Me interesa el plan Estrategia Base. Mi nombre es...' },
-    { tier:'Pro',  icon:'◎', tag:'CRECIMIENTO ESCALABLE', desc:'Sistema robusto para automatizar flujos de pauta, optimizar el ROI y escalar conversiones.', sub:'TODO EN BASE +', features:['WhatsApp API Business','CRM & Automations Core','Funnel UX Corporativo','Lead Scoring Algorítmico'], premium:true, msg:'Hola equipo de GrowthBrand. Me interesa el plan Crecimiento Escalable. Mi nombre es...' },
-    { tier:'Elite',icon:'⬢', tag:'GROWTH COMMAND', desc:'Infraestructura élite de adquisición continua para dominar mercados regionales de forma predecible.', sub:'TODO EN PRO +', features:['Agentes de IA Avanzados','Inteligencia Comercial Centralizada','Análisis Predictivo de Costos'], msg:'Hola socios de GrowthBrand. Requiero la infraestructura Growth Command. Mi nombre es...' },
+    { tier:'Base', icon:'◉', tag:'ESTRATEGIA BASE', desc:'Arquitectura inicial para negocios que buscan estructura de conversión y orden comercial.', features:['Gestión de Leads Calificados','Pauta Avanzada Google / Meta','Auditoría Mensual Comercial','Estructura SEO Local'], waLink:'https://wa.link/9p20d7' },
+    { tier:'Pro',  icon:'◎', tag:'CRECIMIENTO ESCALABLE', desc:'Sistema robusto para automatizar flujos de pauta, optimizar el ROI y escalar conversiones.', sub:'TODO EN BASE +', features:['WhatsApp API Business','CRM & Automations Core','Funnel UX Corporativo','Lead Scoring Algorítmico'], premium:true, waLink:'https://wa.link/49n16b' },
+    { tier:'Elite',icon:'⬢', tag:'GROWTH COMMAND', desc:'Infraestructura élite de adquisición continua para dominar mercados regionales de forma predecible.', sub:'TODO EN PRO +', features:['Agentes de IA Avanzados','Inteligencia Comercial Centralizada','Análisis Predictivo de Costos'], waLink:'https://wa.link/us1ry7' },
   ];
 
   const navLinks = ['Sistemas','Dolores','Metodología','Inversión'];
@@ -464,7 +464,7 @@ export default function App() {
                 >
                   Iniciar Auditoría Comercial <ArrowRight size={14}/>
                 </a>
-                <a href={`https://wa.me/502YOURNUMBER?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.link/447jwu" target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily:'var(--sans)', border:'1px solid rgba(249,249,247,.2)', color:'#F9F9F7',
                     padding:'1rem 1.75rem', borderRadius:'.7rem', fontWeight:600, fontSize:'.62rem',
                     letterSpacing:'.14em', textTransform:'uppercase', display:'inline-flex',
@@ -879,7 +879,7 @@ export default function App() {
                   ))}
                 </ul>
 
-                <a href={`https://wa.me/502YOURNUMBER?text=${encodeURIComponent(plan.msg)}`}
+                <a href={plan.waLink}
                   target="_blank" rel="noopener noreferrer"
                   style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:6,
                            background:'var(--cyan)', color:'#fff', padding:'1rem', borderRadius:14,
