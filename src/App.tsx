@@ -53,7 +53,7 @@ function PreloaderCinematic({ onComplete }: { onComplete: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-[#030712] flex flex-col items-center justify-center z-[200] overflow-hidden select-none"
+      className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-[200] overflow-hidden select-none"
       exit={{ 
         opacity: 0,
         filter: "blur(24px)",
@@ -92,7 +92,7 @@ function PreloaderCinematic({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 1.4, ease: "easeOut", delay: 1.5 }}
         >
           <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#00B4D8]" />
-          <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.5em] text-white font-semibold">Ecosistemas de Adquisición Élite</p>
+          <p className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.5em] text-white font-semibold">Ecosistemas de Adquisición Élite</p>
           <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#00B4D8]" />
         </motion.div>
       </div>
@@ -133,7 +133,7 @@ export default function App() {
   );
 
   return (
-    <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
+    <div className="selection:bg-[#00B4D8]/30 font-['Plus_Jakarta_Sans',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
       <AnimatePresence mode="wait">
         {isLoading && (
@@ -141,10 +141,10 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Inyección Tipográfica Premium Inmutable */}
+      {/* Inyección Tipográfica Exclusiva de Agencia de Crecimiento de Marcas de Lujo */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
-        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Syne:wght@700;800&display=swap');
+        .font-display-premium { font-family: 'Syne', sans-serif; }
         .font-serif-premium { font-family: 'Playfair Display', serif; }
         @keyframes pulseRadar {
           0% { transform: scale(0.95); opacity: 0.5; }
@@ -176,7 +176,7 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
+            <span className="font-display-premium font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
           </div>
@@ -186,7 +186,7 @@ export default function App() {
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[#0A192F]/70 font-mono font-bold hover:text-[#00B4D8] transition-all text-[11px] uppercase tracking-[0.25em] relative group/link"
+                className="text-[#0A192F]/70 font-sans font-bold hover:text-[#00B4D8] transition-all text-[11px] uppercase tracking-[0.25em] relative group/link"
               >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#00B4D8] transition-all duration-300 group-hover/link:w-full"></span>
@@ -197,7 +197,7 @@ export default function App() {
           <div className="flex items-center gap-6">
             <a 
               href="#aplicar"
-              className="hidden md:flex bg-[#0A192F] text-white px-7 py-3.5 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-lg text-xs font-display uppercase tracking-wider"
+              className="hidden md:flex bg-[#0A192F] text-white px-7 py-3.5 rounded-xl font-bold transition-all hover:bg-[#172A45] hover:scale-105 active:scale-95 shadow-lg text-xs uppercase tracking-wider"
             >
               <span>Diagnóstico Corporativo</span>
             </a>
@@ -220,7 +220,7 @@ export default function App() {
               {['Sistemas', 'Dolores', 'Metodología', 'Inversión'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="font-serif-premium font-bold text-3xl text-[#0A192F] hover:text-[#00B4D8] py-2 border-b border-gray-100">{item}</a>
               ))}
-              <a   href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold font-display mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
+              <a href="#aplicar" onClick={() => setIsMenuOpen(false)} className="bg-[#0A192F] text-white text-center py-4 rounded-xl font-bold mt-6 tracking-wider text-sm shadow-md">SOLICITAR DIAGNÓSTICO</a>
             </div>
           </motion.div>
         )}
@@ -238,14 +238,14 @@ export default function App() {
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-mono text-[10px] uppercase tracking-[0.25em] font-bold">
+              <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#00B4D8]/10 text-[#0A192F] font-sans text-[10px] uppercase tracking-[0.25em] font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00B4D8] animate-ping" />
                 Sistemas de Posicionamiento Global
               </div>
               
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#0A192F] leading-[1.25] tracking-tight text-left">
+              <h1 className="font-display-premium text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0A192F] leading-[1.15] tracking-tight text-left uppercase">
                 Inteligencia Artificial para multiplicar tus datos. <br />
-                <span className="text-[#00B4D8] italic font-serif-premium font-normal">Inteligencia Humana</span> para multiplicar tus ventas.
+                <span className="text-[#00B4D8] italic font-serif-premium font-normal normal-case">Inteligencia Humana</span> para multiplicar tus ventas.
               </h1>
               
               <p className="text-[#0A192F]/70 text-base sm:text-lg leading-relaxed text-left max-w-xl font-light">
@@ -253,8 +253,8 @@ export default function App() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                <a href="#aplicar" className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase">Iniciar Auditoría</a>
-                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold font-display text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"><WhatsAppIcon className="w-4 h-4 text-emerald-500" /> Hablar con un Socio</a>
+                <a href="#aplicar" className="bg-[#0A192F] text-white px-8 py-4 rounded-xl font-bold text-xs tracking-widest hover:bg-[#172A45] transition-all shadow-xl shadow-[#0A192F]/10 w-full sm:w-auto text-center uppercase">Iniciar Auditoría</a>
+                <a href={`https://wa.me/502YOURNUMBER?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="bg-[#F8F9FA] border border-[#0A192F]/10 text-[#0A192F] px-8 py-4 rounded-xl font-bold text-xs tracking-widest hover:bg-[#0A192F]/5 transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2 uppercase"><WhatsAppIcon className="w-4 h-4 text-emerald-500" /> Hablar con un Socio</a>
               </div>
             </motion.div>
 
@@ -271,11 +271,11 @@ export default function App() {
                 <div className="bg-[#F8F9FA] rounded-[2.5rem] overflow-hidden border border-[#0A192F]/5">
                   <div className="h-44 w-full bg-cover bg-center bg-[#172A45] relative">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=600" alt="Arquitectura y Construcción Premium" className="w-full h-full object-cover object-center opacity-95" />
-                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-mono text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">En Línea</div>
+                    <div className="absolute top-3 left-4 bg-[#0A192F]/80 text-white font-sans text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">En Línea</div>
                   </div>
                   <div className="p-5 bg-white space-y-4">
                     <div>
-                      <h3 className="font-display font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
+                      <h3 className="font-sans font-bold text-[#0A192F] text-lg tracking-tight">Arquitectura y construcción</h3>
                       <div className="flex items-center gap-1.5 mt-1">
                         <span className="text-amber-500 font-bold text-sm">4.5</span>
                         <div className="flex text-amber-400 text-xs">★★★★★</div>
@@ -361,7 +361,7 @@ export default function App() {
               },
               {
                 pain: "Compiten por precio bajo en lugar de valor de mercado",
-                solution: "Al no comunicar bien tu autoridad de firma, terminas comparado con opciones baratas. Diseñamos diferenciadores que defienden tus márgenes de ganancia.",
+                solution: "Al no comunicar bien tu autoridad de firma, terminas comparado con opciones baratas. Diseñamos diferenciadores que defienden tus margins de ganancia.",
                 icon: <AlertTriangle className="text-[#00B4D8]" />
               }
             ].map((item, idx) => (
@@ -374,10 +374,10 @@ export default function App() {
                   <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-white transition-colors duration-300">
                     {item.icon}
                   </div>
-                  <h4 className="text-xs font-mono font-bold text-rose-500 uppercase tracking-wider">El Síntoma</h4>
-                  <p className="font-display font-bold text-[#0A192F] text-lg leading-snug">{item.pain}</p>
+                  <h4 className="text-xs font-sans font-bold text-rose-500 uppercase tracking-wider">El Síntoma</h4>
+                  <p className="font-sans font-bold text-[#0A192F] text-lg leading-snug">{item.pain}</p>
                   <div className="h-px bg-gray-100 w-full group-hover:bg-[#00B4D8]/20 transition-colors" />
-                  <h4 className="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">La Solución</h4>
+                  <h4 className="text-xs font-sans font-bold text-emerald-600 uppercase tracking-wider">La Solución</h4>
                   <p className="text-[#0A192F]/70 text-sm leading-relaxed text-justify group-hover:text-[#0A192F]">{item.solution}</p>
                 </div>
               </motion.div>
@@ -386,65 +386,87 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. SECCIÓN DE ANUNCIOS PREMIUM (RE-ESTRUCTURADA CENTRADA, SIN IMAGEN LATERAL Y CON DISEÑO 4 COLUMNAS) */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM CON LA SECCIÓN DIVIDIDA MOCKUP INTERACTIVO RESTAURADO (`image_551765.png`) */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-28">
           
-          {/* Contenedor de Textos Completamente Centrado */}
-          <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
-            <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">
-              Meta Ads Strategy
-            </span>
-            <h2 className="font-serif-premium text-4xl sm:text-5xl font-normal text-[#0A192F] leading-tight">
-              Contenido Profesional de Alta Confianza
-            </h2>
-            <div className="w-20 h-1 bg-[#00B4D8] mx-auto my-2 rounded-full" />
-            <p className="text-[#0A192F]/70 text-base leading-relaxed max-w-3xl mx-auto font-light">
-              Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. 
-              Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones reales.
-            </p>
+          {/* BLOQUE RESTAURADO: INTERFAZ DE ANUNCIO ACTIVO INTERACTIVO (IZQUIERDA) Y TEXTO BOUTIQUE (DERECHA) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Mockup del Anuncio en Producción */}
+            <div className="lg:col-span-6 bg-[#0B1A30] rounded-[2.5rem] p-8 border border-white/5 shadow-[0_30px_70px_rgba(3,7,18,0.4)] relative overflow-hidden flex flex-col items-center">
+              <div className="w-full max-w-[350px] bg-[#071426] border border-white/10 rounded-3xl p-5 shadow-2xl space-y-5">
+                <div className="h-52 w-full rounded-2xl relative flex flex-col justify-end p-4 text-white overflow-hidden bg-slate-900 border border-white/5">
+                  <img 
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" 
+                    alt="Ecosistema e Infraestructura Corporativa Activa" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent" />
+                  <div className="text-[10px] font-sans font-extrabold text-[#00B4D8] tracking-widest relative z-10 uppercase">LIVE AD SIMULATION</div>
+                  <div className="text-base font-sans font-bold relative z-10 text-white tracking-tight">Infraestructura Corporativa B2B</div>
+                </div>
+                
+                <div className="space-y-3 pt-1">
+                  <div className="bg-[#0A192F] p-4 rounded-xl border border-white/5 flex justify-between items-center transition-all hover:border-[#00B4D8]/20">
+                    <span className="text-xs font-sans text-white/50 tracking-wider uppercase">CPA por Audiencia</span>
+                    <span className="text-xs font-bold text-rose-500 tracking-wide">Optimizado</span>
+                  </div>
+                  <div className="bg-[#0A192F] p-4 rounded-xl border border-white/5 flex justify-between items-center transition-all hover:border-[#00B4D8]/20">
+                    <span className="text-xs font-sans text-white/50 tracking-wider uppercase">Valor de Vida (LTV)</span>
+                    <span className="text-xs font-bold text-emerald-500 tracking-wide">Maximizado</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloque de Copys Corporativos con Tipografía de Agencia de Crecimiento */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-[#00B4D8] font-sans tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
+              <h2 className="font-serif-premium text-4xl sm:text-5xl lg:text-6xl font-normal text-[#0A192F] leading-none tracking-tight">
+                Contenido Profesional de Alta Confianza
+              </h2>
+              <p className="text-[#0A192F]/70 text-base leading-relaxed text-justify font-light">
+                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por una pauta de ingeniería comercial optimizada para rastrear conversiones reales.
+              </p>
+            </div>
           </div>
-          
-          {/* Grilla de Tarjetas de Rendimiento Completo (Ancho Completo Premium) */}
+
+          {/* CUADRÍCULA ORGÁNICA INTEGRAL DE CONTENIDOS (GRID DE ALTO RETORNO) */}
           <div className="bg-[#F8F9FA] rounded-[2.5rem] p-8 sm:p-10 border border-[#0A192F]/5 shadow-sm max-w-6xl mx-auto">
-            <div className="flex justify-between items-center pb-6 border-b border-[#0A192F]/5 mb-8">
-              <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[#0A192F]/5 mb-8">
+              <span className="font-sans font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">
                 Infraestructura de Contenidos Activa
               </span>
               <div className="flex items-center gap-3">
-                <span className="text-[11px] font-mono font-bold text-emerald-600">Rendimiento Técnico:</span>
+                <span className="text-[11px] font-sans font-bold text-emerald-600">Rendimiento Técnico:</span>
                 <div className="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <div className="w-[92%] h-full bg-[#00B4D8]" />
                 </div>
               </div>
             </div>
 
-            {/* Configuración Fluida Tridimensional sin Fotos en 4 Columnas Simétricas */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { title: "Enfoque de Crecimiento Avanzado", tag: "Estructura", color: "bg-[#00B4D8]" },
                 { title: "Hábitos Simples, Grandes Resultados", tag: "Conversión", color: "bg-emerald-500" },
                 { title: "Tu Marca en Manos Profesionales", tag: "Autoridad", color: "bg-indigo-500" },
                 { title: "Sistemas de Adquisición B2B", tag: "Sistemas", color: "bg-purple-500" },
                 { title: "Optimización Orgánica de Redes", tag: "RevOps", color: "bg-amber-500" },
-                { title: "Casos de Éxito Comercial Real", tag: "Evidencia", color: "bg-teal-500" },
-                { title: "Auditoría de Embudo Continuo", tag: "Estrategia", color: "bg-[#00B4D8]" },
-                { title: "Ingeniería de Pauta Predictiva", tag: "Optimización", color: "bg-rose-500" }
+                { title: "Casos de Éxito Comercial Real", tag: "Evidencia", color: "bg-teal-500" }
               ].map((post, i) => (
                 <div 
                   key={i} 
-                  className="bg-[#0A192F] rounded-2xl p-6 min-h-[180px] flex flex-col justify-between border border-white/5 shadow-[0_20px_45px_rgba(10,25,47,0.15)] hover:shadow-[0_30px_60px_rgba(0,180,216,0.2)] transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                  className="bg-[#0A192F] rounded-2xl p-6 min-h-[170px] flex flex-col justify-between border border-white/5 shadow-[0_20px_45px_rgba(10,25,47,0.15)] hover:shadow-[0_30px_60px_rgba(0,180,216,0.2)] transition-all duration-300 hover:-translate-y-1 group cursor-default"
                 >
                   <div className="flex justify-between items-start gap-2">
-                    <span className={`text-[9px] font-mono font-bold text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider ${post.color}`}>
+                    <span className={`text-[9px] font-sans font-bold text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider ${post.color}`}>
                       {post.tag}
                     </span>
                   </div>
-                  
-                  <p className="text-white text-sm font-display font-bold leading-snug my-4 group-hover:text-[#00B4D8] transition-colors">
+                  <p className="text-white text-base font-sans font-bold leading-snug my-4 group-hover:text-[#00B4D8] transition-colors">
                     {post.title}
                   </p>
-                  
                   <div className="flex gap-4 text-white/50 text-[10px] pt-3 border-t border-white/5">
                     <span className="flex items-center gap-1">
                       <Heart size={11} className="text-rose-500 fill-rose-500" /> 142
@@ -514,12 +536,12 @@ export default function App() {
                 <div>
                   <div className="text-center mb-8">
                     <span className="font-mono text-2xl text-[#00B4D8] block mb-4 group-hover:scale-110 transition-transform">{plan.icon}</span>
-                    <span className="font-mono font-bold tracking-[0.25em] text-xs text-[#0A192F]/60 uppercase block mb-4">{plan.type}</span>
+                    <span className="font-sans font-bold tracking-[0.25em] text-xs text-[#0A192F]/60 uppercase block mb-4">{plan.type}</span>
                     <p className="text-[#0A192F]/70 text-sm leading-relaxed">{plan.title}</p>
                   </div>
 
                   {plan.subtitle && (
-                    <p className="text-[10px] text-[#00B4D8] font-mono tracking-wider mb-6 italic text-center underline underline-offset-4 decoration-[#00B4D8]/20">
+                    <p className="text-[10px] text-[#00B4D8] font-sans tracking-wider mb-6 italic text-center underline underline-offset-4 decoration-[#00B4D8]/20">
                       {plan.subtitle}
                     </p>
                   )}
@@ -587,29 +609,29 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="space-y-6">
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Nombre Completo</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Nombre Completo</label>
                     <input name="nombre" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Tu nombre" required />
                   </div>
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Correo Corporativo</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Correo Corporativo</label>
                     <input name="email" type="email" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="ejemplo@empresa.com" required />
                   </div>
                 </div>
 
                 <div className="space-y-6">
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Sitio Web / Red Social</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Sitio Web / Red Social</label>
                     <input name="website" type="text" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="Usuario (Opcional)" />
                   </div>
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Celular / WhatsApp</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Celular / WhatsApp</label>
                     <input name="telefono" type="tel" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm" placeholder="+502 0000 0000" required />
                   </div>
                 </div>
 
                 <div className="space-y-6">
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Objetivo Principal</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Objetivo Principal</label>
                     <select name="objetivo" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 text-[#0A192F] focus:border-[#00B4D8] transition-all outline-none text-sm">
                       <option>Generar Leads Calificados</option>
                       <option>Optimizar Visibilidad Local</option>
@@ -617,7 +639,7 @@ export default function App() {
                     </select>
                   </div>
                   <div>
-                    <label className="font-mono text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Desafío o Contexto</label>
+                    <label className="font-sans text-[#0A192F]/60 mb-3 block text-[10px] uppercase font-bold tracking-[0.25em]">Desafío o Contexto</label>
                     <textarea name="contexto" className="w-full bg-[#F8F9FA] border border-[#0A192F]/10 rounded-2xl p-4 h-[54px] resize-none text-sm outline-none focus:border-[#00B4D8]" placeholder="Tus retos..." required />
                   </div>
                 </div>
@@ -626,13 +648,13 @@ export default function App() {
               <div className="space-y-4">
                 <button 
                   type="submit" 
-                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3 font-display"
+                  className="w-full py-5 rounded-2xl bg-[#00B4D8] text-white font-bold uppercase tracking-[0.2em] text-[12px] shadow-2xl hover:bg-[#0096B4] transition-all flex items-center justify-center gap-3"
                 >
                   <Send className="w-5 h-5" />
                   <span>Solicitar Diagnóstico Estratégico</span>
                 </button>
                 
-                <p className="text-center text-gray-400 text-[10px] font-mono leading-relaxed px-4">
+                <p className="text-center text-gray-400 text-[10px] font-sans leading-relaxed px-4">
                   🔒 <strong>Datos protegidos:</strong> Su información es totalmente confidencial y solo se utilizará para coordinar su sesión estratégica privada bajo estricto secreto profesional.
                 </p>
               </div>
@@ -644,12 +666,12 @@ export default function App() {
       {/* 8. FOOTER */}
       <footer className="bg-[#F8F9FA] border-t border-[#0A192F]/5 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-4">
-          <div className="font-display font-extrabold text-[#0A192F] text-2xl italic">
+          <div className="font-display-premium font-extrabold text-[#0A192F] text-2xl italic">
             <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
           </div>
-          <p className="text-gray-400 text-xs font-mono uppercase tracking-[0.3em]">Aceleramos los datos con tecnología, expandimos los negocios con empatía.</p>
+          <p className="text-gray-400 text-xs uppercase tracking-[0.3em]">Aceleramos los datos con tecnología, expandimos los negocios con empatía.</p>
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-xs text-[#0A192F]/40 font-mono tracking-widest uppercase">
+            <p className="text-xs text-[#0A192F]/40 tracking-widest uppercase">
               © 2026 GrowthBrand. Ecosistemas de Crecimiento Integrales.
             </p>
           </div>
