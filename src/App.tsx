@@ -358,9 +358,9 @@ export default function App() {
       {/* ═══ NAV ═══════════════════════════════════════════════════════════ */}
       <nav style={{ position:'fixed', top:0, width:'100%', zIndex:200, transition:'all .45s',
         height: scrolled ? 68 : 84,
-        background: scrolled ? 'rgba(249,249,247,.94)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(22px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--line)' : 'none',
+        background: 'rgba(249,249,247,.97)',
+        backdropFilter: 'blur(22px)',
+        borderBottom: '1px solid var(--line)',
       }}>
         <div style={{ maxWidth:1260, margin:'0 auto', padding:'0 2rem', height:'100%',
           display:'flex', alignItems:'center', justifyContent:'space-between' }}>
@@ -443,7 +443,7 @@ export default function App() {
               </div>
 
               <h1 style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'clamp(2.4rem,4.5vw,3.8rem)',
-                lineHeight:1.18, letterSpacing:'-.02em', color:'#F9F9F7', marginBottom:'1.5rem' }}>
+                lineHeight:1.22, letterSpacing:'0em', color:'#F9F9F7', marginBottom:'1.5rem' }}>
                 Inteligencia Artificial para multiplicar tus datos.{' '}
                 <em style={{ color:'var(--cyan)', fontStyle:'italic' }}>Inteligencia Humana</em>{' '}
                 para multiplicar tus ventas.
@@ -708,16 +708,14 @@ export default function App() {
 
             {/* Editorial photo + stats */}
             <div>
-              <div className="editorial-photo-wrap">
+              <div className="editorial-photo-wrap" style={{ aspectRatio:'3/4' }}>
                 <img
                   src={editorialImg}
-                  alt="Fotografía editorial de producto — colección de ropa premium"
+                  alt="Colección de ropa premium en perchero"
                 />
                 <div className="editorial-photo-overlay" />
-                <span className="editorial-tag">Fotografía Propia</span>
-                <span className="editorial-credit">GrowthBrand Studio</span>
                 <div className="editorial-caption">
-                  <p className="editorial-caption-label">Colección SS · Dirección Creativa GrowthBrand</p>
+                  <p className="editorial-caption-label">Dirección Creativa · Contenido de Marca</p>
                   <p className="editorial-caption-title">Cada pieza de contenido, una decisión estratégica.</p>
                 </div>
               </div>
