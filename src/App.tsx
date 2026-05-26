@@ -49,15 +49,106 @@ const fadeIn = {
   transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
 };
 
+// 🎬 COMPONENTE DEL PRELOADER CINEMÁTICO (ESTILO NETFLIX / DISNEY+)
+function PreloaderCinematic({ onComplete }: { onComplete: () => void }) {
+  useEffect(() => {
+    // Temporizador de salida de la animación principal (3.4 segundos totales)
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 3400);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-[200] overflow-hidden select-none"
+      exit={{ 
+        opacity: 0,
+        filter: "blur(20px)",
+        transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] } 
+      }}
+    >
+      {/* Resplandor ambiental de fondo expandiéndose suavemente */}
+      <motion.div 
+        className="absolute w-[50vw] h-[50vw] rounded-full bg-[#00B4D8]/10 blur-[140px]"
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1.6, opacity: 1 }}
+        transition={{ duration: 3, ease: "easeOut" }}
+      />
+
+      <div className="relative flex flex-col items-center text-center px-6">
+        {/* Contenedor del Logotipo Principal con efecto Zoom-In e Iluminación */}
+        <motion.h1 
+          className="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl tracking-tighter text-white select-none drop-shadow-[0_0_35px_rgba(0,180,216,0.2)]"
+          initial={{ scale: 0.75, opacity: 0, filter: "blur(10px)" }}
+          animate={{ scale: 1.05, opacity: 1, filter: "blur(0px)" }}
+          transition={{ 
+            duration: 2.2, 
+            ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier para desaceleración cinematográfica premium
+            delay: 0.2 
+          }}
+        >
+          <span className="text-[#00B4D8] relative">
+            G
+            {/* Destello de luz detrás de la G */}
+            <span className="absolute inset-0 bg-[#00B4D8]/30 blur-xl rounded-full scale-75 animate-pulse" />
+          </span>
+          <span>rowth</span>
+          <span className="text-[#00B4D8] relative">
+            B
+            <span className="absolute inset-0 bg-[#00B4D8]/30 blur-xl rounded-full scale-75 animate-pulse" />
+          </span>
+          <span>rand</span>
+        </motion.h1>
+
+        {/* Subtítulo o Sello que emerge de abajo hacia arriba de forma sutil */}
+        <motion.div
+          className="mt-6 flex items-center gap-3"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 0.7, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 1.4 }}
+        >
+          <span className="h-px w-8 bg-[#00B4D8]" />
+          <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-white font-medium">
+            Potenciadores de Marcas
+          </p>
+          <span className="h-px w-8 bg-[#00B4D8]" />
+        </motion.div>
+      </div>
+
+      {/* Barra de progreso de carga cinemática en la parte inferior */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-40 h-[2px] bg-white/10 rounded-full overflow-hidden">
+        <motion.div 
+          className="h-full bg-gradient-to-r from-[#00B4D8] to-white"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 2.8, ease: [0.42, 0, 0.58, 1], delay: 0.2 }}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Control de estado para la carga de la animación de bienvenida
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Bloquear el scroll del cuerpo mientras la animación inicial esté activa
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isLoading]);
 
   const whatsappMessage = encodeURIComponent(
     "Hola equipo de GrowthBrand. He visto su enfoque de IA con ADN humano y me interesa agendar un espacio para que analicemos las oportunidades de crecimiento de mi empresa. Mi nombre es..."
@@ -66,6 +157,13 @@ export default function App() {
   return (
     <div className="selection:bg-[#00B4D8]/30 font-['Inter',_sans-serif] bg-[#FFFFFF] text-[#0A192F] relative overflow-x-hidden antialiased">
       
+      {/* Control de animación AnimatePresence para desmontar el preloader limpiamente */}
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <PreloaderCinematic key="loader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       {/* Google Fonts e Inyecciones CSS Globales */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
@@ -92,7 +190,7 @@ export default function App() {
         <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-[#0A192F]/3 blur-[100px] rounded-full" />
       </div>
 
-      {/* 1. NAVIGATION BAR (LOGOTIPO CON LA G Y B EN CELESTE RESTAURADO) */}
+      {/* 1. NAVIGATION BAR */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled 
           ? 'h-20 bg-[#FFFFFF]/90 backdrop-blur-2xl border-b border-[#0A192F]/5 shadow-sm' 
@@ -100,7 +198,6 @@ export default function App() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-full flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            {/* NOMBRE DE AUTORIDAD COMPORATIVA ORIGINAL CON LA G Y LA B EN CELESTE */}
             <span className="font-display font-extrabold text-[#0A192F] text-2xl tracking-tight">
               <span className="text-[#00B4D8]">G</span>rowth<span className="text-[#00B4D8]">B</span>rand
             </span>
@@ -282,7 +379,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS ORIGINAL RESTAURADA */}
+      {/* 3. MARQUESINA DE SOCIOS CORPORATIVOS */}
       <section className="bg-[#0A192F] py-16 border-y border-white/5 relative z-20 overflow-hidden shadow-xl">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-[#00B4D8] italic font-bold tracking-tight mb-12">
@@ -373,11 +470,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM REESTRUCTURADOS CON LA GRID ORGÁNICA EXACTA Y FOTOGRAFÍAS REALES PREMIUM DE TU REFERENCIA */}
+      {/* 5. MÓDULOS DE ANUNCIOS PREMIUM */}
       <section id="sistemas" className="py-24 bg-white relative z-20 border-b border-[#0A192F]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-32">
           
-          {/* Mockup Meta Ads: Contenido Orgánico con Fotografía Publicitaria de Calzado de Alta Autoridad */}
+          {/* Mockup Meta Ads */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Meta Ads Strategy</span>
@@ -387,9 +484,7 @@ export default function App() {
               </p>
             </div>
             
-            {/* CORRECCIÓN ABSOLUTA: INTEGRA UNA FOTOGRAFÍA AD PUBLICITARIA DE CALZADO DE ALTA FIDELIDAD SEGÚN TU SOLICITUD */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-6 sm:p-8 border border-[#0A192F]/5 shadow-inner space-y-6">
-              
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-2 border-b border-[#0A192F]/5">
                 <span className="font-display font-bold text-sm uppercase tracking-wider text-[#0A192F]/80">Manejamos Tus Redes</span>
                 <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -400,7 +495,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Grilla Simulación Red Real con Fotografía Publicitaria Premium de Calzado */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {[
                   { title: "Líneas de Diseño Premium", tag: "Estrategia", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400" },
@@ -411,7 +505,6 @@ export default function App() {
                   { title: "Casos de Éxito Comercial", tag: "Evidencia", img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=400" }
                 ].map((post, i) => (
                   <div key={i} className="aspect-square bg-[#0A192F] rounded-2xl relative overflow-hidden flex flex-col justify-end p-4 group border border-white/5">
-                    {/* Renderizado de Imagen Publicitaria Orgánica de Calzado de Alta Fidelidad */}
                     <img src={post.img} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10" />
                     <span className="absolute top-3 right-3 text-[9px] font-mono font-bold bg-[#00B4D8] text-white px-2 py-0.5 rounded-full z-20 uppercase tracking-wider">{post.tag}</span>
@@ -426,13 +519,11 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mockup 2: TikTok Ads Placement In-Feed con Fotografía Real */}
+          {/* Mockup TikTok Ads */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Contenedor del Mockup Móvil con Fotografía Real de Calzado Publicitario */}
             <div className="lg:col-span-7 bg-[#F8F9FA] rounded-[2.5rem] p-8 border border-[#0A192F]/5 flex justify-center order-2 lg:order-1">
               <div className="w-full max-w-[300px] bg-black rounded-[2.5rem] p-3 shadow-2xl relative text-white">
                 <div className="rounded-[2.2rem] overflow-hidden bg-zinc-900 aspect-[9/16] relative flex flex-col justify-between p-4">
-                  {/* Fotografía de Calzado Publicitario de Alta Fidelidad de Fondo */}
                   <img 
                     src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&q=80&w=600" 
                     alt="Premium Footwear Commercial Ad" 
@@ -463,7 +554,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mockup 3: Google Business Split Grid */}
+          {/* Mockup Google Business Split Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#00B4D8] font-mono tracking-[0.3em] uppercase block text-xs font-bold">Local SEO Authority</span>
@@ -492,7 +583,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE INVERSIÓN (LOS 3 PLANES TRIDIMENSIONALES DE ALTA ADQUISICIÓN CON REDIRECCIÓN COMPLETA A WHATSAPP) */}
+      {/* 6. SECCIÓN DE INVERSIÓN */}
       <section id="inversión" className="py-24 bg-[#F8F9FA] relative z-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -512,7 +603,7 @@ export default function App() {
                 subtitle: '',
                 icon: '◉',
                 textBtn: 'Adquirir Estrategia base',
-                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el plan de Estrategia base para mi marca. Mi nombre es...',
+                msgWa: 'Hola equipo de GrowthBrand. Me interesa adquirir el plan de Estrategia base para mi marca. My name is...',
                 features: ['Gestión de Leads', 'Pauta Avanzada Google/Meta', 'Auditoría Mensual Comercial', 'Estructura SEO Local Básica']
               },
               {
