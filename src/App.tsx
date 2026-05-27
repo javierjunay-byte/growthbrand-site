@@ -73,6 +73,11 @@ const STYLE = `
   .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity:1; transform:none; }
 
+  /* ── Custom cursor — hide native on non-touch ── */
+  @media (pointer: fine) {
+    *, *::before, *::after { cursor: none !important; }
+  }
+
   /* ── Responsive helpers ── */
   @media(max-width:900px){
     .desk-only{ display:none !important; }
@@ -285,14 +290,52 @@ function Preloader({ onDone }) {
 
 /* ─── Main App ──────────────────────────────────────────────────────────── */
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [loading,  setLoading]  = useState(true);
+  const [menuOpen,    setMenuOpen]    = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
+  const [loading,     setLoading]     = useState(true);
+  const [cursorPos,   setCursorPos]   = useState({ x: -100, y: -100 });
+  const [cursorHover, setCursorHover] = useState(false);
+  const [cursorClick, setCursorClick] = useState(false);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  /* ── Custom cursor ── */
+  useEffect(() => {
+    document.body.style.cursor = 'none';
+
+    const onMove = e => setCursorPos({ x: e.clientX, y: e.clientY });
+
+    const onEnter = e => {
+      if (e.target.closest('a, button, [role="button"], input, textarea, select, label')) {
+        setCursorHover(true);
+      }
+    };
+    const onLeave = e => {
+      if (e.target.closest('a, button, [role="button"], input, textarea, select, label')) {
+        setCursorHover(false);
+      }
+    };
+    const onDown = () => setCursorClick(true);
+    const onUp   = () => setCursorClick(false);
+
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseover', onEnter);
+    window.addEventListener('mouseout',  onLeave);
+    window.addEventListener('mousedown', onDown);
+    window.addEventListener('mouseup',   onUp);
+
+    return () => {
+      document.body.style.cursor = '';
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onEnter);
+      window.removeEventListener('mouseout',  onLeave);
+      window.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mouseup',   onUp);
+    };
   }, []);
 
   useEffect(() => {
@@ -346,6 +389,61 @@ export default function App() {
       <AnimatePresence mode="wait">
         {loading && <Preloader key="preloader" onDone={() => setLoading(false)} />}
       </AnimatePresence>
+
+      {/* ═══ CUSTOM CURSOR ══════════════════════════════════════════════════ */}
+      {/* Outer ring */}
+      <motion.div
+        style={{
+          position: 'fixed',
+          top: 0, left: 0,
+          zIndex: 9998,
+          pointerEvents: 'none',
+          borderRadius: '50%',
+          border: cursorHover
+            ? '1.5px solid #00B4D8'
+            : '1.5px solid rgba(5,6,15,0.35)',
+          background: cursorHover ? 'rgba(0,180,216,0.08)' : 'transparent',
+          mixBlendMode: 'normal',
+        }}
+        animate={{
+          x: cursorPos.x - (cursorHover ? 22 : 18),
+          y: cursorPos.y - (cursorHover ? 22 : 18),
+          width:  cursorHover ? 44 : 36,
+          height: cursorHover ? 44 : 36,
+          scale: cursorClick ? 0.82 : 1,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: cursorHover ? 220 : 280,
+          damping: 22,
+          mass: 0.6,
+        }}
+      />
+      {/* Inner dot */}
+      <motion.div
+        style={{
+          position: 'fixed',
+          top: 0, left: 0,
+          zIndex: 9999,
+          pointerEvents: 'none',
+          borderRadius: '50%',
+          background: cursorHover ? '#00B4D8' : '#05060F',
+          boxShadow: cursorHover ? '0 0 12px rgba(0,180,216,0.6)' : 'none',
+        }}
+        animate={{
+          x: cursorPos.x - (cursorHover ? 4 : 3),
+          y: cursorPos.y - (cursorHover ? 4 : 3),
+          width:  cursorHover ? 8 : 5,
+          height: cursorHover ? 8 : 5,
+          scale: cursorClick ? 1.6 : 1,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 600,
+          damping: 28,
+          mass: 0.3,
+        }}
+      />
 
       {/* Ambient orbs */}
       <div style={{ position:'fixed', inset:0, zIndex:0, pointerEvents:'none', overflow:'hidden' }}>
