@@ -311,7 +311,7 @@ export default function App() {
   const waMsg = encodeURIComponent('Hola equipo de GrowthBrand. He visto su enfoque de IA con ADN humano y me interesa agendar un espacio para que analicemos las oportunidades de crecimiento de mi empresa. Mi nombre es...');
 
   const heroImg = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=90&w=1400';
-  const gbpImg  = 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=600';
+  const gbpImg  = '/robertovalenzuelasant-architecture-4896388.jpg';
   const tiktokImg = 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=700';
   const storeImg  = 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&q=80&w=600';
 
@@ -1063,7 +1063,7 @@ export default function App() {
 
       {/* ═══ WhatsApp FAB ════════════════════════════════════════════════════ */}
       <motion.a
-        href={`https://wa.me/502YOURNUMBER?text=${waMsg}`}
+        href="https://wa.link/447jwu"
         target="_blank" rel="noopener noreferrer"
         style={{ position:'fixed', bottom:28, right:28, zIndex:300, display:'flex',
           alignItems:'center', gap:10, background:'#25D366', color:'#fff',
