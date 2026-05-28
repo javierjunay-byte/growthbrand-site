@@ -373,9 +373,9 @@ export default function App() {
 
   /* ── Planes ── */
   const plans = [
-    { tier:'Base', icon:'◉', tag:'ESTRATEGIA BASE', desc:'Arquitectura inicial para negocios que buscan estructura de conversión y orden comercial.', features:['Gestión de Leads Calificados','Pauta Avanzada Google / Meta','Auditoría Mensual Comercial','Estructura SEO Local'], waLink:'https://wa.link/9p20d7' },
-    { tier:'Pro',  icon:'◎', tag:'CRECIMIENTO ESCALABLE', desc:'Sistema robusto para automatizar flujos de pauta, optimizar el ROI y escalar conversiones.', sub:'TODO EN BASE +', features:['WhatsApp API Business','CRM & Automations Core','Funnel UX Corporativo','Lead Scoring Algorítmico'], premium:true, waLink:'https://wa.link/49n16b' },
-    { tier:'Elite',icon:'⬢', tag:'GROWTH COMMAND', desc:'Infraestructura élite de adquisición continua para dominar mercados regionales de forma predecible.', sub:'TODO EN PRO +', features:['Agentes de IA Avanzados','Inteligencia Comercial Centralizada','Análisis Predictivo de Costos'], waLink:'https://wa.link/us1ry7' },
+    { tier:'Base', icon:'◉', tag:'GROWTH STARTER', desc:'Para empresas que quieren validar su sistema de captación y comenzar a generar leads calificados de forma predecible.', features:['Gestión de Leads Calificados','Pauta Avanzada Google / Meta','Auditoría Mensual Comercial','Estructura SEO Local'], waLink:'https://wa.link/9p20d7' },
+    { tier:'Pro',  icon:'◎', tag:'GROWTH ACCELERATOR', desc:'Para empresas listas para automatizar sus procesos comerciales, escalar sus resultados y tener visibilidad total de su retorno.', sub:'TODO EN BASE +', features:['WhatsApp API Business','CRM & Automations Core','Funnel UX Corporativo','Lead Scoring Algorítmico'], premium:true, waLink:'https://wa.link/49n16b' },
+    { tier:'Elite',icon:'⬢', tag:'GROWTH PREMIUM', desc:'Para empresas que buscan autoridad omnicanal, automatización avanzada y un socio estratégico de crecimiento a largo plazo.', sub:'TODO EN PRO +', features:['Agentes de IA Avanzados','Inteligencia Comercial Centralizada','Análisis Predictivo de Costos'], waLink:'https://wa.link/us1ry7' },
   ];
 
   const navLinks = ['Sistemas','Dolores','Metodología','Inversión'];
@@ -504,7 +504,7 @@ export default function App() {
               letterSpacing:'.16em', textTransform:'uppercase', transition:'background .2s' }}
               onMouseEnter={e=>e.currentTarget.style.background='#172A45'}
               onMouseLeave={e=>e.currentTarget.style.background='var(--ink)'}
-            >Diagnóstico Corporativo</a>
+            >Diagnóstico de Crecimiento</a>
           </div>
 
           <button className="mob-show" onClick={() => setMenuOpen(!menuOpen)}
@@ -531,7 +531,7 @@ export default function App() {
               style={{ marginTop:'1.5rem', background:'var(--ink)', color:'#F9F9F7', textAlign:'center',
                        padding:'1rem', borderRadius:'.75rem', fontWeight:700, fontSize:'.7rem',
                        letterSpacing:'.14em', textTransform:'uppercase', fontFamily:'var(--sans)' }}
-            >SOLICITAR DIAGNÓSTICO</a>
+            >SOLICITAR DIAGNÓSTICO DE CRECIMIENTO</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -558,19 +558,19 @@ export default function App() {
                 padding:'.3rem .9rem', borderRadius:999, marginBottom:'2rem' }}>
                 <span style={{ width:6, height:6, borderRadius:'50%', background:'var(--cyan)',
                   display:'inline-block', animation:'ping 1.4s cubic-bezier(0,0,.2,1) infinite' }} />
-                Sistemas de Posicionamiento Global
+                Agencia Integral de Crecimiento Empresarial
               </div>
 
               <h1 style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'clamp(2.4rem,4.5vw,3.8rem)',
                 lineHeight:1.25, letterSpacing:'-.015em', wordSpacing:'.04em', color:'#F9F9F7', marginBottom:'1.5rem' }}>
-                Inteligencia Artificial para multiplicar tus datos.{' '}
-                <em style={{ color:'var(--cyan)', fontStyle:'italic' }}>Inteligencia Humana</em>{' '}
-                para multiplicar tus ventas.
+                Convertimos tu marketing, contenido y ventas en un{' '}
+                <em style={{ color:'var(--cyan)', fontStyle:'italic' }}>sistema de crecimiento</em>{' '}
+                que genera clientes todos los días.
               </h1>
 
               <p style={{ fontFamily:'var(--sans)', fontWeight:300, fontSize:'1.05rem', lineHeight:1.8,
                 color:'rgba(249,249,247,.7)', maxWidth:520, marginBottom:'2.5rem' }}>
-                En GrowthBrand no dejamos que las herramientas reemplacen a las personas; las ponemos a su servicio para liberar la chispa creativa que hace a tu marca única. Bienvenidos a una nueva forma de crecer.
+                Integramos marketing, ventas, contenido y automatización en un solo sistema medible. Sin improvisación. Sin agencias genéricas. Con resultados reales para tu negocio.
               </p>
 
               <div style={{ display:'flex', flexWrap:'wrap', gap:'1rem' }}>
@@ -581,7 +581,7 @@ export default function App() {
                   onMouseEnter={e=>{ e.currentTarget.style.background='var(--cyan-dk)'; e.currentTarget.style.transform='scale(1.03)'; }}
                   onMouseLeave={e=>{ e.currentTarget.style.background='var(--cyan)'; e.currentTarget.style.transform='scale(1)'; }}
                 >
-                  Iniciar Auditoría Comercial <ArrowRight size={14}/>
+                  Solicitar Diagnóstico de Crecimiento <ArrowRight size={14}/>
                 </a>
                 <a href="https://wa.link/447jwu" target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily:'var(--sans)', border:'1px solid rgba(249,249,247,.2)', color:'#F9F9F7',
@@ -597,7 +597,7 @@ export default function App() {
 
               <div style={{ display:'flex', flexWrap:'wrap', gap:'1.5rem', marginTop:'3rem',
                 paddingTop:'2rem', borderTop:'1px solid rgba(249,249,247,.1)' }}>
-                {[['+80','Clientes Premium'],['3×','ROI Promedio'],['48h','Onboarding']].map(([n,l]) => (
+                {[['+80','Clientes Premium'],['3×','ROI Promedio'],['48h','Arranque']].map(([n,l]) => (
                   <div key={l}>
                     <p style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'1.6rem',
                       color:'var(--cyan)', lineHeight:1 }}>{n}</p>
@@ -678,7 +678,7 @@ export default function App() {
         <div style={{ maxWidth:1260, margin:'0 auto 2.5rem', padding:'0 2rem', textAlign:'center' }}>
           <h2 style={{ fontFamily:'var(--serif)', color:'var(--cyan)', fontSize:'clamp(1.4rem,2.8vw,2.2rem)',
             fontWeight:700, fontStyle:'italic', letterSpacing:'-.01em' }}>
-            Ecosistemas e Infraestructura Tecnológica Integrada con
+            Trabajamos con las plataformas que ya dominan el mercado
             <span style={{ color:'#F9F9F7', fontFamily:'var(--sans)', fontStyle:'normal', fontWeight:300 }}>.</span>
           </h2>
         </div>
@@ -720,10 +720,10 @@ export default function App() {
       <section style={{ padding:'7rem 0', background:'var(--white)', borderBottom:'1px solid var(--line)', position:'relative', zIndex:20 }}>
         <div style={{ maxWidth:1260, margin:'0 auto', padding:'0 2rem' }}>
           <div className="reveal" style={{ textAlign:'center', maxWidth:600, margin:'0 auto 4.5rem' }}>
-            <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Historias Reales</p>
+            <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Casos de Crecimiento</p>
             <h2 style={{ fontFamily:'var(--serif)', fontSize:'clamp(2rem,3.8vw,3rem)', fontWeight:700,
               letterSpacing:'-.02em', lineHeight:1.2, color:'var(--ink)' }}>
-              Historias de crecimiento real.<br />Datos con propósito.
+              Resultados reales.<br />Negocios que crecen con sistema.
             </h2>
             <div className="divider" style={{ margin:'1.5rem auto 0' }} />
           </div>
@@ -815,13 +815,13 @@ export default function App() {
 
             {/* Copy */}
             <div>
-              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Meta Ads Strategy</p>
+              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Contenido que Vende</p>
               <h2 style={{ fontFamily:'var(--serif)', fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700,
                 letterSpacing:'-.02em', color:'var(--ink)', marginBottom:'1.2rem', lineHeight:1.25 }}>
-                Contenido Profesional de Alta Confianza
+                Tu marca al nivel que tus clientes ideales esperan
               </h2>
               <p style={{ fontFamily:'var(--sans)', fontSize:'.9rem', lineHeight:1.8, color:'var(--muted)', fontWeight:300 }}>
-                Tus activos e identidad publicitaria digital deben estar al nivel que el cliente corporativo espera. Reemplazamos la improvisación por fotografía de producto con dirección creativa propia — nunca stock — y pauta de ingeniería comercial optimizada para rastrear conversiones reales.
+                Las empresas que crecen no improvisan su contenido. Cada pieza que producimos tiene un objetivo comercial claro: generar confianza, autoridad y oportunidades reales de negocio para tu empresa.
               </p>
             </div>
 
@@ -883,13 +883,13 @@ export default function App() {
               </div>
             </div>
             <div>
-              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>TikTok Business Integration</p>
+              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Captación de Clientes In-Feed</p>
               <h2 style={{ fontFamily:'var(--serif)', fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700,
                 letterSpacing:'-.02em', color:'var(--ink)', marginBottom:'1.2rem', lineHeight:1.25 }}>
-                Estructura de Conversión In-Feed Absoluta
+                De la atención a la venta, sin fricción
               </h2>
               <p style={{ fontFamily:'var(--sans)', fontSize:'.9rem', lineHeight:1.8, color:'var(--muted)', fontWeight:300 }}>
-                Desplegamos embudos comerciales conectados directamente a tu WhatsApp o CRM, configurando mensajes claros y flujos de atención que cierran ventas predecibles.
+                Construimos embudos de captación conectados directamente a tu WhatsApp o CRM. Mensajes claros, flujos automáticos y seguimiento que convierte prospectos en clientes reales.
               </p>
             </div>
           </div>
@@ -897,13 +897,13 @@ export default function App() {
           {/* Google Business */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'4.5rem', alignItems:'center' }} className="col2 reveal">
             <div>
-              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Local SEO Authority</p>
+              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Presencia Local Dominante</p>
               <h2 style={{ fontFamily:'var(--serif)', fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700,
                 letterSpacing:'-.02em', color:'var(--ink)', marginBottom:'1.2rem', lineHeight:1.25 }}>
-                Tu Negocio en el Mapa del Mundo
+                Que te encuentren primero. Que elijan tu marca.
               </h2>
               <p style={{ fontFamily:'var(--sans)', fontSize:'.9rem', lineHeight:1.8, color:'var(--muted)', fontWeight:300 }}>
-                Optimizamos la ficha de Google Business Profile para que tu marca aparezca de forma impecable en búsquedas estratégicas locales, respondiendo reseñas y captando clientes recurrentes.
+                Optimizamos tu presencia en Google para que los clientes correctos te encuentren antes que a tu competencia. Más visibilidad, más consultas, más ventas.
               </p>
             </div>
             <div style={{ display:'flex', justifyContent:'center' }}>
@@ -932,13 +932,13 @@ export default function App() {
         borderTop:'1px solid var(--line)', position:'relative', zIndex:20 }}>
         <div style={{ maxWidth:1260, margin:'0 auto', padding:'0 2rem' }}>
           <div className="reveal" style={{ textAlign:'center', maxWidth:600, margin:'0 auto 4.5rem' }}>
-            <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Modelos B2B</p>
+            <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Sistemas de Crecimiento</p>
             <h2 style={{ fontFamily:'var(--serif)', fontSize:'clamp(2rem,3.8vw,3rem)', fontWeight:700,
               letterSpacing:'-.02em', lineHeight:1.2, color:'var(--cyan)' }}>
-              Modelos de Implementación B2B
+              Elige tu Sistema de Crecimiento
             </h2>
             <p style={{ fontFamily:'var(--sans)', color:'var(--muted)', marginTop:'1rem', fontWeight:300, fontSize:'.95rem' }}>
-              Infraestructura volumétrica blindada para acelerar tus flujos comerciales de adquisición.
+              Cada plan integra marketing, ventas, contenido y automatización en un sistema medible adaptado al tamaño y ambición de tu negocio.
             </p>
           </div>
 
@@ -1022,11 +1022,11 @@ export default function App() {
         <div style={{ position:'relative', zIndex:1, maxWidth:700, margin:'0 auto' }}>
           <h2 style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'clamp(1.6rem,3vw,2.4rem)',
             color:'#fff', lineHeight:1.25, marginBottom:'1rem', letterSpacing:'-.01em' }}>
-            Tu competencia ya está creciendo. ¿Cuánto tiempo más vas a esperar?
+            ¿Tu negocio genera clientes de forma predecible? Si la respuesta no es sí, necesitas esto.
           </h2>
           <p style={{ fontFamily:'var(--sans)', color:'rgba(255,255,255,.85)', fontSize:'.95rem',
             marginBottom:'2rem', fontWeight:300 }}>
-            Solo aceptamos 5 nuevos clientes por mes para garantizar resultados excepcionales.
+            Trabajamos con un número limitado de empresas por mes para garantizar resultados medibles y atención directiva real.
           </p>
           <a href="#aplicar" style={{ display:'inline-flex', alignItems:'center', gap:8,
             background:'var(--ink)', color:'#F9F9F7', padding:'1rem 2.2rem', borderRadius:'.7rem',
@@ -1035,7 +1035,7 @@ export default function App() {
             onMouseEnter={e=>{ e.currentTarget.style.background='#172A45'; e.currentTarget.style.transform='scale(1.04)'; }}
             onMouseLeave={e=>{ e.currentTarget.style.background='var(--ink)'; e.currentTarget.style.transform='scale(1)'; }}
           >
-            Reservar mi diagnóstico <ArrowRight size={14}/>
+            Quiero mi Diagnóstico de Crecimiento <ArrowRight size={14}/>
           </a>
         </div>
       </section>
@@ -1049,17 +1049,17 @@ export default function App() {
 
           <div style={{ background:'var(--ink)', padding:'3.5rem', display:'flex', flexDirection:'column', justifyContent:'flex-start', gap:'2rem' }}>
             <div>
-              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1.25rem' }}>Diagnóstico Estratégico</p>
+              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1.25rem' }}>Diagnóstico de Crecimiento Gratuito</p>
               <blockquote style={{ borderLeft:'3px solid var(--cyan)', paddingLeft:'1.4rem' }}>
                 <p style={{ fontFamily:'var(--serif)', fontSize:'clamp(1.3rem,2.2vw,1.9rem)', fontWeight:700,
                   color:'#F9F9F7', lineHeight:1.35, fontStyle:'italic' }}>
-                  "Dejemos de hablar de métricas genéricas. Hablemos de tu visión."
+                  "Cuéntanos dónde está tu negocio hoy. Nosotros te mostramos dónde puede estar mañana."
                 </p>
               </blockquote>
             </div>
             <p style={{ fontFamily:'var(--sans)', color:'rgba(249,249,247,.65)', fontSize:'.88rem',
               lineHeight:1.8, fontWeight:300 }}>
-              Registra tu marca aquí. Nuestro equipo analizará tu ecosistema digital actual con herramientas de IA y agendaremos una sesión privada para entregarte tu diagnóstico personalizado.
+              Analizamos tu marketing, ventas, captación de clientes y procesos comerciales. Luego agendamos una sesión privada para entregarte un diagnóstico real con oportunidades de crecimiento concretas.
             </p>
             <div style={{ display:'flex', flexDirection:'column', gap:'.75rem' }}>
               {[
@@ -1077,7 +1077,7 @@ export default function App() {
 
           <div style={{ background:'var(--paper)', padding:'3rem 3rem' }}>
             <p style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'1.5rem', color:'var(--ink)', marginBottom:'2rem' }}>
-              Solicita tu diagnóstico gratuito
+              Solicita tu Diagnóstico de Crecimiento Gratuito
             </p>
             <form
               onSubmit={async e => {
@@ -1120,9 +1120,10 @@ export default function App() {
                 <select name="objetivo" style={{ width:'100%', background:'var(--white)',
                   border:'1px solid var(--line)', borderRadius:11, padding:'.8rem 1rem',
                   fontSize:'.9rem', fontFamily:'var(--sans)', color:'var(--ink)', outline:'none' }}>
-                  <option>Generar Leads Calificados</option>
-                  <option>Optimizar Visibilidad Local</option>
-                  <option>Estructura Comercial Integral</option>
+                  <option>Generar más clientes calificados</option>
+                  <option>Integrar marketing y ventas</option>
+                  <option>Automatizar mi proceso comercial</option>
+                  <option>Escalar mi negocio de forma medible</option>
                 </select>
               </div>
 
@@ -1130,7 +1131,7 @@ export default function App() {
                 <label style={{ fontFamily:'var(--sans)', fontSize:'.58rem', fontWeight:700,
                   letterSpacing:'.16em', textTransform:'uppercase', color:'var(--muted)',
                   display:'block', marginBottom:'.4rem' }}>Desafío o Contexto</label>
-                <textarea name="contexto" placeholder="¿Cuál es tu mayor reto comercial hoy?" required
+                <textarea name="contexto" placeholder="¿Cuál es el principal obstáculo que frena el crecimiento de tu negocio hoy?" required
                   style={{ width:'100%', background:'var(--white)', border:'1px solid var(--line)',
                            borderRadius:11, padding:'.8rem 1rem', fontSize:'.9rem',
                            fontFamily:'var(--sans)', color:'var(--ink)', outline:'none',
@@ -1149,12 +1150,12 @@ export default function App() {
                 onMouseEnter={e=>e.currentTarget.style.background='var(--cyan-dk)'}
                 onMouseLeave={e=>e.currentTarget.style.background='var(--cyan)'}
               >
-                <Send size={15}/> Solicitar Diagnóstico Estratégico
+                <Send size={15}/> Solicitar Diagnóstico de Crecimiento Gratuito
               </button>
 
               <p style={{ fontFamily:'var(--sans)', textAlign:'center', color:'#9CA3AF',
                 fontSize:'.6rem', lineHeight:1.6 }}>
-                🔒 Tus datos son confidenciales y solo se usarán para coordinar tu sesión privada.
+                🔒 Tu información es confidencial. Solo la usamos para preparar tu diagnóstico y coordinar tu sesión.
               </p>
             </form>
           </div>
@@ -1170,7 +1171,7 @@ export default function App() {
             <span style={{ color:'var(--cyan)' }}>G</span>rowth<span style={{ color:'var(--cyan)' }}>B</span>rand
           </p>
           <p className="label" style={{ color:'rgba(249,249,247,.3)', fontSize:'.54rem', letterSpacing:'.28em', marginBottom:'1rem' }}>
-            Aceleramos los datos con tecnología · Expandimos los negocios con empatía
+            Marketing · Ventas · Contenido · Automatización · Crecimiento Medible
           </p>
           <p style={{ fontFamily:'var(--sans)', color:'rgba(249,249,247,.18)', fontSize:'.72rem',
             fontWeight:300, marginBottom:'2rem', lineHeight:1.7 }}>
@@ -1178,7 +1179,7 @@ export default function App() {
           </p>
           <div style={{ borderTop:'1px solid rgba(249,249,247,.08)', paddingTop:'1.5rem' }}>
             <p className="label" style={{ color:'rgba(249,249,247,.2)', fontSize:'.5rem', letterSpacing:'.2em' }}>
-              © 2026 GrowthBrand. Ecosistemas de Crecimiento Integrales.
+              © 2026 GrowthBrand GT — Agencia Integral de Crecimiento Empresarial en Guatemala.
             </p>
           </div>
         </div>
