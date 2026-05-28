@@ -250,17 +250,17 @@ const STYLE = `
 
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
 function Preloader({ onDone }) {
-  useEffect(() => { const t = setTimeout(onDone, 3600); return () => clearTimeout(t); }, [onDone]);
+  useEffect(() => { const t = setTimeout(onDone, 1800); return () => clearTimeout(t); }, [onDone]);
   return (
     <motion.div
       style={{ position:'fixed', inset:0, background:'#05060F', display:'flex', flexDirection:'column',
                alignItems:'center', justifyContent:'center', zIndex:500, overflow:'hidden' }}
-      exit={{ opacity:0, filter:'blur(28px)', transition:{ duration:1, ease:[.25,1,.5,1] } }}
+      exit={{ opacity:0, filter:'blur(12px)', transition:{ duration:.5, ease:[.25,1,.5,1] } }}
     >
       <motion.div style={{ position:'absolute', width:'60vw', height:'60vw', borderRadius:'50%',
         background:'radial-gradient(circle, rgba(0,180,216,.14) 0%, transparent 70%)', filter:'blur(80px)' }}
         initial={{ scale:.3, opacity:0 }} animate={{ scale:1.6, opacity:1 }}
-        transition={{ duration:3.4, ease:'easeOut' }}
+        transition={{ duration:1.8, ease:'easeOut' }}
       />
       <motion.h1
         style={{ fontFamily:"'Playfair Display',Georgia,serif", fontWeight:700,
@@ -268,20 +268,20 @@ function Preloader({ onDone }) {
                  color:'#F9F9F7', lineHeight:1, position:'relative', zIndex:1, textAlign:'center' }}
         initial={{ scale:.72, opacity:0, filter:'blur(14px)' }}
         animate={{ scale:1, opacity:1, filter:'blur(0px)' }}
-        transition={{ duration:2.4, ease:[.16,1,.3,1], delay:.2 }}
+        transition={{ duration:1.4, ease:[.16,1,.3,1], delay:.2 }}
       >
         <span style={{ color:'#00B4D8' }}>G</span>rowth<span style={{ color:'#00B4D8' }}>B</span>rand
       </motion.h1>
       <motion.p style={{ fontFamily:"'Outfit',sans-serif", fontSize:'.58rem', letterSpacing:'.38em',
         textTransform:'uppercase', color:'rgba(249,249,247,.45)', marginTop:'1.6rem', zIndex:1 }}
         initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
-        transition={{ duration:1.2, delay:1.6 }}
+        transition={{ duration:0.8, delay:0.9 }}
       >— Potenciadores de Marcas —</motion.p>
       <div style={{ position:'absolute', bottom:44, left:'50%', transform:'translateX(-50%)',
         width:110, height:1, background:'rgba(249,249,247,.1)', overflow:'hidden', borderRadius:2 }}>
         <motion.div style={{ height:'100%', background:'linear-gradient(90deg,#00B4D8,#F9F9F7)', borderRadius:2 }}
           initial={{ width:'0%' }} animate={{ width:'100%' }}
-          transition={{ duration:3.1, ease:[.42,0,.58,1], delay:.3 }}
+          transition={{ duration:1.5, ease:[.42,0,.58,1], delay:.1 }}
         />
       </div>
     </motion.div>
@@ -562,7 +562,7 @@ export default function App() {
               </div>
 
               <h1 style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'clamp(2.4rem,4.5vw,3.8rem)',
-                lineHeight:1.22, letterSpacing:'0em', color:'#F9F9F7', marginBottom:'1.5rem' }}>
+                lineHeight:1.25, letterSpacing:'-.015em', wordSpacing:'.04em', color:'#F9F9F7', marginBottom:'1.5rem' }}>
                 Inteligencia Artificial para multiplicar tus datos.{' '}
                 <em style={{ color:'var(--cyan)', fontStyle:'italic' }}>Inteligencia Humana</em>{' '}
                 para multiplicar tus ventas.
