@@ -1047,7 +1047,7 @@ export default function App() {
           display:'grid', gridTemplateColumns:'1fr 1fr',
           boxShadow:'0 40px 100px rgba(5,6,15,.13)', border:'1px solid var(--line)' }} className="col2">
 
-          <div style={{ background:'var(--ink)', padding:'3.5rem', display:'flex', flexDirection:'column', justifyContent:'center', gap:'2rem' }}>
+          <div style={{ background:'var(--ink)', padding:'3.5rem', display:'flex', flexDirection:'column', justifyContent:'flex-start', gap:'2rem' }}>
             <div>
               <p className="label" style={{ color:'var(--cyan)', marginBottom:'1.25rem' }}>Diagnóstico Estratégico</p>
               <blockquote style={{ borderLeft:'3px solid var(--cyan)', paddingLeft:'1.4rem' }}>
