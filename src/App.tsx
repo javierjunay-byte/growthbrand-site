@@ -294,7 +294,7 @@ export default function App() {
           border: cursorHover ? '1.5px solid #00B4D8' : '1.5px solid rgba(255,255,255,.2)',
           background: cursorHover ? 'rgba(0,180,216,.08)' : 'transparent' }}
         animate={{ x: cursorPos.x-(cursorHover?22:18), y: cursorPos.y-(cursorHover?22:18),
-          width: cursorHover?44:36, height: cursorHover?44:36, scale: cursorClick?.82:1 }}
+          width: cursorHover?44:36, height: cursorHover?44:36, scale: cursorClick ? 0.82 : 1 }}
         transition={{ type:'spring', stiffness:cursorHover?220:280, damping:22, mass:.6 }}
       />
       <motion.div
