@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import {
   X, Menu, CheckCircle2, Send, Phone, MapPin, Globe,
@@ -293,16 +294,16 @@ export default function App() {
         style={{ position:'fixed', top:0, left:0, zIndex:9998, pointerEvents:'none', borderRadius:'50%',
           border: cursorHover ? '1.5px solid #00B4D8' : '1.5px solid rgba(255,255,255,.2)',
           background: cursorHover ? 'rgba(0,180,216,.08)' : 'transparent' }}
-        animate={{ x: cursorPos.x-(cursorHover?22:18), y: cursorPos.y-(cursorHover?22:18),
-          width: cursorHover?44:36, height: cursorHover?44:36, scale: cursorClick ? 0.82 : 1 }}
-        transition={{ type:'spring', stiffness:cursorHover?220:280, damping:22, mass:.6 }}
+        animate={{ x: cursorPos.x-(cursorHover ? 22 : 18), y: cursorPos.y-(cursorHover ? 22 : 18),
+          width: cursorHover ? 44 : 36, height: cursorHover ? 44 : 36, scale: cursorClick ? 0.82 : 1 }}
+        transition={{ type:'spring', stiffness:cursorHover ? 220 : 280, damping:22, mass:.6 }}
       />
       <motion.div
         style={{ position:'fixed', top:0, left:0, zIndex:9999, pointerEvents:'none', borderRadius:'50%',
-          background: cursorHover?'#00B4D8':'rgba(255,255,255,.9)',
-          boxShadow: cursorHover?'0 0 12px rgba(0,180,216,.7)':'none' }}
-        animate={{ x: cursorPos.x-(cursorHover?4:3), y: cursorPos.y-(cursorHover?4:3),
-          width: cursorHover?8:5, height: cursorHover?8:5, scale: cursorClick?1.6:1 }}
+          background: cursorHover ? '#00B4D8' : 'rgba(255,255,255,.9)',
+          boxShadow: cursorHover ? '0 0 12px rgba(0,180,216,.7)' : 'none' }}
+        animate={{ x: cursorPos.x-(cursorHover ? 4 : 3), y: cursorPos.y-(cursorHover ? 4 : 3),
+          width: cursorHover ? 8 : 5, height: cursorHover ? 8 : 5, scale: cursorClick ? 1.6 : 1 }}
         transition={{ type:'spring', stiffness:600, damping:28, mass:.3 }}
       />
 
@@ -339,8 +340,8 @@ export default function App() {
                 style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'.6rem', fontWeight:600,
                   letterSpacing:'.18em', textTransform:'uppercase', color:'rgba(255,255,255,.45)',
                   transition:'color .2s' }}
-                onMouseEnter={e=>e.target.style.color='#00B4D8'}
-                onMouseLeave={e=>e.target.style.color='rgba(255,255,255,.45)'}
+                onMouseEnter={(e: any)=>e.target.style.color='#00B4D8'}
+                onMouseLeave={(e: any)=>e.target.style.color='rgba(255,255,255,.45)'}
               >{l}</a>
             ))}
             <a href="#aplicar"
@@ -349,8 +350,8 @@ export default function App() {
                 color:'#fff', padding:'.65rem 1.4rem', borderRadius:'.6rem',
                 fontSize:'.58rem', fontWeight:700, letterSpacing:'.16em', textTransform:'uppercase',
                 transition:'opacity .2s, transform .15s', boxShadow:'0 8px 24px rgba(0,180,216,.25)' }}
-              onMouseEnter={e=>{ e.currentTarget.style.opacity='.85'; e.currentTarget.style.transform='scale(1.03)'; }}
-              onMouseLeave={e=>{ e.currentTarget.style.opacity='1'; e.currentTarget.style.transform='scale(1)'; }}
+              onMouseEnter={(e: any)=>{ e.currentTarget.style.opacity='.85'; e.currentTarget.style.transform='scale(1.03)'; }}
+              onMouseLeave={(e: any)=>{ e.currentTarget.style.opacity='1'; e.currentTarget.style.transform='scale(1)'; }}
             >Diagnóstico de Crecimiento</a>
           </div>
           <button className="mob-show" onClick={() => setMenuOpen(!menuOpen)}
@@ -429,8 +430,8 @@ export default function App() {
                   letterSpacing:'.16em', textTransform:'uppercase', display:'inline-flex',
                   alignItems:'center', gap:8, transition:'opacity .2s, transform .15s',
                   boxShadow:'0 16px 40px rgba(0,180,216,.3)' }}
-                  onMouseEnter={e=>{ e.currentTarget.style.opacity='.85'; e.currentTarget.style.transform='scale(1.03)'; }}
-                  onMouseLeave={e=>{ e.currentTarget.style.opacity='1'; e.currentTarget.style.transform='scale(1)'; }}
+                  onMouseEnter={(e: any)=>{ e.currentTarget.style.opacity='.85'; e.currentTarget.style.transform='scale(1.03)'; }}
+                  onMouseLeave={(e: any)=>{ e.currentTarget.style.opacity='1'; e.currentTarget.style.transform='scale(1)'; }}
                 >
                   Solicitar Diagnóstico de Crecimiento <ArrowRight size={14}/>
                 </a>
@@ -441,8 +442,8 @@ export default function App() {
                     letterSpacing:'.14em', textTransform:'uppercase', display:'inline-flex',
                     alignItems:'center', gap:8, transition:'border-color .2s, background .2s',
                     background:'rgba(255,255,255,.04)', backdropFilter:'blur(8px)' }}
-                  onMouseEnter={e=>e.currentTarget.style.borderColor='#00B4D8'}
-                  onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(255,255,255,.15)'}
+                  onMouseEnter={(e: any)=>e.currentTarget.style.borderColor='#00B4D8'}
+                  onMouseLeave={(e: any)=>e.currentTarget.style.borderColor='rgba(255,255,255,.15)'}
                 >
                   <WaIcon /> Hablar con un Socio
                 </a>
@@ -881,8 +882,8 @@ export default function App() {
                     fontSize:'.6rem', letterSpacing:'.14em', textTransform:'uppercase',
                     transition:'opacity .2s', marginTop:'auto',
                     boxShadow:'0 8px 24px rgba(0,180,216,.25)' }}
-                  onMouseEnter={e=>e.currentTarget.style.opacity='.82'}
-                  onMouseLeave={e=>e.currentTarget.style.opacity='1'}
+                  onMouseEnter={(e: any)=>e.currentTarget.style.opacity='.82'}
+                  onMouseLeave={(e: any)=>e.currentTarget.style.opacity='1'}
                 >
                   <WaIcon /> {plan.tag}
                 </a>
@@ -911,8 +912,8 @@ export default function App() {
             fontFamily:"'Plus Jakarta Sans',sans-serif", fontWeight:700, fontSize:'.62rem',
             letterSpacing:'.16em', textTransform:'uppercase', transition:'background .2s, transform .15s',
             boxShadow:'0 8px 24px rgba(0,0,0,.3)' }}
-            onMouseEnter={e=>{ e.currentTarget.style.background='#071426'; e.currentTarget.style.transform='scale(1.04)'; }}
-            onMouseLeave={e=>{ e.currentTarget.style.background='#030712'; e.currentTarget.style.transform='scale(1)'; }}
+            onMouseEnter={(e: any)=>{ e.currentTarget.style.background='#071426'; e.currentTarget.style.transform='scale(1.04)'; }}
+            onMouseLeave={(e: any)=>{ e.currentTarget.style.background='#030712'; e.currentTarget.style.transform='scale(1)'; }}
           >
             Quiero mi Diagnóstico de Crecimiento <ArrowRight size={14}/>
           </a>
@@ -961,7 +962,7 @@ export default function App() {
               Solicita tu Diagnóstico de Crecimiento Gratuito
             </p>
             <form
-              onSubmit={async e => {
+              onSubmit={async (e: any)=> {
                 e.preventDefault();
                 const res = await fetch(e.currentTarget.action, {
                   method:'POST', body:new FormData(e.currentTarget),
@@ -988,8 +989,8 @@ export default function App() {
                       borderRadius:11, padding:'.8rem 1rem', fontSize:'.9rem',
                       fontFamily:"'Plus Jakarta Sans',sans-serif", color:'#fff', outline:'none',
                       transition:'border-color .2s' }}
-                    onFocus={e=>e.target.style.borderColor='#00B4D8'}
-                    onBlur={e=>e.target.style.borderColor='rgba(255,255,255,.1)'}
+                    onFocus={(e: any)=>e.target.style.borderColor='#00B4D8'}
+                    onBlur={(e: any)=>e.target.style.borderColor='rgba(255,255,255,.1)'}
                   />
                 </div>
               ))}
@@ -1015,8 +1016,8 @@ export default function App() {
                     borderRadius:11, padding:'.8rem 1rem', fontSize:'.9rem',
                     fontFamily:"'Plus Jakarta Sans',sans-serif", color:'#fff', outline:'none',
                     resize:'none', height:88, transition:'border-color .2s' }}
-                  onFocus={e=>e.target.style.borderColor='#00B4D8'}
-                  onBlur={e=>e.target.style.borderColor='rgba(255,255,255,.1)'}
+                  onFocus={(e: any)=>e.target.style.borderColor='#00B4D8'}
+                  onBlur={(e: any)=>e.target.style.borderColor='rgba(255,255,255,.1)'}
                 />
               </div>
               <button type="submit"
@@ -1026,8 +1027,8 @@ export default function App() {
                   fontSize:'.62rem', letterSpacing:'.16em', textTransform:'uppercase', border:'none',
                   cursor:'pointer', transition:'opacity .2s', marginTop:'.25rem',
                   boxShadow:'0 8px 24px rgba(0,180,216,.25)' }}
-                onMouseEnter={e=>e.currentTarget.style.opacity='.85'}
-                onMouseLeave={e=>e.currentTarget.style.opacity='1'}
+                onMouseEnter={(e: any)=>e.currentTarget.style.opacity='.85'}
+                onMouseLeave={(e: any)=>e.currentTarget.style.opacity='1'}
               >
                 <Send size={15}/> Solicitar Diagnóstico de Crecimiento Gratuito
               </button>
