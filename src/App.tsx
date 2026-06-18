@@ -46,13 +46,13 @@ const STYLE = `
   a { text-decoration: none; }
 
   /* ── Animations ── */
-  @keyframes marquee   { to { transform: translateX(-50%); } }
+  @keyframes marquee   { from { transform:translate3d(0,0,0); } to { transform:translate3d(calc(-50% - 36px),0,0); } }
   @keyframes ping      { 75%,100% { transform: scale(2.2); opacity: 0; } }
   @keyframes radar     { to { transform: scale(1.55); opacity: 0; } }
   @keyframes fadeUp    { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   @keyframes shimmer   { from { background-position: -400px 0; } to { background-position: 400px 0; } }
 
-  .marquee-inner { animation: marquee 38s linear infinite; display:flex; width:max-content; }
+  .marquee-inner { display:flex; width:max-content; min-width:max-content; will-change:transform; transform:translateZ(0); }
   .ping          { animation: ping 1.4s cubic-bezier(0,0,.2,1) infinite; }
   .radar         { animation: radar 3s ease-out infinite; }
 
@@ -91,7 +91,7 @@ const STYLE = `
   }
 
   /* ══════════════════════════════════════════════
-     SECCIÓN DOLORES — DARK PREMIUM
+     SECCIÓN DESAFIOS — DARK PREMIUM
   ══════════════════════════════════════════════ */
   .pain-section {
     background: #05060F;
@@ -310,6 +310,60 @@ const STYLE = `
     html { scroll-behavior:auto; }
     *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
   }
+
+  /* Immersive conversion layer */
+  .premium-hero { --mx:0px; --my:0px; }
+  .hero-bg { transform:translate3d(var(--mx),var(--my),0) scale(1.08); transition:transform .5s var(--ease-premium); will-change:transform; }
+  .service-rail {
+    position:fixed; left:18px; top:50%; z-index:180; width:54px; transform:translateY(-50%);
+    background:rgba(249,249,247,.88); border:1px solid rgba(5,6,15,.1); border-radius:18px;
+    box-shadow:0 18px 50px rgba(5,6,15,.15); backdrop-filter:blur(18px); overflow:hidden;
+    transition:width .45s var(--ease-premium),box-shadow .45s ease;
+  }
+  .service-rail:hover,.service-rail:focus-within { width:238px; box-shadow:0 24px 70px rgba(5,6,15,.2); }
+  .service-rail a { height:52px; display:flex; align-items:center; gap:14px; padding:0 16px; color:var(--ink); white-space:nowrap; border-bottom:1px solid var(--line); transition:background .25s,color .25s,transform .25s; }
+  .service-rail a:last-child { border-bottom:0; }
+  .service-rail a:hover { background:var(--cyan); color:#fff; transform:translateX(3px); }
+  .service-rail span { opacity:0; transform:translateX(-8px); font:600 .7rem/1 var(--sans); letter-spacing:.08em; transition:opacity .25s .08s,transform .25s .08s; }
+  .service-rail:hover span,.service-rail:focus-within span { opacity:1; transform:none; }
+  .case-study-focus {
+    position:relative; min-height:520px; margin:0 auto 4rem; border-radius:32px; overflow:hidden;
+    background:linear-gradient(145deg,#05060F 0%,#0B1220 58%,#063241 100%);
+    box-shadow:0 42px 100px rgba(5,6,15,.22); transform-origin:center center;
+    transition:transform .18s linear; isolation:isolate;
+  }
+  .case-study-focus::before { content:''; position:absolute; inset:0; background:linear-gradient(rgba(249,249,247,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(249,249,247,.05) 1px,transparent 1px); background-size:72px 72px; mask-image:linear-gradient(to bottom,#000,transparent); }
+  .case-study-orbit { position:absolute; width:520px; height:520px; right:-120px; top:-150px; border:1px solid rgba(0,180,216,.25); border-radius:50%; box-shadow:0 0 0 70px rgba(0,180,216,.035),0 0 0 140px rgba(0,180,216,.025); }
+  .case-dashboard { position:absolute; inset:70px 7% 60px 42%; padding:1.4rem; border:1px solid rgba(249,249,247,.12); border-radius:24px; background:rgba(249,249,247,.065); backdrop-filter:blur(18px); transform:perspective(1000px) rotateY(-7deg) rotateX(2deg); }
+  .case-chart { height:185px; display:flex; align-items:flex-end; gap:8px; padding:1.4rem 1rem 0; border-radius:15px; background:rgba(5,6,15,.5); overflow:hidden; }
+  .case-chart i { flex:1; border-radius:6px 6px 0 0; background:linear-gradient(to top,var(--cyan),rgba(0,180,216,.22)); box-shadow:0 0 24px rgba(0,180,216,.16); }
+  .case-copy { position:absolute; z-index:2; left:7%; top:50%; width:31%; transform:translateY(-50%); color:#F9F9F7; }
+  .metric-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:1rem; }
+  .metric-live { padding:1rem; border:1px solid rgba(249,249,247,.1); border-radius:14px; background:rgba(5,6,15,.32); }
+  .metric-live strong { display:block; color:var(--cyan); font:700 1.45rem/1 var(--serif); }
+  .metric-live small { display:block; color:rgba(249,249,247,.5); font:500 .55rem/1.4 var(--sans); margin-top:.4rem; letter-spacing:.08em; text-transform:uppercase; }
+  .fixed-consultation {
+    position:fixed; right:92px; bottom:28px; z-index:299; display:flex; align-items:center; gap:9px;
+    padding:1rem 1.25rem; border-radius:18px; background:var(--cyan); color:#fff;
+    box-shadow:0 14px 38px rgba(0,180,216,.3); font:700 .6rem/1 var(--sans); letter-spacing:.13em; text-transform:uppercase;
+    transition:background .25s,box-shadow .25s;
+  }
+  .fixed-consultation:hover { background:var(--cyan-dk); box-shadow:0 20px 48px rgba(0,180,216,.42); }
+  @media(max-width:900px){
+    .service-rail { display:none; }
+    .case-study-focus { min-height:660px; border-radius:24px; }
+    .case-copy { left:8%; right:8%; top:62px; width:auto; transform:none; }
+    .case-dashboard { inset:300px 6% 45px; transform:none; }
+    .fixed-consultation { right:18px; bottom:90px; padding:.9rem 1rem; }
+  }
+  @media(max-width:520px){
+    .marquee-inner { animation-duration:13s; }
+    .case-study-focus { min-height:720px; }
+    .case-dashboard { top:330px; padding:.8rem; }
+    .metric-strip { grid-template-columns:1fr; }
+    .case-chart { height:150px; }
+    .fixed-consultation span { display:none; }
+  }
 `;
 
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
@@ -352,6 +406,31 @@ function Preloader({ onDone }) {
   );
 }
 
+function AnimatedMetric({ value, suffix = '', label }) {
+  const ref = useRef(null);
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      const start = performance.now();
+      const duration = 1400;
+      const tick = now => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setDisplay(Math.round(value * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      observer.disconnect();
+    }, { threshold:.45 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [value]);
+  return <div ref={ref} className="metric-live"><strong>+{display}{suffix}</strong><small>{label}</small></div>;
+}
+
 /* ─── Main App ──────────────────────────────────────────────────────────── */
 export default function App() {
   const [menuOpen,    setMenuOpen]    = useState(false);
@@ -361,12 +440,53 @@ export default function App() {
   const [cursorHover, setCursorHover] = useState(false);
   const [cursorClick, setCursorClick] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [caseProgress, setCaseProgress] = useState(0);
+  const heroRef = useRef(null);
+  const caseStudyRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const updateCaseProgress = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const node = caseStudyRef.current;
+        if (!node) return;
+        const rect = node.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+        setCaseProgress(progress);
+      });
+    };
+    updateCaseProgress();
+    window.addEventListener('scroll', updateCaseProgress, { passive:true });
+    window.addEventListener('resize', updateCaseProgress);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', updateCaseProgress);
+      window.removeEventListener('resize', updateCaseProgress);
+    };
+  }, []);
+
+  const moveHeroLayers = e => {
+    const node = heroRef.current;
+    if (!node || window.matchMedia('(pointer:coarse)').matches) return;
+    const rect = node.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - .5) * -18;
+    const y = ((e.clientY - rect.top) / rect.height - .5) * -12;
+    node.style.setProperty('--mx', `${x}px`);
+    node.style.setProperty('--my', `${y}px`);
+  };
+
+  const resetHeroLayers = () => {
+    if (!heroRef.current) return;
+    heroRef.current.style.setProperty('--mx','0px');
+    heroRef.current.style.setProperty('--my','0px');
+  };
 
   useEffect(() => {
     const updateProgress = () => {
@@ -457,7 +577,7 @@ export default function App() {
     { tier:'Elite',icon:'⬢', tag:'GROWTH PREMIUM', desc:'Para empresas que buscan autoridad omnicanal, automatización avanzada y un socio estratégico de crecimiento a largo plazo.', sub:'TODO EN PRO +', features:['Agentes de IA Avanzados','Inteligencia Comercial Centralizada','Análisis Predictivo de Costos'], waLink:'https://wa.link/us1ry7' },
   ];
 
-  const navLinks = ['Sistemas','Dolores','Metodología','Inversión'];
+  const navLinks = ['Sistemas','DESAFIOS','Metodología','Inversión'];
 
   /* ────────────────────────────── RENDER ─────────────────────────────── */
   return (
@@ -594,6 +714,18 @@ export default function App() {
         </div>
       </nav>
 
+      <nav className="service-rail desk-only" aria-label="Accesos rápidos a servicios">
+        {[
+          { I:Target, label:'Estrategia', href:'#sistemas' },
+          { I:BarChart3, label:'Paid Media', href:'#sistemas' },
+          { I:Globe, label:'SEO & Presencia', href:'#sistemas' },
+          { I:Layers, label:'Automatización', href:'#inversión' },
+          { I:Heart, label:'Branding', href:'#desafios' },
+        ].map(({I,label,href}) => (
+          <a key={label} href={href} aria-label={label}><I size={20} aria-hidden="true"/><span>{label}</span></a>
+        ))}
+      </nav>
+
       {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
@@ -617,10 +749,11 @@ export default function App() {
       </AnimatePresence>
 
       {/* ═══ HERO ═══════════════════════════════════════════════════════════ */}
-      <section className="premium-hero" style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center',
+      <section ref={heroRef} onPointerMove={moveHeroLayers} onPointerLeave={resetHeroLayers}
+        className="premium-hero" style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center',
         overflow:'hidden', background:'var(--ink)' }}>
 
-        <img src={heroImg} alt="Ciudad" style={{ position:'absolute', inset:0, width:'100%', height:'100%',
+        <img className="hero-bg" src={heroImg} alt="Ciudad" style={{ position:'absolute', inset:0, width:'100%', height:'100%',
           objectFit:'cover', objectPosition:'center', opacity:.35 }} />
 
         <div style={{ position:'absolute', inset:0,
@@ -753,7 +886,7 @@ export default function App() {
       </section>
 
       {/* ═══ MARQUEE ════════════════════════════════════════════════════════ */}
-      <section style={{ background:'var(--ink)', padding:'3.5rem 0', overflow:'hidden',
+      <section className="platform-carousel" aria-label="Plataformas tecnológicas" style={{ background:'var(--ink)', padding:'3.5rem 0', overflow:'hidden',
         borderTop:'1px solid rgba(255,255,255,.05)', position:'relative', zIndex:20 }}>
         <div style={{ maxWidth:1260, margin:'0 auto 2.5rem', padding:'0 2rem', textAlign:'center' }}>
           <h2 style={{ fontFamily:'var(--serif)', color:'var(--cyan)', fontSize:'clamp(1.4rem,2.8vw,2.2rem)',
@@ -767,7 +900,9 @@ export default function App() {
             background:'linear-gradient(90deg,var(--ink),transparent)' }} />
           <div style={{ position:'absolute', right:0, top:0, bottom:0, width:80, zIndex:2,
             background:'linear-gradient(-90deg,var(--ink),transparent)' }} />
-          <div className="marquee-inner" style={{ alignItems:'center', gap:72, whiteSpace:'nowrap' }}>
+          <motion.div className="marquee-inner" style={{ alignItems:'center', gap:72, whiteSpace:'nowrap' }}
+            animate={{ x:['0px','calc(-50% - 36px)'] }}
+            transition={{ duration:16, ease:'linear', repeat:Infinity, repeatType:'loop' }}>
             {[0,1].map(r=>(
               <div key={r} style={{ display:'flex', alignItems:'center', gap:72, flexShrink:0 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:10, minWidth:140 }}>
@@ -792,12 +927,12 @@ export default function App() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ═══ CASE STUDY / SOCIAL PROOF ══════════════════════════════════════ */}
-      <section className="premium-section" style={{ padding:'8.5rem 0', background:'var(--white)', borderBottom:'1px solid var(--line)', position:'relative', zIndex:20 }}>
+      <section ref={caseStudyRef} className="premium-section" style={{ padding:'8.5rem 0', background:'var(--white)', borderBottom:'1px solid var(--line)', position:'relative', zIndex:20 }}>
         <div style={{ maxWidth:1260, margin:'0 auto', padding:'0 2rem' }}>
           <div className="reveal" style={{ textAlign:'center', maxWidth:600, margin:'0 auto 4.5rem' }}>
             <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Casos de Crecimiento</p>
@@ -806,6 +941,32 @@ export default function App() {
               Resultados reales.<br />Negocios que crecen con sistema.
             </h2>
             <div className="divider" style={{ margin:'1.5rem auto 0' }} />
+          </div>
+
+          <div className="case-study-focus reveal" style={{ transform:`scale(${1 + caseProgress * .1})` }}>
+            <div className="case-study-orbit" aria-hidden="true" />
+            <div className="case-copy">
+              <p className="label" style={{ color:'var(--cyan)', marginBottom:'1rem' }}>Growth Intelligence / Caso 01</p>
+              <h3 style={{ fontFamily:'var(--serif)', fontSize:'clamp(2rem,3.5vw,3.2rem)', lineHeight:1.05,
+                letterSpacing:'-.035em', marginBottom:'1.2rem' }}>De inversión dispersa a crecimiento medible.</h3>
+              <p style={{ fontFamily:'var(--sans)', fontWeight:300, fontSize:'.95rem', lineHeight:1.75,
+                color:'rgba(249,249,247,.62)' }}>Conectamos pauta, contenido y seguimiento comercial en un sistema que revela qué canal genera valor real.</p>
+            </div>
+            <div className="case-dashboard" aria-label="Panel de resultados del caso de crecimiento">
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'1rem' }}>
+                <div><p className="label" style={{ color:'rgba(249,249,247,.42)', fontSize:'.48rem' }}>Pipeline de crecimiento</p>
+                  <p style={{ color:'#F9F9F7', fontFamily:'var(--serif)', fontSize:'1.1rem', marginTop:4 }}>Performance / 90 días</p></div>
+                <span style={{ width:9, height:9, borderRadius:'50%', background:'var(--cyan)', boxShadow:'0 0 18px var(--cyan)' }} />
+              </div>
+              <div className="case-chart" aria-hidden="true">
+                {[28,38,34,52,48,68,62,81,76,94].map((h,i)=><i key={i} style={{ height:`${h}%` }} />)}
+              </div>
+              <div className="metric-strip">
+                <AnimatedMetric value={320} suffix="%" label="Leads calificados" />
+                <AnimatedMetric value={42} suffix="%" label="Menor costo" />
+                <AnimatedMetric value={18} label="Clientes premium" />
+              </div>
+            </div>
           </div>
 
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:'1.5rem' }} className="col3 reveal">
@@ -845,8 +1006,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══ DOLORES — DARK PREMIUM ═══════════════════════════════════════ */}
-      <section id="dolores" className="pain-section premium-section" style={{ padding:'8.5rem 0', position:'relative', zIndex:20 }}>
+      {/* ═══ DESAFIOS — DARK PREMIUM ═══════════════════════════════════════ */}
+      <section id="desafios" className="pain-section premium-section" style={{ padding:'8.5rem 0', position:'relative', zIndex:20 }}>
         <div style={{ maxWidth:1260, margin:'0 auto', padding:'0 2rem', position:'relative', zIndex:1 }}>
 
           {/* Header */}
@@ -1288,6 +1449,13 @@ export default function App() {
       })}} />
 
       {/* ═══ WhatsApp FAB ════════════════════════════════════════════════════ */}
+      <motion.a href="#aplicar" className="fixed-consultation"
+        aria-label="Agendar diagnóstico de crecimiento"
+        style={{ scale:1 + scrollProgress * .12 }}
+        whileHover={{ y:-4 }} whileTap={{ scale:.96 }}>
+        <span>Agendar diagnóstico</span><ArrowRight size={16}/>
+      </motion.a>
+
       <motion.a
         href="https://wa.link/447jwu"
         target="_blank" rel="noopener noreferrer"
