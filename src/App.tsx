@@ -398,6 +398,56 @@ const STYLE = `
     .case-chart { height:150px; }
     .fixed-consultation span { display:none; }
   }
+
+  /* Luxury editorial refinement */
+  body { background:var(--paper); letter-spacing:-.005em; }
+  nav { box-shadow:0 1px 0 rgba(5,6,15,.06),0 16px 45px rgba(5,6,15,.035); }
+  nav a { letter-spacing:.2em !important; }
+  .premium-hero h1 { font-size:clamp(3.2rem,5.4vw,5.65rem) !important; line-height:1.035 !important; letter-spacing:-.045em !important; text-wrap:balance; }
+  .premium-hero p { max-width:610px !important; }
+  .premium-hero a { border-radius:4px !important; padding:1.05rem 1.75rem !important; }
+  .label { letter-spacing:.25em; }
+  .divider { width:72px; height:1px; }
+  .premium-section { padding-top:9.5rem !important; padding-bottom:9.5rem !important; }
+  .premium-section h2 { letter-spacing:-.04em !important; text-wrap:balance; }
+  .premium-card { border-radius:16px !important; background:rgba(255,255,255,.76) !important; box-shadow:0 18px 55px rgba(5,6,15,.055); }
+  .premium-card:hover { transform:translateY(-9px); box-shadow:0 38px 90px rgba(5,6,15,.12); }
+  .pain-card-dark { border-radius:14px; padding:2.4rem; background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.018)); }
+  .pain-card-dark:hover { transform:translateY(-7px); box-shadow:0 32px 72px rgba(0,0,0,.38); }
+  .case-study-focus { min-height:590px; border-radius:20px; box-shadow:0 55px 120px rgba(5,6,15,.28); }
+  .case-copy h3 { font-size:clamp(2.6rem,4vw,4.5rem) !important; line-height:1.02 !important; letter-spacing:-.045em !important; }
+  .case-copy p:last-child { font-size:1rem !important; line-height:1.9 !important; }
+  .rocket-stage { border-radius:14px; border-color:rgba(249,249,247,.14); box-shadow:inset 0 0 120px rgba(0,180,216,.07),0 38px 100px rgba(0,0,0,.38); }
+  .platform-carousel { border-bottom:1px solid rgba(0,180,216,.24); }
+  .platform-carousel h2 { letter-spacing:-.035em !important; }
+  .editorial-photo-wrap { border-radius:18px; box-shadow:0 45px 100px rgba(5,6,15,.2); }
+  .plans-grid > * { border-radius:16px !important; box-shadow:0 22px 65px rgba(5,6,15,.07); }
+  form { border-radius:18px !important; box-shadow:0 35px 90px rgba(5,6,15,.1) !important; }
+  input,textarea,select { border-radius:4px !important; }
+  button { border-radius:4px !important; }
+  footer { padding-top:5.5rem !important; padding-bottom:5.5rem !important; }
+
+  @media(max-width:900px){
+    .premium-section { padding-top:6.5rem !important; padding-bottom:6.5rem !important; }
+    .case-study-focus { min-height:0 !important; padding:2.2rem; display:flex; flex-direction:column; gap:2.2rem; transform:none !important; }
+    .case-copy { position:relative !important; inset:auto !important; width:auto !important; transform:none !important; padding:0 .25rem; }
+    .case-copy h3 { font-size:clamp(2.45rem,9vw,4rem) !important; line-height:1.04 !important; }
+    .case-copy p:last-child { margin-top:1.25rem; }
+    .rocket-stage { position:relative !important; inset:auto !important; width:100%; min-height:0; aspect-ratio:4/5; border-radius:12px; }
+    .rocket-stage img { position:absolute; inset:0; object-fit:cover; object-position:center; }
+  }
+  @media(max-width:520px){
+    .premium-hero h1 { font-size:clamp(2.7rem,13vw,4rem) !important; }
+    .premium-section { padding-top:5.4rem !important; padding-bottom:5.4rem !important; }
+    .case-study-focus { padding:1.35rem; gap:1.6rem; border-radius:14px; }
+    .case-copy { padding:.25rem .35rem; }
+    .case-copy .label { font-size:.5rem; line-height:1.6; }
+    .case-copy h3 { font-size:clamp(2.35rem,11.5vw,3.25rem) !important; }
+    .case-copy p:last-child { font-size:.92rem !important; line-height:1.75 !important; }
+    .rocket-stage { aspect-ratio:4/5; }
+    .rocket-depth-label { top:16px; left:16px; font-size:.42rem; }
+    .pain-card-dark { padding:1.8rem; }
+  }
 `;
 
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
@@ -806,17 +856,6 @@ export default function App() {
                 </a>
               </div>
 
-              <div style={{ display:'flex', flexWrap:'wrap', gap:'1.5rem', marginTop:'3rem',
-                paddingTop:'2rem', borderTop:'1px solid rgba(249,249,247,.1)' }}>
-                {[['+80','Clientes Premium'],['3×','ROI Promedio'],['48h','Arranque']].map(([n,l]) => (
-                  <div key={l}>
-                    <p style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'1.6rem',
-                      color:'var(--cyan)', lineHeight:1 }}>{n}</p>
-                    <p style={{ fontFamily:'var(--sans)', fontSize:'.7rem', color:'rgba(249,249,247,.5)',
-                      letterSpacing:'.08em', marginTop:2 }}>{l}</p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             {/* Right: Google Business card */}
