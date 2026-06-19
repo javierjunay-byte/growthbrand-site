@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   TrendingUp, X, Menu, BarChart3, Bot, AlertTriangle,
   Layers, CheckCircle2, Send, Phone, MapPin, Globe,
@@ -529,53 +529,189 @@ const STYLE = `
     .application-form-panel > p { font-size:1.35rem !important; margin-bottom:1.6rem !important; }
     .luxury-form { gap:1.35rem !important; }
   }
+
+  /* Cinematic opening */
+  .cinematic-intro {
+    --intro-cyan:#00B4D8;
+    position:fixed; inset:0; z-index:10000; overflow:hidden;
+    display:grid; place-items:center; background:#05060F; color:#F9F9F7;
+    isolation:isolate;
+  }
+  .cinematic-intro::before {
+    content:''; position:absolute; inset:-20%; z-index:-3;
+    background:
+      radial-gradient(circle at 50% 72%,rgba(0,180,216,.2),transparent 30%),
+      radial-gradient(circle at 78% 18%,rgba(0,180,216,.09),transparent 26%),
+      linear-gradient(135deg,#05060F,#07111C 55%,#061E2A);
+  }
+  .cinematic-intro::after {
+    content:''; position:absolute; inset:0; z-index:8; pointer-events:none;
+    background:linear-gradient(180deg,rgba(5,6,15,.05),transparent 45%,rgba(5,6,15,.6));
+  }
+  .intro-grid {
+    position:absolute; inset:0; z-index:-1; opacity:.42;
+    background-image:
+      linear-gradient(rgba(249,249,247,.055) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(249,249,247,.055) 1px,transparent 1px);
+    background-size:clamp(70px,9vw,138px) clamp(70px,9vw,138px);
+    mask-image:radial-gradient(circle at center,#000 15%,transparent 78%);
+  }
+  .intro-brand {
+    position:absolute; top:clamp(24px,4vh,48px); left:clamp(24px,4vw,64px); z-index:12;
+    display:flex; align-items:center; gap:.8rem; font:600 .58rem/1 var(--sans);
+    letter-spacing:.3em; text-transform:uppercase; color:rgba(249,249,247,.72);
+  }
+  .intro-brand-mark {
+    width:38px; height:38px; display:grid; place-items:center; border-radius:50%;
+    border:1px solid rgba(249,249,247,.28); font:700 1rem/1 var(--serif);
+    box-shadow:0 0 32px rgba(0,180,216,.16);
+  }
+  .intro-brand-mark b { color:var(--intro-cyan); font-weight:700; }
+  .intro-kicker {
+    position:absolute; right:clamp(24px,4vw,64px); top:clamp(32px,4.7vh,56px); z-index:12;
+    font:600 .52rem/1 var(--sans); letter-spacing:.28em; text-transform:uppercase;
+    color:rgba(249,249,247,.42);
+  }
+  .intro-word {
+    position:absolute; z-index:5; left:50%; top:51%; transform:translate(-50%,-50%);
+    width:100%; text-align:center; white-space:nowrap; pointer-events:none;
+    font:700 clamp(5.2rem,18vw,19rem)/.8 var(--sans); letter-spacing:-.075em;
+    color:rgba(249,249,247,.94);
+  }
+  .intro-stage {
+    position:relative; z-index:3; width:min(36vw,560px); height:min(70vh,720px);
+    overflow:hidden; border:1px solid rgba(249,249,247,.18); border-radius:2px;
+    background:#06111A; box-shadow:0 55px 130px rgba(0,0,0,.56),0 0 80px rgba(0,180,216,.11);
+    transform-origin:center 70%;
+  }
+  .intro-stage::before {
+    content:''; position:absolute; inset:0; z-index:3; pointer-events:none;
+    background:linear-gradient(120deg,rgba(249,249,247,.14),transparent 20%,transparent 72%,rgba(0,180,216,.12));
+    mix-blend-mode:screen;
+  }
+  .intro-rocket-image {
+    position:absolute; inset:-5%; width:110%; height:110%; object-fit:cover; object-position:center;
+    will-change:transform,filter; filter:saturate(1.06) contrast(1.06);
+  }
+  .intro-engine-glow {
+    position:absolute; z-index:4; left:50%; bottom:-11%; width:46%; height:42%;
+    transform:translateX(-50%); border-radius:50%; pointer-events:none;
+    background:radial-gradient(ellipse,#fff 0 5%,rgba(0,180,216,.95) 12%,rgba(0,180,216,.36) 34%,transparent 70%);
+    filter:blur(10px); mix-blend-mode:screen;
+  }
+  .intro-light-wash {
+    position:absolute; inset:0; z-index:7; pointer-events:none;
+    background:radial-gradient(circle at 50% 88%,rgba(249,249,247,.96),rgba(0,180,216,.52) 14%,transparent 48%);
+  }
+  .intro-progress {
+    position:absolute; z-index:12; left:clamp(24px,4vw,64px); right:clamp(24px,4vw,64px); bottom:32px;
+    display:flex; align-items:center; gap:1rem; color:rgba(249,249,247,.48);
+    font:600 .48rem/1 var(--sans); letter-spacing:.22em; text-transform:uppercase;
+  }
+  .intro-progress-track { flex:1; height:1px; overflow:hidden; background:rgba(249,249,247,.14); }
+  .intro-progress-fill { height:100%; transform-origin:left; background:linear-gradient(90deg,var(--intro-cyan),#F9F9F7); box-shadow:0 0 16px var(--intro-cyan); }
+  .intro-skip {
+    position:absolute; right:clamp(24px,4vw,64px); bottom:54px; z-index:14;
+    border:0; background:transparent; color:rgba(249,249,247,.52); padding:.6rem 0;
+    font:600 .5rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase;
+  }
+  .intro-skip:hover { color:#F9F9F7; }
+  @media(max-width:760px){
+    .intro-stage { width:min(78vw,430px); height:min(68vh,650px); border-radius:10px; }
+    .intro-word { font-size:clamp(4.6rem,25vw,8rem); top:48%; }
+    .intro-kicker { display:none; }
+    .intro-brand span:last-child { display:none; }
+    .intro-skip { bottom:48px; }
+    .intro-progress { bottom:24px; }
+  }
+  @media(prefers-reduced-motion:reduce){
+    .cinematic-intro { display:none !important; }
+  }
 `;
 
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
-function Preloader({ onDone }) {
-  useEffect(() => { const t = setTimeout(onDone, 1800); return () => clearTimeout(t); }, [onDone]);
+function Preloader({ onDone, rocketSrc }) {
+  useEffect(() => {
+    const timer = window.setTimeout(onDone, 3400);
+    return () => window.clearTimeout(timer);
+  }, [onDone]);
+
   return (
     <motion.div
-      style={{ position:'fixed', inset:0, background:'#05060F', display:'flex', flexDirection:'column',
-               alignItems:'center', justifyContent:'center', zIndex:500, overflow:'hidden' }}
-      exit={{ opacity:0, filter:'blur(12px)', transition:{ duration:.5, ease:[.25,1,.5,1] } }}
+      className="cinematic-intro"
+      initial={{ opacity:1 }}
+      exit={{ opacity:0, scale:1.025, filter:'blur(8px)', transition:{ duration:.65, ease:[.16,1,.3,1] } }}
+      role="status" aria-label="Iniciando la experiencia GrowthBrand"
     >
-      <motion.div style={{ position:'absolute', width:'60vw', height:'60vw', borderRadius:'50%',
-        background:'radial-gradient(circle, rgba(0,180,216,.14) 0%, transparent 70%)', filter:'blur(80px)' }}
-        initial={{ scale:.3, opacity:0 }} animate={{ scale:1.6, opacity:1 }}
-        transition={{ duration:1.8, ease:'easeOut' }}
-      />
-      <motion.h1
-        style={{ fontFamily:"'Playfair Display',Georgia,serif", fontWeight:700,
-                 fontSize:'clamp(3.2rem,9vw,6rem)', letterSpacing:'-.02em',
-                 color:'#F9F9F7', lineHeight:1, position:'relative', zIndex:1, textAlign:'center' }}
-        initial={{ scale:.72, opacity:0, filter:'blur(14px)' }}
-        animate={{ scale:1, opacity:1, filter:'blur(0px)' }}
-        transition={{ duration:1.4, ease:[.16,1,.3,1], delay:.2 }}
+      <motion.div className="intro-grid" initial={{ opacity:0 }} animate={{ opacity:.42 }} transition={{ duration:.8 }} />
+
+      <motion.div className="intro-brand" initial={{ opacity:0, y:-12 }} animate={{ opacity:1, y:0 }} transition={{ delay:.2, duration:.7 }}>
+        <span className="intro-brand-mark"><b>G</b>B</span><span>GrowthBrand · Sistema de crecimiento</span>
+      </motion.div>
+      <motion.span className="intro-kicker" initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:.65 }}>Secuencia / 01</motion.span>
+
+      <motion.div className="intro-word"
+        initial={{ opacity:0, scale:.82, letterSpacing:'-.12em' }}
+        animate={{ opacity:[0,.95,.95,0], scale:[.82,1,1.02,1.18], letterSpacing:['-.12em','-.075em','-.075em','-.04em'] }}
+        transition={{ duration:3.25, times:[0,.2,.78,1], ease:[.16,1,.3,1] }}
+        aria-hidden="true"
+      >GROWTH</motion.div>
+
+      <motion.div className="intro-stage"
+        initial={{ opacity:0, scale:.72, y:80, rotateX:8, clipPath:'inset(48% 12% 48% 12%)' }}
+        animate={{
+          opacity:[0,1,1,1,0],
+          scale:[.72,.92,1,1.08,1.55],
+          y:[80,20,0,-18,-170],
+          rotateX:[8,3,0,-2,-5],
+          clipPath:['inset(48% 12% 48% 12%)','inset(0% 8% 0% 8%)','inset(0% 0% 0% 0%)','inset(0% 0% 0% 0%)','inset(0% 0% 0% 0%)']
+        }}
+        transition={{ duration:3.25, times:[0,.2,.42,.78,1], ease:[.16,1,.3,1] }}
       >
-        <span style={{ color:'#00B4D8' }}>G</span>rowth<span style={{ color:'#00B4D8' }}>B</span>rand
-      </motion.h1>
-      <motion.p style={{ fontFamily:"'Outfit',sans-serif", fontSize:'.58rem', letterSpacing:'.38em',
-        textTransform:'uppercase', color:'rgba(249,249,247,.45)', marginTop:'1.6rem', zIndex:1 }}
-        initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
-        transition={{ duration:0.8, delay:0.9 }}
-      >— Potenciadores de Marcas —</motion.p>
-      <div style={{ position:'absolute', bottom:44, left:'50%', transform:'translateX(-50%)',
-        width:110, height:1, background:'rgba(249,249,247,.1)', overflow:'hidden', borderRadius:2 }}>
-        <motion.div style={{ height:'100%', background:'linear-gradient(90deg,#00B4D8,#F9F9F7)', borderRadius:2 }}
-          initial={{ width:'0%' }} animate={{ width:'100%' }}
-          transition={{ duration:1.5, ease:[.42,0,.58,1], delay:.1 }}
+        <motion.img className="intro-rocket-image" src={rocketSrc} alt="Cohete de GrowthBrand iniciando el despegue"
+          initial={{ scale:1.34, y:'12%' }}
+          animate={{ scale:[1.34,1.17,1.06,.98], y:['12%','4%','-2%','-12%'] }}
+          transition={{ duration:3.2, times:[0,.35,.72,1], ease:[.16,1,.3,1] }}
         />
+        <motion.div className="intro-engine-glow"
+          initial={{ opacity:0, scale:.55 }}
+          animate={{ opacity:[0,.2,.95,.5,1], scale:[.55,.7,1.2,.9,1.65] }}
+          transition={{ duration:3.1, times:[0,.3,.55,.72,1], ease:'easeInOut' }}
+        />
+      </motion.div>
+
+      <motion.div className="intro-light-wash"
+        initial={{ opacity:0, scale:.7 }} animate={{ opacity:[0,0,.65,0], scale:[.7,.8,1.3,2] }}
+        transition={{ duration:3.25, times:[0,.55,.82,1], ease:'easeOut' }}
+      />
+
+      <button type="button" className="intro-skip" onClick={onDone} aria-label="Saltar animación de introducción">Saltar</button>
+      <div className="intro-progress">
+        <span>Preparando impulso</span>
+        <div className="intro-progress-track">
+          <motion.div className="intro-progress-fill" initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:3.2, ease:[.42,0,.58,1] }} />
+        </div>
+        <span>Listo</span>
       </div>
     </motion.div>
   );
 }
 
 /* ─── Main App ──────────────────────────────────────────────────────────── */
+const INTRO_STORAGE_KEY = 'growthbrand-cinematic-intro-v1';
+
 export default function App() {
   const [menuOpen,    setMenuOpen]    = useState(false);
   const [scrolled,    setScrolled]    = useState(false);
-  const [loading,     setLoading]     = useState(true);
+  const [loading,     setLoading]     = useState(() => {
+    if (typeof window === 'undefined') return true;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try {
+      return !reduceMotion && window.sessionStorage.getItem(INTRO_STORAGE_KEY) !== '1';
+    } catch {
+      return !reduceMotion;
+    }
+  });
   const [cursorPos,   setCursorPos]   = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
   const [cursorClick, setCursorClick] = useState(false);
@@ -583,6 +719,11 @@ export default function App() {
   const [caseProgress, setCaseProgress] = useState(0);
   const heroRef = useRef(null);
   const caseStudyRef = useRef(null);
+
+  const finishIntro = useCallback(() => {
+    try { window.sessionStorage.setItem(INTRO_STORAGE_KEY, '1'); } catch { /* storage may be unavailable */ }
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
@@ -678,7 +819,9 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = loading ? 'hidden' : '';
+    return () => { document.body.style.overflow = previousOverflow; };
   }, [loading]);
 
   useEffect(() => {
@@ -748,7 +891,7 @@ export default function App() {
 
       {/* Preloader */}
       <AnimatePresence mode="wait">
-        {loading && <Preloader key="preloader" onDone={() => setLoading(false)} />}
+        {loading && <Preloader key="preloader" rocketSrc={rocketImg} onDone={finishIntro} />}
       </AnimatePresence>
 
       {/* ═══ CUSTOM CURSOR ══════════════════════════════════════════════════ */}
@@ -891,8 +1034,8 @@ export default function App() {
           padding:'9rem 2rem 6rem', width:'100%' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'5rem', alignItems:'center' }} className="col2">
 
-            <motion.div initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }}
-              transition={{ duration:.9, delay:.3, ease:[.16,1,.3,1] }}>
+            <motion.div initial={{ opacity:0, y:30 }} animate={{ opacity:loading ? 0 : 1, y:loading ? 30 : 0 }}
+              transition={{ duration:.9, delay:loading ? 0 : .18, ease:[.16,1,.3,1] }}>
 
               <div className="label" style={{ display:'inline-flex', alignItems:'center', gap:8,
                 color:'var(--cyan)', border:'1px solid rgba(0,180,216,.3)',
@@ -940,8 +1083,8 @@ export default function App() {
 
             {/* Right: GrowthBrand 3D signature object */}
             <motion.div className="hero-visual" style={{ display:'flex', justifyContent:'center', position:'relative' }}
-              initial={{ opacity:0, scale:.92 }} animate={{ opacity:1, scale:1 }}
-              transition={{ duration:1, delay:.5 }}>
+              initial={{ opacity:0, scale:.92 }} animate={{ opacity:loading ? 0 : 1, scale:loading ? .92 : 1 }}
+              transition={{ duration:1, delay:loading ? 0 : .32 }}>
               <div className="brand-orbit-system" role="img" aria-label="Objeto tridimensional de firma GrowthBrand">
                 <div className="brand-ring"><i /></div>
                 <div className="brand-ring r2"><i /></div>
