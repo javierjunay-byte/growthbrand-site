@@ -573,10 +573,29 @@ const STYLE = `
     color:rgba(249,249,247,.42);
   }
   .intro-word {
-    position:absolute; z-index:5; left:50%; top:51%; transform:translate(-50%,-50%);
+    position:absolute; z-index:0; left:50%; top:51%; transform:translate(-50%,-50%);
     width:100%; text-align:center; white-space:nowrap; pointer-events:none;
-    font:700 clamp(5.2rem,18vw,19rem)/.8 var(--sans); letter-spacing:-.075em;
-    color:rgba(249,249,247,.94);
+    font:700 clamp(4.8rem,13vw,14rem)/.8 var(--sans); letter-spacing:-.075em;
+    color:rgba(249,249,247,.13);
+  }
+  .intro-logo-lockup {
+    position:absolute; z-index:6; left:50%; top:50%; width:min(90vw,980px);
+    transform:translate(-50%,-50%); text-align:center; pointer-events:none;
+    text-shadow:0 18px 60px rgba(0,0,0,.66);
+  }
+  .intro-logo-title {
+    font:700 clamp(3.3rem,9vw,8.4rem)/.9 var(--serif); letter-spacing:-.055em;
+    color:#F9F9F7; white-space:nowrap;
+  }
+  .intro-logo-title b { color:var(--intro-cyan); font-weight:700; }
+  .intro-logo-tagline {
+    margin-top:1.4rem; font:600 clamp(.48rem,.72vw,.64rem)/1 var(--sans);
+    letter-spacing:.38em; text-transform:uppercase; color:rgba(249,249,247,.72);
+  }
+  .intro-logo-rule {
+    width:min(220px,34vw); height:1px; margin:1.5rem auto 0;
+    background:linear-gradient(90deg,transparent,var(--intro-cyan),transparent);
+    box-shadow:0 0 18px rgba(0,180,216,.7);
   }
   .intro-stage {
     position:relative; z-index:3; width:min(36vw,560px); height:min(70vh,720px);
@@ -618,7 +637,9 @@ const STYLE = `
   .intro-skip:hover { color:#F9F9F7; }
   @media(max-width:760px){
     .intro-stage { width:min(78vw,430px); height:min(68vh,650px); border-radius:10px; }
-    .intro-word { font-size:clamp(4.6rem,25vw,8rem); top:48%; }
+    .intro-word { font-size:clamp(3.5rem,17vw,6rem); top:48%; }
+    .intro-logo-title { font-size:clamp(3rem,15vw,5.2rem); white-space:normal; }
+    .intro-logo-tagline { margin-top:1rem; letter-spacing:.25em; }
     .intro-kicker { display:none; }
     .intro-brand span:last-child { display:none; }
     .intro-skip { bottom:48px; }
@@ -632,7 +653,7 @@ const STYLE = `
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
 function Preloader({ onDone, rocketSrc }) {
   useEffect(() => {
-    const timer = window.setTimeout(onDone, 3400);
+    const timer = window.setTimeout(onDone, 4300);
     return () => window.clearTimeout(timer);
   }, [onDone]);
 
@@ -645,17 +666,32 @@ function Preloader({ onDone, rocketSrc }) {
     >
       <motion.div className="intro-grid" initial={{ opacity:0 }} animate={{ opacity:.42 }} transition={{ duration:.8 }} />
 
-      <motion.div className="intro-brand" initial={{ opacity:0, y:-12 }} animate={{ opacity:1, y:0 }} transition={{ delay:.2, duration:.7 }}>
+      <motion.div className="intro-brand" initial={{ opacity:0, y:-12 }} animate={{ opacity:[0,1,1,0], y:[-12,0,0,-8] }} transition={{ duration:4, times:[0,.15,.76,1] }}>
         <span className="intro-brand-mark"><b>G</b>B</span><span>GrowthBrand · Sistema de crecimiento</span>
       </motion.div>
-      <motion.span className="intro-kicker" initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:.65 }}>Secuencia / 01</motion.span>
+      <motion.span className="intro-kicker" initial={{ opacity:0 }} animate={{ opacity:[0,1,1,0] }} transition={{ duration:4, times:[0,.2,.78,1] }}>Secuencia / 01</motion.span>
+
+      <motion.div className="intro-logo-lockup"
+        initial={{ opacity:0, scale:.72, y:24, filter:'blur(14px)' }}
+        animate={{
+          opacity:[0,1,1,1,0],
+          scale:[.72,1,1,1.04,1.14],
+          y:[24,0,0,-8,-42],
+          filter:['blur(14px)','blur(0px)','blur(0px)','blur(0px)','blur(8px)']
+        }}
+        transition={{ duration:4.05, times:[0,.16,.56,.78,1], ease:[.16,1,.3,1] }}
+      >
+        <div className="intro-logo-title"><b>G</b>rowth<b>B</b>rand</div>
+        <div className="intro-logo-tagline">Potenciadores de marcas</div>
+        <motion.div className="intro-logo-rule" initial={{ scaleX:0 }} animate={{ scaleX:[0,1,1,0] }} transition={{ duration:3.8, times:[0,.22,.75,1] }} />
+      </motion.div>
 
       <motion.div className="intro-word"
         initial={{ opacity:0, scale:.82, letterSpacing:'-.12em' }}
-        animate={{ opacity:[0,.95,.95,0], scale:[.82,1,1.02,1.18], letterSpacing:['-.12em','-.075em','-.075em','-.04em'] }}
-        transition={{ duration:3.25, times:[0,.2,.78,1], ease:[.16,1,.3,1] }}
+        animate={{ opacity:[0,.9,.9,0], scale:[.82,1,1.02,1.18], letterSpacing:['-.12em','-.075em','-.075em','-.04em'] }}
+        transition={{ duration:4.05, times:[0,.18,.78,1], ease:[.16,1,.3,1] }}
         aria-hidden="true"
-      >GROWTH</motion.div>
+      >GROWTHBRAND</motion.div>
 
       <motion.div className="intro-stage"
         initial={{ opacity:0, scale:.72, y:80, rotateX:8, clipPath:'inset(48% 12% 48% 12%)' }}
@@ -666,30 +702,30 @@ function Preloader({ onDone, rocketSrc }) {
           rotateX:[8,3,0,-2,-5],
           clipPath:['inset(48% 12% 48% 12%)','inset(0% 8% 0% 8%)','inset(0% 0% 0% 0%)','inset(0% 0% 0% 0%)','inset(0% 0% 0% 0%)']
         }}
-        transition={{ duration:3.25, times:[0,.2,.42,.78,1], ease:[.16,1,.3,1] }}
+        transition={{ duration:4.05, times:[0,.2,.42,.78,1], ease:[.16,1,.3,1] }}
       >
         <motion.img className="intro-rocket-image" src={rocketSrc} alt="Cohete de GrowthBrand iniciando el despegue"
           initial={{ scale:1.34, y:'12%' }}
           animate={{ scale:[1.34,1.17,1.06,.98], y:['12%','4%','-2%','-12%'] }}
-          transition={{ duration:3.2, times:[0,.35,.72,1], ease:[.16,1,.3,1] }}
+          transition={{ duration:4, times:[0,.35,.72,1], ease:[.16,1,.3,1] }}
         />
         <motion.div className="intro-engine-glow"
           initial={{ opacity:0, scale:.55 }}
           animate={{ opacity:[0,.2,.95,.5,1], scale:[.55,.7,1.2,.9,1.65] }}
-          transition={{ duration:3.1, times:[0,.3,.55,.72,1], ease:'easeInOut' }}
+          transition={{ duration:3.95, times:[0,.3,.55,.72,1], ease:'easeInOut' }}
         />
       </motion.div>
 
       <motion.div className="intro-light-wash"
         initial={{ opacity:0, scale:.7 }} animate={{ opacity:[0,0,.65,0], scale:[.7,.8,1.3,2] }}
-        transition={{ duration:3.25, times:[0,.55,.82,1], ease:'easeOut' }}
+        transition={{ duration:4.1, times:[0,.55,.82,1], ease:'easeOut' }}
       />
 
       <button type="button" className="intro-skip" onClick={onDone} aria-label="Saltar animación de introducción">Saltar</button>
       <div className="intro-progress">
         <span>Preparando impulso</span>
         <div className="intro-progress-track">
-          <motion.div className="intro-progress-fill" initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:3.2, ease:[.42,0,.58,1] }} />
+          <motion.div className="intro-progress-fill" initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:4.1, ease:[.42,0,.58,1] }} />
         </div>
         <span>Listo</span>
       </div>
@@ -698,7 +734,7 @@ function Preloader({ onDone, rocketSrc }) {
 }
 
 /* ─── Main App ──────────────────────────────────────────────────────────── */
-const INTRO_STORAGE_KEY = 'growthbrand-cinematic-intro-v1';
+const INTRO_STORAGE_KEY = 'growthbrand-cinematic-intro-v2';
 
 export default function App() {
   const [menuOpen,    setMenuOpen]    = useState(false);
