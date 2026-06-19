@@ -489,6 +489,46 @@ const STYLE = `
     .brand-orbit-system { width:min(420px,86vw); margin:1.5rem auto 0; }
     .premium-card:hover,.pain-card-dark:hover,.plans-grid > *:hover { transform:translateY(-5px); }
   }
+
+  /* Floating GB object + spacious application experience */
+  @keyframes orbitOne { from { transform:rotateX(66deg) rotateZ(0deg); } to { transform:rotateX(66deg) rotateZ(360deg); } }
+  @keyframes orbitTwo { from { transform:rotateY(72deg) rotateZ(0deg); } to { transform:rotateY(72deg) rotateZ(-360deg); } }
+  .hero-visual { overflow:visible; isolation:isolate; filter:none; }
+  .brand-orbit-system { width:min(500px,42vw); overflow:visible; transform-style:preserve-3d; filter:drop-shadow(0 55px 70px rgba(0,0,0,.42)); }
+  .brand-orbit-system::after { content:''; position:absolute; left:50%; bottom:4%; width:54%; height:11%; transform:translateX(-50%) rotateX(72deg); border-radius:50%; background:radial-gradient(ellipse,rgba(0,180,216,.35),rgba(5,6,15,.2) 48%,transparent 72%); filter:blur(15px); animation:brandPulse 4.8s ease-in-out infinite; }
+  .brand-ring { width:88%; height:88%; animation:orbitOne 14s linear infinite; box-shadow:0 0 22px rgba(0,180,216,.08); }
+  .brand-ring.r2 { width:68%; height:68%; animation:orbitTwo 10s linear infinite; }
+  .brand-ring i { width:14px; height:14px; box-shadow:0 0 12px var(--cyan),0 0 34px var(--cyan); }
+  .brand-luxury-core { z-index:4; width:62%; border-radius:31%; box-shadow:inset 24px 24px 55px rgba(249,249,247,.075),inset -34px -38px 65px rgba(0,0,0,.5),0 65px 120px rgba(0,0,0,.62),0 0 90px rgba(0,180,216,.28); }
+  .brand-luxury-core::after { content:''; position:absolute; inset:-1px; border-radius:inherit; background:linear-gradient(125deg,rgba(255,255,255,.24),transparent 28%,transparent 68%,rgba(0,180,216,.18)); pointer-events:none; }
+  .brand-luxury-core strong { transform:translateZ(90px); text-shadow:0 12px 30px rgba(0,0,0,.5),0 0 46px rgba(0,180,216,.38); }
+  .brand-axis { display:none !important; }
+
+  .application-layout { overflow:visible !important; }
+  .application-intro { border-radius:24px; border:1px solid rgba(0,180,216,.16); box-shadow:0 34px 90px rgba(5,6,15,.22),inset 0 1px rgba(255,255,255,.04); position:sticky; top:96px; }
+  .application-form-panel { border-radius:24px; border:1px solid rgba(5,6,15,.075); background:linear-gradient(145deg,#fff,var(--paper)) !important; box-shadow:0 32px 85px rgba(5,6,15,.09); padding:3.4rem !important; }
+  .luxury-form { background:transparent !important; border:0 !important; box-shadow:none !important; gap:1.8rem !important; }
+  .luxury-field-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.45rem 1.25rem; }
+  .luxury-field label,.luxury-form > div > label { margin-bottom:.65rem !important; color:rgba(5,6,15,.58) !important; }
+  .luxury-form input,.luxury-form select,.luxury-form textarea { min-height:58px; padding:1rem 1.15rem !important; background:rgba(255,255,255,.88) !important; border:1px solid rgba(5,6,15,.1) !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.9); transition:border-color .25s,box-shadow .25s,transform .25s !important; }
+  .luxury-form textarea { min-height:130px; padding-top:1.15rem !important; }
+  .luxury-form input:focus,.luxury-form select:focus,.luxury-form textarea:focus { border-color:var(--cyan) !important; box-shadow:0 0 0 4px rgba(0,180,216,.08),0 12px 28px rgba(5,6,15,.05); transform:translateY(-1px); }
+  .luxury-form button { min-height:58px; margin-top:.25rem !important; box-shadow:0 18px 40px rgba(0,180,216,.22); }
+
+  @media(max-width:900px){
+    .brand-orbit-system { width:min(470px,88vw); }
+    .application-layout { gap:1.5rem !important; }
+    .application-intro { position:relative; top:auto; border-radius:18px; padding:2.5rem !important; }
+    .application-form-panel { border-radius:18px; padding:2.5rem !important; }
+  }
+  @media(max-width:620px){
+    .brand-orbit-system { width:min(420px,92vw); }
+    .brand-luxury-core { width:60%; }
+    .luxury-field-grid { grid-template-columns:1fr; gap:1.25rem; }
+    .application-intro,.application-form-panel { padding:1.7rem !important; }
+    .application-form-panel > p { font-size:1.35rem !important; margin-bottom:1.6rem !important; }
+    .luxury-form { gap:1.35rem !important; }
+  }
 `;
 
 /* ─── Cinematic Preloader ───────────────────────────────────────────────── */
@@ -906,7 +946,6 @@ export default function App() {
                 <div className="brand-ring"><i /></div>
                 <div className="brand-ring r2"><i /></div>
                 <div className="brand-luxury-core"><strong><b>G</b>B</strong></div>
-                <div className="brand-axis"><span>Estrategia</span><span>Sistemas</span><span>Escala</span></div>
               </div>
             </motion.div>
           </div>
@@ -1285,11 +1324,10 @@ export default function App() {
       {/* ═══ FORMULARIO ═════════════════════════════════════════════════════ */}
       <section id="aplicar" className="premium-section" style={{ padding:'8.5rem 2rem', background:'var(--white)',
         borderTop:'1px solid var(--line)', position:'relative', zIndex:20 }}>
-        <div style={{ maxWidth:1060, margin:'0 auto', borderRadius:36, overflow:'hidden',
-          display:'grid', gridTemplateColumns:'1fr 1fr',
-          boxShadow:'0 40px 100px rgba(5,6,15,.13)', border:'1px solid var(--line)' }} className="col2">
+        <div style={{ maxWidth:1180, margin:'0 auto', display:'grid', gridTemplateColumns:'.85fr 1.15fr',
+          gap:'2rem', alignItems:'start' }} className="col2 application-layout">
 
-          <div style={{ background:'var(--ink)', padding:'3.5rem', display:'flex', flexDirection:'column', justifyContent:'flex-start', gap:'2rem' }}>
+          <div className="application-intro" style={{ background:'var(--ink)', padding:'3.5rem', display:'flex', flexDirection:'column', justifyContent:'flex-start', gap:'2rem' }}>
             <div>
               <p className="label" style={{ color:'var(--cyan)', marginBottom:'1.25rem' }}>Diagnóstico de Crecimiento Gratuito</p>
               <blockquote style={{ borderLeft:'3px solid var(--cyan)', paddingLeft:'1.4rem' }}>
@@ -1317,11 +1355,12 @@ export default function App() {
             </div>
           </div>
 
-          <div style={{ background:'var(--paper)', padding:'3rem 3rem' }}>
+          <div className="application-form-panel" style={{ background:'var(--paper)', padding:'3rem 3rem' }}>
             <p style={{ fontFamily:'var(--serif)', fontWeight:700, fontSize:'1.5rem', color:'var(--ink)', marginBottom:'2rem' }}>
               Solicita tu Diagnóstico de Crecimiento Gratuito
             </p>
             <form
+              className="luxury-form"
               onSubmit={async e => {
                 e.preventDefault();
                 const res = await fetch(e.currentTarget.action, {
@@ -1334,26 +1373,28 @@ export default function App() {
               method="POST"
               style={{ display:'flex', flexDirection:'column', gap:'1.1rem' }}
             >
-              {[
-                { label:'Nombre Completo',       name:'nombre',   type:'text',  ph:'Tu nombre', req:true },
-                { label:'Correo Corporativo',     name:'email',    type:'email', ph:'ejemplo@empresa.com', req:true },
-                { label:'Celular / WhatsApp',      name:'telefono', type:'tel',   ph:'+502 0000 0000', req:true },
-                { label:'Sitio Web / Red Social',  name:'website',  type:'text',  ph:'Opcional' },
-              ].map(f => (
-                <div key={f.name}>
-                  <label style={{ fontFamily:'var(--sans)', fontSize:'.58rem', fontWeight:700,
-                    letterSpacing:'.16em', textTransform:'uppercase', color:'var(--muted)',
-                    display:'block', marginBottom:'.4rem' }}>{f.label}</label>
-                  <input name={f.name} type={f.type} placeholder={f.ph} required={f.req}
-                    style={{ width:'100%', background:'var(--white)', border:'1px solid var(--line)',
-                             borderRadius:11, padding:'.8rem 1rem', fontSize:'.9rem',
-                             fontFamily:'var(--sans)', color:'var(--ink)', outline:'none',
-                             transition:'border-color .2s' }}
-                    onFocus={e=>e.target.style.borderColor='var(--cyan)'}
-                    onBlur={e=>e.target.style.borderColor='var(--line)'}
-                  />
-                </div>
-              ))}
+              <div className="luxury-field-grid">
+                {[
+                  { label:'Nombre Completo',       name:'nombre',   type:'text',  ph:'Tu nombre', req:true },
+                  { label:'Correo Corporativo',     name:'email',    type:'email', ph:'ejemplo@empresa.com', req:true },
+                  { label:'Celular / WhatsApp',      name:'telefono', type:'tel',   ph:'+502 0000 0000', req:true },
+                  { label:'Sitio Web / Red Social',  name:'website',  type:'text',  ph:'Opcional' },
+                ].map(f => (
+                  <div className="luxury-field" key={f.name}>
+                    <label style={{ fontFamily:'var(--sans)', fontSize:'.58rem', fontWeight:700,
+                      letterSpacing:'.16em', textTransform:'uppercase', color:'var(--muted)',
+                      display:'block', marginBottom:'.4rem' }}>{f.label}</label>
+                    <input name={f.name} type={f.type} placeholder={f.ph} required={f.req}
+                      style={{ width:'100%', background:'var(--white)', border:'1px solid var(--line)',
+                               borderRadius:11, padding:'.8rem 1rem', fontSize:'.9rem',
+                               fontFamily:'var(--sans)', color:'var(--ink)', outline:'none',
+                               transition:'border-color .2s' }}
+                      onFocus={e=>e.target.style.borderColor='var(--cyan)'}
+                      onBlur={e=>e.target.style.borderColor='var(--line)'}
+                    />
+                  </div>
+                ))}
+              </div>
 
               <div>
                 <label style={{ fontFamily:'var(--sans)', fontSize:'.58rem', fontWeight:700,
