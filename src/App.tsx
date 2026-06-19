@@ -646,7 +646,7 @@ const STYLE = `
     .intro-progress { bottom:24px; }
   }
   @media(prefers-reduced-motion:reduce){
-    .cinematic-intro { display:none !important; }
+    .intro-grid { opacity:.2; }
   }
 `;
 
@@ -734,20 +734,10 @@ function Preloader({ onDone, rocketSrc }) {
 }
 
 /* ─── Main App ──────────────────────────────────────────────────────────── */
-const INTRO_STORAGE_KEY = 'growthbrand-cinematic-intro-v2';
-
 export default function App() {
   const [menuOpen,    setMenuOpen]    = useState(false);
   const [scrolled,    setScrolled]    = useState(false);
-  const [loading,     setLoading]     = useState(() => {
-    if (typeof window === 'undefined') return true;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    try {
-      return !reduceMotion && window.sessionStorage.getItem(INTRO_STORAGE_KEY) !== '1';
-    } catch {
-      return !reduceMotion;
-    }
-  });
+  const [loading,     setLoading]     = useState(true);
   const [cursorPos,   setCursorPos]   = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
   const [cursorClick, setCursorClick] = useState(false);
@@ -757,7 +747,6 @@ export default function App() {
   const caseStudyRef = useRef(null);
 
   const finishIntro = useCallback(() => {
-    try { window.sessionStorage.setItem(INTRO_STORAGE_KEY, '1'); } catch { /* storage may be unavailable */ }
     setLoading(false);
   }, []);
 
